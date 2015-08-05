@@ -15330,7 +15330,7 @@ define('text!yt-player-icon-play-pause',[],function () { return '<svg class="svg
 define('text!yt-player-icon-embed',[],function () { return '<svg class="svg" width="25" height="14" viewBox="0 0 25 14" xmlns="http://www.w3.org/2000/svg">\n    <path class="shape" d="M7.12 10.24V8.432L2.816 6.704 7.12 4.992V3.168L.8 5.952v1.504l6.32 2.784zm2.476 3.68h1.744L15.18.272h-1.744L9.596 13.92zm8.364-3.68l6.32-2.784V5.952l-6.32-2.784v1.824l4.304 1.728-4.304 1.712v1.808z"\n          fill="#fff"/>\n</svg>';});
 
 
-define('text!yt-player-icon-volume',[],function () { return '<svg class="svg yt-mute" xmlns="http://www.w3.org/2000/svg" width="16" height="13">\n    <path class="shape" fill="#fff"\n          d="M3 4H1L0 5v3l1 1h2l4 4h1V0H7L3 4zm11.7 2.5c0 2-.7 3.8-1.8 5.2l.4.4c1.6-1.3 2.6-3.3 2.6-5.6s-1-4.3-2.6-5.6l-.4.4c1.2 1.5 1.8 3.3 1.8 5.2m-3.7 0c0 1.1-.3 2.2-.9 3.1l.5.5c.8-1 1.4-2.2 1.4-3.6s-.6-2.6-1.5-3.5l-.5.5c.6.8 1 1.9 1 3"/>\n    <path class="shape off" fill="#fff"\n          d="M1 4L0 5v3l1 1h2l4 4h1V0H7L3 4H1zm16-.4l-.6-.6-2.9 2.6L10.6 3l-.6.6 2.6 2.9L10 9.4l.6.6 2.9-2.6 2.9 2.6.6-.6-2.6-2.9L17 3.6z"/>\n</svg>';});
+define('text!yt-player-icon-volume',[],function () { return '<svg class="svg yt-mute unselectable" xmlns="http://www.w3.org/2000/svg" width="16" height="13">\n    <path class="shape unselectable" fill="#fff"\n          d="M3 4H1L0 5v3l1 1h2l4 4h1V0H7L3 4zm11.7 2.5c0 2-.7 3.8-1.8 5.2l.4.4c1.6-1.3 2.6-3.3 2.6-5.6s-1-4.3-2.6-5.6l-.4.4c1.2 1.5 1.8 3.3 1.8 5.2m-3.7 0c0 1.1-.3 2.2-.9 3.1l.5.5c.8-1 1.4-2.2 1.4-3.6s-.6-2.6-1.5-3.5l-.5.5c.6.8 1 1.9 1 3"/>\n    <path class="shape off unselectable" fill="#fff"\n          d="M1 4L0 5v3l1 1h2l4 4h1V0H7L3 4H1zm16-.4l-.6-.6-2.9 2.6L10.6 3l-.6.6 2.6 2.9L10 9.4l.6.6 2.9-2.6 2.9 2.6.6-.6-2.6-2.9L17 3.6z"/>\n</svg>';});
 
 
 define('text!yt-player-icon-fullscreen',[],function () { return '<svg class="svg" xmlns="http://www.w3.org/2000/svg" width="22" height="22">\n    <path class="shape" fill="#fff"\n          d="M3.4 20.2L9 14.5 7.5 13l-5.7 5.6L1 14H0v7.5l.5.5H8v-1l-4.6-.8M18.7 1.9L13 7.6 14.4 9l5.7-5.7.5 4.7h1.2V.6l-.5-.5H14v1.2l4.7.6"/>\n</svg>';});
@@ -15373,14 +15373,14 @@ define( 'yt-player',[
     if ( this.slider.seekbar ) {
       seekbar = $( this.slider.seekbar );
     } else {
-      seekbar = $( '<div class="ultima-slider-seekbar"></div>' );
+      seekbar = $( '<div class="slider-seekbar"></div>' );
       $elem.append( seekbar );
     }
 
     if ( this.slider.handle ) {
       handler = $( this.slider.handle );
     } else {
-      handler = $( '<div class="ultima-slider-cursor"></div>' );
+      handler = $( '<div class="slider-cursor"></div>' );
       seekbar.append( handler );
     }
 
@@ -15442,14 +15442,14 @@ define( 'yt-player',[
 
   };
 
-  $.fn.ultimaSlider = function ( d ) {
+  $.fn.slider = function ( d ) {
     return this.each( function () {
       var $elem = $( this );
-      if ( $elem.data( "ultimaSlider" ) ) {
+      if ( $elem.data( "slider" ) ) {
         return;
       }
       var inst = new a( this, d );
-      $elem.data( "ultimaSlider", inst );
+      $elem.data( "slider", inst );
     } )
   };
 
@@ -15519,7 +15519,8 @@ define( 'yt-player',[
     this.currentTime = 0;
     this.isFullScreen = false;
     this.progressTimer = null;
-    this.ultimaTimelineSlider = null;
+    this.timelineSlider = null;
+    this.volumeSlider = null;
     this.isFirstPlay = true;
     this.mouseMoveTimer = null;
     this.isControlsHidden = false;
@@ -15566,6 +15567,7 @@ define( 'yt-player',[
         this.$embedMessage = this.$elem.find( '.yt-embed-message' );
         this.$embedCode = this.$elem.find( '.yt-embed-code' );
 
+        this.$volume = this.$elem.find( '.yt-volume' );
         this.$volumeLevel = this.$elem.find( '.yt-volume-level' );
       }
 
@@ -15577,8 +15579,15 @@ define( 'yt-player',[
 
     },
 
-    updateVolumeLevel: function(percent) {
-      this.$volumeLevel.width(percent + "%");
+    updateVolumeLevel: function ( percent ) {
+      this.lastVolumeLevel = percent;
+      this.ytplayer.setVolume( percent );
+
+      if ( percent == 0 ) {
+        this.$muteBtn.removeClass( 'active' );
+      } else {
+        this.$muteBtn.addClass( 'active' );
+      }
     },
 
     createPlayer: function () {
@@ -15609,6 +15618,7 @@ define( 'yt-player',[
 
     onYoutubePlayerReady: function ( e ) {
       this.$elem.addClass( 'yt-ready' );
+      this.currentVolume = this.ytplayer.getVolume();
       this.duration = this.ytplayer.getDuration();
       this.addListenners();
       this.callback.call( this );
@@ -15697,7 +15707,8 @@ define( 'yt-player',[
       }
 
 
-      this.$timeline.ultimaSlider( {
+      // Create timeline slider
+      this.$timeline.slider( {
         seekbar: this.$timeline.find( '.yt-seek' ),
         value: 0,
         min: 0,
@@ -15713,8 +15724,26 @@ define( 'yt-player',[
         }
       } );
 
-      if ( this.$timeline.data( 'ultimaSlider' ) != undefined )
-        this.ultimaTimelineSlider = this.$timeline.data( 'ultimaSlider' );
+      if ( this.$timeline.data( 'slider' ) != undefined )
+        this.timelineSlider = this.$timeline.data( 'slider' );
+
+      // Create volume slider
+      this.$volume.slider( {
+        seekbar: this.$volume.find( '.yt-volume-level' ),
+        value: this.currentVolume,
+        min: 0,
+        max: 100,
+        slide: function ( e, slider ) {
+//          console.log( slider.value );
+          self.updateVolumeLevel( slider.value );
+        },
+        stop: function ( e, slider ) {
+
+        }
+      } );
+
+      if ( this.$volume.data( 'slider' ) != undefined )
+        this.volumeSlider = this.$volume.data( 'slider' );
 
     },
 
@@ -15784,11 +15813,11 @@ define( 'yt-player',[
     },
 
     updateSeekBar: function () {
-      if ( this.ultimaTimelineSlider != null ) {
-        this.ultimaTimelineSlider.slider.max = this.duration;
-        this.ultimaTimelineSlider.slider.min = 0;
-        this.ultimaTimelineSlider.slider.value = 0;
-        this.ultimaTimelineSlider.update();
+      if ( this.timelineSlider != null ) {
+        this.timelineSlider.slider.max = this.duration;
+        this.timelineSlider.slider.min = 0;
+        this.timelineSlider.slider.value = 0;
+        this.timelineSlider.update();
       }
     },
 
@@ -15803,7 +15832,7 @@ define( 'yt-player',[
     },
 
     togglePlay: function () {
-      console.log( 'toogle Play', this.paused, this.paused ? 'play' : 'pause' );
+//      console.log( 'toogle Play', this.paused, this.paused ? 'play' : 'pause' );
       this[ this.paused ? 'play' : 'pause' ]();
       this.paused = this.paused ? false : true;
     },
@@ -15887,8 +15916,8 @@ define( 'yt-player',[
     },
 
     unmute: function () {
-      this.lastVolumeLevel = this.lastVolumeLevel || '75%';
-      this.$volumeLevel.width(this.lastVolumeLevel);
+      this.lastVolumeLevel = this.volume !== 0 ? this.lastVolumeLevel || 75 : 0;
+      this.$volumeLevel.width( this.lastVolumeLevel + '%' );
       this.muted = false;
       this.ytplayer.unMute();
       this.$muteBtn.addClass( 'active' );
@@ -15896,7 +15925,7 @@ define( 'yt-player',[
 
     mute: function () {
       this.lastVolumeLevel = this.$volumeLevel.width();
-      this.$volumeLevel.width(0);
+      this.$volumeLevel.width( 0 );
       this.muted = true;
       this.ytplayer.mute();
       this.$muteBtn.removeClass( 'active' );
@@ -15941,8 +15970,8 @@ define( 'yt-player',[
     },
 
     seekUpdate: function ( currentTime ) {
-      if ( !this.seeksliding && typeof this.ultimaTimelineSlider !== 'undefined' ) {
-        this.ultimaTimelineSlider.resizeSeekBar( currentTime );
+      if ( !this.seeksliding && typeof this.timelineSlider !== 'undefined' ) {
+        this.timelineSlider.resizeSeekBar( currentTime );
       }
     },
 
@@ -16108,13 +16137,13 @@ define( 'yt-player',[
       '<div class="yt-controls-wrapper">' +
       '<div class="yt-play-btn">' + playPauseSvg + '</div>' +
       '<div class="yt-time"></div>' +
-      '<div class="yt-embed-btn">' + embedSvg + ' <span>Embed</span></div>' +
-      '<div class="yt-volume-wrapper">' +
-      '<div class="yt-mute-btn">' + volumeSvg + '</div>' +
-      '<div class="yt-volume"><div class="yt-volume-level"></div></div>' +
+      '<div class="yt-embed-btn unselectable">' + embedSvg + ' <span class="unselectable">Embed</span></div>' +
+      '<div class="yt-volume-wrapper unselectable">' +
+      '<div class="yt-mute-btn unselectable">' + volumeSvg + '</div>' +
+      '<div class="yt-volume unselectable"><div class="yt-volume-level unselectable"></div></div>' +
       '</div>' +
       '<div class="yt-fullscreen-btn">' + fullscreenSvg + '</div>' +
-      '<div class="yt-timeline"><div class="yt-seek"></div><div class="yt-buffer"></div></div>' +
+      '<div class="yt-timeline unselectable"><div class="yt-seek unselectable"></div><div class="yt-buffer"></div></div>' +
       '</div>' +
       '</div>',
 
@@ -16149,6 +16178,7 @@ define( 'views/mainVideo',[
   'underscore',
   'yt-player'
 ], function ( Backbone, Mustache, template, _, YoutubeCustomPlayer ) {
+
   'use strict';
 
   return Backbone.View.extend( {
@@ -16158,8 +16188,7 @@ define( 'views/mainVideo',[
 //    },
 
     initialize: function () {
-
-      console.log(YoutubeCustomPlayer);
+//      console.log(YoutubeCustomPlayer);
 
       this.setupElements();
       this.setupEvents();
@@ -16209,27 +16238,16 @@ define( 'views/mainVideo',[
     },
 
     playVideo: function ( e ) {
-
-      // Inject video iframe
-//      this.$videoContainer
-
-      console.log( this.videoData );
-
-//      var iframe = '<iframe src="' + this.videoData.video + '#autoplay" scrolling="no" frameborder="none" width="100%" height="100%"></iframe>';
-//      var embedYoutube = '<iframe id="ytplayer" type="text/html" width="100%" height="100%" src="http://www.youtube.com/embed/' + this.videoData.youtubeId + '?cc_load_policy=1&autoplay=1" frameborder="0"/>';
-
-//      var youtubeVideo = '<div id="" class=""></div>'
-//
-//      $( '#videoContainer' ).html( youtubeVideo );
+//      console.log( this.videoData );
 
       var videoId = this.videoData.id;
       var youtubeId = this.videoData.youtubeId;
-      var embedCode = this.videoData.embedCode;
 
       //create a new Player
       var ytPlayer = new YoutubeCustomPlayer('videoContainer', {
-//        embedCode: embedCode,
-        hl: 'it',
+//        embedCode: embedCode, // custom embed code
+        alwaysVisible: false, // if the controls should be always visible or hide after a few seconds
+        hl: 'it', // the language for subtitles and CC
         videoId: youtubeId, //id of the yt video
         wmode: 'transparent', //opaque/transparent/direct
         controls: 1, // show yt controls ?
@@ -16239,8 +16257,8 @@ define( 'views/mainVideo',[
 
       }, function(event){
 
-        console.log('player ready');
-//        console.log(this.ytplayer.getOptions('cc'));
+//        console.log('player ready');
+//        console.log(this.getOptions('cc'));
 
         $( '#backgroundImage' ).fadeOut( 500, function () {
           $( '#mainEpisode' ).addClass( 'videoPlaying' );
@@ -16338,7 +16356,7 @@ define( 'views/appView',[
 
     changeQuerystring: function () {
       if ( history.pushState ) {
-        var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?date=' + this.mainEpisode.coupleid;
+        var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?video=' + this.mainEpisode.id;
         window.history.pushState( {path: newurl}, '', newurl );
       }
     },
@@ -17198,6 +17216,7 @@ define( 'main',[
     $.ajax( {
       url: 'http://localhost:9000/build/assets/data/data.json',
       success: function ( data ) {
+
         console.log( data );
 
         // Wait for YouTube API to be ready

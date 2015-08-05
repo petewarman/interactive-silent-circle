@@ -36,14 +36,14 @@ define( [
     if ( this.slider.seekbar ) {
       seekbar = $( this.slider.seekbar );
     } else {
-      seekbar = $( '<div class="ultima-slider-seekbar"></div>' );
+      seekbar = $( '<div class="slider-seekbar"></div>' );
       $elem.append( seekbar );
     }
 
     if ( this.slider.handle ) {
       handler = $( this.slider.handle );
     } else {
-      handler = $( '<div class="ultima-slider-cursor"></div>' );
+      handler = $( '<div class="slider-cursor"></div>' );
       seekbar.append( handler );
     }
 
@@ -105,14 +105,14 @@ define( [
 
   };
 
-  $.fn.ultimaSlider = function ( d ) {
+  $.fn.slider = function ( d ) {
     return this.each( function () {
       var $elem = $( this );
-      if ( $elem.data( "ultimaSlider" ) ) {
+      if ( $elem.data( "slider" ) ) {
         return;
       }
       var inst = new a( this, d );
-      $elem.data( "ultimaSlider", inst );
+      $elem.data( "slider", inst );
     } )
   };
 
@@ -182,7 +182,8 @@ define( [
     this.currentTime = 0;
     this.isFullScreen = false;
     this.progressTimer = null;
-    this.ultimaTimelineSlider = null;
+    this.timelineSlider = null;
+    this.volumeSlider = null;
     this.isFirstPlay = true;
     this.mouseMoveTimer = null;
     this.isControlsHidden = false;
@@ -229,6 +230,7 @@ define( [
         this.$embedMessage = this.$elem.find( '.yt-embed-message' );
         this.$embedCode = this.$elem.find( '.yt-embed-code' );
 
+        this.$volume = this.$elem.find( '.yt-volume' );
         this.$volumeLevel = this.$elem.find( '.yt-volume-level' );
       }
 
@@ -240,8 +242,15 @@ define( [
 
     },
 
-    updateVolumeLevel: function(percent) {
-      this.$volumeLevel.width(percent + "%");
+    updateVolumeLevel: function ( percent ) {
+      this.lastVolumeLevel = percent;
+      this.ytplayer.setVolume( percent );
+
+      if ( percent == 0 ) {
+        this.$muteBtn.removeClass( 'active' );
+      } else {
+        this.$muteBtn.addClass( 'active' );
+      }
     },
 
     createPlayer: function () {
@@ -272,6 +281,7 @@ define( [
 
     onYoutubePlayerReady: function ( e ) {
       this.$elem.addClass( 'yt-ready' );
+      this.currentVolume = this.ytplayer.getVolume();
       this.duration = this.ytplayer.getDuration();
       this.addListenners();
       this.callback.call( this );
@@ -360,7 +370,8 @@ define( [
       }
 
 
-      this.$timeline.ultimaSlider( {
+      // Create timeline slider
+      this.$timeline.slider( {
         seekbar: this.$timeline.find( '.yt-seek' ),
         value: 0,
         min: 0,
@@ -376,8 +387,26 @@ define( [
         }
       } );
 
-      if ( this.$timeline.data( 'ultimaSlider' ) != undefined )
-        this.ultimaTimelineSlider = this.$timeline.data( 'ultimaSlider' );
+      if ( this.$timeline.data( 'slider' ) != undefined )
+        this.timelineSlider = this.$timeline.data( 'slider' );
+
+      // Create volume slider
+      this.$volume.slider( {
+        seekbar: this.$volume.find( '.yt-volume-level' ),
+        value: this.currentVolume,
+        min: 0,
+        max: 100,
+        slide: function ( e, slider ) {
+//          console.log( slider.value );
+          self.updateVolumeLevel( slider.value );
+        },
+        stop: function ( e, slider ) {
+
+        }
+      } );
+
+      if ( this.$volume.data( 'slider' ) != undefined )
+        this.volumeSlider = this.$volume.data( 'slider' );
 
     },
 
@@ -447,11 +476,11 @@ define( [
     },
 
     updateSeekBar: function () {
-      if ( this.ultimaTimelineSlider != null ) {
-        this.ultimaTimelineSlider.slider.max = this.duration;
-        this.ultimaTimelineSlider.slider.min = 0;
-        this.ultimaTimelineSlider.slider.value = 0;
-        this.ultimaTimelineSlider.update();
+      if ( this.timelineSlider != null ) {
+        this.timelineSlider.slider.max = this.duration;
+        this.timelineSlider.slider.min = 0;
+        this.timelineSlider.slider.value = 0;
+        this.timelineSlider.update();
       }
     },
 
@@ -466,7 +495,7 @@ define( [
     },
 
     togglePlay: function () {
-      console.log( 'toogle Play', this.paused, this.paused ? 'play' : 'pause' );
+//      console.log( 'toogle Play', this.paused, this.paused ? 'play' : 'pause' );
       this[ this.paused ? 'play' : 'pause' ]();
       this.paused = this.paused ? false : true;
     },
@@ -550,8 +579,8 @@ define( [
     },
 
     unmute: function () {
-      this.lastVolumeLevel = this.lastVolumeLevel || '75%';
-      this.$volumeLevel.width(this.lastVolumeLevel);
+      this.lastVolumeLevel = this.volume !== 0 ? this.lastVolumeLevel || 75 : 0;
+      this.$volumeLevel.width( this.lastVolumeLevel + '%' );
       this.muted = false;
       this.ytplayer.unMute();
       this.$muteBtn.addClass( 'active' );
@@ -559,7 +588,7 @@ define( [
 
     mute: function () {
       this.lastVolumeLevel = this.$volumeLevel.width();
-      this.$volumeLevel.width(0);
+      this.$volumeLevel.width( 0 );
       this.muted = true;
       this.ytplayer.mute();
       this.$muteBtn.removeClass( 'active' );
@@ -604,8 +633,8 @@ define( [
     },
 
     seekUpdate: function ( currentTime ) {
-      if ( !this.seeksliding && typeof this.ultimaTimelineSlider !== 'undefined' ) {
-        this.ultimaTimelineSlider.resizeSeekBar( currentTime );
+      if ( !this.seeksliding && typeof this.timelineSlider !== 'undefined' ) {
+        this.timelineSlider.resizeSeekBar( currentTime );
       }
     },
 
@@ -771,13 +800,13 @@ define( [
       '<div class="yt-controls-wrapper">' +
       '<div class="yt-play-btn">' + playPauseSvg + '</div>' +
       '<div class="yt-time"></div>' +
-      '<div class="yt-embed-btn">' + embedSvg + ' <span>Embed</span></div>' +
-      '<div class="yt-volume-wrapper">' +
-      '<div class="yt-mute-btn">' + volumeSvg + '</div>' +
-      '<div class="yt-volume"><div class="yt-volume-level"></div></div>' +
+      '<div class="yt-embed-btn unselectable">' + embedSvg + ' <span class="unselectable">Embed</span></div>' +
+      '<div class="yt-volume-wrapper unselectable">' +
+      '<div class="yt-mute-btn unselectable">' + volumeSvg + '</div>' +
+      '<div class="yt-volume unselectable"><div class="yt-volume-level unselectable"></div></div>' +
       '</div>' +
       '<div class="yt-fullscreen-btn">' + fullscreenSvg + '</div>' +
-      '<div class="yt-timeline"><div class="yt-seek"></div><div class="yt-buffer"></div></div>' +
+      '<div class="yt-timeline unselectable"><div class="yt-seek unselectable"></div><div class="yt-buffer"></div></div>' +
       '</div>' +
       '</div>',
 

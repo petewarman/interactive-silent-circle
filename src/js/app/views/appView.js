@@ -49,7 +49,7 @@ define( [
 
     changeQuerystring: function () {
       if ( history.pushState ) {
-        var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?date=' + this.mainEpisode.coupleid;
+        var newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?video=' + this.mainEpisode.id;
         window.history.pushState( {path: newurl}, '', newurl );
       }
     },

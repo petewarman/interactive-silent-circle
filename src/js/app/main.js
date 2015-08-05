@@ -17,6 +17,7 @@ define( [
     $.ajax( {
       url: '{{assets}}/data/data.json',
       success: function ( data ) {
+
         console.log( data );
 
         // Wait for YouTube API to be ready

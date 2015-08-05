@@ -5,6 +5,7 @@ define( [
   'underscore',
   'yt-player'
 ], function ( Backbone, Mustache, template, _, YoutubeCustomPlayer ) {
+
   'use strict';
 
   return Backbone.View.extend( {
@@ -14,8 +15,7 @@ define( [
 //    },
 
     initialize: function () {
-
-      console.log(YoutubeCustomPlayer);
+//      console.log(YoutubeCustomPlayer);
 
       this.setupElements();
       this.setupEvents();
@@ -65,27 +65,16 @@ define( [
     },
 
     playVideo: function ( e ) {
-
-      // Inject video iframe
-//      this.$videoContainer
-
-      console.log( this.videoData );
-
-//      var iframe = '<iframe src="' + this.videoData.video + '#autoplay" scrolling="no" frameborder="none" width="100%" height="100%"></iframe>';
-//      var embedYoutube = '<iframe id="ytplayer" type="text/html" width="100%" height="100%" src="http://www.youtube.com/embed/' + this.videoData.youtubeId + '?cc_load_policy=1&autoplay=1" frameborder="0"/>';
-
-//      var youtubeVideo = '<div id="" class=""></div>'
-//
-//      $( '#videoContainer' ).html( youtubeVideo );
+//      console.log( this.videoData );
 
       var videoId = this.videoData.id;
       var youtubeId = this.videoData.youtubeId;
-      var embedCode = this.videoData.embedCode;
 
       //create a new Player
       var ytPlayer = new YoutubeCustomPlayer('videoContainer', {
-//        embedCode: embedCode,
-        hl: 'it',
+//        embedCode: embedCode, // custom embed code
+        alwaysVisible: false, // if the controls should be always visible or hide after a few seconds
+        hl: 'it', // the language for subtitles and CC
         videoId: youtubeId, //id of the yt video
         wmode: 'transparent', //opaque/transparent/direct
         controls: 1, // show yt controls ?
@@ -95,8 +84,8 @@ define( [
 
       }, function(event){
 
-        console.log('player ready');
-//        console.log(this.ytplayer.getOptions('cc'));
+//        console.log('player ready');
+//        console.log(this.getOptions('cc'));
 
         $( '#backgroundImage' ).fadeOut( 500, function () {
           $( '#mainEpisode' ).addClass( 'videoPlaying' );
