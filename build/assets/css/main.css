@@ -727,6 +727,8 @@
 }
 
 .yt-btn, .yt-play-btn,
+.yt-languages-btn,
+.yt-cc-btn,
 .yt-mute-btn,
 .yt-embed-btn,
 .yt-volume-wrapper,
@@ -737,6 +739,39 @@
   -khtml-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
+}
+
+.yt-play-btn .svg,
+.yt-languages-btn .svg,
+.yt-cc-btn .svg,
+.yt-mute-btn .svg,
+.yt-embed-btn .svg,
+.yt-volume-wrapper .svg,
+.yt-fullscreen-btn .svg {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -khtml-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.yt-play-btn .svg .shape,
+.yt-languages-btn .svg .shape,
+.yt-cc-btn .svg .shape,
+.yt-mute-btn .svg .shape,
+.yt-embed-btn .svg .shape,
+.yt-volume-wrapper .svg .shape,
+.yt-fullscreen-btn .svg .shape {
+  fill: #FFFFFF;
+}
+.yt-play-btn:hover .svg .shape,
+.yt-languages-btn:hover .svg .shape,
+.yt-cc-btn:hover .svg .shape,
+.yt-mute-btn:hover .svg .shape,
+.yt-embed-btn:hover .svg .shape,
+.yt-volume-wrapper:hover .svg .shape,
+.yt-fullscreen-btn:hover .svg .shape {
+  fill: #ff827f;
 }
 
 .yt-play-btn {
@@ -794,7 +829,7 @@
   width: 20px;
   right: 20px;
 }
-.yt-fullscreen-btn.active .svg .shape, .yt-fullscreen-btn:hover .svg .shape {
+.yt-fullscreen-btn.active .svg .shape {
   fill: #ff827f;
 }
 .yt-ipad .yt-fullscreen-btn {
@@ -854,14 +889,13 @@
   text-align: left;
   padding: 4px;
 }
-.yt-embed-btn.active span, .yt-embed-btn:hover span {
+.yt-embed-btn:hover span, .yt-embed-btn.active span {
   color: #ff827f;
 }
-.yt-embed-btn.active .svg .shape, .yt-embed-btn:hover .svg .shape {
+.yt-embed-btn:hover .svg .shape, .yt-embed-btn.active .svg .shape {
   fill: #ff827f;
 }
-.yt-embed-btn span,
-.yt-embed-btn .svg {
+.yt-embed-btn span {
   position: absolute;
   top: 50%;
   -webkit-transform: translateY(-50%);
@@ -889,17 +923,8 @@
   height: 25px;
   position: absolute;
 }
-.yt-volume-wrapper .yt-mute-btn .svg {
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -khtml-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
 .yt-volume-wrapper .yt-mute-btn .svg .shape {
   display: none;
-  fill: #FFFFFF;
 }
 .yt-volume-wrapper .yt-mute-btn .svg .shape.off {
   display: block;
@@ -909,9 +934,6 @@
 }
 .yt-volume-wrapper .yt-mute-btn.active .svg .shape.off {
   display: none;
-}
-.yt-volume-wrapper .yt-mute-btn:hover .svg .shape {
-  fill: #ff827f;
 }
 .yt-volume-wrapper .yt-volume {
   position: absolute;
@@ -931,6 +953,18 @@
   height: 2px;
   background-color: #ff827f;
   width: 90%;
+}
+
+.yt-languages-btn {
+  right: 375px;
+  width: 22px;
+  height: 22px;
+}
+
+.yt-cc-btn {
+  right: 335px;
+  width: 22px;
+  height: 22px;
 }
 
 body {
@@ -1047,9 +1081,6 @@ body {
 .guInteractive #mainEpisode {
   position: relative;
 }
-.guInteractive #mainEpisode.videoPlaying #mainEpisodeContent {
-  margin-top: 0;
-}
 .guInteractive #mainEpisode.videoPlaying .startVideo {
   display: none;
 }
@@ -1061,32 +1092,49 @@ body {
   height: 0;
   padding-bottom: 56.25%;
   position: relative;
-  display: none;
 }
 .guInteractive #mainEpisode #videoContainer iframe {
   position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 .guInteractive #mainEpisodeVideo {
   position: relative;
   cursor: pointer;
 }
-.guInteractive #mainEpisodeVideo:hover .startVideo {
+.guInteractive #mainEpisodeVideo #big-play-btn-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+}
+.guInteractive #mainEpisodeVideo #big-play-btn-wrapper:hover #big-play-btn {
   background: #ff827f;
 }
-.guInteractive .startVideo {
-  width: 44px;
-  height: 44px;
+.guInteractive #mainEpisodeVideo #big-play-btn-wrapper #big-play-btn {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -khtml-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  width: 80px;
+  height: 80px;
   border: none;
-  border-radius: 140px;
-  background: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.6);
   outline: none;
   cursor: pointer;
+  -khtml-transition: 0.5s background;
   transition: 0.5s background;
+  -khtml-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
   font-size: 0;
-  position: relative;
 }
-.guInteractive .startVideo span {
-  position: relative;
+.guInteractive #mainEpisodeVideo #big-play-btn-wrapper #big-play-btn span {
   content: '';
   position: absolute;
   display: block;
@@ -1097,6 +1145,12 @@ body {
   left: 50%;
   margin-left: -11px;
   margin-top: -11px;
+}
+.guInteractive #mainEpisodeVideo #backgroundImage {
+  opacity: 1;
+  position: absolute;
+  z-index: 10;
+  display: block;
 }
 .guInteractive #episodeQuote {
   font-family: "Guardian Egyptian Web", "Egyptian Display", "Guardian Text Egyptian Web", "Egyptian Text", Georgia, serif;
@@ -1112,24 +1166,24 @@ body {
 }
 .guInteractive #backgroundContainer button {
   position: absolute;
-  top: 30%;
+  top: 40%;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -khtml-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
 }
 .guInteractive #backgroundLayer {
   position: relative;
   display: none;
+  -khtml-transition: 0.5s background;
   transition: 0.5s background;
 }
 .guInteractive #mainEpisodeContent {
   padding: 15px 10px 15px;
-  margin: 0 -10px;
   background: #424242;
   position: relative;
   z-index: 5;
-  transition: 0.5s margin;
 }
 .guInteractive #mainEpisodeContent h3, .guInteractive #mainEpisodeContent h4 {
   margin: 0;
@@ -1138,12 +1192,6 @@ body {
   font-weight: bold;
   font-size: 30px;
   line-height: 1.2em;
-}
-.guInteractive #mainEpisodeContent date {
-  display: block;
-  font-family: 'Guardian Text Sans Web', 'Agate Sans', sans-serif;
-  color: #bdbdbd;
-  font-size: 14px;
 }
 .guInteractive #mainEpisodeContent p {
   font-size: 14px;
@@ -1491,7 +1539,6 @@ body {
   }
   .guInteractive #mainEpisodeContent {
     max-width: 620px;
-    margin: -80px auto 40px;
     padding-left: 20px;
     padding-right: 20px;
   }
@@ -1753,7 +1800,6 @@ body {
     padding-bottom: 120px;
   }
   .guInteractive #mainEpisodeContent {
-    margin-top: -120px;
     padding: 20px 20px;
     max-width: 530px;
     margin-left: 110px;

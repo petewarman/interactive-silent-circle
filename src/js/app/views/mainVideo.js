@@ -3,8 +3,11 @@ define( [
   'mustache',
   'text!templates/mainVideo.html',
   'underscore',
-  'yt-player'
-], function ( Backbone, Mustache, template, _, YoutubeCustomPlayer ) {
+  'yt-player',
+//  'TweenLite',
+//  'TweenLite-css',
+//  'TweenLite-ease'
+], function ( Backbone, Mustache, template, _, YoutubeCustomPlayer, TweenLite ) {
 
   'use strict';
 
@@ -23,6 +26,8 @@ define( [
     },
 
     setupElements: function () {
+
+//      this.$bigPlayBtn = $('#big-play-btn-wrapper ');
 
       this.$videoContainer = $( '#videoContainer' );
       this.$backgroundImage = $( '#backgroundImage' );
@@ -67,6 +72,7 @@ define( [
     playVideo: function ( e ) {
 //      console.log( this.videoData );
 
+      var self = this;
       var videoId = this.videoData.id;
       var youtubeId = this.videoData.youtubeId;
 
@@ -88,8 +94,11 @@ define( [
 //        console.log(this.getOptions('cc'));
 
         $( '#backgroundImage' ).fadeOut( 500, function () {
+          $('#big-play-btn-wrapper ').hide();
           $( '#mainEpisode' ).addClass( 'videoPlaying' );
         } );
+
+//        $( '#mainEpisode' ).addClass( 'videoPlaying' );
 
         // Update Google Analytics (send)
         window.ga( 'send', {

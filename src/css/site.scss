@@ -142,10 +142,17 @@ body {
   // MAIN VIDEO
   #mainEpisode {
     position: relative;
+
     &.videoPlaying {
-      #mainEpisodeContent {
-        margin-top: 0;
-      }
+//      #videoContainer {
+//        opacity: 1;
+//      }
+//      #backgroundImage {
+//        opacity: 0;
+//      }
+//      #mainEpisodeContent {
+//        margin-top: 0;
+//      }
       .startVideo {
         display: none;
       }
@@ -154,14 +161,17 @@ body {
       }
     }
     #videoContainer {
+//      z-index: 5;
       width: 100%;
       height: 0;
       padding-bottom: 56.25%;
       position: relative;
-      display: none;
       iframe {
         position: absolute;
-
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
       }
     }
   }
@@ -169,36 +179,64 @@ body {
     position: relative;
     cursor: pointer;
 
-    &:hover {
-      .startVideo {
-        background: $accent-color;
+    #big-play-btn-wrapper {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 20;
+//      opacity: 1;
+//      @include css3-prefix(transition, 1s opacity);
+
+      &:hover {
+        #big-play-btn {
+          background: $accent-color;
+        }
+      }
+
+      #big-play-btn {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        @include css3-prefix(transform, translateX(-50%) translateY(-50%));
+
+        width: 80px;
+        height: 80px;
+        border: none;
+        background-color: rgba(0, 0, 0, 0.6);
+        outline: none;
+        cursor: pointer;
+        @include css3-prefix(transition, 0.5s background);
+        @include css3-prefix(border-radius, 50%);
+        font-size: 0;
+
+        span {
+          //      position: relative;
+          content: '';
+          position: absolute;
+          display: block;
+          width: 26px;
+          height: 22px;
+          background-image: url(../imgs/playArrow.svg);
+          top: 50%;
+          left: 50%;
+          margin-left: -11px;
+          margin-top: -11px;
+        }
+
       }
     }
+
+    #backgroundImage {
+      opacity: 1;
+      position: absolute;
+      z-index: 10;
+      display: block;
+//      @include css3-prefix(transition, 1s opacity);
+    }
+
   }
   .startVideo {
-    width: 44px;
-    height: 44px;
-    border: none;
-    border-radius: 140px;
-    background: rgba(0, 0, 0, 0.6);
-    outline: none;
-    cursor: pointer;
-    transition: 0.5s background;
-    font-size: 0;
-    position: relative;
-    span {
-      position: relative;
-      content: '';
-      position: absolute;
-      display: block;
-      width: 26px;
-      height: 22px;
-      background-image: url(../imgs/playArrow.svg);
-      top: 50%;
-      left: 50%;
-      margin-left: -11px;
-      margin-top: -11px;
-    }
+
   }
 
   #episodeQuote {
@@ -216,25 +254,25 @@ body {
     }
     button {
       position: absolute;
-      top: 30%;
+      top: 40%;
       left: 50%;
-      transform: translateX(-50%);
+      @include css3-prefix(transform, translateX(-50%) translateY(-50%));
     }
   }
 
   #backgroundLayer {
     position: relative;
     display: none;
-    transition: 0.5s background;
+    @include css3-prefix(transition, 0.5s background);
   }
 
   #mainEpisodeContent {
     padding: 15px 10px 15px;
-    margin: 0 -10px;
+//    margin: 0 -10px;
     background: #424242;
     position: relative;
     z-index: 5;
-    transition: 0.5s margin;
+//    @include css3-prefix(transition, 0.5s margin);
 
     h3, h4 {
       margin: 0;
@@ -244,13 +282,13 @@ body {
       font-size: 30px;
       line-height: 1.2em;
     }
-    date {
-      display: block;
-
-      font-family: 'Guardian Text Sans Web', 'Agate Sans', sans-serif;
-      color: #bdbdbd;
-      font-size: 14px;
-    }
+//    date {
+//      display: block;
+//
+//      font-family: 'Guardian Text Sans Web', 'Agate Sans', sans-serif;
+//      color: #bdbdbd;
+//      font-size: 14px;
+//    }
     p {
       font-size: 14px;
       border-top: 1px solid #767676;
@@ -639,7 +677,7 @@ body {
     }
     #mainEpisodeContent {
       max-width: 620px;
-      margin: -80px auto 40px;
+//      margin: -80px auto 40px;
       padding-left: 20px;
       padding-right: 20px;
     }
@@ -929,7 +967,7 @@ body {
     }
 
     #mainEpisodeContent {
-      margin-top: -120px;
+//      margin-top: -120px;
       padding: 20px 20px;
       max-width: 530px;
       margin-left: 110px;
@@ -938,7 +976,7 @@ body {
 
     #headerContainer {
       img {
-        //	    		margin:-60px 0 -40px;
+        // margin:-60px 0 -40px;
       }
       #headerImage:after {
         height: 30%;
@@ -962,8 +1000,8 @@ body {
         margin-top: -10px;
       }
     }
-
   }
+
   @media(min-width: 1140px) {
     .sectionHeading {
       width: 140px;
@@ -994,7 +1032,6 @@ body {
     #allEpisodes {
       margin-top: 40px;
       border-top: 1px solid #767676;
-
     }
     #allEpisodesContainer {
       margin-left: 160px;

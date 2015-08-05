@@ -2,8 +2,10 @@ define( [
   'text!yt-player-icon-play-pause',
   'text!yt-player-icon-embed',
   'text!yt-player-icon-volume',
-  'text!yt-player-icon-fullscreen'
-], function ( playPauseSvg, embedSvg, volumeSvg, fullscreenSvg ) {
+  'text!yt-player-icon-fullscreen',
+  'text!yt-player-icon-cc',
+  'text!yt-player-icon-languages'
+], function ( playPauseSvg, embedSvg, volumeSvg, fullscreenSvg, ccSvg, languagesSvg ) {
 
   'use strict';
 
@@ -579,7 +581,7 @@ define( [
     },
 
     unmute: function () {
-      this.lastVolumeLevel = this.volume !== 0 ? this.lastVolumeLevel || 75 : 0;
+      this.lastVolumeLevel = this.lastVolumeLevel !== 0 ? this.lastVolumeLevel : 50;
       this.$volumeLevel.width( this.lastVolumeLevel + '%' );
       this.muted = false;
       this.ytplayer.unMute();
@@ -800,6 +802,10 @@ define( [
       '<div class="yt-controls-wrapper">' +
       '<div class="yt-play-btn">' + playPauseSvg + '</div>' +
       '<div class="yt-time"></div>' +
+
+      '<div class="yt-languages-btn">' + languagesSvg + '</div>' +
+      '<div class="yt-cc-btn">' + ccSvg + '</div>' +
+
       '<div class="yt-embed-btn unselectable">' + embedSvg + ' <span class="unselectable">Embed</span></div>' +
       '<div class="yt-volume-wrapper unselectable">' +
       '<div class="yt-mute-btn unselectable">' + volumeSvg + '</div>' +

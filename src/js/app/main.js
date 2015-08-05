@@ -1,11 +1,10 @@
 define( [
   'backbone',
-  'collections/sheetCollection',
   'views/appView',
   'iframeMessenger',
   'mediator-js',
   'yt-player'
-], function ( Backbone, SheetCollection, AppView, iframeMessenger, Mediator, YoutubeCustomPlayer ) {
+], function ( Backbone, AppView, iframeMessenger, Mediator, YoutubeCustomPlayer ) {
   'use strict';
 
 

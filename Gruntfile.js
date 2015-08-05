@@ -3,7 +3,9 @@ var currentTime = +new Date();
 var assetPath = 'build/assets-' + currentTime;
 
 module.exports = function ( grunt ) {
+
   var isDev = !(grunt.cli.tasks && grunt.cli.tasks[0] === 'deploy');
+
   grunt.initConfig( {
     connect: {
       server: {
@@ -230,7 +232,7 @@ module.exports = function ( grunt ) {
 //  grunt.registerTask('fetch', ['curl']);
 
   grunt.registerTask( 'build', [
-    'jshint',
+//    'jshint',
     'clean',
     'sass',
     'autoprefixer',

@@ -159,11 +159,27 @@ $buffer-color: #999999;
 }
 
 .yt-play-btn,
+.yt-languages-btn,
+.yt-cc-btn,
 .yt-mute-btn,
 .yt-embed-btn,
 .yt-volume-wrapper,
 .yt-fullscreen-btn {
   @extend .yt-btn;
+
+  .svg {
+    position: absolute;
+    top: 50%;
+    @include transform(translateY(-50%));
+
+    .shape {
+      fill: #FFFFFF;
+    }
+  }
+
+  &:hover .svg .shape {
+    fill: $highlight-color;
+  }
 }
 
 .yt-play-btn {
@@ -225,8 +241,7 @@ $buffer-color: #999999;
 .yt-fullscreen-btn {
   width: 20px;
   right: 20px;
-  &.active .svg .shape,
-  &:hover .svg .shape {
+  &.active .svg .shape {
     fill: $highlight-color;
   }
 
@@ -287,8 +302,8 @@ $buffer-color: #999999;
   text-align: left;
   padding: 4px;
 
-  &.active,
-  &:hover {
+  &:hover,
+  &.active {
     span {
       color: $highlight-color;
     }
@@ -297,11 +312,8 @@ $buffer-color: #999999;
     }
   }
 
-  span,
-  .svg {
+  span {
     position: absolute;
-    //    display: inline-block;
-    //    vertical-align: middle;
     top: 50%;
     @include css3-prefix(transform, translateY(-50%));
   }
@@ -329,13 +341,8 @@ $buffer-color: #999999;
     position: absolute;
 
     .svg {
-      position: absolute;
-      top: 50%;
-      @include transform(translateY(-50%));
-
       .shape {
         display: none;
-        fill: #FFFFFF;
         &.off {
           display: block;
         }
@@ -353,9 +360,6 @@ $buffer-color: #999999;
       }
     }
 
-    &:hover .svg .shape {
-      fill: $highlight-color;
-    }
   }
 
   .yt-volume {
@@ -376,4 +380,19 @@ $buffer-color: #999999;
     }
   }
 
+}
+
+
+
+.yt-languages-btn {
+  right: 375px;
+  width: 22px;
+  height: 22px;
+}
+
+
+.yt-cc-btn {
+  right: 335px;
+  width: 22px;
+  height: 22px;
 }
