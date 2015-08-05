@@ -1,0 +1,1155 @@
+$accent-color: #ff827f;
+$blue-color: #6eb9d0;
+$content-bg-color: #030303;
+
+@import "partials/youtube-player";
+
+// Main site CSS
+body {
+  margin: 0;
+}
+
+.element-interactive.interactive {
+  margin: 0;
+  padding: 0;
+}
+
+.guInteractive {
+  iframe {
+    border: none;
+  }
+  #backtohome {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    vertical-align: top;
+    span {
+      display: inline-block;
+      padding-top: 13px;
+    }
+  }
+  iframe#form {
+    overflow: hidden;
+  }
+  a, p a, li a {
+    background: none;
+    text-shadow: none;
+  }
+  background: #555;
+  color: #fff;
+
+  * {
+    box-sizing: border-box;
+  }
+  h1, h2, h3, h4, h5 {
+    font-family: "Guardian Egyptian Web", "Egyptian Display", "Guardian Text Egyptian Web", "Egyptian Text", Georgia, serif;
+  }
+
+  .sectionHeading {
+    margin: 40px 0 20px;
+    border-top: 1px solid #767676;
+    line-height: 1.2;
+    padding: 4px 0;
+    font-size: 18px;
+  }
+
+  // GDN NAVIGATION
+  #guardianNav {
+    height: 48px;
+    background: #296d96;
+    width: 100%;
+  }
+  .contentBlock {
+    margin: 0 10px;
+    max-width: 1300px;
+  }
+
+  #navContainer {
+    background: #005689;
+    height: 100%;
+    padding: 1px 10px 0;
+    &:after {
+      clear: both;
+      content: '';
+      display: block;
+    }
+  }
+
+  #guardianLogo {
+    width: 170px;
+    float: right;
+    margin-top: 10px;
+    display: inline-block;
+  }
+
+  #homeLogo {
+    width: 15px;
+    height: 18px;
+    margin-top: 14px;
+    display: inline-block;
+    margin-right: 7px;
+    vertical-align: top;
+  }
+
+  #headerContainer {
+    position: relative;
+    margin-bottom: 20px;
+    h2 {
+      color: $accent-color;
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 1.25;
+//      max-width: 64%;
+//      margin: 0 auto;
+      //    		margin:-20px auto 30px;
+      z-index: 6;
+      position: relative;
+      opacity: 0.8;
+      text-align: center;
+    }
+    img {
+      width: 120%;
+      margin-left: -10%;
+      z-index: 4;
+      position: relative;
+    }
+    #headerImage {
+      font-size: 0;
+      position: relative;
+      //    		overflow:hidden;
+      width: 100%;
+    }
+    //    	#headerImage:after{
+    //    		width: 100%;
+    //			height: 35%;
+    //			content: '';
+    //			background: linear-gradient(to bottom,rgba(52,52,52,0),rgba(52,52,52,1));
+    //			position: absolute;
+    //			bottom: 0;
+    //			left: 0;
+    //			z-index:5;
+    //    	}
+  }
+
+  // CONTENT
+  #content {
+    background: $content-bg-color;
+    height: auto;
+    padding: 1px 0 80px;
+    margin: 0;
+  }
+
+  // MAIN VIDEO
+  #mainEpisode {
+    position: relative;
+    &.videoPlaying {
+      #mainEpisodeContent {
+        margin-top: 0;
+      }
+      .startVideo {
+        display: none;
+      }
+      #videoContainer {
+        display: block;
+      }
+    }
+    #videoContainer {
+      width: 100%;
+      height: 0;
+      padding-bottom: 56.25%;
+      position: relative;
+      display: none;
+      iframe {
+        position: absolute;
+
+      }
+    }
+  }
+  #mainEpisodeVideo {
+    position: relative;
+    cursor: pointer;
+
+    &:hover {
+      .startVideo {
+        background: $accent-color;
+      }
+    }
+  }
+  .startVideo {
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 140px;
+    background: rgba(0, 0, 0, 0.6);
+    outline: none;
+    cursor: pointer;
+    transition: 0.5s background;
+    font-size: 0;
+    position: relative;
+    span {
+      position: relative;
+      content: '';
+      position: absolute;
+      display: block;
+      width: 26px;
+      height: 22px;
+      background-image: url(../imgs/playArrow.svg);
+      top: 50%;
+      left: 50%;
+      margin-left: -11px;
+      margin-top: -11px;
+    }
+  }
+
+  #episodeQuote {
+    font-family: "Guardian Egyptian Web", "Egyptian Display", "Guardian Text Egyptian Web", "Egyptian Text", Georgia, serif;
+    font-size: 20px;
+
+  }
+
+  #backgroundContainer {
+    position: relative;
+    font-size: 0;
+    margin: 0 -10px;
+    img {
+      width: 100%;
+    }
+    button {
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  #backgroundLayer {
+    position: relative;
+    display: none;
+    transition: 0.5s background;
+  }
+
+  #mainEpisodeContent {
+    padding: 15px 10px 15px;
+    margin: 0 -10px;
+    background: #424242;
+    position: relative;
+    z-index: 5;
+    transition: 0.5s margin;
+
+    h3, h4 {
+      margin: 0;
+    }
+    h3 {
+      font-weight: bold;
+      font-size: 30px;
+      line-height: 1.2em;
+    }
+    date {
+      display: block;
+
+      font-family: 'Guardian Text Sans Web', 'Agate Sans', sans-serif;
+      color: #bdbdbd;
+      font-size: 14px;
+    }
+    p {
+      font-size: 14px;
+      border-top: 1px solid #767676;
+      padding-top: 20px;
+      margin-top: 1em;
+    }
+  }
+
+  // NEXT WEEK TEASER
+  #episodeTeaser {
+    background: #424242;
+    margin-top: 40px;
+    padding-top: 1px;
+    padding-bottom: 10px;
+    .sectionHeading {
+      border-top: none;
+      margin-top: 0;
+      margin-left: 10px;
+      margin-right: 10px;
+      line-height: 1.2;
+    }
+    #teaserDescription {
+      border-top: 1px solid #767676;
+      padding-top: 9px;
+      margin-top: 15px;
+    }
+    #nextWeekVideo {
+      margin-bottom: 1em;
+    }
+    #nextWeekVideoContainer {
+      height: 0;
+      width: 100%;
+      padding-bottom: 56.25%;
+      position: relative;
+      iframe {
+        width: 100%;
+        height: 100%;
+        position: absolute
+      }
+    }
+    img {
+      width: 100%;
+      margin-bottom: 8px;
+    }
+    h3 {
+      font-size: 22px;
+      margin: 0;
+      line-height: 1.2em;
+      font-weight: bold;
+    }
+    p {
+      margin-top: 5px;
+      font-size: 14px;
+
+    }
+//    date {
+//      display: block;
+//      font-family: 'Guardian Text Sans Web', 'Agate Sans', sans-serif;
+//      color: #bdbdbd;
+//      font-size: 14px;
+//      margin: 2px 0 0;
+//    }
+  }
+  #teaserMobile {
+    display: none;
+    font-family: 'Guardian Text Sans Web', 'Agate Sans', sans-serif;
+  }
+
+  // SIGN UP ALERT
+  #signupAlert {
+    border-top: 1px solid #dcdcdc;
+    margin-top: 40px;
+    padding-top: 20px;
+  }
+
+  #signupBox {
+    margin-top: 30px;
+    #signupTitle {
+      font-family: "Guardian Egyptian Web", "Egyptian Display", "Guardian Text Egyptian Web", "Egyptian Text", Georgia, serif;
+      color: $accent-color;
+      font-weight: bold;
+      font-size: 18px;
+      margin: 0;
+      line-height: 1.2em;
+    }
+    #signupDescription {
+      font-family: 'Guardian Text Sans Web', 'Agate Sans', sans-serif;
+      margin-top: 0.5em;
+    }
+  }
+
+  // ALL episodes
+  #allEpisodes {
+    font-size: 0;
+  }
+  #allEpisodesContainer:after {
+    clear: both;
+    content: '';
+    display: block;
+  }
+  .episodeBlock {
+    width: 50%;
+    float: left;
+    margin-bottom: 10px;
+    padding: 0 5px 0 0;
+    height: 160px;
+    &.activeVideo {
+      img {
+        border: 4px solid $accent-color;
+      }
+
+    }
+
+    &:nth-of-type(2n) {
+      padding: 0 0 0 5px;
+    }
+    img {
+      width: 100%;
+      transition: 0.5s opacity;
+      margin-bottom: 5px;
+      backface-visibility: hidden;
+      -o-backface-visibility: hidden;
+      -moz-backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    p {
+      font-size: 14px;
+      line-height: 1.2em;
+      font-family: "Guardian Egyptian Web", "Egyptian Display", "Guardian Text Egyptian Web", "Egyptian Text", Georgia, serif;
+      font-weight: bold;
+      margin-top: 0;
+      span {
+        display: block;
+        font-family: 'Guardian Text Sans Web', 'Agate Sans', sans-serif;
+        font-weight: normal;
+        color: #b2b2b2;
+      }
+    }
+    &.published-no {
+      opacity: 0.2;
+    }
+    &.published-yes.inactiveVideo {
+      cursor: pointer;
+      &:hover {
+
+        p {
+          text-decoration: underline;
+        }
+        img {
+          opacity: 0.8;
+        }
+
+      }
+    }
+  }
+
+  #aboutDates {
+    p {
+      margin-top: 0;
+      font-family: 'Guardian Text Sans Web', 'Agate Sans', sans-serif;
+      font-size: 14px;
+      a {
+        color: $accent-color;
+      }
+    }
+    #participate {
+      font-size: 18px;
+      a {
+        color: #da82d1;
+        font-weight: bold;
+      }
+    }
+  }
+
+  footer {
+    background: #424242;
+    #soulmatesBanner {
+      background: #f5f3e6;
+      height: 280px;
+      position: relative;
+      padding-top: 20px;
+      p {
+        color: black;
+        font-weight: bold;
+        font-family: "Guardian Egyptian Web", "Egyptian Display", "Guardian Text Egyptian Web", "Egyptian Text", Georgia, serif;
+        font-size: 22px;
+        line-height: 1.2em;
+        margin: 0 20px 20px;
+      }
+      img {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      a {
+        background: #995490;
+        color: #fff;
+        display: block;
+        margin: 0 auto;
+        width: 140px;
+        height: 40px;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 8px 0 0 10px;
+        position: relative;
+        span {
+          position: absolute;
+          right: 7px;
+          top: 4px;
+          width: 31px;
+          height: 31px;
+        }
+      }
+    }
+
+  }
+  .really-serious-copyright {
+    font-size: 12px;
+    color: #dcdcdc;
+    font-family: 'Guardian Text Sans Web', 'Agate Sans', sans-serif;
+    margin: 0 10px 20px;
+    padding-top: 10px;
+  }
+  #footerContent {
+    padding-bottom: 1px;
+    .colophon {
+      column-count: 2;
+      padding: 0;
+      margin: 20px 10px 10px;
+      li {
+        padding: 0;
+        margin: 0;
+      }
+    }
+    a {
+      color: gainsboro;
+      text-decoration: none;
+      padding-bottom: 12px;
+      font-size: 14px;
+      line-height: 22px;
+      font-weight: 500;
+      display: inline-block;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  @media(min-width: 440px) {
+    iframe#form {
+      height: 50px;
+    }
+    .episodeBlock {
+      height: 180px;
+    }
+  }
+
+  @media(min-width: 480px) {
+    #navContainer {
+      padding: 0 20px;
+    }
+    #headerContainer img {
+      width: 100%;
+      margin-left: 0;
+    }
+    #headerContainer h2 {
+      font-size: 18px;
+//      margin-top: -20px;
+//      margin-bottom: 30px;
+    }
+    .contentBlock {
+      margin: 0 20px;
+    }
+    .sectionHeading {
+      margin: 40px 0 20px;
+      font-size: 20px;
+    }
+    #mainEpisodeContent p, #episodeTeaser p {
+      font-size: 16px;
+    }
+    #mainEpisodeContent {
+      padding-right: 20px;
+      padding-left: 20px;
+      margin-left: -20px;
+      margin-right: -20px;
+    }
+    #backgroundContainer {
+      margin: 0 -20px;
+    }
+    .startVideo {
+      width: 80px;
+      height: 80px;
+    }
+    #aboutDates {
+      p {
+        font-size: 16px;
+        max-width: 620px;
+      }
+      #participate {
+        font-size: 22px;
+      }
+    }
+    #mainEpisodeContent h3 {
+      font-size: 38px;
+    }
+    #episodeTeaser {
+      h3 {
+        font-size: 30px;
+      }
+      .sectionHeading {
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+    }
+
+    #signupBox #signupTitle {
+      font-size: 20px;
+    }
+    .episodeBlock {
+      height: 200px;
+      p {
+        font-size: 16px;
+      }
+    }
+    footer #soulmatesBanner {
+      height: 220px;
+      .advertContainer {
+        p {
+          padding-right: 180px;
+        }
+        a {
+          position: absolute;
+          right: 20px;
+          top: 20px;
+        }
+      }
+      #soulmatesIcon {
+        left: 30%;
+      }
+    }
+    #footerContent {
+      .colophon {
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+    }
+    footer #soulmatesBanner {
+      height: 180px;
+    }
+    .really-serious-copyright {
+      margin-right: 20px;
+      margin-left: 20px;
+    }
+  }
+
+  @media(min-width: 540px) {
+    .episodeBlock {
+      height: 220px;
+    }
+  }
+
+  @media(min-width: 660px) {
+    #mainEpisode {
+      max-width: none;
+    }
+    #backgroundContainer {
+      margin: 0;
+    }
+    #headerContainer h2 {
+      font-size: 20px;
+//      margin-top: -40px;
+//      margin-bottom: 30px;
+//      max-width: 63%;
+    }
+    .contentBlock {
+      max-width: 620px;
+      margin: 0 auto;
+    }
+    .sectionHeading {
+      max-width: 620px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+    .episodeBlock {
+      height: 240px;
+    }
+    #mainEpisodeContent {
+      max-width: 620px;
+      margin: -80px auto 40px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    #episodeTeaser {
+      max-width: 620px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top: 20px;
+      #nextWeekTeaser {
+        #nextWeekVideo {
+          width: 50%;
+          float: right;
+
+        }
+        h3 {
+          padding-right: 60%;
+        }
+        p {
+          margin-right: 55%;
+          margin-bottom: 10px;
+        }
+
+        &:after {
+          content: '';
+          clear: both;
+          display: block;
+        }
+      }
+      .sectionHeading {
+        display: none;
+      }
+    }
+    #teaserMobile {
+      display: block;
+    }
+    #signupBox {
+      overflow: hidden;
+      margin-top: 10px;
+      #signupDescription {
+        margin-top: 10px;
+      }
+      #signupTitle {
+        font-size: 24px
+      }
+    }
+    #signupInformation {
+      width: 50%;
+      float: left;
+      padding-right: 5%;
+    }
+    #signupForm {
+      margin-top: 10px;
+      width: 50%;
+      float: left;
+      input {
+        font-size: 18px;
+        padding: 5px 0;
+        border: none;
+        height: 36px;
+      }
+      input[type="submit"] {
+        background: #005689;
+        color: #fff;
+        padding: 5px;
+        width: 120px;
+      }
+    }
+
+  }
+
+  @media(min-width: 740px) {
+    .contentBlock {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .sectionHeading {
+      max-width: 700px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+    .sectionHeading {
+      font-size: 22px;
+    }
+    #content,
+    #navContainer,
+    #footerContent {
+      max-width: 740px;
+      margin: 0 auto;
+    }
+    #episodeTeaser {
+      max-width: 700px;
+    }
+    #mainEpisodeContent {
+      max-width: 700px;
+      h3 {
+        font-size: 48px;
+      }
+    }
+    #mainEpisode {
+      &.videoPlaying {
+        #backgroundLayer {
+          display: none;
+        }
+      }
+    }
+    #mainEpisodeVideo {
+      &:hover {
+        #backgroundLayer {
+          background: rgba(0, 0, 0, 0.45)
+        }
+      }
+
+    }
+    #backgroundContainer {
+      font-size: 0;
+      button {
+        display: none;
+      }
+    }
+    #backgroundLayer {
+      position: absolute;
+      display: block;
+      z-index: 5;
+      height: 100%;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      button {
+        display: inline-block;
+      }
+    }
+    #infoContainer {
+      position: relative;
+      height: 100%;
+      width: 100%;
+    }
+    .layerInfo {
+      position: absolute;
+      top: 0;
+      margin: 0 40px;
+      display: table;
+      height: 100%;
+    }
+    .layerRow {
+      display: table-row;
+      &#buttonContainer {
+        height: 100%;
+        position: relative;
+      }
+    }
+    .layerColumn {
+      text-align: center;
+      vertical-align: middle;
+      display: table-cell;
+      font-size: 0;
+      padding-bottom: 80px;
+    }
+    #episodeQuote {
+      font-size: 48px;
+      line-height: 1.2em;
+      font-weight: 100;
+      margin: 40px 0 0;
+    }
+
+    #mainEpisode {
+      margin-bottom: 60px;
+    }
+    #signupBox {
+      clear: both;
+      margin-top: 10px;
+    }
+    #footerContent {
+      .colophon {
+        column-count: 3;
+      }
+    }
+    footer #soulmatesBanner {
+      height: 135px;
+      padding: 20px 0;
+      .advertContainer {
+        max-width: 700px;
+        margin: 0 auto;
+        &:after {
+          clear: both;
+          content: '';
+          display: block;
+        }
+        p {
+          position: relative;
+          width: 36%;
+          padding-right: 0;
+          float: left;
+          margin: 0 30px 0 0;
+        }
+        a {
+          position: relative;
+          float: right;
+          left: auto;
+          top: auto;
+          right: auto;
+          margin-top: 20px;
+        }
+
+      }
+      #soulmatesIcon {
+        position: relative;
+        width: 240px;
+        float: left;
+        left: auto;
+        right: auto;
+        transform: none;
+        margin-top: 20px;
+      }
+    }
+
+  }
+
+  @media(min-width: 980px) {
+    #headerContainer {
+      margin: 0 -20px 20px;
+    }
+    #content,
+    #navContainer {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 20px 80px;
+    }
+    #headerContainer h2 {
+      font-size: 24px;
+//      margin-top: -30px;
+//      margin-bottom: 40px;
+//      margin-left: 180px;
+//      max-width: 320px;
+      line-height: 1.2em;
+      opacity: 0.8;
+    }
+    #headerContainer button {
+
+    }
+    #footerContent {
+      max-width: 980px;
+    }
+    .contentBlock {
+      max-width: none;
+      margin: 0 auto;
+    }
+    .sectionHeading {
+      max-width: none;
+      margin-right: auto;
+      margin-left: auto;
+    }
+    #episodeTeaser {
+      max-width: none;
+    }
+    #signupForm {
+      margin-top: 5px;
+    }
+
+    .episodeBlock {
+      width: 23.5%;
+      margin-right: 2%;
+      padding: 0;
+      height: 200px;
+      &:nth-of-type(4n) {
+        margin-right: 0;
+      }
+      &:nth-of-type(2n) {
+        padding: 0;
+      }
+
+    }
+
+    #episodeQuote {
+      font-size: 54px;
+      margin-top: 20px;
+    }
+    .layerInfo {
+      left: 130px;
+      max-width: 490px;
+      margin: 0;
+      bottom: 140px;
+    }
+    .layerColumn {
+      padding-bottom: 120px;
+    }
+
+    #mainEpisodeContent {
+      margin-top: -120px;
+      padding: 20px 20px;
+      max-width: 530px;
+      margin-left: 110px;
+      margin-bottom: 80px;
+    }
+
+    #headerContainer {
+      img {
+        //	    		margin:-60px 0 -40px;
+      }
+      #headerImage:after {
+        height: 30%;
+      }
+    }
+    footer #soulmatesBanner {
+      height: 115px;
+      padding: 30px 0;
+      .advertContainer {
+        max-width: 940px;
+        p {
+          width: 40%;
+          margin-right: 80px;
+        }
+        a {
+          margin-top: 0;
+        }
+
+      }
+      #soulmatesIcon {
+        margin-top: -10px;
+      }
+    }
+
+  }
+  @media(min-width: 1140px) {
+    .sectionHeading {
+      width: 140px;
+      border-top: none;
+      position: absolute;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    .layerInfo {
+      left: 160px;
+    }
+    #episodeQuote {
+      margin-top: 40px;
+    }
+    #episodeTeaser {
+      margin: 0 -20px;
+      padding-top: 12px;
+      .sectionHeading {
+        padding: 0;
+        line-height: 1.2;
+        display: block;
+        margin: 0;
+      }
+    }
+    #teaserMobile {
+      display: none;
+    }
+    #allEpisodes {
+      margin-top: 40px;
+      border-top: 1px solid #767676;
+
+    }
+    #allEpisodesContainer {
+      margin-left: 160px;
+      margin-top: 5px;
+    }
+    #content,
+    #navContainer,
+    #footerContent {
+      max-width: 1140px;
+    }
+    #teaserContainer {
+      margin-left: 160px;
+    }
+    .episodeBlock {
+      p {
+        font-size: 18px;
+        span {
+          font-size: 14px;
+        }
+      }
+
+    }
+    #aboutDates {
+      margin-top: 40px;
+      border-top: 1px solid #767676;
+      padding-top: 0;
+      #participate {
+        font-size: 22px;
+      }
+      p {
+        max-width: 75%;
+      }
+    }
+    #aboutDatesContainer {
+      margin-left: 160px;
+      margin-top: 10px;
+    }
+
+    #mainEpisodeContent {
+      margin-left: 140px;
+    }
+
+    #headerContainer {
+//      h2 {
+//        margin-top: -50px;
+//        margin-left: 210px;
+//      }
+    }
+    footer #soulmatesBanner {
+      height: 135px;
+      #soulmatesIcon {
+        margin-top: 10px;
+      }
+      .advertContainer {
+        padding-left: 120px;
+        max-width: 1020px;
+      }
+    }
+  }
+
+  @media(min-width: 1300px) {
+    .sectionHeading {
+      width: 220px;
+    }
+    #allEpisodesContainer, #teaserContainer, #aboutDatesContainer {
+      margin-left: 240px;
+    }
+    #mainEpisodeContent {
+      margin-left: 220px;
+    }
+    .layerInfo {
+      position: absolute;
+      left: 240px;
+      max-width: 490px;
+    }
+    #episodeQuote {
+      margin-top: 60px;
+    }
+    #content,
+    #navContainer,
+    #footerContent {
+      margin: 0 auto;
+      max-width: 1300px;
+    }
+
+    #mainEpisode {
+      margin-bottom: 80px;
+    }
+    .startVideo {
+      width: 96px;
+      height: 96px;
+    }
+    #footerContent {
+      .colophon {
+        column-count: 4;
+      }
+    }
+    #headerContainer h2 {
+//      margin-left: 260px;
+    }
+    footer #soulmatesBanner .advertContainer {
+      max-width: 1260px;
+      padding-left: 240px;
+    }
+  }
+
+}
+
+// SHARE BUTTONS
+
+#shareButtons {
+  font-family: 'Guardian Text Sans Web', 'Agate Sans', sans-serif;
+  font-size: 14px;
+  color: #767676;
+  margin-top: 0;
+  p {
+    margin: 0 0 5px;
+  }
+  button {
+    background: #333;
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 9000px;
+    display: inline-block;
+    vertical-align: top;
+    color: #fff;
+    margin-bottom: 5px;
+    cursor: pointer;
+    outline: none;
+    &#shareTwitter {
+      background: #03b3ee url(../imgs/twitterIcon.svg) no-repeat center center;
+      &:hover {
+        background-color: darken(#03b3ee, 10%);
+      }
+    }
+    &#shareFacebook {
+      background: #3067a3 url(../imgs/facebookIcon.svg) no-repeat center center;
+      &:hover {
+        background-color: darken(#3067a3, 10%);
+      }
+    }
+    &#sharePinterest {
+      background: #b9252c url(../imgs/pinterestIcon.svg) no-repeat center center;
+      &:hover {
+        background-color: darken(#b9252c, 10%);
+      }
+    }
+    &#shareTumblr {
+      background: #36465d url(../imgs/tumblrIcon2.svg) no-repeat center center;
+      background-size: 11px;
+      &:hover {
+        background-color: darken(#36465d, 10%);
+      }
+    }
+
+  }
+}

@@ -1,0 +1,36 @@
+{{#mainEpisode}}
+    <div id="mainEpisode" class="contentBlock">
+        <div id="mainEpisodeVideo">
+            <div id="backgroundLayer">
+                <div id="infoContainer">
+                    <div class="layerInfo">
+                        <div class="layerRow">
+                            <p id="episodeQuote">‘{{quote}}’</p>
+                        </div>
+                        <div class="layerRow" id="buttonContainer">
+                            <div class="layerColumn">
+                                <button data-date="{{id}}" class="startVideo"><span></span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="backgroundContainer">
+                <img id="backgroundImage" src="{{assets}}/imgs/videos/{{id}}_1260.jpg" />
+                <div id="videoContainer">
+                    
+                </div>
+                <button data-date="{{coupleid}}" class="startVideo"><span></span></button>
+            </div>
+        </div>
+        <div id="mainEpisodeContent">
+            <h3>{{couple}}</h3>
+            <date>{{date}}</date>
+            <p id="episodeDescription">{{{description}}}</p>
+             <div id="shareButtons">
+                <button data-source="twitter" id="shareTwitter" data-video-id="{{id}}"></button>
+                <button data-source="facebook" id="shareFacebook" data-video-id="{{id}}"></button>
+            </div>
+        </div>
+    </div>
+{{/mainEpisode}}

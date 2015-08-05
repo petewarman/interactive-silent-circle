@@ -1,0 +1,37 @@
+{
+  "name": "Interactive-template",
+  "version": "0.0.1",
+  "description": "Base template for interactives",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/guardian/interactive-template.git"
+  },
+  "author": "Guardian Interactive",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/guardian/interactive-template/issues"
+  },
+  "homepage": "https://github.com/guardian/interactive-template",
+  "config": {
+    "port": 9000,
+    "s3_folder": "visuals-blank-page/watch-me-date/",
+    "cdn_url": "http://interactive.guim.co.uk/visuals-blank-page/watch-me-date/",
+    "data_url": "http://interactive.guim.co.uk/spreadsheetdata/1hy65wVx-pjwjSt2ZK7y4pRDlX9wMXFQbwKN0v3XgtXM.json"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-autoprefixer": "^0.7.6",
+    "grunt-aws": "^0.3.0",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-connect": "~0.8.0",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-cssmin": "^0.10.0",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-rename": "0.0.3",
+    "grunt-contrib-requirejs": "~0.4.4",
+    "grunt-contrib-sass": "^0.8.1",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-curl": "^2.0.3",
+    "grunt-replace": "^0.7.8"
+  }
+}

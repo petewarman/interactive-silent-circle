@@ -1,0 +1,2236 @@
+/**
+ * Project: Project name 
+ * File:    Main SCSS
+ */
+/**
+ * Default colour palette
+ *
+ * @type Map
+ *
+ * @group colours
+ */
+/**
+ * Base URL
+ * URL can be an absolute HTTP (`//pasteup.guim.co.uk/fonts/`) or relative (`../`)
+ *
+ * @type String
+ *
+ * @group webfonts
+ */
+/**
+ * Version of the fonts to use
+ *
+ * @type String
+ *
+ * @group webfonts
+ */
+/**
+ * Hinting
+ *
+ * - on: larger file, better rendering in Windows
+ * - off: smaller files, render well on HiDPI displays
+ *
+ *  @type String
+ *
+ * @group webfonts
+ */
+/**
+ * Kerning
+ *
+ * - on: larger file, better rendering
+ * - off: smaller files
+ *
+ *  @type String
+ *
+ * @group webfonts
+ */
+/**
+ * Charset
+ *
+ * - ascii: 256 characters only, very small
+ * - latin1: latin 1 character set
+ * - original: full character set
+ *
+ * @type String
+ *
+ * @group webfonts
+ */
+/**
+ * Complete path
+ *
+ * @requires {variable} guss-webfonts-charset
+ * @requires {variable} guss-webfonts-hinting
+ * @requires {variable} guss-webfonts-kerning
+ *
+ * @type String
+ *
+ * @group webfonts
+ */
+/**
+ * Human-readable Font-weights
+ *
+ * @type Map
+ *
+ * @group webfonts
+ */
+/* Extra fonts
+   ========================================================================== */
+/**
+ * Extra fonts directory
+ *
+ * @type String
+ *
+ * @group webfonts
+ */
+/**
+ * Extra fonts list
+ *
+ * @type List
+ *
+ * @group webfonts
+ */
+/* Font registry
+   ========================================================================== */
+/**
+ * Font registry
+ *
+ * @type Map
+ *
+ * @group webfonts
+ */
+/**
+ * Machine-readable CSS font-weight.
+ *
+ * @param {String} $keyword - Human-readable keyword in $guss-font-weights
+ *
+ * @requires {variable} guss-font-weights
+ *
+ * @example scss
+ * font-weight: guss-font-weight(light);
+ *
+ * @return {Number} - CSS font-weight
+ *
+ * @group webfonts
+ */
+/**
+ * Is this font stored in `$guss-extras-directory`?
+ *
+ * @param {String} $font-family - Font to look for
+ *
+ * @requires {variable} guss-webfonts-extras
+ *
+ * @return {Bool}
+ *
+ * @group webfonts
+ */
+/**
+ * Replace `$search` by `$replace` in `$string`.
+ *
+ * @author Hugo Giraudel
+ *
+ * @param {String} $string - string to update
+ * @param {String} $search - value to replace
+ * @param {String} $replace ('') - new value
+ *
+ * @return {String}
+ *
+ * @group webfonts
+ */
+/**
+ * Remove white space in $string
+ *
+ * @requires {function} str-replace
+ *
+ * @param {String} $string - string to update
+ *
+ * @return {String}
+ *
+ * @group webfonts
+ */
+/**
+ * Capitalise first letter of $string
+ *
+ * @param {String} $string - string to update
+ *
+ * @return {String}
+ *
+ * @group webfonts
+ */
+/**
+ * Compose webfont filename
+ *
+ * @param {String} $font-family - font family
+ * @param {String} $weight - weight, member of $guss-font-weights
+ * @param {String} $style - normal | italic
+ *
+ * @requires {function} str-capitalise
+ * @requires {function} str-remove-white-space
+ *
+ * @return {String}
+ *
+ * @group webfonts
+ */
+/**
+ * Compose webfont path
+ * "My Font" is in the MyFont/ directory
+ * "Extra" fonts are stored in `$guss-extras-directory`.
+ *
+ * @param {String} $font-family - font name
+ *
+ * @requires {variable} guss-extras-directory
+ * @requires {variable} guss-webfonts-path
+ * @requires {function} str-remove-white-space
+ *
+ * @return {String} - Path to the font
+ *
+ * @group webfonts
+ */
+/**
+ * Look for `$needle` in `$haystack`.
+ *
+ * @param {List}   $haystack - List to search in
+ * @param {String} $needle - The string to look for
+ *
+ * @return {Bool}
+ *
+ * @group webfonts
+ */
+/**
+ * Output a @font-face declaration at root level.
+ *
+ * @param {String} $family - List to search in
+ * @param {String} $file - The filename
+ * @param {String} $base-path - Directory where the font is stored
+ * @param {Number} $weight (400) - CSS font-weight
+ * @param {String} $style (normal) - CSS font-style
+ * @param {String} $url ($guss-webfonts-base-url) - URL
+ *
+ * @requires {variable} guss-webfonts-base-url
+ *
+ * @group webfonts
+ */
+/**
+ * Output the @font-face declaration for a Guss webfont.
+ *
+ * @param {Number} $font-family - ID of the font in $guss-webfonts
+ * @param {Map} $properties - weight (member of `$guss-font-weights`), style (`normal` | `italic`)
+ * @param {Map} $overrides - weight (member of `$guss-font-weights`), style (`normal` | `italic`)
+ *
+ * @requires {variable} guss-webfonts
+ * @requires {function} compose-webfont-filename
+ * @requires {function} compose-webfont-path
+ * @requires {function} guss-font-weight
+ * @requires {mixin} guss-at-font-face
+ *
+ * @group webfonts
+ */
+/**
+ * Output the @font-face declaration for Guss webfonts.
+ *
+ * @param {String|List|Map} $fonts ($guss-webfonts) - Fonts to output
+ * @param {Map} $registry ($guss-webfonts) - Font registry
+ *
+ * @requires {variable} guss-webfonts
+ * @requires {mixin} guss-webfonts-single-declaration
+ * @requires {mixin} guss-webfonts
+ *
+ * @group webfonts
+ */
+/**
+ * Data font stack
+ *
+ * @group typography
+ */
+/**
+ * Serif font stack
+ *
+ * @group typography
+ */
+/**
+ * Headline font stack
+ *
+ * @group typography
+ */
+/**
+ * Sans serif text font stack
+ *
+ * @group typography
+ */
+/**
+ * Sans serif headline font stack
+ *
+ * @group typography
+ */
+/**
+ * Default font scale settings
+ * See font-scale.html and font-scale.png for visual representations
+ *
+ * @group typography
+ */
+/**
+ * Grab all levels of a font the font-scale
+ *
+ * @param {String} $name - Name of the font-scale matrix (eg: headline)
+ * @param {Map} $font-scale ($font-scale)
+ *
+ * @example
+ *  font-size: get-scale(header);
+ *
+ * @requires {variable} $font-scale
+ *
+ * @return {Map}
+ *
+ * @group typography
+ */
+/**
+ * Grab info for a particular level of a font-scale
+ *
+ * @param {String} $name - Name of the font-scale in the matrix (eg: headline)
+ * @param {Number} $level - Level in the matrix
+ * @param {Map} $font-scale ($font-scale)
+ *
+ * @example
+ *  font-size: get-scale-level(header, 1);
+ *
+ * @requires {variable} $font-scale
+ * @requires {function} get-scale
+ *
+ * @return {Map}
+ *
+ * @group typography
+ */
+/**
+ * Get a font-size for a level in the font-scale matrix
+ *
+ * @param {String} $name - Name of the font-scale in the matrix (eg: headline)
+ * @param {Number} $level - Level in the matrix
+ * @param {Map} $font-scale - Configuration
+ *
+ * @example
+ *  font-size: get-font-size(header, 3);
+ *
+ * @requires {variable} $font-scale
+ * @requires {function} convert-to-px
+ * @requires {function} get-scale-level
+ *
+ * @return {Number}
+ *
+ * @group typography
+ */
+/**
+ * Get a line-height for a level in the font-scale matrix
+ *
+ * @param {String} $name - Name of the font-scale in the matrix (eg: headline)
+ * @param {Number} $level - Level in the matrix
+ * @param {Map} $font-scale - Configuration
+ *
+ * @example
+ *  font-size: get-line-height(header, 3);
+ *
+ * @requires {variable} $font-scale
+ * @requires {function} convert-to-px
+ * @requires {function} get-scale-level
+ *
+ * @return {Number}
+ *
+ * @group typography
+ */
+/**
+ * Turn any value into pixels
+ *
+ * @param {Number} $value
+ *
+ * @example
+ *  font-size: convert-to-px(14); // 14px
+ *
+ * @return {Number}
+ *
+ * @group typography
+ */
+/**
+ * Default typography settings, to be included as soon as possible in the HTML
+ * 1. Make type rendering look crisper
+ * 2. Set relative line spacing to 1.5 (16px * 1.5 = 24px)
+ *
+ * @param {String} $font-family ($f-serif-text) - Default global font
+ *
+ * @requires {variable} $f-serif-text
+ *
+ * @group typography
+ */
+/**
+ * Font-size and line-height shorthand
+ *
+ * @param {Number} $size
+ * @param {Number} $line-height ($size)
+ *
+ * @example
+ *  @include font-size(18, 24);
+ *
+ * @requires {function} convert-to-px
+ *
+ * @group typography
+ */
+/**
+ * Font styling shorthand  
+ * Note: prefer the usage of the font-scale mixins to stick to the font scale
+ *
+ * @param {String} $family
+ * @param {String} $weight
+ * @param {Number} $size
+ * @param {Number} $line-height ($size)
+ *
+ * @example
+ *  @include font(arial, bold, 18, 24);
+ *
+ * @requires {mixin} font-size
+ *
+ * @group typography
+ */
+/**
+ * Header family and weight properties.
+ *
+ * @requires {variable} $f-serif-headline
+ *
+ * @group typography
+ */
+/**
+ * Header typography settings.
+ *
+ * @param {Number} $level
+ * @param {Boolean} $size-only
+ *
+ * @example
+ *  // Output all properties (font-size, line-height, family, weight)
+ *  @include fs-header(3);
+ *  
+ *  // Output font-size and line-height only
+ *  @include fs-header(3, $size-only: true);
+ *
+ * @requires {function} get-font-size
+ * @requires {function} get-line-height
+ * @requires {mixin} font-size
+ * @requires {mixin} f-header
+ *
+ * @group typography
+ */
+/**
+ * Healdine family and weight properties.
+ *
+ * @requires {variable} $f-serif-headline
+ *
+ * @group typography
+ */
+/**
+ * Headline typography settings.
+ *
+ * @param {Number} $level
+ * @param {Boolean} $size-only
+ *
+ * @example
+ *  // Output all properties (font-size, line-height, family, weight)
+ *  @include fs-headline(3);
+ *  
+ *  // Output font-size and line-height only
+ *  @include fs-headline(3, $size-only: true);
+ *
+ * @requires {function} get-font-size
+ * @requires {function} get-line-height
+ * @requires {mixin} font-size
+ * @requires {mixin} f-headline
+ *
+ * @group typography
+ */
+/**
+ * Body Heading family and weight properties.
+ *
+ * @requires {variable} $f-serif-text
+ *
+ * @group typography
+ */
+/**
+ * Body Heading typography settings.
+ *
+ * @param {Number} $level
+ * @param {Boolean} $size-only
+ *
+ * @example
+ *  // Output all properties (font-size, line-height, family, weight)
+ *  @include fs-bodyHeading(3);
+ *  
+ *  // Output font-size and line-height only
+ *  @include fs-bodyHeading(3, $size-only: true);
+ *
+ * @requires {function} get-font-size
+ * @requires {function} get-line-height
+ * @requires {mixin} font-size
+ * @requires {mixin} f-bodyHeading
+ *
+ * @group typography
+ */
+/**
+ * Body Copy family property.
+ *
+ * @requires {variable} $f-serif-text
+ *
+ * @group typography
+ */
+/**
+ * Body Copy typography settings.
+ *
+ * @param {Number} $level
+ * @param {Boolean} $size-only
+ *
+ * @example
+ *  // Output all properties (font-size, line-height, family)
+ *  @include fs-bodyCopy(3);
+ *  
+ *  // Output font-size and line-height only
+ *  @include fs-bodyCopy(3, $size-only: true);
+ *
+ * @requires {function} get-font-size
+ * @requires {function} get-line-height
+ * @requires {mixin} font-size
+ * @requires {mixin} f-bodyCopy
+ *
+ * @group typography
+ */
+/**
+ * Data family property.
+ *
+ * @requires {variable} $f-data
+ *
+ * @group typography
+ */
+/**
+ * Data typography settings.
+ *
+ * @param {Number} $level
+ * @param {Boolean} $size-only
+ *
+ * @example
+ *  // Output all properties (font-size, line-height, family)
+ *  @include fs-data(3);
+ *  
+ *  // Output font-size and line-height only
+ *  @include fs-data(3, $size-only: true);
+ *
+ * @requires {function} get-font-size
+ * @requires {function} get-line-height
+ * @requires {mixin} font-size
+ * @requires {mixin} f-data
+ *
+ * @group typography
+ */
+/**
+ * Text Sans family property.
+ *
+ * @requires {variable} $f-sans-serif-text
+ *
+ * @group typography
+ */
+/**
+ * Text Sans typography settings.
+ *
+ * @param {Number} $level
+ * @param {Boolean} $size-only
+ *
+ * @example
+ *  // Output all properties (font-size, line-height, family)
+ *  @include fs-textSans(3);
+ *  
+ *  // Output font-size and line-height only
+ *  @include fs-textSans(3, $size-only: true);
+ *
+ * @requires {function} get-font-size
+ * @requires {function} get-line-height
+ * @requires {mixin} font-size
+ * @requires {mixin} f-textSans
+ *
+ * @group typography
+ */
+/**
+ * Headline Sans family property.  
+ * Is not currently integrated into our font scale matrix,
+ * hence no `fs-` mixin; currently we're just using it as a
+ * replacement font in a few places.
+ *
+ * @requires {variable} $f-sans-serif-headline
+ *
+ * @group typography
+ */
+/* -------------------------------------------------------------
+  Sass CSS3 Mixins! The Cross-Browser CSS3 Sass Library
+  By: Matthieu Aussaguel, http://www.mynameismatthieu.com, @matthieu_tweets
+  List of CSS3 Sass Mixins File to be @imported and @included as you need
+  The purpose of this library is to facilitate the use of CSS3 on different browsers avoiding HARD TO READ and NEVER
+  ENDING css files
+  note: All CSS3 Properties are being supported by Safari 5
+  more info: http://www.findmebyip.com/litmus/#css3-properties
+  Mixins available:
+    -   css3-prefix             - arguments: Property, Value
+    -   background-gradient     - arguments: Start Color: #3C3C3C, End Color: #999999
+    -   background-horizontal   - arguments: Start Color: #3C3C3C, End Color: #999999
+    -   background-radial       - arguments: Start Color: #FFFFFF, Start position: 0%, End Color: #000000, End position: 100%
+    -   background-size         - arguments: Width: 100%, Height: 100%
+    -   background-opacity      - arguments: Color: #000, Opacity: .85
+    -   border-radius           - arguments: Radius: 5px
+    -   border-radius-separate  - arguments: Top Left: 5px, Top Right: 5px, Bottom Left: 5px, Bottom Right: 5px
+    -   box                     - arguments: Orientation: horizontal, Pack: center, Align: center
+    -   box-rgba                - arguments: R: 60, G: 3, B: 12, Opacity: 0.23, Color: #3C3C3C
+    -   box-shadow              - arguments: X: 2px, Y: 2px, Blur: 5px, Color: rgba(0,0,0,.4)
+    -   box-sizing              - arguments: Type: border-box
+    -   columns                 - arguments: Count: 3, Gap: 10
+    -   double-borders          - arguments: Color One: #3C3C3C, Color Two: #999999, Radius: 0
+    -   flex                    - arguments: Value: 1
+    -   flip                    - arguments: ScaleX: -1
+    -   font-face               - arguments: Font Family: myFont, Eot File Src: myFont.eot, Woff File Src: myFont.woff, Ttf File Src: myFont.ttf
+    -   opacity                 - arguments: Opacity: 0.5
+    -   outline radius          - arguments: Radius: 5px
+    -   resize                  - arguments: Direction: both
+    -   rotate                  - arguments: Degree: 0, M11: 0, M12: 0, M21: 0, M22: 0
+    CSS Matrix Rotation Calculator http://www.boogdesign.com/examples/transforms/matrix-calculator.html
+    -   text-shadow             - arguments: X: 2px, Y: 2px, Blur: 5px, Color: rgba(0,0,0,.4)
+    -   transform               - arguments: Parameters: null
+    -   transform-style         - arguments: Style: preserve-3d
+    -   transition              - Default arguments: What: all, Length: 1s, Easing: ease-in-out
+    -                            - Examples: @include transition (all 2s ease-in-out);
+    -                                        @include transition (opacity 1s ease-in 2s, width 2s ease-out);
+    -   triple-borders          - arguments: Color One: #3C3C3C, Color Two: #999999, Color Three: #000000, Radius: 0
+    -   keyframes               - arguments: Animation name
+                                - content:   Animation css
+    -   animation               - arguments: name duration timing-function delay iteration-count direction fill-mode play-state
+                                             (http://www.w3schools.com/cssref/css3_pr_animation.asp)
+------------------------------------------------------------- */
+/*------------------------------------*\
+    $YOUTUBE CUSTOM SKIN
+\*------------------------------------*/
+/** create a div that keep video ratio */
+.yt-player-wrapper {
+  height: auto;
+  padding-top: 56px;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.yt-player {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.yt-player.yt-fullscreen {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 999;
+}
+
+.yt-loading-wrapper,
+.yt-skin-wrapper,
+.yt-big-play-btn,
+.yt-video-wrapper {
+  position: absolute;
+  left: 0;
+  width: 100%;
+}
+
+.yt-skin-wrapper,
+.yt-big-play-btn {
+  display: none;
+}
+
+.yt-ready .yt-skin-wrapper,
+.yt-ready .yt-big-play-btn {
+  display: block;
+}
+.yt-ready .yt-loading-wrapper {
+  display: none;
+}
+
+.yt-loading-wrapper {
+  top: 0;
+  height: 100%;
+  z-index: 5;
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.yt-skin-wrapper {
+  height: 100%;
+  text-align: center;
+  z-index: 4;
+  opacity: 1;
+  overflow: hidden;
+}
+
+.yt-big-play-btn {
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 5;
+}
+.yt-big-play-btn.active {
+  display: none;
+}
+
+.yt-video-wrapper {
+  top: 0;
+  height: 100%;
+  z-index: 1;
+}
+
+.yt-loading {
+  color: #fff;
+  font-size: 12px;
+  display: inline-block;
+  height: 50px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: -25px;
+  width: 100%;
+  text-align: center;
+}
+
+.yt-controls-wrapper {
+  position: absolute;
+  bottom: 0;
+  z-index: 10;
+  width: 100%;
+  height: 48px;
+  background: rgba(0, 0, 0, 0.8);
+  -khtml-transition: all 0.4s;
+  transition: all 0.4s;
+  -webkit-transform: translateY(0);
+  -khtml-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+  opacity: 1;
+}
+.yt-no-controls .yt-controls-wrapper {
+  -webkit-transform: translateY(100%);
+  -khtml-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+.yt-btn, .yt-play-btn,
+.yt-mute-btn,
+.yt-embed-btn,
+.yt-volume-wrapper,
+.yt-fullscreen-btn {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -khtml-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.yt-play-btn {
+  left: 10px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+}
+.yt-play-btn .svg {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.yt-play-btn .svg .yt-play {
+  display: block;
+}
+.yt-play-btn .svg .yt-pause {
+  display: none;
+}
+.yt-play-btn.active .svg .yt-play {
+  display: none;
+}
+.yt-play-btn.active .svg .yt-pause {
+  display: block;
+}
+
+.yt-timeline {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  right: 0;
+  height: 6px;
+  top: -6px;
+  background: #313131;
+}
+
+.yt-seek {
+  position: absolute;
+  z-index: 10;
+  height: 6px;
+  background: #ff827f;
+}
+
+.yt-buffer {
+  position: absolute;
+  z-index: 9;
+  height: 6px;
+  background: #999999;
+}
+
+.yt-fullscreen-btn {
+  width: 20px;
+  right: 20px;
+}
+.yt-fullscreen-btn.active .svg .shape, .yt-fullscreen-btn:hover .svg .shape {
+  fill: #ff827f;
+}
+.yt-ipad .yt-fullscreen-btn {
+  right: 10px;
+}
+
+.yt-time {
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 60px;
+  height: 48px;
+  line-height: 48px;
+  width: 100px;
+  font-size: 12px;
+  -webkit-transform: translateY(-50%);
+  -khtml-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.yt-embed-message {
+  position: absolute;
+  z-index: 6;
+  background-color: rgba(25, 25, 25, 0.8);
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+.yt-embed-message .yt-embed-code-wrapper {
+  position: absolute;
+  top: 40%;
+  -webkit-transform: translateY(-50%);
+  -khtml-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 100%;
+}
+.yt-embed-message .yt-embed-code-wrapper .yt-embed-title {
+  font-size: 15px;
+  line-height: 60px;
+}
+.yt-embed-message .yt-embed-code-wrapper .yt-embed-code {
+  white-space: nowrap;
+  background-color: #FFF;
+  width: 90%;
+  font-size: 13px;
+  color: #333;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.yt-embed-btn {
+  right: 230px;
+  width: 80px;
+  height: 14px;
+  text-align: left;
+  padding: 4px;
+}
+.yt-embed-btn.active span, .yt-embed-btn:hover span {
+  color: #ff827f;
+}
+.yt-embed-btn.active .svg .shape, .yt-embed-btn:hover .svg .shape {
+  fill: #ff827f;
+}
+.yt-embed-btn span,
+.yt-embed-btn .svg {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -khtml-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.yt-embed-btn .svg {
+  margin-right: 10px;
+  height: 14px;
+}
+.yt-embed-btn span {
+  left: 35px;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.yt-volume-wrapper {
+  width: 150px;
+  height: 25px;
+  right: 60px;
+}
+.yt-volume-wrapper .yt-mute-btn {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+}
+.yt-volume-wrapper .yt-mute-btn .svg {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -khtml-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.yt-volume-wrapper .yt-mute-btn .svg .shape {
+  display: none;
+  fill: #FFFFFF;
+}
+.yt-volume-wrapper .yt-mute-btn .svg .shape.off {
+  display: block;
+}
+.yt-volume-wrapper .yt-mute-btn.active .svg .shape {
+  display: block;
+}
+.yt-volume-wrapper .yt-mute-btn.active .svg .shape.off {
+  display: none;
+}
+.yt-volume-wrapper .yt-mute-btn:hover .svg .shape {
+  fill: #ff827f;
+}
+.yt-volume-wrapper .yt-volume {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -khtml-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  height: 2px;
+  background-color: #FFF;
+  width: 100px;
+  left: 35px;
+}
+.yt-volume-wrapper .yt-volume .yt-volume-level {
+  position: absolute;
+  z-index: 5;
+  height: 2px;
+  background-color: #ff827f;
+  width: 90%;
+}
+
+body {
+  margin: 0;
+}
+
+.element-interactive.interactive {
+  margin: 0;
+  padding: 0;
+}
+
+.guInteractive {
+  background: #555;
+  color: #fff;
+}
+.guInteractive iframe {
+  border: none;
+}
+.guInteractive #backtohome {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  vertical-align: top;
+}
+.guInteractive #backtohome span {
+  display: inline-block;
+  padding-top: 13px;
+}
+.guInteractive iframe#form {
+  overflow: hidden;
+}
+.guInteractive a, .guInteractive p a, .guInteractive li a {
+  background: none;
+  text-shadow: none;
+}
+.guInteractive * {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.guInteractive h1, .guInteractive h2, .guInteractive h3, .guInteractive h4, .guInteractive h5 {
+  font-family: "Guardian Egyptian Web", "Egyptian Display", "Guardian Text Egyptian Web", "Egyptian Text", Georgia, serif;
+}
+.guInteractive .sectionHeading {
+  margin: 40px 0 20px;
+  border-top: 1px solid #767676;
+  line-height: 1.2;
+  padding: 4px 0;
+  font-size: 18px;
+}
+.guInteractive #guardianNav {
+  height: 48px;
+  background: #296d96;
+  width: 100%;
+}
+.guInteractive .contentBlock {
+  margin: 0 10px;
+  max-width: 1300px;
+}
+.guInteractive #navContainer {
+  background: #005689;
+  height: 100%;
+  padding: 1px 10px 0;
+}
+.guInteractive #navContainer:after {
+  clear: both;
+  content: '';
+  display: block;
+}
+.guInteractive #guardianLogo {
+  width: 170px;
+  float: right;
+  margin-top: 10px;
+  display: inline-block;
+}
+.guInteractive #homeLogo {
+  width: 15px;
+  height: 18px;
+  margin-top: 14px;
+  display: inline-block;
+  margin-right: 7px;
+  vertical-align: top;
+}
+.guInteractive #headerContainer {
+  position: relative;
+  margin-bottom: 20px;
+}
+.guInteractive #headerContainer h2 {
+  color: #ff827f;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.25;
+  z-index: 6;
+  position: relative;
+  opacity: 0.8;
+  text-align: center;
+}
+.guInteractive #headerContainer img {
+  width: 120%;
+  margin-left: -10%;
+  z-index: 4;
+  position: relative;
+}
+.guInteractive #headerContainer #headerImage {
+  font-size: 0;
+  position: relative;
+  width: 100%;
+}
+.guInteractive #content {
+  background: #030303;
+  height: auto;
+  padding: 1px 0 80px;
+  margin: 0;
+}
+.guInteractive #mainEpisode {
+  position: relative;
+}
+.guInteractive #mainEpisode.videoPlaying #mainEpisodeContent {
+  margin-top: 0;
+}
+.guInteractive #mainEpisode.videoPlaying .startVideo {
+  display: none;
+}
+.guInteractive #mainEpisode.videoPlaying #videoContainer {
+  display: block;
+}
+.guInteractive #mainEpisode #videoContainer {
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  position: relative;
+  display: none;
+}
+.guInteractive #mainEpisode #videoContainer iframe {
+  position: absolute;
+}
+.guInteractive #mainEpisodeVideo {
+  position: relative;
+  cursor: pointer;
+}
+.guInteractive #mainEpisodeVideo:hover .startVideo {
+  background: #ff827f;
+}
+.guInteractive .startVideo {
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 140px;
+  background: rgba(0, 0, 0, 0.6);
+  outline: none;
+  cursor: pointer;
+  transition: 0.5s background;
+  font-size: 0;
+  position: relative;
+}
+.guInteractive .startVideo span {
+  position: relative;
+  content: '';
+  position: absolute;
+  display: block;
+  width: 26px;
+  height: 22px;
+  background-image: url(../imgs/playArrow.svg);
+  top: 50%;
+  left: 50%;
+  margin-left: -11px;
+  margin-top: -11px;
+}
+.guInteractive #episodeQuote {
+  font-family: "Guardian Egyptian Web", "Egyptian Display", "Guardian Text Egyptian Web", "Egyptian Text", Georgia, serif;
+  font-size: 20px;
+}
+.guInteractive #backgroundContainer {
+  position: relative;
+  font-size: 0;
+  margin: 0 -10px;
+}
+.guInteractive #backgroundContainer img {
+  width: 100%;
+}
+.guInteractive #backgroundContainer button {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+.guInteractive #backgroundLayer {
+  position: relative;
+  display: none;
+  transition: 0.5s background;
+}
+.guInteractive #mainEpisodeContent {
+  padding: 15px 10px 15px;
+  margin: 0 -10px;
+  background: #424242;
+  position: relative;
+  z-index: 5;
+  transition: 0.5s margin;
+}
+.guInteractive #mainEpisodeContent h3, .guInteractive #mainEpisodeContent h4 {
+  margin: 0;
+}
+.guInteractive #mainEpisodeContent h3 {
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 1.2em;
+}
+.guInteractive #mainEpisodeContent date {
+  display: block;
+  font-family: 'Guardian Text Sans Web', 'Agate Sans', sans-serif;
+  color: #bdbdbd;
+  font-size: 14px;
+}
+.guInteractive #mainEpisodeContent p {
+  font-size: 14px;
+  border-top: 1px solid #767676;
+  padding-top: 20px;
+  margin-top: 1em;
+}
+.guInteractive #episodeTeaser {
+  background: #424242;
+  margin-top: 40px;
+  padding-top: 1px;
+  padding-bottom: 10px;
+}
+.guInteractive #episodeTeaser .sectionHeading {
+  border-top: none;
+  margin-top: 0;
+  margin-left: 10px;
+  margin-right: 10px;
+  line-height: 1.2;
+}
+.guInteractive #episodeTeaser #teaserDescription {
+  border-top: 1px solid #767676;
+  padding-top: 9px;
+  margin-top: 15px;
+}
+.guInteractive #episodeTeaser #nextWeekVideo {
+  margin-bottom: 1em;
+}
+.guInteractive #episodeTeaser #nextWeekVideoContainer {
+  height: 0;
+  width: 100%;
+  padding-bottom: 56.25%;
+  position: relative;
+}
+.guInteractive #episodeTeaser #nextWeekVideoContainer iframe {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.guInteractive #episodeTeaser img {
+  width: 100%;
+  margin-bottom: 8px;
+}
+.guInteractive #episodeTeaser h3 {
+  font-size: 22px;
+  margin: 0;
+  line-height: 1.2em;
+  font-weight: bold;
+}
+.guInteractive #episodeTeaser p {
+  margin-top: 5px;
+  font-size: 14px;
+}
+.guInteractive #teaserMobile {
+  display: none;
+  font-family: 'Guardian Text Sans Web', 'Agate Sans', sans-serif;
+}
+.guInteractive #signupAlert {
+  border-top: 1px solid #dcdcdc;
+  margin-top: 40px;
+  padding-top: 20px;
+}
+.guInteractive #signupBox {
+  margin-top: 30px;
+}
+.guInteractive #signupBox #signupTitle {
+  font-family: "Guardian Egyptian Web", "Egyptian Display", "Guardian Text Egyptian Web", "Egyptian Text", Georgia, serif;
+  color: #ff827f;
+  font-weight: bold;
+  font-size: 18px;
+  margin: 0;
+  line-height: 1.2em;
+}
+.guInteractive #signupBox #signupDescription {
+  font-family: 'Guardian Text Sans Web', 'Agate Sans', sans-serif;
+  margin-top: 0.5em;
+}
+.guInteractive #allEpisodes {
+  font-size: 0;
+}
+.guInteractive #allEpisodesContainer:after {
+  clear: both;
+  content: '';
+  display: block;
+}
+.guInteractive .episodeBlock {
+  width: 50%;
+  float: left;
+  margin-bottom: 10px;
+  padding: 0 5px 0 0;
+  height: 160px;
+}
+.guInteractive .episodeBlock.activeVideo img {
+  border: 4px solid #ff827f;
+}
+.guInteractive .episodeBlock:nth-of-type(2n) {
+  padding: 0 0 0 5px;
+}
+.guInteractive .episodeBlock img {
+  width: 100%;
+  transition: 0.5s opacity;
+  margin-bottom: 5px;
+  backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.guInteractive .episodeBlock p {
+  font-size: 14px;
+  line-height: 1.2em;
+  font-family: "Guardian Egyptian Web", "Egyptian Display", "Guardian Text Egyptian Web", "Egyptian Text", Georgia, serif;
+  font-weight: bold;
+  margin-top: 0;
+}
+.guInteractive .episodeBlock p span {
+  display: block;
+  font-family: 'Guardian Text Sans Web', 'Agate Sans', sans-serif;
+  font-weight: normal;
+  color: #b2b2b2;
+}
+.guInteractive .episodeBlock.published-no {
+  opacity: 0.2;
+}
+.guInteractive .episodeBlock.published-yes.inactiveVideo {
+  cursor: pointer;
+}
+.guInteractive .episodeBlock.published-yes.inactiveVideo:hover p {
+  text-decoration: underline;
+}
+.guInteractive .episodeBlock.published-yes.inactiveVideo:hover img {
+  opacity: 0.8;
+}
+.guInteractive #aboutDates p {
+  margin-top: 0;
+  font-family: 'Guardian Text Sans Web', 'Agate Sans', sans-serif;
+  font-size: 14px;
+}
+.guInteractive #aboutDates p a {
+  color: #ff827f;
+}
+.guInteractive #aboutDates #participate {
+  font-size: 18px;
+}
+.guInteractive #aboutDates #participate a {
+  color: #da82d1;
+  font-weight: bold;
+}
+.guInteractive footer {
+  background: #424242;
+}
+.guInteractive footer #soulmatesBanner {
+  background: #f5f3e6;
+  height: 280px;
+  position: relative;
+  padding-top: 20px;
+}
+.guInteractive footer #soulmatesBanner p {
+  color: black;
+  font-weight: bold;
+  font-family: "Guardian Egyptian Web", "Egyptian Display", "Guardian Text Egyptian Web", "Egyptian Text", Georgia, serif;
+  font-size: 22px;
+  line-height: 1.2em;
+  margin: 0 20px 20px;
+}
+.guInteractive footer #soulmatesBanner img {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+.guInteractive footer #soulmatesBanner a {
+  background: #995490;
+  color: #fff;
+  display: block;
+  margin: 0 auto;
+  width: 140px;
+  height: 40px;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 0 0 10px;
+  position: relative;
+}
+.guInteractive footer #soulmatesBanner a span {
+  position: absolute;
+  right: 7px;
+  top: 4px;
+  width: 31px;
+  height: 31px;
+}
+.guInteractive .really-serious-copyright {
+  font-size: 12px;
+  color: #dcdcdc;
+  font-family: 'Guardian Text Sans Web', 'Agate Sans', sans-serif;
+  margin: 0 10px 20px;
+  padding-top: 10px;
+}
+.guInteractive #footerContent {
+  padding-bottom: 1px;
+}
+.guInteractive #footerContent .colophon {
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  column-count: 2;
+  padding: 0;
+  margin: 20px 10px 10px;
+}
+.guInteractive #footerContent .colophon li {
+  padding: 0;
+  margin: 0;
+}
+.guInteractive #footerContent a {
+  color: gainsboro;
+  text-decoration: none;
+  padding-bottom: 12px;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 500;
+  display: inline-block;
+}
+.guInteractive #footerContent a:hover {
+  text-decoration: underline;
+}
+@media (min-width: 440px) {
+  .guInteractive iframe#form {
+    height: 50px;
+  }
+  .guInteractive .episodeBlock {
+    height: 180px;
+  }
+}
+@media (min-width: 480px) {
+  .guInteractive #navContainer {
+    padding: 0 20px;
+  }
+  .guInteractive #headerContainer img {
+    width: 100%;
+    margin-left: 0;
+  }
+  .guInteractive #headerContainer h2 {
+    font-size: 18px;
+  }
+  .guInteractive .contentBlock {
+    margin: 0 20px;
+  }
+  .guInteractive .sectionHeading {
+    margin: 40px 0 20px;
+    font-size: 20px;
+  }
+  .guInteractive #mainEpisodeContent p, .guInteractive #episodeTeaser p {
+    font-size: 16px;
+  }
+  .guInteractive #mainEpisodeContent {
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+  .guInteractive #backgroundContainer {
+    margin: 0 -20px;
+  }
+  .guInteractive .startVideo {
+    width: 80px;
+    height: 80px;
+  }
+  .guInteractive #aboutDates p {
+    font-size: 16px;
+    max-width: 620px;
+  }
+  .guInteractive #aboutDates #participate {
+    font-size: 22px;
+  }
+  .guInteractive #mainEpisodeContent h3 {
+    font-size: 38px;
+  }
+  .guInteractive #episodeTeaser h3 {
+    font-size: 30px;
+  }
+  .guInteractive #episodeTeaser .sectionHeading {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .guInteractive #signupBox #signupTitle {
+    font-size: 20px;
+  }
+  .guInteractive .episodeBlock {
+    height: 200px;
+  }
+  .guInteractive .episodeBlock p {
+    font-size: 16px;
+  }
+  .guInteractive footer #soulmatesBanner {
+    height: 220px;
+  }
+  .guInteractive footer #soulmatesBanner .advertContainer p {
+    padding-right: 180px;
+  }
+  .guInteractive footer #soulmatesBanner .advertContainer a {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
+  .guInteractive footer #soulmatesBanner #soulmatesIcon {
+    left: 30%;
+  }
+  .guInteractive #footerContent .colophon {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .guInteractive footer #soulmatesBanner {
+    height: 180px;
+  }
+  .guInteractive .really-serious-copyright {
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+}
+@media (min-width: 540px) {
+  .guInteractive .episodeBlock {
+    height: 220px;
+  }
+}
+@media (min-width: 660px) {
+  .guInteractive #mainEpisode {
+    max-width: none;
+  }
+  .guInteractive #backgroundContainer {
+    margin: 0;
+  }
+  .guInteractive #headerContainer h2 {
+    font-size: 20px;
+  }
+  .guInteractive .contentBlock {
+    max-width: 620px;
+    margin: 0 auto;
+  }
+  .guInteractive .sectionHeading {
+    max-width: 620px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .guInteractive .episodeBlock {
+    height: 240px;
+  }
+  .guInteractive #mainEpisodeContent {
+    max-width: 620px;
+    margin: -80px auto 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .guInteractive #episodeTeaser {
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+  }
+  .guInteractive #episodeTeaser #nextWeekTeaser #nextWeekVideo {
+    width: 50%;
+    float: right;
+  }
+  .guInteractive #episodeTeaser #nextWeekTeaser h3 {
+    padding-right: 60%;
+  }
+  .guInteractive #episodeTeaser #nextWeekTeaser p {
+    margin-right: 55%;
+    margin-bottom: 10px;
+  }
+  .guInteractive #episodeTeaser #nextWeekTeaser:after {
+    content: '';
+    clear: both;
+    display: block;
+  }
+  .guInteractive #episodeTeaser .sectionHeading {
+    display: none;
+  }
+  .guInteractive #teaserMobile {
+    display: block;
+  }
+  .guInteractive #signupBox {
+    overflow: hidden;
+    margin-top: 10px;
+  }
+  .guInteractive #signupBox #signupDescription {
+    margin-top: 10px;
+  }
+  .guInteractive #signupBox #signupTitle {
+    font-size: 24px;
+  }
+  .guInteractive #signupInformation {
+    width: 50%;
+    float: left;
+    padding-right: 5%;
+  }
+  .guInteractive #signupForm {
+    margin-top: 10px;
+    width: 50%;
+    float: left;
+  }
+  .guInteractive #signupForm input {
+    font-size: 18px;
+    padding: 5px 0;
+    border: none;
+    height: 36px;
+  }
+  .guInteractive #signupForm input[type="submit"] {
+    background: #005689;
+    color: #fff;
+    padding: 5px;
+    width: 120px;
+  }
+}
+@media (min-width: 740px) {
+  .guInteractive .contentBlock {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .guInteractive .sectionHeading {
+    max-width: 700px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .guInteractive .sectionHeading {
+    font-size: 22px;
+  }
+  .guInteractive #content,
+  .guInteractive #navContainer,
+  .guInteractive #footerContent {
+    max-width: 740px;
+    margin: 0 auto;
+  }
+  .guInteractive #episodeTeaser {
+    max-width: 700px;
+  }
+  .guInteractive #mainEpisodeContent {
+    max-width: 700px;
+  }
+  .guInteractive #mainEpisodeContent h3 {
+    font-size: 48px;
+  }
+  .guInteractive #mainEpisode.videoPlaying #backgroundLayer {
+    display: none;
+  }
+  .guInteractive #mainEpisodeVideo:hover #backgroundLayer {
+    background: rgba(0, 0, 0, 0.45);
+  }
+  .guInteractive #backgroundContainer {
+    font-size: 0;
+  }
+  .guInteractive #backgroundContainer button {
+    display: none;
+  }
+  .guInteractive #backgroundLayer {
+    position: absolute;
+    display: block;
+    z-index: 5;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+  }
+  .guInteractive #backgroundLayer button {
+    display: inline-block;
+  }
+  .guInteractive #infoContainer {
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
+  .guInteractive .layerInfo {
+    position: absolute;
+    top: 0;
+    margin: 0 40px;
+    display: table;
+    height: 100%;
+  }
+  .guInteractive .layerRow {
+    display: table-row;
+  }
+  .guInteractive .layerRow#buttonContainer {
+    height: 100%;
+    position: relative;
+  }
+  .guInteractive .layerColumn {
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+    font-size: 0;
+    padding-bottom: 80px;
+  }
+  .guInteractive #episodeQuote {
+    font-size: 48px;
+    line-height: 1.2em;
+    font-weight: 100;
+    margin: 40px 0 0;
+  }
+  .guInteractive #mainEpisode {
+    margin-bottom: 60px;
+  }
+  .guInteractive #signupBox {
+    clear: both;
+    margin-top: 10px;
+  }
+  .guInteractive #footerContent .colophon {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+  }
+  .guInteractive footer #soulmatesBanner {
+    height: 135px;
+    padding: 20px 0;
+  }
+  .guInteractive footer #soulmatesBanner .advertContainer {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .guInteractive footer #soulmatesBanner .advertContainer:after {
+    clear: both;
+    content: '';
+    display: block;
+  }
+  .guInteractive footer #soulmatesBanner .advertContainer p {
+    position: relative;
+    width: 36%;
+    padding-right: 0;
+    float: left;
+    margin: 0 30px 0 0;
+  }
+  .guInteractive footer #soulmatesBanner .advertContainer a {
+    position: relative;
+    float: right;
+    left: auto;
+    top: auto;
+    right: auto;
+    margin-top: 20px;
+  }
+  .guInteractive footer #soulmatesBanner #soulmatesIcon {
+    position: relative;
+    width: 240px;
+    float: left;
+    left: auto;
+    right: auto;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+    margin-top: 20px;
+  }
+}
+@media (min-width: 980px) {
+  .guInteractive #headerContainer {
+    margin: 0 -20px 20px;
+  }
+  .guInteractive #content,
+  .guInteractive #navContainer {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+  }
+  .guInteractive #headerContainer h2 {
+    font-size: 24px;
+    line-height: 1.2em;
+    opacity: 0.8;
+  }
+  .guInteractive #footerContent {
+    max-width: 980px;
+  }
+  .guInteractive .contentBlock {
+    max-width: none;
+    margin: 0 auto;
+  }
+  .guInteractive .sectionHeading {
+    max-width: none;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .guInteractive #episodeTeaser {
+    max-width: none;
+  }
+  .guInteractive #signupForm {
+    margin-top: 5px;
+  }
+  .guInteractive .episodeBlock {
+    width: 23.5%;
+    margin-right: 2%;
+    padding: 0;
+    height: 200px;
+  }
+  .guInteractive .episodeBlock:nth-of-type(4n) {
+    margin-right: 0;
+  }
+  .guInteractive .episodeBlock:nth-of-type(2n) {
+    padding: 0;
+  }
+  .guInteractive #episodeQuote {
+    font-size: 54px;
+    margin-top: 20px;
+  }
+  .guInteractive .layerInfo {
+    left: 130px;
+    max-width: 490px;
+    margin: 0;
+    bottom: 140px;
+  }
+  .guInteractive .layerColumn {
+    padding-bottom: 120px;
+  }
+  .guInteractive #mainEpisodeContent {
+    margin-top: -120px;
+    padding: 20px 20px;
+    max-width: 530px;
+    margin-left: 110px;
+    margin-bottom: 80px;
+  }
+  .guInteractive #headerContainer #headerImage:after {
+    height: 30%;
+  }
+  .guInteractive footer #soulmatesBanner {
+    height: 115px;
+    padding: 30px 0;
+  }
+  .guInteractive footer #soulmatesBanner .advertContainer {
+    max-width: 940px;
+  }
+  .guInteractive footer #soulmatesBanner .advertContainer p {
+    width: 40%;
+    margin-right: 80px;
+  }
+  .guInteractive footer #soulmatesBanner .advertContainer a {
+    margin-top: 0;
+  }
+  .guInteractive footer #soulmatesBanner #soulmatesIcon {
+    margin-top: -10px;
+  }
+}
+@media (min-width: 1140px) {
+  .guInteractive .sectionHeading {
+    width: 140px;
+    border-top: none;
+    position: absolute;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .guInteractive .layerInfo {
+    left: 160px;
+  }
+  .guInteractive #episodeQuote {
+    margin-top: 40px;
+  }
+  .guInteractive #episodeTeaser {
+    margin: 0 -20px;
+    padding-top: 12px;
+  }
+  .guInteractive #episodeTeaser .sectionHeading {
+    padding: 0;
+    line-height: 1.2;
+    display: block;
+    margin: 0;
+  }
+  .guInteractive #teaserMobile {
+    display: none;
+  }
+  .guInteractive #allEpisodes {
+    margin-top: 40px;
+    border-top: 1px solid #767676;
+  }
+  .guInteractive #allEpisodesContainer {
+    margin-left: 160px;
+    margin-top: 5px;
+  }
+  .guInteractive #content,
+  .guInteractive #navContainer,
+  .guInteractive #footerContent {
+    max-width: 1140px;
+  }
+  .guInteractive #teaserContainer {
+    margin-left: 160px;
+  }
+  .guInteractive .episodeBlock p {
+    font-size: 18px;
+  }
+  .guInteractive .episodeBlock p span {
+    font-size: 14px;
+  }
+  .guInteractive #aboutDates {
+    margin-top: 40px;
+    border-top: 1px solid #767676;
+    padding-top: 0;
+  }
+  .guInteractive #aboutDates #participate {
+    font-size: 22px;
+  }
+  .guInteractive #aboutDates p {
+    max-width: 75%;
+  }
+  .guInteractive #aboutDatesContainer {
+    margin-left: 160px;
+    margin-top: 10px;
+  }
+  .guInteractive #mainEpisodeContent {
+    margin-left: 140px;
+  }
+  .guInteractive footer #soulmatesBanner {
+    height: 135px;
+  }
+  .guInteractive footer #soulmatesBanner #soulmatesIcon {
+    margin-top: 10px;
+  }
+  .guInteractive footer #soulmatesBanner .advertContainer {
+    padding-left: 120px;
+    max-width: 1020px;
+  }
+}
+@media (min-width: 1300px) {
+  .guInteractive .sectionHeading {
+    width: 220px;
+  }
+  .guInteractive #allEpisodesContainer, .guInteractive #teaserContainer, .guInteractive #aboutDatesContainer {
+    margin-left: 240px;
+  }
+  .guInteractive #mainEpisodeContent {
+    margin-left: 220px;
+  }
+  .guInteractive .layerInfo {
+    position: absolute;
+    left: 240px;
+    max-width: 490px;
+  }
+  .guInteractive #episodeQuote {
+    margin-top: 60px;
+  }
+  .guInteractive #content,
+  .guInteractive #navContainer,
+  .guInteractive #footerContent {
+    margin: 0 auto;
+    max-width: 1300px;
+  }
+  .guInteractive #mainEpisode {
+    margin-bottom: 80px;
+  }
+  .guInteractive .startVideo {
+    width: 96px;
+    height: 96px;
+  }
+  .guInteractive #footerContent .colophon {
+    -webkit-column-count: 4;
+    -moz-column-count: 4;
+    column-count: 4;
+  }
+  .guInteractive footer #soulmatesBanner .advertContainer {
+    max-width: 1260px;
+    padding-left: 240px;
+  }
+}
+
+#shareButtons {
+  font-family: 'Guardian Text Sans Web', 'Agate Sans', sans-serif;
+  font-size: 14px;
+  color: #767676;
+  margin-top: 0;
+}
+#shareButtons p {
+  margin: 0 0 5px;
+}
+#shareButtons button {
+  background: #333;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 9000px;
+  display: inline-block;
+  vertical-align: top;
+  color: #fff;
+  margin-bottom: 5px;
+  cursor: pointer;
+  outline: none;
+}
+#shareButtons button#shareTwitter {
+  background: #03b3ee url(../imgs/twitterIcon.svg) no-repeat center center;
+}
+#shareButtons button#shareTwitter:hover {
+  background-color: #028dbc;
+}
+#shareButtons button#shareFacebook {
+  background: #3067a3 url(../imgs/facebookIcon.svg) no-repeat center center;
+}
+#shareButtons button#shareFacebook:hover {
+  background-color: #244e7c;
+}
+#shareButtons button#sharePinterest {
+  background: #b9252c url(../imgs/pinterestIcon.svg) no-repeat center center;
+}
+#shareButtons button#sharePinterest:hover {
+  background-color: #8f1d22;
+}
+#shareButtons button#shareTumblr {
+  background: #36465d url(../imgs/tumblrIcon2.svg) no-repeat center center;
+  background-size: 11px;
+}
+#shareButtons button#shareTumblr:hover {
+  background-color: #232e3d;
+}
+
+@font-face {
+  font-family: "Guardian Agate Sans 1 Web";
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-Regular.eot");
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-Regular.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-Regular.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-Regular.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-Regular.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-Regular.svg#GuardianAgateSans1Web-Regular") format("svg");
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: "Guardian Agate Sans 1 Web";
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-RegularItalic.eot");
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-RegularItalic.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-RegularItalic.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-RegularItalic.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-RegularItalic.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-RegularItalic.svg#GuardianAgateSans1Web-RegularItalic") format("svg");
+  font-weight: 400;
+  font-style: italic;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: "Guardian Agate Sans 1 Web";
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-Bold.eot");
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-Bold.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-Bold.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-Bold.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-Bold.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-Bold.svg#GuardianAgateSans1Web-Bold") format("svg");
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: "Guardian Agate Sans 1 Web";
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-BoldItalic.eot");
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-BoldItalic.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-BoldItalic.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-BoldItalic.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-BoldItalic.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-BoldItalic.svg#GuardianAgateSans1Web-BoldItalic") format("svg");
+  font-weight: 700;
+  font-style: italic;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: "Guardian Egyptian Web";
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Light.eot");
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Light.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Light.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Light.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Light.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Light.svg#GuardianEgyptianWeb-Light") format("svg");
+  font-weight: 200;
+  font-style: normal;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: "Guardian Egyptian Web";
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Regular.eot");
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Regular.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Regular.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Regular.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Regular.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Regular.svg#GuardianEgyptianWeb-Regular") format("svg");
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: "Guardian Egyptian Web";
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-RegularItalic.eot");
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-RegularItalic.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-RegularItalic.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-RegularItalic.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-RegularItalic.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-RegularItalic.svg#GuardianEgyptianWeb-RegularItalic") format("svg");
+  font-weight: 400;
+  font-style: italic;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: "Guardian Egyptian Web";
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Semibold.eot");
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Semibold.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Semibold.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Semibold.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Semibold.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Semibold.svg#GuardianEgyptianWeb-Semibold") format("svg");
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: "Guardian Egyptian Web";
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-SemiboldItalic.eot");
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-SemiboldItalic.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-SemiboldItalic.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-SemiboldItalic.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-SemiboldItalic.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-SemiboldItalic.svg#GuardianEgyptianWeb-SemiboldItalic") format("svg");
+  font-weight: 600;
+  font-style: italic;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: "Guardian Egyptian Web";
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Medium.eot");
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Medium.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Medium.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Medium.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Medium.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Medium.svg#GuardianEgyptianWeb-Medium") format("svg");
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: "Guardian Egyptian Web";
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Bold.eot");
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Bold.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Bold.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Bold.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Bold.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Bold.svg#GuardianEgyptianWeb-Bold") format("svg");
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: "Guardian Egyptian Web";
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-BoldItalic.eot");
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-BoldItalic.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-BoldItalic.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-BoldItalic.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-BoldItalic.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-BoldItalic.svg#GuardianEgyptianWeb-BoldItalic") format("svg");
+  font-weight: 700;
+  font-style: italic;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: "Guardian Sans Web";
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Light.eot");
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Light.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Light.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Light.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Light.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Light.svg#GuardianSansWeb-Light") format("svg");
+  font-weight: 200;
+  font-style: normal;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: "Guardian Sans Web";
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Regular.eot");
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Regular.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Regular.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Regular.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Regular.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Regular.svg#GuardianSansWeb-Regular") format("svg");
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: "Guardian Sans Web";
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Semibold.eot");
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Semibold.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Semibold.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Semibold.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Semibold.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Semibold.svg#GuardianSansWeb-Semibold") format("svg");
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: "Guardian Text Egyptian Web";
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Regular.eot");
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Regular.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Regular.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Regular.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Regular.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Regular.svg#GuardianTextEgyptianWeb-Regular") format("svg");
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: "Guardian Text Egyptian Web";
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-RegularItalic.eot");
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-RegularItalic.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-RegularItalic.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-RegularItalic.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-RegularItalic.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-RegularItalic.svg#GuardianTextEgyptianWeb-RegularItalic") format("svg");
+  font-weight: 400;
+  font-style: italic;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: "Guardian Text Egyptian Web";
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Medium.eot");
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Medium.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Medium.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Medium.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Medium.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Medium.svg#GuardianTextEgyptianWeb-Medium") format("svg");
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: "Guardian Text Egyptian Web";
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-MediumItalic.eot");
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-MediumItalic.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-MediumItalic.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-MediumItalic.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-MediumItalic.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-MediumItalic.svg#GuardianTextEgyptianWeb-MediumItalic") format("svg");
+  font-weight: 500;
+  font-style: italic;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: "Guardian Text Egyptian Web";
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Bold.eot");
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Bold.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Bold.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Bold.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Bold.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Bold.svg#GuardianTextEgyptianWeb-Bold") format("svg");
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: "Guardian Text Egyptian Web";
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-BoldItalic.eot");
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-BoldItalic.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-BoldItalic.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-BoldItalic.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-BoldItalic.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-BoldItalic.svg#GuardianTextEgyptianWeb-BoldItalic") format("svg");
+  font-weight: 700;
+  font-style: italic;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: "Guardian Text Egyptian Web";
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Black.eot");
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Black.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Black.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Black.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Black.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Black.svg#GuardianTextEgyptianWeb-Black") format("svg");
+  font-weight: 800;
+  font-style: normal;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: "Guardian Text Egyptian Web";
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-BlackItalic.eot");
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-BlackItalic.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-BlackItalic.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-BlackItalic.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-BlackItalic.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-BlackItalic.svg#GuardianTextEgyptianWeb-BlackItalic") format("svg");
+  font-weight: 800;
+  font-style: italic;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: "Guardian Text Sans Web";
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Regular.eot");
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Regular.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Regular.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Regular.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Regular.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Regular.svg#GuardianTextSansWeb-Regular") format("svg");
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: "Guardian Text Sans Web";
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-RegularItalic.eot");
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-RegularItalic.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-RegularItalic.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-RegularItalic.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-RegularItalic.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-RegularItalic.svg#GuardianTextSansWeb-RegularItalic") format("svg");
+  font-weight: 400;
+  font-style: italic;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: "Guardian Text Sans Web";
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Medium.eot");
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Medium.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Medium.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Medium.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Medium.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Medium.svg#GuardianTextSansWeb-Medium") format("svg");
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: "Guardian Text Sans Web";
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-MediumItalic.eot");
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-MediumItalic.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-MediumItalic.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-MediumItalic.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-MediumItalic.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-MediumItalic.svg#GuardianTextSansWeb-MediumItalic") format("svg");
+  font-weight: 500;
+  font-style: italic;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: "Guardian Text Sans Web";
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Bold.eot");
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Bold.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Bold.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Bold.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Bold.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Bold.svg#GuardianTextSansWeb-Bold") format("svg");
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: "Guardian Text Sans Web";
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-BoldItalic.eot");
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-BoldItalic.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-BoldItalic.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-BoldItalic.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-BoldItalic.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-BoldItalic.svg#GuardianTextSansWeb-BoldItalic") format("svg");
+  font-weight: 700;
+  font-style: italic;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: "Guardian Text Sans Web";
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Black.eot");
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Black.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Black.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Black.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Black.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Black.svg#GuardianTextSansWeb-Black") format("svg");
+  font-weight: 800;
+  font-style: normal;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: "Guardian Text Sans Web";
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-BlackItalic.eot");
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-BlackItalic.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-BlackItalic.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-BlackItalic.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-BlackItalic.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-BlackItalic.svg#GuardianTextSansWeb-BlackItalic") format("svg");
+  font-weight: 800;
+  font-style: italic;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: "Guardian Compact Web";
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianCompactWeb-Black.eot");
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianCompactWeb-Black.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianCompactWeb-Black.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianCompactWeb-Black.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianCompactWeb-Black.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianCompactWeb-Black.svg#GuardianCompactWeb-Black") format("svg");
+  font-weight: 800;
+  font-style: normal;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: "Guardian Titlepiece Web";
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianTitlepieceWeb-Regular.eot");
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianTitlepieceWeb-Regular.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianTitlepieceWeb-Regular.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianTitlepieceWeb-Regular.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianTitlepieceWeb-Regular.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianTitlepieceWeb-Regular.svg#GuardianTitlepieceWeb-Regular") format("svg");
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+}
+@font-face {
+  font-family: "Guardian Weekend Cond Web";
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianWeekendCondWeb-Black.eot");
+  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianWeekendCondWeb-Black.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianWeekendCondWeb-Black.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianWeekendCondWeb-Black.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianWeekendCondWeb-Black.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianWeekendCondWeb-Black.svg#GuardianWeekendCondWeb-Black") format("svg");
+  font-weight: 800;
+  font-style: normal;
+  font-stretch: normal;
+}
+html {
+  font-family: "Guardian Text Egyptian Web", Georgia, serif;
+  -moz-osx-font-smoothing: grayscale;
+  /* 1 */
+  -webkit-font-smoothing: antialiased;
+  /* 1 */
+}
+
+body {
+  line-height: 1.5;
+  /* 2 */
+}
+#article-body.interactivePadding {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#article-header.interactiveHide {
+  display: none;
+}
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,109 @@
+{
+  "sheets": {
+    "furniture": [
+      {
+        "section": "header",
+        "title": "Watch Me Date",
+        "description": "One couple. Two cameras. What happens next?",
+        "rowNumber": 1
+      },
+      {
+        "section": "next",
+        "title": "Coming next week",
+        "description": "",
+        "rowNumber": 2
+      },
+      {
+        "section": "email",
+        "title": "Don't miss next week’s episode",
+        "description": "Put your email in the box to the right and we will send you a reminder when new episodes arrive.",
+        "rowNumber": 3
+      },
+      {
+        "section": "email-submitted",
+        "title": "Thanks for your submission",
+        "description": "You will now be notifiied as soon as we publish new episodes!",
+        "rowNumber": 4
+      },
+      {
+        "section": "grid",
+        "title": "The dates",
+        "description": "",
+        "rowNumber": 5
+      },
+      {
+        "section": "about",
+        "title": "About Watch Me Date",
+        "description": "Each week, we’ve chosen two different people, given them two pairs of Google Glass and packed them off on a date (there is usually a lot of alcohol involved too). Filming begins the minute they meet, and that off-button is only pressed once they’ve said goodbye. The results? You’re right there with them, on these awkward, often funny and sometimes even romantic first dates.",
+        "rowNumber": 6
+      },
+      {
+        "section": "solicit-wmd",
+        "title": "Be on our show",
+        "description": "Would you like an all-expenses evening out and the chance of a kiss ... or possibly love? Email <a href=\"mailto:watch.me.date@guardian.co.uk\">watch.me.date@theguardian.com</a>",
+        "rowNumber": 7
+      },
+      {
+        "section": "solicit-sm",
+        "title": "",
+        "description": "Sign up here for a free three-day trial of Guardian Soulmates",
+        "rowNumber": 8
+      },
+      {
+        "section": "share_lang",
+        "title": "",
+        "description": " were both given Google Glass and sent on a date. What happens next? #WatchMeDate",
+        "rowNumber": 9
+      }
+    ],
+    "teaser": [
+      {
+        "name": "Samantha and John",
+        "date": "09/04/2015",
+        "description": "Fifty-year-old John still dreams of having a family. Samantha, 41, is getting over her crippling shyness. They are both 'absolutely petrified' at the prospect of a blind date. Will they manage to get over their nerves? And will a shared love of Kate Bush save the evening? Watch a clip here – and tune in next week to see the full video",
+        "video": "http://www.theguardian.com/lifeandstyle/video/2015/apr/02/watch-me-date-samantha-john-video-teaser",
+        "rowNumber": 1
+      }
+    ],
+    "videos": [
+      {
+        "id": "andyflo",
+        "episode": 1,
+        "date": "12/02/2015",
+        "title": "Andy & Flo",
+        "description": "Andy, 24 is a stand-up comic/supervisor. He’d like to meet someone: 'It’s been a while ... and London can be lonely.' Flo, 26, works for a recipe-kit company and is up for a laugh. They both want someone with a sense of humour. Could they be a match?",
+        "quote": "There was one thing I definitely regret.",
+        "video": "http://theguardian.com/lifeandstyle/video/2015/feb/11/watch-me-date-andy-flo-video",
+        "published": "yes",
+        "rowNumber": 1,
+        "youtubeId": "ZuoCSlaeNXk"
+      },
+      {
+        "id": "iansarah",
+        "episode": 2,
+        "date": "12/02/2015",
+        "title": "Ian & Sarah",
+        "description": "Sarah, 29, works in music PR and wants someone she can settle down with, in a nice pair of Nike trainers. Ian, also 29, is in digital marketing and just wants someone ‘bubbly and happy and smiley, and driven and caring and lovely, and reasonably well dressed’. Did they kiss? (Warning: strong language)",
+        "quote": "Every time I came back from the loo he was taking a picture of himself.",
+        "video": "http://theguardian.com/lifeandstyle/video/2015/feb/11/watch-me-date-ian-sarah-video",
+        "published": "yes",
+        "rowNumber": 2,
+        "youtubeId": "ZuoCSlaeNXk"
+      },
+      {
+        "id": "alexdavid",
+        "episode": 3,
+        "date": "19/02/2015",
+        "title": "Alex & David",
+        "description": "Alex, 32, is a civil servant and goes for Latino types. David, 37, is a journalist and writer from Scotland who looks for confidence. Will Alex be impressed by some serious name dropping and ‘ridiculously perfect hair’? And what happens when things get ‘awkward’?",
+        "quote": "He went for the lips. I went for the cheek...",
+        "video": "http://www.theguardian.com/lifeandstyle/video/2015/feb/19/watch-me-date-alex-david-video",
+        "published": "yes",
+        "rowNumber": 3,
+        "youtubeId": "ZuoCSlaeNXk"
+      }
+    ]
+  },
+  "updated": "Fri Jun 05 2015 16:11:27 GMT+0000 (UTC)",
+  "name": "Watch me date"
+}

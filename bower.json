@@ -1,0 +1,21 @@
+{
+  "name": "Interactive template",
+  "version": "0.0.0",
+  "homepage": "https://github.com/guardian/interactive-template",
+  "authors": [
+    "andymason <andrew.mason@guardian.co.uk>"
+  ],
+  "description": "Base template for interactives",
+  "main": "src/boot.js",
+  "license": "Apache",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "pasteup-buttons": "~0.4.12"
+  }
+}

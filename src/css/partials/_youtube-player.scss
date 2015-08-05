@@ -1,0 +1,371 @@
+/*------------------------------------*\
+    $YOUTUBE CUSTOM SKIN
+\*------------------------------------*/
+
+$yt-asset-path: "../imgs/";
+$highlight-color: $accent-color;
+$yt-controls-height: 48px;
+
+$buffer-color: #999999;
+
+/** create a div that keep video ratio */
+.yt-player-wrapper {
+  height: auto;
+  padding-top: 56px;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.yt-player {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  &.yt-fullscreen {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 999;
+  }
+}
+
+.yt-loading-wrapper,
+.yt-skin-wrapper,
+.yt-big-play-btn,
+.yt-video-wrapper {
+  position: absolute;
+  left: 0;
+  width: 100%;
+}
+
+.yt-skin-wrapper,
+.yt-big-play-btn {
+  display: none;
+}
+
+.yt-ready {
+  .yt-skin-wrapper,
+  .yt-big-play-btn {
+    display: block;
+  }
+  .yt-loading-wrapper {
+    display: none;
+  }
+}
+
+.yt-loading-wrapper {
+  //display: none;
+  top: 0;
+  height: 100%;
+  z-index: 5;
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.yt-skin-wrapper {
+  //  bottom: 0;
+  height: 100%;
+  text-align: center;
+  z-index: 4;
+  opacity: 1;
+  overflow: hidden;
+  //  filter: none;
+  //  -webkit-transition: opacity 0.4s;
+  //  -moz-transition: opacity 0.4s;
+  //  -ms-transition: opacity 0.4s;
+  //  -o-transition: opacity 0.4s;
+  //  transition: opacity 0.4s;
+  .yt-no-controls & {
+    //    opacity: 0;
+    //    filter: alpha(opacity=0)
+  }
+}
+
+.yt-big-play-btn {
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 5;
+//  &:after {
+//    content: "";
+//    position: absolute;
+//    top: 50%;
+//    left: 50%;
+//    width: 12px;
+//    height: 15px;
+//    margin-top: - 7px;
+//    margin-left: -6px;
+//    background: url(#{$yt-asset-path}yt-skin.png) no-repeat -1px -1px;
+//  }
+  &.active {
+    display: none;
+//    &:after {
+//      display: none;
+//    }
+  }
+}
+
+.yt-video-wrapper {
+  top: 0;
+  height: 100%;
+  z-index: 1;
+}
+
+.yt-loading {
+  color: #fff;
+  font-size: 12px;
+  display: inline-block;
+  height: 50px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: -25px;
+  width: 100%;
+  text-align: center;
+}
+
+.yt-controls-wrapper {
+  position: absolute;
+  bottom: 0;
+  z-index: 10;
+  //  display: inline-block;
+  width: 100%;
+  height: $yt-controls-height;
+  background: rgba(0, 0, 0, 0.8);
+  @include css3-prefix(transition, all 0.4s);
+  @include css3-prefix(transform, translateY(0));
+  opacity: 1;
+
+  .yt-no-controls & {
+    @include css3-prefix(transform, translateY(100%));
+    opacity: 0;
+  }
+}
+
+.yt-btn {
+  position: absolute;
+  top: 50%;
+  @include css3-prefix(transform, translateY(-50%));
+}
+
+.yt-play-btn,
+.yt-mute-btn,
+.yt-embed-btn,
+.yt-volume-wrapper,
+.yt-fullscreen-btn {
+  @extend .yt-btn;
+}
+
+.yt-play-btn {
+  left: 10px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+
+  .svg {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    .yt-play {
+      display: block;
+    }
+    .yt-pause {
+      display: none;
+    }
+  }
+
+  &.active .svg {
+    .yt-play {
+      display: none;
+    }
+    .yt-pause {
+      display: block;
+    }
+  }
+}
+
+.yt-timeline {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  right: 0;
+  height: 6px;
+  top: -6px;
+  background: #313131;
+}
+
+.yt-seek {
+  position: absolute;
+  z-index: 10;
+  height: 6px;
+  background: $highlight-color;
+}
+
+.yt-buffer {
+  position: absolute;
+  z-index: 9;
+  height: 6px;
+  background: $buffer-color;
+}
+
+.yt-fullscreen-btn {
+  width: 20px;
+  right: 20px;
+  &.active .svg .shape,
+  &:hover .svg .shape {
+    fill: $highlight-color;
+  }
+
+  .yt-ipad & {
+    right: 10px;
+  }
+}
+
+.yt-time {
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 60px;
+  height: $yt-controls-height;
+  line-height: $yt-controls-height;
+  width: 100px;
+  font-size: 12px;
+  @include css3-prefix(transform, translateY(-50%));
+  //display: none;
+}
+
+.yt-embed-message {
+  position: absolute;
+  z-index: 6;
+  background-color: rgba(25, 25, 25, 0.8);
+  width: 100%;
+  height: 100%;
+  display: none;
+
+  .yt-embed-code-wrapper {
+    position: absolute;
+    top: 40%;
+    @include css3-prefix(transform, translateY(-50%));
+    width: 100%;
+
+    .yt-embed-title {
+      font-size: 15px;
+      line-height: 60px;
+    }
+
+    .yt-embed-code {
+      white-space: nowrap;
+      background-color: #FFF;
+      width: 90%;
+      font-size: 13px;
+      color: #333;
+      padding: 15px;
+      margin: 0 auto;
+    }
+  }
+
+}
+
+.yt-embed-btn {
+  right: 230px;
+  width: 80px;
+  height: 14px;
+  text-align: left;
+  padding: 4px;
+
+  &.active,
+  &:hover {
+    span {
+      color: $highlight-color;
+    }
+    .svg .shape {
+      fill: $highlight-color;
+    }
+  }
+
+  span,
+  .svg {
+    position: absolute;
+    //    display: inline-block;
+    //    vertical-align: middle;
+    top: 50%;
+    @include css3-prefix(transform, translateY(-50%));
+  }
+
+  .svg {
+    margin-right: 10px;
+    height: 14px;
+  }
+
+  span {
+    left: 35px;
+    font-size: 12px;
+    line-height: 14px;
+  }
+}
+
+.yt-volume-wrapper {
+  width: 150px;
+  height: 25px;
+  right: 60px;
+
+  .yt-mute-btn {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+
+    .svg {
+      position: absolute;
+      top: 50%;
+      @include transform(translateY(-50%));
+
+      .shape {
+        display: none;
+        fill: #FFFFFF;
+        &.off {
+          display: block;
+        }
+      }
+    }
+
+    &.active {
+      .svg {
+        .shape {
+          display: block;
+          &.off {
+            display: none;
+          }
+        }
+      }
+    }
+
+    &:hover .svg .shape {
+      fill: $highlight-color;
+    }
+  }
+
+  .yt-volume {
+    position: absolute;
+    top: 50%;
+    @include transform(translateY(-50%));
+    height: 2px;
+    background-color: #FFF;
+    width: 100px;
+    left: 35px;
+
+    .yt-volume-level {
+      position: absolute;
+      z-index: 5;
+      height: 2px;
+      background-color: $highlight-color;
+      width: 90%;
+    }
+  }
+
+}
