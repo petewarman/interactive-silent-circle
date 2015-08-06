@@ -1,0 +1,89 @@
+@media(min-width: 480px) {
+
+  #navContainer {
+    padding: 0 20px;
+  }
+  .contentBlock {
+    margin: 0 20px;
+  }
+  .sectionHeading {
+    margin: 40px 0 20px;
+    font-size: 20px;
+  }
+  #mainEpisodeContent p, #episodeTeaser p {
+    font-size: 16px;
+  }
+  #mainEpisodeContent {
+    padding-right: 20px;
+    padding-left: 20px;
+//    margin-left: -20px;
+//    margin-right: -20px;
+  }
+  #backgroundContainer {
+    margin: 0 -20px;
+  }
+  .startVideo {
+    width: 80px;
+    height: 80px;
+  }
+  #aboutDates {
+    p {
+      font-size: 16px;
+      max-width: 620px;
+    }
+    #participate {
+      font-size: 22px;
+    }
+  }
+  #mainEpisodeContent h3 {
+    font-size: 38px;
+  }
+  #episodeTeaser {
+    h3 {
+      font-size: 30px;
+    }
+    .sectionHeading {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+  }
+
+  #signupBox #signupTitle {
+    font-size: 20px;
+  }
+  .episodeBlock {
+//    height: $videoThumbHeight * 0.5;
+    p {
+      font-size: 16px;
+    }
+  }
+  footer #soulmatesBanner {
+    height: 220px;
+    .advertContainer {
+      p {
+        padding-right: 180px;
+      }
+      a {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+      }
+    }
+    #soulmatesIcon {
+      left: 30%;
+    }
+  }
+  #footerContent {
+    .colophon {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+  }
+  footer #soulmatesBanner {
+    height: 180px;
+  }
+  .really-serious-copyright {
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+}

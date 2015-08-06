@@ -8,40 +8,71 @@ define( [
   'use strict';
 
 
-  // Your proxied Google spreadsheet goes here
-//  var key = '1c-893TLDBgjQrHPBW3ezFHldj94KCCWKsIARD_HAAGM';
+  // YouTube Playlist ID
+  var playlistId = 'PL6fsSwuQS6yprx0KUHXCP3DttOHFiEJ4N';
+  var youtubeDataApiKey = 'AIzaSyDiTrZ80LUooXW0H_E2NoWKFUqNTB8sqLY'; // Esteban Almiron google account
+
+  var App = {};
 
   function init( el, context, config, mediator ) {
 
+    App.el = el;
+    App.context = context;
+    App.config = config;
+    App.mediator = mediator;
+
+    getJsonData();
+
+  }
+
+  function getJsonData() {
     $.ajax( {
       url: '{{assets}}/data/data.json',
-      success: function ( data ) {
+      success: getPlaylistItems
+    } );
+  }
 
-        console.log( data );
+  function getPlaylistItems( data ) {
 
-        // Wait for YouTube API to be ready
-        YoutubeCustomPlayer.ready( function () {
+    App.json = data;
 
-          var appView = new AppView( {
-            el: el,
-            data: data
-          } );
-          appView.render();
+    var url = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=' + playlistId + '&key=' + youtubeDataApiKey;
 
-          // Start listening to URL #paths
-          Backbone.history.start();
+    $.ajax( {
+      url: url,
+      success: youtubeReady
+    } );
+  }
 
-          // Enable iframe resizing on the GU site
-          iframeMessenger.enableAutoResize();
 
-        } );
+  function youtubeReady( data ) {
 
-      }
+    App.playlistItemsData = data;
+
+    // Wait for YouTube API to be ready
+    YoutubeCustomPlayer.ready( function () {
+
+      var appView = new AppView( {
+        el: App.el,
+        playlistItemsData: App.playlistItemsData,
+        json: App.json,
+        youtubeDataApiKey: youtubeDataApiKey
+      } );
+      appView.render();
+
+      // Start listening to URL #paths
+      Backbone.history.start();
+
+      // Enable iframe resizing on the GU site
+      iframeMessenger.enableAutoResize();
+
     } );
 
   }
 
+
   return {
     init: init
   };
+
 } );

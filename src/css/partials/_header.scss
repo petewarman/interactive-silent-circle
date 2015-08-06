@@ -1,0 +1,37 @@
+#headerContainer {
+  position: relative;
+//  margin-bottom: 20px;
+
+  h2 {
+    color: $accent-color;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.25;
+    z-index: 6;
+    position: relative;
+    opacity: 0.8;
+    text-align: center;
+  }
+
+  img {
+    width: 100%;
+    z-index: 4;
+    position: relative;
+  }
+
+  #headerImage {
+    font-size: 0;
+    position: relative;
+    width: 100%;
+  }
+}
+
+
+@media(min-width: 480px) {
+
+  #headerContainer img {
+    width: 100%;
+    margin-left: 0;
+  }
+
+}

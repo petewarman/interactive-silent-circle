@@ -78,7 +78,7 @@ $buffer-color: #999999;
   text-align: center;
   z-index: 4;
   opacity: 1;
-  overflow: hidden;
+  //  overflow: hidden;
   //  filter: none;
   //  -webkit-transition: opacity 0.4s;
   //  -moz-transition: opacity 0.4s;
@@ -96,22 +96,22 @@ $buffer-color: #999999;
   height: 100%;
   width: 100%;
   z-index: 5;
-//  &:after {
-//    content: "";
-//    position: absolute;
-//    top: 50%;
-//    left: 50%;
-//    width: 12px;
-//    height: 15px;
-//    margin-top: - 7px;
-//    margin-left: -6px;
-//    background: url(#{$yt-asset-path}yt-skin.png) no-repeat -1px -1px;
-//  }
+  //  &:after {
+  //    content: "";
+  //    position: absolute;
+  //    top: 50%;
+  //    left: 50%;
+  //    width: 12px;
+  //    height: 15px;
+  //    margin-top: - 7px;
+  //    margin-left: -6px;
+  //    background: url(#{$yt-asset-path}yt-skin.png) no-repeat -1px -1px;
+  //  }
   &.active {
     display: none;
-//    &:after {
-//      display: none;
-//    }
+    //    &:after {
+    //      display: none;
+    //    }
   }
 }
 
@@ -170,6 +170,7 @@ $buffer-color: #999999;
   .svg {
     position: absolute;
     top: 50%;
+    left: 0;
     @include transform(translateY(-50%));
 
     .shape {
@@ -382,17 +383,82 @@ $buffer-color: #999999;
 
 }
 
-
-
 .yt-languages-btn {
   right: 375px;
   width: 22px;
   height: 22px;
-}
 
+  &:hover,
+  &.open {
+    background-color: #333;
+
+    //    .svg .shape {
+    //      fill: #FFF !important;
+    //    }
+
+    .yt-languages-list {
+      display: block;
+    }
+  }
+
+  .yt-languages-list {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 22px; //$yt-controls-height * 0.5;
+    //  right: 375px;
+    //    display: block;
+    padding: 0;
+    margin: 0;
+    //    width: 100px;
+    z-index: 20;
+
+    li {
+      cursor: pointer;
+      background-color: #333;
+      color: #FFF;
+      padding: 7px 14px;
+      margin: 0;
+      border-bottom: 1px solid #666;
+      list-style: none;
+      text-align: left;
+      font-size: 13px;
+      white-space: nowrap;
+
+      i,
+      span {
+        display: inline-block;
+      }
+
+      i {
+        margin: 0 5px;
+        content: ' ';
+        width: 8px;
+        height: 8px;
+        @include css3-prefix(border-radius, 50%);
+        background-color: $highlight-color;
+      }
+
+      &:last-child {
+        border-bottom: none !important;
+      }
+
+      &:hover {
+        color: $highlight-color;
+        background-color: #666;
+      }
+    }
+  }
+}
 
 .yt-cc-btn {
   right: 335px;
   width: 22px;
   height: 22px;
+
+  &.active {
+    .svg .shape {
+      fill: $highlight-color;
+    }
+  }
 }

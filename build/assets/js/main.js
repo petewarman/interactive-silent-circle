@@ -14713,10 +14713,10 @@ define('text',['module'], function (module) {
 });
 
 
-define('text!templates/appTemplate.html',[],function () { return '<div class="guInteractive">\n    <div id="content">\n        <header id="headerContainer">\n            <div id="headerImage">\n                <img src="http://localhost:9000/build/assets/imgs/header_on.jpg"/>\n            </div>\n            <!--<h2>One telephone. Many users. <br/>What happens next?</h2>-->\n        </header>\n        <div id="mainVideoContainer"></div>\n\n        <div id="episodeTeaser">\n            <!-- <h4 class="sectionHeading">Coming next week</h4> -->\n            <div class="contentBlock" id="teaserContainer">\n                <!-- <div id="nextWeekTeaser">\n                    <div id="nextWeekVideo">\n                        <div id="nextWeekVideoContainer">\n                            <iframe src="{{teaser.video}}" scrolling="no" frameborder="none" width="100%" height="100%"></iframe>\n                        </div>\n                    </div>\n                    \n                    <p id="teaserMobile">Coming next week</p>\n                    <h3>{{teaser.name}}</h3>\n                    <date>{{teaser.date}}</date>\n                    <p id="teaserDescription">{{{teaser.description}}}</p>\n                </div> -->\n\n                <div id="signupBox">\n                    <div id="signupInformation">\n                        <p id="signupTitle">Don\'t miss next week’s episode</p>\n\n                        <p id="signupDescription">Submit your email address and we will send you a reminder when new\n                            episodes arrive</p>\n                    </div>\n                    <div id="signupForm">\n                        <iframe id="form" scrolling="no" frameborder="none" width="100%" height="40px"\n                                src="http://interactive.guim.co.uk/visuals-blank-page/watch-me-date/form.html"></iframe>\n                    </div>\n                </div>\n            </div>\n        </div>\n\n\n        <div class="contentBlock" id="allEpisodes">\n            <h4 class="sectionHeading">The movies</h4>\n\n            <div id="allEpisodesContainer">\n                {{#allEpisodes}}\n                <div class="episodeBlock published-{{published}} {{id}} inactiveVideo" data-video-id="{{id}}">\n                    <img src="http://localhost:9000/build/assets/imgs/videos/{{id}}_400.jpg"/>\n\n                    <p>{{title}} <span>{{date}}</span></p>\n                </div>\n                {{/allEpisodes}}\n            </div>\n        </div>\n\n\n        <div class="contentBlock" id="aboutDates">\n            <h4 class="sectionHeading">About Watch Me Date</h4>\n\n            <div id="aboutDatesContainer">\n                <p>Each week, we’ve chosen two different people, given them two pairs of Google Glass and packed them\n                    off on a date (there is usually a lot of alcohol involved too). Filming begins the minute they meet,\n                    and that off-button is only pressed once they’ve said goodbye. The results? You’re right there with\n                    them, on these awkward, often funny and sometimes even romantic first dates.</p>\n            </div>\n        </div>\n        <div class="contentBlock" id="aboutDates">\n            <h4 class="sectionHeading">Be on our show</h4>\n\n            <div id="aboutDatesContainer">\n                <p>Would you like an all-expenses evening out and the chance of a kiss ... or possibly love? Email <a\n                        href="mailto:watch.me.date@guardian.co.uk">watch.me.date@theguardian.com</a></p>\n            </div>\n        </div>\n    </div>\n    <footer>\n        <div id="soulmatesBanner">\n            <div class="advertContainer">\n                <p>Sign up here for a free three-day trial of Guardian Soulmates</p>\n                <img src="http://localhost:9000/build/assets/imgs/soulmatesIcon.svg" id="soulmatesIcon"/>\n                <a href="https://soulmates.theguardian.com/subscribe/freefebruary">\n                    Join Now\n                    <span id=""><img src="http://localhost:9000/build/assets/imgs/soulmatesArrow.png"/></span>\n                </a>\n            </div>\n        </div>\n        {{#isWeb}}\n        <div id="footerContent">\n            <ul class="colophon u-cf">\n                <li class="colophon__item"><a data-link-name="uk : footer : membership"\n                                              href="https://membership.theguardian.com/?INTCMP=NGW_FOOTER_UK_GU_MEMBERSHIP">\n                    membership</a></li>\n                <li class="colophon__item"><a data-link-name="uk : footer : jobs"\n                                              href="http://jobs.theguardian.com/?INTCMP=NGW_FOOTER_UK_GU_JOBS">\n                    jobs</a></li>\n                <li class="colophon__item"><a data-link-name="uk : footer : soulmates"\n                                              href="https://soulmates.theguardian.com/?INTCMP=NGW_FOOTER_UK_GU_SOULMATES">\n                    dating</a></li>\n                <li class="colophon__item"><a data-link-name="uk : footer : masterclasses"\n                                              href="/guardian-masterclasses?INTCMP=NGW_FOOTER_UK_GU_MASTERCLASSES">\n                    masterclasses</a></li>\n                <li class="colophon__item"><a data-link-name="uk : footer : subscribe" target="_blank"\n                                              href="http://subscribe.theguardian.com/?INTCMP=NGW_FOOTER_UK_GU_SUBSCRIBE">\n                    subscribe</a></li>\n                <li class="colophon__item"><a data-link-name="all topics" href="/index/subjects/a">all topics</a></li>\n                <li class="colophon__item"><a data-link-name="all contributors" href="/index/contributors">all\n                    contributors</a></li>\n                <li class="colophon__item"><a data-link-name="uk : footer : about us" target="_blank" href="/info">\n                    about us</a></li>\n                <li class="colophon__item"><a data-link-name="uk : footer : contact us" target="_blank"\n                                              href="/help/contact-us">\n                    contact us</a></li>\n                <li class="colophon__item"><a data-link-name="complaints" href="/info/complaints-and-corrections">\n                    complaints &amp; corrections</a></li>\n                <li class="colophon__item"><a data-link-name="terms" href="/help/terms-of-service">terms &amp;\n                    conditions</a></li>\n                <li class="colophon__item"><a data-link-name="privacy" href="/help/privacy-policy">privacy policy</a>\n                </li>\n                <li class="colophon__item"><a data-link-name="cookie" href="/info/cookies">cookie policy</a></li>\n                <li class="colophon__item"><a data-link-name="securedrop" href="https://securedrop.theguardian.com/">securedrop</a>\n                </li>\n            </ul>\n            <div class="l-footer__misc">\n                <div class="really-serious-copyright">© 2015 Guardian News and Media Limited or its affiliated\n                    companies. All&nbsp;rights&nbsp;reserved.\n                </div>\n            </div>\n        </div>\n        {{/isWeb}}\n    </footer>\n</div>\n';});
+define('text!templates/appTemplate.html',[],function () { return '<div class="guInteractive">\n    <div id="content">\n        <header id="headerContainer">\n            <div id="headerImage">\n                <img src="http://localhost:9000/build/assets/imgs/header.jpg"/>\n            </div>\n            <!--<h2>One telephone. Many users. <br/>What happens next?</h2>-->\n        </header>\n        <div id="mainVideoContainer"></div>\n\n        <div id="episodeTeaser">\n            <!-- <h4 class="sectionHeading">Coming next week</h4> -->\n            <div class="contentBlock" id="teaserContainer">\n                <!-- <div id="nextWeekTeaser">\n                    <div id="nextWeekVideo">\n                        <div id="nextWeekVideoContainer">\n                            <iframe src="{{teaser.video}}" scrolling="no" frameborder="none" width="100%" height="100%"></iframe>\n                        </div>\n                    </div>\n                    \n                    <p id="teaserMobile">Coming next week</p>\n                    <h3>{{teaser.name}}</h3>\n                    <date>{{teaser.date}}</date>\n                    <p id="teaserDescription">{{{teaser.description}}}</p>\n                </div> -->\n\n                <div id="signupBox">\n                    <div id="signupInformation">\n                        <p id="signupTitle">Don\'t miss next week’s episode</p>\n\n                        <p id="signupDescription">Submit your email address and we will send you a reminder when new\n                            episodes arrive</p>\n                    </div>\n                    <div id="signupForm">\n                        <iframe id="form" scrolling="no" frameborder="none" width="100%" height="40px"\n                                src="http://interactive.guim.co.uk/visuals-blank-page/watch-me-date/form.html"></iframe>\n                    </div>\n                </div>\n            </div>\n        </div>\n\n\n        <div class="contentBlock" id="allEpisodes">\n            <h4 class="sectionHeading">Other videos</h4>\n\n            <div id="allEpisodesContainer">\n                {{#allEpisodes}}\n                <div class="episodeBlock published-{{published}} {{id}} inactiveVideo" data-video-id="{{id}}">\n\n                    <img src="{{thumbnails.high.url}}">\n\n                    <div class="episodeBlockContent">\n                        <h2>{{title}}</h2>\n                        <!--<h3>{{subtitle}}</h3>-->\n                        <p>{{{description}}}</p>\n                    </div>\n                </div>\n                {{/allEpisodes}}\n            </div>\n        </div>\n\n\n        <div class="contentBlock" id="aboutDates">\n            <h4 class="sectionHeading">About Watch Me Date</h4>\n\n            <div id="aboutDatesContainer">\n                <p>Each week, we’ve chosen two different people, given them two pairs of Google Glass and packed them\n                    off on a date (there is usually a lot of alcohol involved too). Filming begins the minute they meet,\n                    and that off-button is only pressed once they’ve said goodbye. The results? You’re right there with\n                    them, on these awkward, often funny and sometimes even romantic first dates.</p>\n            </div>\n        </div>\n        <div class="contentBlock" id="aboutDates">\n            <h4 class="sectionHeading">Be on our show</h4>\n\n            <div id="aboutDatesContainer">\n                <p>Would you like an all-expenses evening out and the chance of a kiss ... or possibly love? Email <a\n                        href="mailto:watch.me.date@guardian.co.uk">watch.me.date@theguardian.com</a></p>\n            </div>\n        </div>\n    </div>\n    <footer>\n        <div id="soulmatesBanner">\n            <div class="advertContainer">\n                <p>Sign up here for a free three-day trial of Guardian Soulmates</p>\n                <img src="http://localhost:9000/build/assets/imgs/soulmatesIcon.svg" id="soulmatesIcon"/>\n                <a href="https://soulmates.theguardian.com/subscribe/freefebruary">\n                    Join Now\n                    <span id=""><img src="http://localhost:9000/build/assets/imgs/soulmatesArrow.png"/></span>\n                </a>\n            </div>\n        </div>\n        {{#isWeb}}\n        <div id="footerContent">\n            <ul class="colophon u-cf">\n                <li class="colophon__item"><a data-link-name="uk : footer : membership"\n                                              href="https://membership.theguardian.com/?INTCMP=NGW_FOOTER_UK_GU_MEMBERSHIP">\n                    membership</a></li>\n                <li class="colophon__item"><a data-link-name="uk : footer : jobs"\n                                              href="http://jobs.theguardian.com/?INTCMP=NGW_FOOTER_UK_GU_JOBS">\n                    jobs</a></li>\n                <li class="colophon__item"><a data-link-name="uk : footer : soulmates"\n                                              href="https://soulmates.theguardian.com/?INTCMP=NGW_FOOTER_UK_GU_SOULMATES">\n                    dating</a></li>\n                <li class="colophon__item"><a data-link-name="uk : footer : masterclasses"\n                                              href="/guardian-masterclasses?INTCMP=NGW_FOOTER_UK_GU_MASTERCLASSES">\n                    masterclasses</a></li>\n                <li class="colophon__item"><a data-link-name="uk : footer : subscribe" target="_blank"\n                                              href="http://subscribe.theguardian.com/?INTCMP=NGW_FOOTER_UK_GU_SUBSCRIBE">\n                    subscribe</a></li>\n                <li class="colophon__item"><a data-link-name="all topics" href="/index/subjects/a">all topics</a></li>\n                <li class="colophon__item"><a data-link-name="all contributors" href="/index/contributors">all\n                    contributors</a></li>\n                <li class="colophon__item"><a data-link-name="uk : footer : about us" target="_blank" href="/info">\n                    about us</a></li>\n                <li class="colophon__item"><a data-link-name="uk : footer : contact us" target="_blank"\n                                              href="/help/contact-us">\n                    contact us</a></li>\n                <li class="colophon__item"><a data-link-name="complaints" href="/info/complaints-and-corrections">\n                    complaints &amp; corrections</a></li>\n                <li class="colophon__item"><a data-link-name="terms" href="/help/terms-of-service">terms &amp;\n                    conditions</a></li>\n                <li class="colophon__item"><a data-link-name="privacy" href="/help/privacy-policy">privacy policy</a>\n                </li>\n                <li class="colophon__item"><a data-link-name="cookie" href="/info/cookies">cookie policy</a></li>\n                <li class="colophon__item"><a data-link-name="securedrop" href="https://securedrop.theguardian.com/">securedrop</a>\n                </li>\n            </ul>\n            <div class="l-footer__misc">\n                <div class="really-serious-copyright">© 2015 Guardian News and Media Limited or its affiliated\n                    companies. All&nbsp;rights&nbsp;reserved.\n                </div>\n            </div>\n        </div>\n        {{/isWeb}}\n    </footer>\n</div>\n';});
 
 
-define('text!templates/mainVideo.html',[],function () { return '{{#mainEpisode}}\n<div id="mainEpisode" class="contentBlock">\n    <div id="mainEpisodeVideo">\n\n        <div id="big-play-btn-wrapper">\n            <button id="big-play-btn" data-video-id="{{id}}" class="startVideo">\n                <span></span>\n            </button>\n        </div>\n\n        <div id="backgroundContainer">\n            <img id="backgroundImage" src="http://localhost:9000/build/assets/imgs/videos/{{id}}_1260.jpg"/>\n            <div id="videoContainer"></div>\n            <button data-date="{{coupleid}}" class="startVideo"><span></span></button>\n        </div>\n    </div>\n    <div id="mainEpisodeContent">\n        <h3>{{couple}}</h3>\n        <date>{{date}}</date>\n        <p id="episodeDescription">{{{description}}}</p>\n\n        <div id="shareButtons">\n            <button data-source="twitter" id="shareTwitter" data-video-id="{{id}}"></button>\n            <button data-source="facebook" id="shareFacebook" data-video-id="{{id}}"></button>\n        </div>\n    </div>\n</div>\n{{/mainEpisode}}\n';});
+define('text!templates/mainVideo.html',[],function () { return '{{#mainEpisode}}\n<div id="mainEpisode" class="contentBlock">\n    <div id="mainEpisodeVideo">\n\n        <div id="big-play-btn-wrapper">\n            <button id="big-play-btn" data-video-id="{{id}}" class="startVideo">\n                <span></span>\n            </button>\n        </div>\n\n        <div id="backgroundContainer">\n            <!--<img id="backgroundImage" src="http://localhost:9000/build/assets/imgs/videos/{{id}}_1260.jpg"/>-->\n            <img id="backgroundImage" src="{{thumbnails.maxres.url}}"/>\n            <div id="videoContainer"></div>\n            <button data-video-id="{{id}}" class="startVideo"><span></span></button>\n            <div id="endslate"></div>\n        </div>\n    </div>\n    <div id="mainEpisodeContent">\n        <h3>{{title}}</h3>\n        <!--<date>{{date}}</date>-->\n        <p id="episodeDescription">{{{description}}}</p>\n\n        <div id="shareButtons">\n            <button data-source="twitter" id="shareTwitter" data-video-id="{{id}}"></button>\n            <button data-source="facebook" id="shareFacebook" data-video-id="{{id}}"></button>\n        </div>\n    </div>\n</div>\n{{/mainEpisode}}\n';});
 
 
 define('text!yt-player-icon-play-pause',[],function () { return '<svg class="svg yt-play-pause" xmlns="http://www.w3.org/2000/svg" width="32" height="32">\n    <circle fill="#ff827f" cx="16" cy="16" r="16"/>\n    <path class="yt-play" fill="#333" d="M23 15.67L12 11l-.99.3v9.257l1 .3 11-4.67v-.5"/>\n    <path class="yt-pause" fill="#333" d="M14 22h-3V11.1l1-1.1h2v12m4-12h3v10.9L20 22h-2V10"/>\n</svg>\n\n';});
@@ -14864,6 +14864,11 @@ define( 'yt-player',[
     $( '#debug' ).append( msg + '<br/>' );
   };
 
+
+  // Get captions list
+  // https://www.googleapis.com/youtube/v3/captions?videoId=KsSV-RuxLXQ&part=snippet&key=AIzaSyDiTrZ80LUooXW0H_E2NoWKFUqNTB8sqLY
+
+
   function YoutubeCustomPlayer( id, options, callback ) {
 
     this.$elem = $( '#' + id );
@@ -14883,7 +14888,8 @@ define( 'yt-player',[
       rel: 0,
       hl: 'en',
       cc_load_policy: 1,
-      alwaysVisible: true
+      alwaysVisible: true,
+      APIkey: null
     }, options || {} );
 
 
@@ -14970,6 +14976,10 @@ define( 'yt-player',[
         this.$embedMessage = this.$elem.find( '.yt-embed-message' );
         this.$embedCode = this.$elem.find( '.yt-embed-code' );
 
+        this.$languages = this.$elem.find( '.yt-languages-btn' );
+        this.$languagesList = this.$elem.find( '.yt-languages-list' );
+        this.$cc = this.$elem.find( '.yt-cc-btn' );
+
         this.$volume = this.$elem.find( '.yt-volume' );
         this.$volumeLevel = this.$elem.find( '.yt-volume-level' );
       }
@@ -15020,6 +15030,15 @@ define( 'yt-player',[
     },
 
     onYoutubePlayerReady: function ( e ) {
+
+      // Enable or disable captions
+      if ( this.options.cc_load_policy === 1 ) {
+        this.enableCaptions();
+        this.getLanguagesList();
+      } else {
+        this.disableCaptions();
+      }
+
       this.$elem.addClass( 'yt-ready' );
       this.currentVolume = this.ytplayer.getVolume();
       this.duration = this.ytplayer.getDuration();
@@ -15079,6 +15098,8 @@ define( 'yt-player',[
         e.preventDefault();
         self.togglePlay();
       } );
+
+      this.$cc.on( 'click', this.toggleCaptions.bind( this ) );
 
       this.$muteBtn.on( 'click',function ( e ) {
         e.preventDefault();
@@ -15249,7 +15270,6 @@ define( 'yt-player',[
     },
 
     requestFullScreen: function () {
-
       var self = this;
 
       this.isFullScreen = true;
@@ -15334,6 +15354,28 @@ define( 'yt-player',[
       this.$muteBtn.removeClass( 'active' );
     },
 
+    toggleCaptions: function () {
+      if ( this.$cc.hasClass( 'active' ) ) {
+        this.disableCaptions();
+      } else {
+        this.enableCaptions();
+      }
+    },
+
+    enableCaptions: function () {
+      this.ytplayer.loadModule( 'captions' );
+      this.$cc.addClass( 'active' );
+    },
+
+    disableCaptions: function () {
+      this.ytplayer.unloadModule( 'captions' );
+      this.$cc.removeClass( 'active' );
+    },
+
+    removeCaptions: function () {
+      this.$cc.hide();
+    },
+
     seek: function ( t ) {
       this.ytplayer.seekTo( t, true );
     },
@@ -15348,8 +15390,69 @@ define( 'yt-player',[
       this.progressTimer = null;
     },
 
-    updateTime: function ( e, time ) {
+    getLanguagesList: function () {
+      var APIkey = this.options.APIkey;
 
+      if ( !APIkey ) {
+        this.disableLanguageSelection();
+        return;
+      }
+
+      // Get captions data
+      var videoId = this.options.videoId;
+      var url = 'https://www.googleapis.com/youtube/v3/captions?videoId=' + videoId + '&part=snippet&key=' + APIkey;
+      $.ajax( {
+        url: url,
+        success: this.createLanguagesMenu.bind( this )
+      } );
+    },
+
+    createLanguagesMenu: function ( captionsData ) {
+      this.languages = this.getLanguagesFromCaptions( captionsData.items );
+
+      if ( !this.languages || this.languages.length === 0 ) {
+        this.disableLanguageSelection();
+        this.removeCaptions();
+        return;
+      }
+
+      // Render the list
+      var html = '';
+      this.languages.forEach( function ( lang, i ) {
+        html += '<li data-lang="'+lang+'" class="lang ' + lang + '"><span>' + lang + '</span><i></i></li>';
+      } );
+      this.$languagesList.html( html );
+
+      console.log( this.languages );
+
+    },
+
+    getLanguagesFromCaptions: function ( captions ) {
+
+      if ( !captions )
+        return null;
+
+      var languages = [];
+
+      captions.forEach( function ( caption ) {
+        var caption = caption.snippet;
+        if ( caption )
+          languages.push( caption.language );
+      } );
+
+      return languages;
+
+    },
+
+    disableLanguageSelection: function () {
+      this.$languages.hide();
+    },
+
+    setLanguage: function ( hl ) {
+      this.ytplayer.setOption( "captions", "track", {"languageCode": hl} );
+    },
+
+    updateTime: function ( e, time ) {
       var self = this;
       this.currentTime = this.getCurrentTime();
       this.currentBuffer = this.getVideoLoadedFraction();
@@ -15394,6 +15497,10 @@ define( 'yt-player',[
       ret += sec < 10 ? "0" : "";
       ret += sec;
       return ret;
+    },
+
+    getPlaylist: function () {
+      return this.ytplayer.getPlaylist();
     },
 
     getVideoLoadedFraction: function () {
@@ -15541,7 +15648,10 @@ define( 'yt-player',[
       '<div class="yt-play-btn">' + playPauseSvg + '</div>' +
       '<div class="yt-time"></div>' +
 
-      '<div class="yt-languages-btn">' + languagesSvg + '</div>' +
+      '<div class="yt-languages-btn">' + languagesSvg +
+      '<ul class="yt-languages-list"></ul>' +
+      '</div>' +
+
       '<div class="yt-cc-btn">' + ccSvg + '</div>' +
 
       '<div class="yt-embed-btn unselectable">' + embedSvg + ' <span class="unselectable">Embed</span></div>' +
@@ -15553,6 +15663,8 @@ define( 'yt-player',[
       '<div class="yt-timeline unselectable"><div class="yt-seek unselectable"></div><div class="yt-buffer"></div></div>' +
       '</div>' +
       '</div>',
+
+    languages: '<ul id="yt-languages-list"></ul>',
 
     controlLess: '<div class="yt-video-wrapper"></div>' +
       '<div class="yt-loading-wrapper"><div class="yt-loading">loading</div></div>' +
@@ -15566,7 +15678,8 @@ define( 'yt-player',[
 
   /** load YT API */
   var tag = document.createElement( 'script' );
-  tag.src = "https://www.youtube.com/player_api";
+//  tag.src = "https://www.youtube.com/player_api";
+  tag.src = "https://www.youtube.com/iframe_api";
   var firstScriptTag = document.getElementsByTagName( 'script' )[0];
   firstScriptTag.parentNode.insertBefore( tag, firstScriptTag );
 
@@ -15587,18 +15700,17 @@ define( 'views/mainVideo',[
 //  'TweenLite',
 //  'TweenLite-css',
 //  'TweenLite-ease'
-], function ( Backbone, Mustache, template, _, YoutubeCustomPlayer, TweenLite ) {
+], function ( Backbone, Mustache, template, _, YoutubeCustomPlayer ) {
 
   'use strict';
 
   return Backbone.View.extend( {
-//    events: {
-//      'click #mainEpisodeVideo': 'playVideo',
-//      'click #shareButtons button': 'shareVideo'
-//    },
 
-    initialize: function () {
+    initialize: function ( options ) {
 //      console.log(YoutubeCustomPlayer);
+
+      // Google YouTube Data API key (necessary for captions or playlist requests)
+      this.youtubeDataApiKey = options.youtubeDataApiKey;
 
       this.setupElements();
       this.setupEvents();
@@ -15606,8 +15718,6 @@ define( 'views/mainVideo',[
     },
 
     setupElements: function () {
-
-//      this.$bigPlayBtn = $('#big-play-btn-wrapper ');
 
       this.$videoContainer = $( '#videoContainer' );
       this.$backgroundImage = $( '#backgroundImage' );
@@ -15655,30 +15765,37 @@ define( 'views/mainVideo',[
       var self = this;
       var videoId = this.videoData.id;
       var youtubeId = this.videoData.youtubeId;
+      var youtubeDataApiKey = this.youtubeDataApiKey;
 
       //create a new Player
-      var ytPlayer = new YoutubeCustomPlayer('videoContainer', {
+      var ytPlayer = new YoutubeCustomPlayer( 'videoContainer', {
 //        embedCode: embedCode, // custom embed code
-        alwaysVisible: false, // if the controls should be always visible or hide after a few seconds
+        alwaysVisible: true, // if the controls should be always visible or hide after a few seconds
         hl: 'it', // the language for subtitles and CC
         videoId: youtubeId, //id of the yt video
         wmode: 'transparent', //opaque/transparent/direct
         controls: 1, // show yt controls ?
         showinfo: 0, // show infos bubules on video ?
         autoplay: 1, //autoplay ?
-        rel: 0 //show related videos at the end ?
+        rel: 0, //show related videos at the end ?
+        APIkey: youtubeDataApiKey
 
-      }, function(event){
-
+      }, function ( event ) {
 //        console.log('player ready');
-//        console.log(this.getOptions('cc'));
+//        console.log( this.ytplayer.getOptions( 'cc' ) );
+//        console.log( this.ytplayer.getPlaylist() );
+
+        // 'this' represents the YoutubeCustomPlayer instance
+        // 'this.ytplayer' represents the YouTube player object to access the Iframe API
+        console.log( this.ytplayer );
+//        console.log( this.ytplayer.loadModule( "captions" ) );
 
         $( '#backgroundImage' ).fadeOut( 500, function () {
-          $('#big-play-btn-wrapper ').hide();
+          $( '#big-play-btn-wrapper ' ).hide();
           $( '#mainEpisode' ).addClass( 'videoPlaying' );
         } );
 
-//        $( '#mainEpisode' ).addClass( 'videoPlaying' );
+        // $( '#mainEpisode' ).addClass( 'videoPlaying' );
 
         // Update Google Analytics (send)
         window.ga( 'send', {
@@ -15688,7 +15805,8 @@ define( 'views/mainVideo',[
           'eventLabel': videoId
         } );
 
-      });
+      } );
+
 
       // Fade out background
 //      this.$backgroundImage
@@ -15737,10 +15855,11 @@ define( 'views/appView',[
     className: 'guInteractive',
 
     events: {
-      'click .episodeBlock.published-yes.inactiveVideo': 'switchVideo'
+      'click .episodeBlock.inactiveVideo': 'switchVideo'
     },
 
     switchVideo: function ( e ) {
+
       var videoId = $( e.currentTarget ).attr( 'data-video-id' );
 
       window.ga( 'send', {
@@ -15778,17 +15897,17 @@ define( 'views/appView',[
     },
 
     updateActiveVideo: function () {
-      var currentDateId = this.mainEpisode.coupleid;
+      var currentVideoId = this.mainEpisode.id;
       $( '.episodeBlock' ).removeClass( 'activeVideo' );
 
       $( '.episodeBlock' ).removeClass( 'inactiveVideo' );
       $( '.episodeBlock' ).addClass( 'inactiveVideo' );
 
-      $( '.episodeBlock.' + currentDateId ).removeClass( 'inactiveVideo' );
-      $( '.episodeBlock.' + currentDateId ).addClass( 'activeVideo' );
+      $( '.episodeBlock.' + currentVideoId ).removeClass( 'inactiveVideo' );
+      $( '.episodeBlock.' + currentVideoId ).addClass( 'activeVideo' );
     },
 
-    selectInitialDate: function () {
+    selectInitialVideo: function () {
       this.queryValue = "";
       var queryString = document.location.search;
       if ( queryString ) {
@@ -15800,7 +15919,7 @@ define( 'views/appView',[
 
       if ( this.queryValue ) {
         var foundValue = _.findWhere( this.allEpisodes, {
-          'coupleid': this.queryValue
+          'id': this.queryValue
         } );
         if ( foundValue ) {
           this.mainEpisode = foundValue;
@@ -15808,39 +15927,50 @@ define( 'views/appView',[
       }
 
       if ( typeof this.mainEpisode === "undefined" ) {
-        this.mainEpisode = _.last( _.where( this.allEpisodes, {'published': 'yes'} ) );
+        this.mainEpisode = this.allEpisodes[0];
+        // _.last( this.allEpisodes );
+        // this.mainEpisode = _.last( _.where( this.allEpisodes, {'published': 'yes'} ) );
       }
     },
 
-    animateHeader: function () {
-      $( '<img/>' ).attr( 'src', 'http://localhost:9000/build/assets/imgs/header_off.jpg' ).load( function () {
-        var $header = $( '#headerImage img' );
-        setInterval( function () {
-          var i = 0;
-          var state = {
-            off: "on",
-            on: "off"
-          };
-
-          function flicker( current ) {
-            $header.attr( 'src', 'http://localhost:9000/build/assets/imgs/header_' + current + '.jpg' );
-            if ( i < 3 ) {
-              i++;
-              setTimeout( function () {
-                flicker( state[current] );
-              }, 100 * (i / 2) );
-            }
-          }
-
-          flicker( 'off' );
-        }, 8000 )
-      } );
-    },
 
     initialize: function ( options ) {
-      this.mainVideo = new mainVideo();
-      this.data = options.data.sheets;
-      console.log(this.data);
+      this.mainVideo = new mainVideo( {
+        youtubeDataApiKey: options.youtubeDataApiKey
+      } );
+      this.data = options.json.sheets;
+//      this.playlistItemsData = options.playlistItemsData;
+      this.videos = this.getVideos( options.playlistItemsData );
+
+      // Reverse the order of videos to get the last first
+      this.videos.reverse();
+
+      console.log( this.data );
+      console.log( options.playlistItemsData );
+      console.log( this.videos );
+    },
+
+    getVideos: function ( playlistItemsData ) {
+      var videos = [];
+      var items = playlistItemsData.items;
+
+      items.forEach( function ( item, i ) {
+        var item = item.snippet;
+
+        if ( item.resourceId && item.resourceId.kind == "youtube#video" ) {
+          var video = {};
+          video.id = item.resourceId.videoId;
+          video.youtubeId = video.id;
+          video.title = item.title;
+          video.description = item.description.replace(/\n/g,"<br>");
+          video.thumbnails = item.thumbnails;
+          video.publishedAt = item.publishedAt;
+          videos.push( video );
+        }
+
+      } );
+
+      return videos;
     },
 
     formatDate: function ( date ) {
@@ -15869,20 +15999,27 @@ define( 'views/appView',[
       this.months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
       //Format videos
-      this.allEpisodes = _.map( this.data.videos, function ( episode ) {
-        episode.date = _this.formatDate( episode.date );
-        if ( episode.video ) {
-          episode.video = _this.getEmbedPath( episode.video );
+//      var videos = this.data.videos;
+      var videos = this.videos;
+      this.allEpisodes = _.map( videos, function ( episode ) {
+
+        if ( episode.date ) {
+          episode.date = _this.formatDate( episode.date );
         }
+
+//        if ( episode.video ) {
+//          episode.video = _this.getEmbedPath( episode.video );
+//        }
+
         return episode;
       } );
 
-      this.teaser = this.data.teaser[0];
-      this.teaser.date = this.formatDate( this.teaser.date );
-      this.teaser.video = this.getEmbedPath( this.teaser.video );
+//      this.teaser = this.data.teaser[0];
+//      this.teaser.date = this.formatDate( this.teaser.date );
+//      this.teaser.video = this.getEmbedPath( this.teaser.video );
 
       //Decide which video to play first
-      this.selectInitialDate();
+      this.selectInitialVideo();
 
       // Check if in app or on website
       var isWeb = true;
@@ -15903,7 +16040,6 @@ define( 'views/appView',[
       // Render main video
       this.$( '#mainVideoContainer' ).html( this.mainVideo.render( this.mainEpisode ).el );
 
-      this.animateHeader();
       this.updateActiveVideo();
 
       return this;
@@ -16623,42 +16759,73 @@ define( 'main',[
   'use strict';
 
 
-  // Your proxied Google spreadsheet goes here
-//  var key = '1c-893TLDBgjQrHPBW3ezFHldj94KCCWKsIARD_HAAGM';
+  // YouTube Playlist ID
+  var playlistId = 'PL6fsSwuQS6yprx0KUHXCP3DttOHFiEJ4N';
+  var youtubeDataApiKey = 'AIzaSyDiTrZ80LUooXW0H_E2NoWKFUqNTB8sqLY'; // Esteban Almiron google account
+
+  var App = {};
 
   function init( el, context, config, mediator ) {
 
+    App.el = el;
+    App.context = context;
+    App.config = config;
+    App.mediator = mediator;
+
+    getJsonData();
+
+  }
+
+  function getJsonData() {
     $.ajax( {
       url: 'http://localhost:9000/build/assets/data/data.json',
-      success: function ( data ) {
+      success: getPlaylistItems
+    } );
+  }
 
-        console.log( data );
+  function getPlaylistItems( data ) {
 
-        // Wait for YouTube API to be ready
-        YoutubeCustomPlayer.ready( function () {
+    App.json = data;
 
-          var appView = new AppView( {
-            el: el,
-            data: data
-          } );
-          appView.render();
+    var url = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=' + playlistId + '&key=' + youtubeDataApiKey;
 
-          // Start listening to URL #paths
-          Backbone.history.start();
+    $.ajax( {
+      url: url,
+      success: youtubeReady
+    } );
+  }
 
-          // Enable iframe resizing on the GU site
-          iframeMessenger.enableAutoResize();
 
-        } );
+  function youtubeReady( data ) {
 
-      }
+    App.playlistItemsData = data;
+
+    // Wait for YouTube API to be ready
+    YoutubeCustomPlayer.ready( function () {
+
+      var appView = new AppView( {
+        el: App.el,
+        playlistItemsData: App.playlistItemsData,
+        json: App.json,
+        youtubeDataApiKey: youtubeDataApiKey
+      } );
+      appView.render();
+
+      // Start listening to URL #paths
+      Backbone.history.start();
+
+      // Enable iframe resizing on the GU site
+      iframeMessenger.enableAutoResize();
+
     } );
 
   }
 
+
   return {
     init: init
   };
+
 } );
 
 return require; }()); return req; });

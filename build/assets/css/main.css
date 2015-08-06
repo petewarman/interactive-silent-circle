@@ -671,7 +671,6 @@
   text-align: center;
   z-index: 4;
   opacity: 1;
-  overflow: hidden;
 }
 
 .yt-big-play-btn {
@@ -750,6 +749,7 @@
 .yt-fullscreen-btn .svg {
   position: absolute;
   top: 50%;
+  left: 0;
   -webkit-transform: translateY(-50%);
   -khtml-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
@@ -960,11 +960,110 @@
   width: 22px;
   height: 22px;
 }
+.yt-languages-btn:hover, .yt-languages-btn.open {
+  background-color: #333;
+}
+.yt-languages-btn:hover .yt-languages-list, .yt-languages-btn.open .yt-languages-list {
+  display: block;
+}
+.yt-languages-btn .yt-languages-list {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 22px;
+  padding: 0;
+  margin: 0;
+  z-index: 20;
+}
+.yt-languages-btn .yt-languages-list li {
+  cursor: pointer;
+  background-color: #333;
+  color: #FFF;
+  padding: 7px 14px;
+  margin: 0;
+  border-bottom: 1px solid #666;
+  list-style: none;
+  text-align: left;
+  font-size: 13px;
+  white-space: nowrap;
+}
+.yt-languages-btn .yt-languages-list li i,
+.yt-languages-btn .yt-languages-list li span {
+  display: inline-block;
+}
+.yt-languages-btn .yt-languages-list li i {
+  margin: 0 5px;
+  content: ' ';
+  width: 8px;
+  height: 8px;
+  -khtml-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  background-color: #ff827f;
+}
+.yt-languages-btn .yt-languages-list li:last-child {
+  border-bottom: none !important;
+}
+.yt-languages-btn .yt-languages-list li:hover {
+  color: #ff827f;
+  background-color: #666;
+}
 
 .yt-cc-btn {
   right: 335px;
   width: 22px;
   height: 22px;
+}
+.yt-cc-btn.active .svg .shape {
+  fill: #ff827f;
+}
+
+#shareButtons {
+  font-family: 'Guardian Text Sans Web', 'Agate Sans', sans-serif;
+  font-size: 14px;
+  color: #767676;
+  margin-top: 0;
+}
+#shareButtons p {
+  margin: 0 0 5px;
+}
+#shareButtons button {
+  background: #333;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 9000px;
+  display: inline-block;
+  vertical-align: top;
+  color: #fff;
+  margin-bottom: 5px;
+  cursor: pointer;
+  outline: none;
+}
+#shareButtons button#shareTwitter {
+  background: #03b3ee url(../imgs/twitterIcon.svg) no-repeat center center;
+}
+#shareButtons button#shareTwitter:hover {
+  background-color: #028dbc;
+}
+#shareButtons button#shareFacebook {
+  background: #3067a3 url(../imgs/facebookIcon.svg) no-repeat center center;
+}
+#shareButtons button#shareFacebook:hover {
+  background-color: #244e7c;
+}
+#shareButtons button#sharePinterest {
+  background: #b9252c url(../imgs/pinterestIcon.svg) no-repeat center center;
+}
+#shareButtons button#sharePinterest:hover {
+  background-color: #8f1d22;
+}
+#shareButtons button#shareTumblr {
+  background: #36465d url(../imgs/tumblrIcon2.svg) no-repeat center center;
+  background-size: 11px;
+}
+#shareButtons button#shareTumblr:hover {
+  background-color: #232e3d;
 }
 
 body {
@@ -980,460 +1079,19 @@ body {
   background: #555;
   color: #fff;
 }
-.guInteractive iframe {
-  border: none;
-}
-.guInteractive #backtohome {
-  color: #fff;
-  font-weight: bold;
-  text-decoration: none;
-  vertical-align: top;
-}
-.guInteractive #backtohome span {
-  display: inline-block;
-  padding-top: 13px;
-}
-.guInteractive iframe#form {
-  overflow: hidden;
-}
-.guInteractive a, .guInteractive p a, .guInteractive li a {
-  background: none;
-  text-shadow: none;
-}
-.guInteractive * {
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-.guInteractive h1, .guInteractive h2, .guInteractive h3, .guInteractive h4, .guInteractive h5 {
-  font-family: "Guardian Egyptian Web", "Egyptian Display", "Guardian Text Egyptian Web", "Egyptian Text", Georgia, serif;
-}
-.guInteractive .sectionHeading {
-  margin: 40px 0 20px;
-  border-top: 1px solid #767676;
-  line-height: 1.2;
-  padding: 4px 0;
-  font-size: 18px;
-}
-.guInteractive #guardianNav {
-  height: 48px;
-  background: #296d96;
-  width: 100%;
-}
-.guInteractive .contentBlock {
-  margin: 0 10px;
-  max-width: 1300px;
-}
-.guInteractive #navContainer {
-  background: #005689;
-  height: 100%;
-  padding: 1px 10px 0;
-}
-.guInteractive #navContainer:after {
-  clear: both;
-  content: '';
-  display: block;
-}
-.guInteractive #guardianLogo {
-  width: 170px;
-  float: right;
-  margin-top: 10px;
-  display: inline-block;
-}
-.guInteractive #homeLogo {
-  width: 15px;
-  height: 18px;
-  margin-top: 14px;
-  display: inline-block;
-  margin-right: 7px;
-  vertical-align: top;
-}
-.guInteractive #headerContainer {
-  position: relative;
-  margin-bottom: 20px;
-}
-.guInteractive #headerContainer h2 {
-  color: #ff827f;
-  font-size: 16px;
-  font-weight: bold;
-  line-height: 1.25;
-  z-index: 6;
-  position: relative;
-  opacity: 0.8;
-  text-align: center;
-}
-.guInteractive #headerContainer img {
-  width: 120%;
-  margin-left: -10%;
-  z-index: 4;
-  position: relative;
-}
-.guInteractive #headerContainer #headerImage {
-  font-size: 0;
-  position: relative;
-  width: 100%;
-}
-.guInteractive #content {
-  background: #030303;
-  height: auto;
-  padding: 1px 0 80px;
-  margin: 0;
-}
-.guInteractive #mainEpisode {
-  position: relative;
-}
-.guInteractive #mainEpisode.videoPlaying .startVideo {
-  display: none;
-}
-.guInteractive #mainEpisode.videoPlaying #videoContainer {
-  display: block;
-}
-.guInteractive #mainEpisode #videoContainer {
-  width: 100%;
-  height: 0;
-  padding-bottom: 56.25%;
-  position: relative;
-}
-.guInteractive #mainEpisode #videoContainer iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-.guInteractive #mainEpisodeVideo {
-  position: relative;
-  cursor: pointer;
-}
-.guInteractive #mainEpisodeVideo #big-play-btn-wrapper {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 20;
-}
-.guInteractive #mainEpisodeVideo #big-play-btn-wrapper:hover #big-play-btn {
-  background: #ff827f;
-}
-.guInteractive #mainEpisodeVideo #big-play-btn-wrapper #big-play-btn {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-  -khtml-transform: translateX(-50%) translateY(-50%);
-  -ms-transform: translateX(-50%) translateY(-50%);
-  transform: translateX(-50%) translateY(-50%);
-  width: 80px;
-  height: 80px;
-  border: none;
-  background-color: rgba(0, 0, 0, 0.6);
-  outline: none;
-  cursor: pointer;
-  -khtml-transition: 0.5s background;
-  transition: 0.5s background;
-  -khtml-border-radius: 50%;
-  -o-border-radius: 50%;
-  border-radius: 50%;
-  font-size: 0;
-}
-.guInteractive #mainEpisodeVideo #big-play-btn-wrapper #big-play-btn span {
-  content: '';
-  position: absolute;
-  display: block;
-  width: 26px;
-  height: 22px;
-  background-image: url(../imgs/playArrow.svg);
-  top: 50%;
-  left: 50%;
-  margin-left: -11px;
-  margin-top: -11px;
-}
-.guInteractive #mainEpisodeVideo #backgroundImage {
-  opacity: 1;
-  position: absolute;
-  z-index: 10;
-  display: block;
-}
-.guInteractive #episodeQuote {
-  font-family: "Guardian Egyptian Web", "Egyptian Display", "Guardian Text Egyptian Web", "Egyptian Text", Georgia, serif;
-  font-size: 20px;
-}
-.guInteractive #backgroundContainer {
-  position: relative;
-  font-size: 0;
-  margin: 0 -10px;
-}
-.guInteractive #backgroundContainer img {
-  width: 100%;
-}
-.guInteractive #backgroundContainer button {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-  -khtml-transform: translateX(-50%) translateY(-50%);
-  -ms-transform: translateX(-50%) translateY(-50%);
-  transform: translateX(-50%) translateY(-50%);
-}
-.guInteractive #backgroundLayer {
-  position: relative;
-  display: none;
-  -khtml-transition: 0.5s background;
-  transition: 0.5s background;
-}
-.guInteractive #mainEpisodeContent {
-  padding: 15px 10px 15px;
-  background: #424242;
-  position: relative;
-  z-index: 5;
-}
-.guInteractive #mainEpisodeContent h3, .guInteractive #mainEpisodeContent h4 {
-  margin: 0;
-}
-.guInteractive #mainEpisodeContent h3 {
-  font-weight: bold;
-  font-size: 30px;
-  line-height: 1.2em;
-}
-.guInteractive #mainEpisodeContent p {
-  font-size: 14px;
-  border-top: 1px solid #767676;
-  padding-top: 20px;
-  margin-top: 1em;
-}
-.guInteractive #episodeTeaser {
-  background: #424242;
-  margin-top: 40px;
-  padding-top: 1px;
-  padding-bottom: 10px;
-}
-.guInteractive #episodeTeaser .sectionHeading {
-  border-top: none;
-  margin-top: 0;
-  margin-left: 10px;
-  margin-right: 10px;
-  line-height: 1.2;
-}
-.guInteractive #episodeTeaser #teaserDescription {
-  border-top: 1px solid #767676;
-  padding-top: 9px;
-  margin-top: 15px;
-}
-.guInteractive #episodeTeaser #nextWeekVideo {
-  margin-bottom: 1em;
-}
-.guInteractive #episodeTeaser #nextWeekVideoContainer {
-  height: 0;
-  width: 100%;
-  padding-bottom: 56.25%;
-  position: relative;
-}
-.guInteractive #episodeTeaser #nextWeekVideoContainer iframe {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-}
-.guInteractive #episodeTeaser img {
-  width: 100%;
-  margin-bottom: 8px;
-}
-.guInteractive #episodeTeaser h3 {
-  font-size: 22px;
-  margin: 0;
-  line-height: 1.2em;
-  font-weight: bold;
-}
-.guInteractive #episodeTeaser p {
-  margin-top: 5px;
-  font-size: 14px;
-}
-.guInteractive #teaserMobile {
-  display: none;
-  font-family: 'Guardian Text Sans Web', 'Agate Sans', sans-serif;
-}
-.guInteractive #signupAlert {
-  border-top: 1px solid #dcdcdc;
-  margin-top: 40px;
-  padding-top: 20px;
-}
-.guInteractive #signupBox {
-  margin-top: 30px;
-}
-.guInteractive #signupBox #signupTitle {
-  font-family: "Guardian Egyptian Web", "Egyptian Display", "Guardian Text Egyptian Web", "Egyptian Text", Georgia, serif;
-  color: #ff827f;
-  font-weight: bold;
-  font-size: 18px;
-  margin: 0;
-  line-height: 1.2em;
-}
-.guInteractive #signupBox #signupDescription {
-  font-family: 'Guardian Text Sans Web', 'Agate Sans', sans-serif;
-  margin-top: 0.5em;
-}
-.guInteractive #allEpisodes {
-  font-size: 0;
-}
-.guInteractive #allEpisodesContainer:after {
-  clear: both;
-  content: '';
-  display: block;
-}
-.guInteractive .episodeBlock {
-  width: 50%;
-  float: left;
-  margin-bottom: 10px;
-  padding: 0 5px 0 0;
-  height: 160px;
-}
-.guInteractive .episodeBlock.activeVideo img {
-  border: 4px solid #ff827f;
-}
-.guInteractive .episodeBlock:nth-of-type(2n) {
-  padding: 0 0 0 5px;
-}
-.guInteractive .episodeBlock img {
-  width: 100%;
-  transition: 0.5s opacity;
-  margin-bottom: 5px;
-  backface-visibility: hidden;
-  -o-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-.guInteractive .episodeBlock p {
-  font-size: 14px;
-  line-height: 1.2em;
-  font-family: "Guardian Egyptian Web", "Egyptian Display", "Guardian Text Egyptian Web", "Egyptian Text", Georgia, serif;
-  font-weight: bold;
-  margin-top: 0;
-}
-.guInteractive .episodeBlock p span {
-  display: block;
-  font-family: 'Guardian Text Sans Web', 'Agate Sans', sans-serif;
-  font-weight: normal;
-  color: #b2b2b2;
-}
-.guInteractive .episodeBlock.published-no {
-  opacity: 0.2;
-}
-.guInteractive .episodeBlock.published-yes.inactiveVideo {
-  cursor: pointer;
-}
-.guInteractive .episodeBlock.published-yes.inactiveVideo:hover p {
-  text-decoration: underline;
-}
-.guInteractive .episodeBlock.published-yes.inactiveVideo:hover img {
-  opacity: 0.8;
-}
-.guInteractive #aboutDates p {
-  margin-top: 0;
-  font-family: 'Guardian Text Sans Web', 'Agate Sans', sans-serif;
-  font-size: 14px;
-}
-.guInteractive #aboutDates p a {
-  color: #ff827f;
-}
-.guInteractive #aboutDates #participate {
-  font-size: 18px;
-}
-.guInteractive #aboutDates #participate a {
-  color: #da82d1;
-  font-weight: bold;
-}
-.guInteractive footer {
-  background: #424242;
-}
-.guInteractive footer #soulmatesBanner {
-  background: #f5f3e6;
-  height: 280px;
-  position: relative;
-  padding-top: 20px;
-}
-.guInteractive footer #soulmatesBanner p {
-  color: black;
-  font-weight: bold;
-  font-family: "Guardian Egyptian Web", "Egyptian Display", "Guardian Text Egyptian Web", "Egyptian Text", Georgia, serif;
-  font-size: 22px;
-  line-height: 1.2em;
-  margin: 0 20px 20px;
-}
-.guInteractive footer #soulmatesBanner img {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
-}
-.guInteractive footer #soulmatesBanner a {
-  background: #995490;
-  color: #fff;
-  display: block;
-  margin: 0 auto;
-  width: 140px;
-  height: 40px;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 8px 0 0 10px;
-  position: relative;
-}
-.guInteractive footer #soulmatesBanner a span {
-  position: absolute;
-  right: 7px;
-  top: 4px;
-  width: 31px;
-  height: 31px;
-}
-.guInteractive .really-serious-copyright {
-  font-size: 12px;
-  color: #dcdcdc;
-  font-family: 'Guardian Text Sans Web', 'Agate Sans', sans-serif;
-  margin: 0 10px 20px;
-  padding-top: 10px;
-}
-.guInteractive #footerContent {
-  padding-bottom: 1px;
-}
-.guInteractive #footerContent .colophon {
-  -webkit-column-count: 2;
-  -moz-column-count: 2;
-  column-count: 2;
-  padding: 0;
-  margin: 20px 10px 10px;
-}
-.guInteractive #footerContent .colophon li {
-  padding: 0;
-  margin: 0;
-}
-.guInteractive #footerContent a {
-  color: gainsboro;
-  text-decoration: none;
-  padding-bottom: 12px;
-  font-size: 14px;
-  line-height: 22px;
-  font-weight: 500;
-  display: inline-block;
-}
-.guInteractive #footerContent a:hover {
-  text-decoration: underline;
-}
 @media (min-width: 440px) {
   .guInteractive iframe#form {
     height: 50px;
   }
   .guInteractive .episodeBlock {
-    height: 180px;
+    width: 90%;
+    display: block;
+    margin: 0 auto 20px;
   }
 }
 @media (min-width: 480px) {
   .guInteractive #navContainer {
     padding: 0 20px;
-  }
-  .guInteractive #headerContainer img {
-    width: 100%;
-    margin-left: 0;
-  }
-  .guInteractive #headerContainer h2 {
-    font-size: 18px;
   }
   .guInteractive .contentBlock {
     margin: 0 20px;
@@ -1448,8 +1106,6 @@ body {
   .guInteractive #mainEpisodeContent {
     padding-right: 20px;
     padding-left: 20px;
-    margin-left: -20px;
-    margin-right: -20px;
   }
   .guInteractive #backgroundContainer {
     margin: 0 -20px;
@@ -1477,9 +1133,6 @@ body {
   }
   .guInteractive #signupBox #signupTitle {
     font-size: 20px;
-  }
-  .guInteractive .episodeBlock {
-    height: 200px;
   }
   .guInteractive .episodeBlock p {
     font-size: 16px;
@@ -1510,20 +1163,12 @@ body {
     margin-left: 20px;
   }
 }
-@media (min-width: 540px) {
-  .guInteractive .episodeBlock {
-    height: 220px;
-  }
-}
 @media (min-width: 660px) {
   .guInteractive #mainEpisode {
     max-width: none;
   }
   .guInteractive #backgroundContainer {
     margin: 0;
-  }
-  .guInteractive #headerContainer h2 {
-    font-size: 20px;
   }
   .guInteractive .contentBlock {
     max-width: 620px;
@@ -1534,13 +1179,11 @@ body {
     margin-right: auto;
     margin-left: auto;
   }
-  .guInteractive .episodeBlock {
-    height: 240px;
-  }
   .guInteractive #mainEpisodeContent {
     max-width: 620px;
     padding-left: 20px;
     padding-right: 20px;
+    margin: 0 auto;
   }
   .guInteractive #episodeTeaser {
     max-width: 620px;
@@ -1742,19 +1385,11 @@ body {
   }
 }
 @media (min-width: 980px) {
-  .guInteractive #headerContainer {
-    margin: 0 -20px 20px;
-  }
   .guInteractive #content,
   .guInteractive #navContainer {
     max-width: 980px;
     margin: 0 auto;
     padding: 0 20px 80px;
-  }
-  .guInteractive #headerContainer h2 {
-    font-size: 24px;
-    line-height: 1.2em;
-    opacity: 0.8;
   }
   .guInteractive #footerContent {
     max-width: 980px;
@@ -1775,10 +1410,10 @@ body {
     margin-top: 5px;
   }
   .guInteractive .episodeBlock {
-    width: 23.5%;
     margin-right: 2%;
     padding: 0;
-    height: 200px;
+    width: 40%;
+    display: inline-block;
   }
   .guInteractive .episodeBlock:nth-of-type(4n) {
     margin-right: 0;
@@ -1804,9 +1439,6 @@ body {
     max-width: 530px;
     margin-left: 110px;
     margin-bottom: 80px;
-  }
-  .guInteractive #headerContainer #headerImage:after {
-    height: 30%;
   }
   .guInteractive footer #soulmatesBanner {
     height: 115px;
@@ -1841,7 +1473,6 @@ body {
     margin-top: 40px;
   }
   .guInteractive #episodeTeaser {
-    margin: 0 -20px;
     padding-top: 12px;
   }
   .guInteractive #episodeTeaser .sectionHeading {
@@ -1891,7 +1522,7 @@ body {
     margin-top: 10px;
   }
   .guInteractive #mainEpisodeContent {
-    margin-left: 140px;
+    margin-left: 160px;
   }
   .guInteractive footer #soulmatesBanner {
     height: 135px;
@@ -1945,53 +1576,448 @@ body {
     padding-left: 240px;
   }
 }
-
-#shareButtons {
+.guInteractive #headerContainer {
+  position: relative;
+}
+.guInteractive #headerContainer h2 {
+  color: #ff827f;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.25;
+  z-index: 6;
+  position: relative;
+  opacity: 0.8;
+  text-align: center;
+}
+.guInteractive #headerContainer img {
+  width: 100%;
+  z-index: 4;
+  position: relative;
+}
+.guInteractive #headerContainer #headerImage {
+  font-size: 0;
+  position: relative;
+  width: 100%;
+}
+@media (min-width: 480px) {
+  .guInteractive #headerContainer img {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+.guInteractive iframe {
+  border: none;
+}
+.guInteractive #backtohome {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  vertical-align: top;
+}
+.guInteractive #backtohome span {
+  display: inline-block;
+  padding-top: 13px;
+}
+.guInteractive iframe#form {
+  overflow: hidden;
+}
+.guInteractive a, .guInteractive p a, .guInteractive li a {
+  background: none;
+  text-shadow: none;
+}
+.guInteractive * {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.guInteractive h1, .guInteractive h2, .guInteractive h3, .guInteractive h4, .guInteractive h5 {
+  font-family: "Guardian Egyptian Web", "Egyptian Display", "Guardian Text Egyptian Web", "Egyptian Text", Georgia, serif;
+}
+.guInteractive .sectionHeading {
+  margin: 40px 0 20px;
+  border-top: 1px solid #767676;
+  line-height: 1.2;
+  padding: 4px 0;
+  font-size: 18px;
+}
+.guInteractive #guardianNav {
+  height: 48px;
+  background: #296d96;
+  width: 100%;
+}
+.guInteractive .contentBlock {
+  margin: 0 10px;
+  max-width: 1300px;
+}
+.guInteractive #navContainer {
+  background: #005689;
+  height: 100%;
+  padding: 1px 10px 0;
+}
+.guInteractive #navContainer:after {
+  clear: both;
+  content: '';
+  display: block;
+}
+.guInteractive #guardianLogo {
+  width: 170px;
+  float: right;
+  margin-top: 10px;
+  display: inline-block;
+}
+.guInteractive #homeLogo {
+  width: 15px;
+  height: 18px;
+  margin-top: 14px;
+  display: inline-block;
+  margin-right: 7px;
+  vertical-align: top;
+}
+.guInteractive #content {
+  background: #030303;
+  height: auto;
+  padding: 1px 0 80px;
+  margin: 0 auto;
+}
+.guInteractive #mainEpisode {
+  position: relative;
+}
+.guInteractive #mainEpisode.videoPlaying .startVideo {
+  display: none;
+}
+.guInteractive #mainEpisode.videoPlaying #videoContainer {
+  display: block;
+}
+.guInteractive #mainEpisode #videoContainer {
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  position: relative;
+}
+.guInteractive #mainEpisode #videoContainer iframe {
+  background-color: #000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border-width: 0;
+}
+.guInteractive #mainEpisodeVideo {
+  position: relative;
+  cursor: pointer;
+}
+.guInteractive #mainEpisodeVideo #big-play-btn-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+}
+.guInteractive #mainEpisodeVideo #big-play-btn-wrapper:hover #big-play-btn {
+  background: #ff827f;
+}
+.guInteractive #mainEpisodeVideo #big-play-btn-wrapper #big-play-btn {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -khtml-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  width: 80px;
+  height: 80px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.6);
+  outline: none;
+  cursor: pointer;
+  -khtml-transition: 0.5s background;
+  transition: 0.5s background;
+  -khtml-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  font-size: 0;
+}
+.guInteractive #mainEpisodeVideo #big-play-btn-wrapper #big-play-btn span {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 26px;
+  height: 22px;
+  background-image: url(../imgs/playArrow.svg);
+  top: 50%;
+  left: 50%;
+  margin-left: -11px;
+  margin-top: -11px;
+}
+.guInteractive #mainEpisodeVideo #backgroundImage {
+  opacity: 1;
+  position: absolute;
+  z-index: 10;
+  display: block;
+}
+.guInteractive #episodeQuote {
+  font-family: "Guardian Egyptian Web", "Egyptian Display", "Guardian Text Egyptian Web", "Egyptian Text", Georgia, serif;
+  font-size: 20px;
+}
+.guInteractive #backgroundContainer {
+  position: relative;
+  font-size: 0;
+  margin: 0 -10px;
+}
+.guInteractive #backgroundContainer img {
+  width: 100%;
+}
+.guInteractive #backgroundContainer button {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -khtml-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+.guInteractive #backgroundLayer {
+  position: relative;
+  display: none;
+  -khtml-transition: 0.5s background;
+  transition: 0.5s background;
+}
+.guInteractive #mainEpisodeContent {
+  padding: 15px 10px 15px;
+  background: #424242;
+  position: relative;
+  z-index: 5;
+}
+.guInteractive #mainEpisodeContent h3, .guInteractive #mainEpisodeContent h4 {
+  margin: 0;
+}
+.guInteractive #mainEpisodeContent h3 {
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 1.2em;
+}
+.guInteractive #mainEpisodeContent p {
+  font-size: 14px;
+  border-top: 1px solid #767676;
+  padding-top: 20px;
+  margin-top: 1em;
+}
+.guInteractive #episodeTeaser {
+  background: #424242;
+  margin-top: 40px;
+  padding-top: 1px;
+  padding-bottom: 10px;
+}
+.guInteractive #episodeTeaser .sectionHeading {
+  border-top: none;
+  margin-top: 0;
+  margin-left: 10px;
+  margin-right: 10px;
+  line-height: 1.2;
+}
+.guInteractive #episodeTeaser #teaserDescription {
+  border-top: 1px solid #767676;
+  padding-top: 9px;
+  margin-top: 15px;
+}
+.guInteractive #episodeTeaser #nextWeekVideo {
+  margin-bottom: 1em;
+}
+.guInteractive #episodeTeaser #nextWeekVideoContainer {
+  height: 0;
+  width: 100%;
+  padding-bottom: 56.25%;
+  position: relative;
+}
+.guInteractive #episodeTeaser #nextWeekVideoContainer iframe {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.guInteractive #episodeTeaser img {
+  width: 100%;
+  margin-bottom: 8px;
+}
+.guInteractive #episodeTeaser h3 {
+  font-size: 22px;
+  margin: 0;
+  line-height: 1.2em;
+  font-weight: bold;
+}
+.guInteractive #episodeTeaser p {
+  margin-top: 5px;
+  font-size: 14px;
+}
+.guInteractive #teaserMobile {
+  display: none;
+  font-family: 'Guardian Text Sans Web', 'Agate Sans', sans-serif;
+}
+.guInteractive #signupAlert {
+  border-top: 1px solid #dcdcdc;
+  margin-top: 40px;
+  padding-top: 20px;
+}
+.guInteractive #signupBox {
+  margin-top: 30px;
+}
+.guInteractive #signupBox #signupTitle {
+  font-family: "Guardian Egyptian Web", "Egyptian Display", "Guardian Text Egyptian Web", "Egyptian Text", Georgia, serif;
+  color: #ff827f;
+  font-weight: bold;
+  font-size: 18px;
+  margin: 0;
+  line-height: 1.2em;
+}
+.guInteractive #signupBox #signupDescription {
+  font-family: 'Guardian Text Sans Web', 'Agate Sans', sans-serif;
+  margin-top: 0.5em;
+}
+.guInteractive #allEpisodes {
+  font-size: 0;
+}
+.guInteractive #allEpisodesContainer:after {
+  clear: both;
+  content: '';
+  display: block;
+}
+.guInteractive .episodeBlock {
+  vertical-align: top;
+  margin-bottom: 20px;
+  padding: 0 5px 0 0;
+}
+.guInteractive .episodeBlock.activeVideo img {
+  border: 4px solid #ff827f;
+}
+.guInteractive .episodeBlock:nth-of-type(2n) {
+  padding: 0 0 0 5px;
+}
+.guInteractive .episodeBlock img {
+  width: 100%;
+  -khtml-transition: 0.5s opacity;
+  transition: 0.5s opacity;
+  margin-bottom: 10px;
+  display: block;
+}
+.guInteractive .episodeBlock .episodeBlockContent {
+  font-family: "Guardian Egyptian Web", "Egyptian Display", "Guardian Text Egyptian Web", "Egyptian Text", Georgia, serif;
+}
+.guInteractive .episodeBlock .episodeBlockContent h2 {
+  font-size: 14px;
+  line-height: 1.2em;
+  font-weight: bold;
+  margin-top: 0;
+  color: #ff827f;
+}
+.guInteractive .episodeBlock .episodeBlockContent h3 {
+  font-family: 'Guardian Text Sans Web', 'Agate Sans', sans-serif;
+  font-weight: normal;
+  color: #b2b2b2;
+  font-size: 12px;
+}
+.guInteractive .episodeBlock .episodeBlockContent p {
+  font-size: 12px;
+}
+.guInteractive .episodeBlock.published-no {
+  opacity: 0.2;
+}
+.guInteractive .episodeBlock.inactiveVideo {
+  cursor: pointer;
+}
+.guInteractive .episodeBlock.inactiveVideo:hover img {
+  opacity: 0.8;
+}
+.guInteractive #aboutDates p {
+  margin-top: 0;
   font-family: 'Guardian Text Sans Web', 'Agate Sans', sans-serif;
   font-size: 14px;
-  color: #767676;
-  margin-top: 0;
 }
-#shareButtons p {
-  margin: 0 0 5px;
+.guInteractive #aboutDates p a {
+  color: #ff827f;
 }
-#shareButtons button {
-  background: #333;
-  width: 32px;
-  height: 32px;
-  border: none;
-  border-radius: 9000px;
-  display: inline-block;
-  vertical-align: top;
+.guInteractive #aboutDates #participate {
+  font-size: 18px;
+}
+.guInteractive #aboutDates #participate a {
+  color: #da82d1;
+  font-weight: bold;
+}
+.guInteractive footer {
+  background: #424242;
+}
+.guInteractive footer #soulmatesBanner {
+  background: #f5f3e6;
+  height: 280px;
+  position: relative;
+  padding-top: 20px;
+}
+.guInteractive footer #soulmatesBanner p {
+  color: black;
+  font-weight: bold;
+  font-family: "Guardian Egyptian Web", "Egyptian Display", "Guardian Text Egyptian Web", "Egyptian Text", Georgia, serif;
+  font-size: 22px;
+  line-height: 1.2em;
+  margin: 0 20px 20px;
+}
+.guInteractive footer #soulmatesBanner img {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+.guInteractive footer #soulmatesBanner a {
+  background: #995490;
   color: #fff;
-  margin-bottom: 5px;
-  cursor: pointer;
-  outline: none;
+  display: block;
+  margin: 0 auto;
+  width: 140px;
+  height: 40px;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 0 0 10px;
+  position: relative;
 }
-#shareButtons button#shareTwitter {
-  background: #03b3ee url(../imgs/twitterIcon.svg) no-repeat center center;
+.guInteractive footer #soulmatesBanner a span {
+  position: absolute;
+  right: 7px;
+  top: 4px;
+  width: 31px;
+  height: 31px;
 }
-#shareButtons button#shareTwitter:hover {
-  background-color: #028dbc;
+.guInteractive .really-serious-copyright {
+  font-size: 12px;
+  color: #dcdcdc;
+  font-family: 'Guardian Text Sans Web', 'Agate Sans', sans-serif;
+  margin: 0 10px 20px;
+  padding-top: 10px;
 }
-#shareButtons button#shareFacebook {
-  background: #3067a3 url(../imgs/facebookIcon.svg) no-repeat center center;
+.guInteractive #footerContent {
+  padding-bottom: 1px;
 }
-#shareButtons button#shareFacebook:hover {
-  background-color: #244e7c;
+.guInteractive #footerContent .colophon {
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  column-count: 2;
+  padding: 0;
+  margin: 20px 10px 10px;
 }
-#shareButtons button#sharePinterest {
-  background: #b9252c url(../imgs/pinterestIcon.svg) no-repeat center center;
+.guInteractive #footerContent .colophon li {
+  padding: 0;
+  margin: 0;
 }
-#shareButtons button#sharePinterest:hover {
-  background-color: #8f1d22;
+.guInteractive #footerContent a {
+  color: gainsboro;
+  text-decoration: none;
+  padding-bottom: 12px;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 500;
+  display: inline-block;
 }
-#shareButtons button#shareTumblr {
-  background: #36465d url(../imgs/tumblrIcon2.svg) no-repeat center center;
-  background-size: 11px;
-}
-#shareButtons button#shareTumblr:hover {
-  background-color: #232e3d;
+.guInteractive #footerContent a:hover {
+  text-decoration: underline;
 }
 
 @font-face {

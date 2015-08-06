@@ -2,7 +2,7 @@
     <div id="content">
         <header id="headerContainer">
             <div id="headerImage">
-                <img src="{{assets}}/imgs/header_on.jpg"/>
+                <img src="{{assets}}/imgs/header.jpg"/>
             </div>
             <!--<h2>One telephone. Many users. <br/>What happens next?</h2>-->
         </header>
@@ -41,14 +41,19 @@
 
 
         <div class="contentBlock" id="allEpisodes">
-            <h4 class="sectionHeading">The movies</h4>
+            <h4 class="sectionHeading">Other videos</h4>
 
             <div id="allEpisodesContainer">
                 {{#allEpisodes}}
                 <div class="episodeBlock published-{{published}} {{id}} inactiveVideo" data-video-id="{{id}}">
-                    <img src="{{assets}}/imgs/videos/{{id}}_400.jpg"/>
 
-                    <p>{{title}} <span>{{date}}</span></p>
+                    <img src="{{thumbnails.high.url}}">
+
+                    <div class="episodeBlockContent">
+                        <h2>{{title}}</h2>
+                        <!--<h3>{{subtitle}}</h3>-->
+                        <p>{{{description}}}</p>
+                    </div>
                 </div>
                 {{/allEpisodes}}
             </div>

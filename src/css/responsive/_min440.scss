@@ -1,0 +1,11 @@
+@media(min-width: 440px) {
+  iframe#form {
+    height: 50px;
+  }
+  .episodeBlock {
+//    height: $videoThumbHeight * 0.5;
+    width: 90%;
+    display: block;
+    margin: 0 auto 20px;
+  }
+}

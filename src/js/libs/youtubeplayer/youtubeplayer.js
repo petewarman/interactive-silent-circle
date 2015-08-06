@@ -126,6 +126,11 @@ define( [
     $( '#debug' ).append( msg + '<br/>' );
   };
 
+
+  // Get captions list
+  // https://www.googleapis.com/youtube/v3/captions?videoId=KsSV-RuxLXQ&part=snippet&key=AIzaSyDiTrZ80LUooXW0H_E2NoWKFUqNTB8sqLY
+
+
   function YoutubeCustomPlayer( id, options, callback ) {
 
     this.$elem = $( '#' + id );
@@ -145,7 +150,8 @@ define( [
       rel: 0,
       hl: 'en',
       cc_load_policy: 1,
-      alwaysVisible: true
+      alwaysVisible: true,
+      APIkey: null
     }, options || {} );
 
 
@@ -232,6 +238,10 @@ define( [
         this.$embedMessage = this.$elem.find( '.yt-embed-message' );
         this.$embedCode = this.$elem.find( '.yt-embed-code' );
 
+        this.$languages = this.$elem.find( '.yt-languages-btn' );
+        this.$languagesList = this.$elem.find( '.yt-languages-list' );
+        this.$cc = this.$elem.find( '.yt-cc-btn' );
+
         this.$volume = this.$elem.find( '.yt-volume' );
         this.$volumeLevel = this.$elem.find( '.yt-volume-level' );
       }
@@ -282,6 +292,15 @@ define( [
     },
 
     onYoutubePlayerReady: function ( e ) {
+
+      // Enable or disable captions
+      if ( this.options.cc_load_policy === 1 ) {
+        this.enableCaptions();
+        this.getLanguagesList();
+      } else {
+        this.disableCaptions();
+      }
+
       this.$elem.addClass( 'yt-ready' );
       this.currentVolume = this.ytplayer.getVolume();
       this.duration = this.ytplayer.getDuration();
@@ -341,6 +360,8 @@ define( [
         e.preventDefault();
         self.togglePlay();
       } );
+
+      this.$cc.on( 'click', this.toggleCaptions.bind( this ) );
 
       this.$muteBtn.on( 'click',function ( e ) {
         e.preventDefault();
@@ -511,7 +532,6 @@ define( [
     },
 
     requestFullScreen: function () {
-
       var self = this;
 
       this.isFullScreen = true;
@@ -596,6 +616,28 @@ define( [
       this.$muteBtn.removeClass( 'active' );
     },
 
+    toggleCaptions: function () {
+      if ( this.$cc.hasClass( 'active' ) ) {
+        this.disableCaptions();
+      } else {
+        this.enableCaptions();
+      }
+    },
+
+    enableCaptions: function () {
+      this.ytplayer.loadModule( 'captions' );
+      this.$cc.addClass( 'active' );
+    },
+
+    disableCaptions: function () {
+      this.ytplayer.unloadModule( 'captions' );
+      this.$cc.removeClass( 'active' );
+    },
+
+    removeCaptions: function () {
+      this.$cc.hide();
+    },
+
     seek: function ( t ) {
       this.ytplayer.seekTo( t, true );
     },
@@ -610,8 +652,69 @@ define( [
       this.progressTimer = null;
     },
 
-    updateTime: function ( e, time ) {
+    getLanguagesList: function () {
+      var APIkey = this.options.APIkey;
 
+      if ( !APIkey ) {
+        this.disableLanguageSelection();
+        return;
+      }
+
+      // Get captions data
+      var videoId = this.options.videoId;
+      var url = 'https://www.googleapis.com/youtube/v3/captions?videoId=' + videoId + '&part=snippet&key=' + APIkey;
+      $.ajax( {
+        url: url,
+        success: this.createLanguagesMenu.bind( this )
+      } );
+    },
+
+    createLanguagesMenu: function ( captionsData ) {
+      this.languages = this.getLanguagesFromCaptions( captionsData.items );
+
+      if ( !this.languages || this.languages.length === 0 ) {
+        this.disableLanguageSelection();
+        this.removeCaptions();
+        return;
+      }
+
+      // Render the list
+      var html = '';
+      this.languages.forEach( function ( lang, i ) {
+        html += '<li data-lang="'+lang+'" class="lang ' + lang + '"><span>' + lang + '</span><i></i></li>';
+      } );
+      this.$languagesList.html( html );
+
+      console.log( this.languages );
+
+    },
+
+    getLanguagesFromCaptions: function ( captions ) {
+
+      if ( !captions )
+        return null;
+
+      var languages = [];
+
+      captions.forEach( function ( caption ) {
+        var caption = caption.snippet;
+        if ( caption )
+          languages.push( caption.language );
+      } );
+
+      return languages;
+
+    },
+
+    disableLanguageSelection: function () {
+      this.$languages.hide();
+    },
+
+    setLanguage: function ( hl ) {
+      this.ytplayer.setOption( "captions", "track", {"languageCode": hl} );
+    },
+
+    updateTime: function ( e, time ) {
       var self = this;
       this.currentTime = this.getCurrentTime();
       this.currentBuffer = this.getVideoLoadedFraction();
@@ -656,6 +759,10 @@ define( [
       ret += sec < 10 ? "0" : "";
       ret += sec;
       return ret;
+    },
+
+    getPlaylist: function () {
+      return this.ytplayer.getPlaylist();
     },
 
     getVideoLoadedFraction: function () {
@@ -803,7 +910,10 @@ define( [
       '<div class="yt-play-btn">' + playPauseSvg + '</div>' +
       '<div class="yt-time"></div>' +
 
-      '<div class="yt-languages-btn">' + languagesSvg + '</div>' +
+      '<div class="yt-languages-btn">' + languagesSvg +
+      '<ul class="yt-languages-list"></ul>' +
+      '</div>' +
+
       '<div class="yt-cc-btn">' + ccSvg + '</div>' +
 
       '<div class="yt-embed-btn unselectable">' + embedSvg + ' <span class="unselectable">Embed</span></div>' +
@@ -815,6 +925,8 @@ define( [
       '<div class="yt-timeline unselectable"><div class="yt-seek unselectable"></div><div class="yt-buffer"></div></div>' +
       '</div>' +
       '</div>',
+
+    languages: '<ul id="yt-languages-list"></ul>',
 
     controlLess: '<div class="yt-video-wrapper"></div>' +
       '<div class="yt-loading-wrapper"><div class="yt-loading">loading</div></div>' +
@@ -828,7 +940,8 @@ define( [
 
   /** load YT API */
   var tag = document.createElement( 'script' );
-  tag.src = "https://www.youtube.com/player_api";
+//  tag.src = "https://www.youtube.com/player_api";
+  tag.src = "https://www.youtube.com/iframe_api";
   var firstScriptTag = document.getElementsByTagName( 'script' )[0];
   firstScriptTag.parentNode.insertBefore( tag, firstScriptTag );
 

@@ -1,0 +1,50 @@
+// SHARE BUTTONS
+
+#shareButtons {
+  font-family: 'Guardian Text Sans Web', 'Agate Sans', sans-serif;
+  font-size: 14px;
+  color: #767676;
+  margin-top: 0;
+  p {
+    margin: 0 0 5px;
+  }
+  button {
+    background: #333;
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 9000px;
+    display: inline-block;
+    vertical-align: top;
+    color: #fff;
+    margin-bottom: 5px;
+    cursor: pointer;
+    outline: none;
+    &#shareTwitter {
+      background: #03b3ee url(../imgs/twitterIcon.svg) no-repeat center center;
+      &:hover {
+        background-color: darken(#03b3ee, 10%);
+      }
+    }
+    &#shareFacebook {
+      background: #3067a3 url(../imgs/facebookIcon.svg) no-repeat center center;
+      &:hover {
+        background-color: darken(#3067a3, 10%);
+      }
+    }
+    &#sharePinterest {
+      background: #b9252c url(../imgs/pinterestIcon.svg) no-repeat center center;
+      &:hover {
+        background-color: darken(#b9252c, 10%);
+      }
+    }
+    &#shareTumblr {
+      background: #36465d url(../imgs/tumblrIcon2.svg) no-repeat center center;
+      background-size: 11px;
+      &:hover {
+        background-color: darken(#36465d, 10%);
+      }
+    }
+
+  }
+}

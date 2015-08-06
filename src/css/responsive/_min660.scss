@@ -1,0 +1,95 @@
+@media(min-width: 660px) {
+  #mainEpisode {
+    max-width: none;
+  }
+  #backgroundContainer {
+    margin: 0;
+  }
+
+  .contentBlock {
+    max-width: 620px;
+    margin: 0 auto;
+  }
+  .sectionHeading {
+    max-width: 620px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .episodeBlock {
+//    height: 240px;
+//    height: $videoThumbHeight * 0.5;
+  }
+  #mainEpisodeContent {
+    max-width: 620px;
+    //      margin: -80px auto 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0 auto;
+  }
+  #episodeTeaser {
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    #nextWeekTeaser {
+      #nextWeekVideo {
+        width: 50%;
+        float: right;
+
+      }
+      h3 {
+        padding-right: 60%;
+      }
+      p {
+        margin-right: 55%;
+        margin-bottom: 10px;
+      }
+
+      &:after {
+        content: '';
+        clear: both;
+        display: block;
+      }
+    }
+    .sectionHeading {
+      display: none;
+    }
+  }
+  #teaserMobile {
+    display: block;
+  }
+  #signupBox {
+    overflow: hidden;
+    margin-top: 10px;
+    #signupDescription {
+      margin-top: 10px;
+    }
+    #signupTitle {
+      font-size: 24px
+    }
+  }
+  #signupInformation {
+    width: 50%;
+    float: left;
+    padding-right: 5%;
+  }
+  #signupForm {
+    margin-top: 10px;
+    width: 50%;
+    float: left;
+    input {
+      font-size: 18px;
+      padding: 5px 0;
+      border: none;
+      height: 36px;
+    }
+    input[type="submit"] {
+      background: #005689;
+      color: #fff;
+      padding: 5px;
+      width: 120px;
+    }
+  }
+}

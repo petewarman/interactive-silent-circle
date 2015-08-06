@@ -1,0 +1,145 @@
+@media(min-width: 740px) {
+  .contentBlock {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .sectionHeading {
+    max-width: 700px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .sectionHeading {
+    font-size: 22px;
+  }
+  #content,
+  #navContainer,
+  #footerContent {
+    max-width: 740px;
+    margin: 0 auto;
+  }
+  #episodeTeaser {
+    max-width: 700px;
+  }
+  #mainEpisodeContent {
+    max-width: 700px;
+    h3 {
+      font-size: 48px;
+    }
+  }
+  #mainEpisode {
+    &.videoPlaying {
+      #backgroundLayer {
+        display: none;
+      }
+    }
+  }
+  #mainEpisodeVideo {
+    &:hover {
+      #backgroundLayer {
+        background: rgba(0, 0, 0, 0.45)
+      }
+    }
+
+  }
+  #backgroundContainer {
+    font-size: 0;
+    button {
+      display: none;
+    }
+  }
+  #backgroundLayer {
+    position: absolute;
+    display: block;
+    z-index: 5;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    button {
+      display: inline-block;
+    }
+  }
+  #infoContainer {
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
+  .layerInfo {
+    position: absolute;
+    top: 0;
+    margin: 0 40px;
+    display: table;
+    height: 100%;
+  }
+  .layerRow {
+    display: table-row;
+    &#buttonContainer {
+      height: 100%;
+      position: relative;
+    }
+  }
+  .layerColumn {
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+    font-size: 0;
+    padding-bottom: 80px;
+  }
+  #episodeQuote {
+    font-size: 48px;
+    line-height: 1.2em;
+    font-weight: 100;
+    margin: 40px 0 0;
+  }
+
+  #mainEpisode {
+    margin-bottom: 60px;
+  }
+  #signupBox {
+    clear: both;
+    margin-top: 10px;
+  }
+  #footerContent {
+    .colophon {
+      column-count: 3;
+    }
+  }
+  footer #soulmatesBanner {
+    height: 135px;
+    padding: 20px 0;
+    .advertContainer {
+      max-width: 700px;
+      margin: 0 auto;
+      &:after {
+        clear: both;
+        content: '';
+        display: block;
+      }
+      p {
+        position: relative;
+        width: 36%;
+        padding-right: 0;
+        float: left;
+        margin: 0 30px 0 0;
+      }
+      a {
+        position: relative;
+        float: right;
+        left: auto;
+        top: auto;
+        right: auto;
+        margin-top: 20px;
+      }
+
+    }
+    #soulmatesIcon {
+      position: relative;
+      width: 240px;
+      float: left;
+      left: auto;
+      right: auto;
+      transform: none;
+      margin-top: 20px;
+    }
+  }
+}

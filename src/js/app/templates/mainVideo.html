@@ -9,14 +9,16 @@
         </div>
 
         <div id="backgroundContainer">
-            <img id="backgroundImage" src="{{assets}}/imgs/videos/{{id}}_1260.jpg"/>
+            <!--<img id="backgroundImage" src="{{assets}}/imgs/videos/{{id}}_1260.jpg"/>-->
+            <img id="backgroundImage" src="{{thumbnails.maxres.url}}"/>
             <div id="videoContainer"></div>
-            <button data-date="{{coupleid}}" class="startVideo"><span></span></button>
+            <button data-video-id="{{id}}" class="startVideo"><span></span></button>
+            <div id="endslate"></div>
         </div>
     </div>
     <div id="mainEpisodeContent">
-        <h3>{{couple}}</h3>
-        <date>{{date}}</date>
+        <h3>{{title}}</h3>
+        <!--<date>{{date}}</date>-->
         <p id="episodeDescription">{{{description}}}</p>
 
         <div id="shareButtons">

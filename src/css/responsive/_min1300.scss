@@ -1,0 +1,43 @@
+
+@media(min-width: 1300px) {
+  .sectionHeading {
+    width: 220px;
+  }
+  #allEpisodesContainer, #teaserContainer, #aboutDatesContainer {
+    margin-left: 240px;
+  }
+  #mainEpisodeContent {
+    margin-left: 220px;
+  }
+  .layerInfo {
+    position: absolute;
+    left: 240px;
+    max-width: 490px;
+  }
+  #episodeQuote {
+    margin-top: 60px;
+  }
+  #content,
+  #navContainer,
+  #footerContent {
+    margin: 0 auto;
+    max-width: 1300px;
+  }
+
+  #mainEpisode {
+    margin-bottom: 80px;
+  }
+  .startVideo {
+    width: 96px;
+    height: 96px;
+  }
+  #footerContent {
+    .colophon {
+      column-count: 4;
+    }
+  }
+  footer #soulmatesBanner .advertContainer {
+    max-width: 1260px;
+    padding-left: 240px;
+  }
+}

@@ -14,10 +14,11 @@ define( [
     className: 'guInteractive',
 
     events: {
-      'click .episodeBlock.published-yes.inactiveVideo': 'switchVideo'
+      'click .episodeBlock.inactiveVideo': 'switchVideo'
     },
 
     switchVideo: function ( e ) {
+
       var videoId = $( e.currentTarget ).attr( 'data-video-id' );
 
       window.ga( 'send', {
@@ -55,17 +56,17 @@ define( [
     },
 
     updateActiveVideo: function () {
-      var currentDateId = this.mainEpisode.coupleid;
+      var currentVideoId = this.mainEpisode.id;
       $( '.episodeBlock' ).removeClass( 'activeVideo' );
 
       $( '.episodeBlock' ).removeClass( 'inactiveVideo' );
       $( '.episodeBlock' ).addClass( 'inactiveVideo' );
 
-      $( '.episodeBlock.' + currentDateId ).removeClass( 'inactiveVideo' );
-      $( '.episodeBlock.' + currentDateId ).addClass( 'activeVideo' );
+      $( '.episodeBlock.' + currentVideoId ).removeClass( 'inactiveVideo' );
+      $( '.episodeBlock.' + currentVideoId ).addClass( 'activeVideo' );
     },
 
-    selectInitialDate: function () {
+    selectInitialVideo: function () {
       this.queryValue = "";
       var queryString = document.location.search;
       if ( queryString ) {
@@ -77,7 +78,7 @@ define( [
 
       if ( this.queryValue ) {
         var foundValue = _.findWhere( this.allEpisodes, {
-          'coupleid': this.queryValue
+          'id': this.queryValue
         } );
         if ( foundValue ) {
           this.mainEpisode = foundValue;
@@ -85,39 +86,50 @@ define( [
       }
 
       if ( typeof this.mainEpisode === "undefined" ) {
-        this.mainEpisode = _.last( _.where( this.allEpisodes, {'published': 'yes'} ) );
+        this.mainEpisode = this.allEpisodes[0];
+        // _.last( this.allEpisodes );
+        // this.mainEpisode = _.last( _.where( this.allEpisodes, {'published': 'yes'} ) );
       }
     },
 
-    animateHeader: function () {
-      $( '<img/>' ).attr( 'src', '{{assets}}/imgs/header_off.jpg' ).load( function () {
-        var $header = $( '#headerImage img' );
-        setInterval( function () {
-          var i = 0;
-          var state = {
-            off: "on",
-            on: "off"
-          };
-
-          function flicker( current ) {
-            $header.attr( 'src', '{{assets}}/imgs/header_' + current + '.jpg' );
-            if ( i < 3 ) {
-              i++;
-              setTimeout( function () {
-                flicker( state[current] );
-              }, 100 * (i / 2) );
-            }
-          }
-
-          flicker( 'off' );
-        }, 8000 )
-      } );
-    },
 
     initialize: function ( options ) {
-      this.mainVideo = new mainVideo();
-      this.data = options.data.sheets;
-      console.log(this.data);
+      this.mainVideo = new mainVideo( {
+        youtubeDataApiKey: options.youtubeDataApiKey
+      } );
+      this.data = options.json.sheets;
+//      this.playlistItemsData = options.playlistItemsData;
+      this.videos = this.getVideos( options.playlistItemsData );
+
+      // Reverse the order of videos to get the last first
+      this.videos.reverse();
+
+      console.log( this.data );
+      console.log( options.playlistItemsData );
+      console.log( this.videos );
+    },
+
+    getVideos: function ( playlistItemsData ) {
+      var videos = [];
+      var items = playlistItemsData.items;
+
+      items.forEach( function ( item, i ) {
+        var item = item.snippet;
+
+        if ( item.resourceId && item.resourceId.kind == "youtube#video" ) {
+          var video = {};
+          video.id = item.resourceId.videoId;
+          video.youtubeId = video.id;
+          video.title = item.title;
+          video.description = item.description.replace(/\n/g,"<br>");
+          video.thumbnails = item.thumbnails;
+          video.publishedAt = item.publishedAt;
+          videos.push( video );
+        }
+
+      } );
+
+      return videos;
     },
 
     formatDate: function ( date ) {
@@ -146,20 +158,27 @@ define( [
       this.months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
       //Format videos
-      this.allEpisodes = _.map( this.data.videos, function ( episode ) {
-        episode.date = _this.formatDate( episode.date );
-        if ( episode.video ) {
-          episode.video = _this.getEmbedPath( episode.video );
+//      var videos = this.data.videos;
+      var videos = this.videos;
+      this.allEpisodes = _.map( videos, function ( episode ) {
+
+        if ( episode.date ) {
+          episode.date = _this.formatDate( episode.date );
         }
+
+//        if ( episode.video ) {
+//          episode.video = _this.getEmbedPath( episode.video );
+//        }
+
         return episode;
       } );
 
-      this.teaser = this.data.teaser[0];
-      this.teaser.date = this.formatDate( this.teaser.date );
-      this.teaser.video = this.getEmbedPath( this.teaser.video );
+//      this.teaser = this.data.teaser[0];
+//      this.teaser.date = this.formatDate( this.teaser.date );
+//      this.teaser.video = this.getEmbedPath( this.teaser.video );
 
       //Decide which video to play first
-      this.selectInitialDate();
+      this.selectInitialVideo();
 
       // Check if in app or on website
       var isWeb = true;
@@ -180,7 +199,6 @@ define( [
       // Render main video
       this.$( '#mainVideoContainer' ).html( this.mainVideo.render( this.mainEpisode ).el );
 
-      this.animateHeader();
       this.updateActiveVideo();
 
       return this;
