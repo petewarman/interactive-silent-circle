@@ -999,7 +999,7 @@
   -khtml-border-radius: 50%;
   -o-border-radius: 50%;
   border-radius: 50%;
-  background-color: #ff827f;
+  background-color: #999;
 }
 .yt-languages-btn .yt-languages-list li:last-child {
   border-bottom: none !important;
@@ -1007,6 +1007,9 @@
 .yt-languages-btn .yt-languages-list li:hover {
   color: #ff827f;
   background-color: #666;
+}
+.yt-languages-btn .yt-languages-list li:hover i {
+  background-color: #ff827f;
 }
 
 .yt-cc-btn {
