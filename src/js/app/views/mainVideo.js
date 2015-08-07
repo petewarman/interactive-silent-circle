@@ -77,7 +77,7 @@ define( [
       //create a new Player
       var ytPlayer = new YoutubeCustomPlayer( 'videoContainer', {
 //        embedCode: embedCode, // custom embed code
-        alwaysVisible: true, // if the controls should be always visible or hide after a few seconds
+        alwaysVisible: false, // if the controls should be always visible or hide after a few seconds
         hl: 'it', // the language for subtitles and CC
         videoId: youtubeId, //id of the yt video
         wmode: 'transparent', //opaque/transparent/direct
@@ -85,39 +85,39 @@ define( [
         showinfo: 0, // show infos bubules on video ?
         autoplay: 1, //autoplay ?
         rel: 0, //show related videos at the end ?
-        APIkey: youtubeDataApiKey
-
-      }, function ( event ) {
-//        console.log('player ready');
-//        console.log( this.ytplayer.getOptions( 'cc' ) );
-//        console.log( this.ytplayer.getPlaylist() );
-
-        // 'this' represents the YoutubeCustomPlayer instance
-        // 'this.ytplayer' represents the YouTube player object to access the Iframe API
-        console.log( this.ytplayer );
-//        console.log( this.ytplayer.loadModule( "captions" ) );
-
-        $( '#backgroundImage' ).fadeOut( 500, function () {
-          $( '#big-play-btn-wrapper ' ).hide();
-          $( '#mainEpisode' ).addClass( 'videoPlaying' );
-        } );
-
-        // $( '#mainEpisode' ).addClass( 'videoPlaying' );
-
-        // Update Google Analytics (send)
-        window.ga( 'send', {
-          'hitType': 'event',          // Required.
-          'eventCategory': 'play video',   // Required.
-          'eventAction': 'play',      // Required.
-          'eventLabel': videoId
-        } );
-
+        APIkey: youtubeDataApiKey,
+        onVideoEnd: this.onVideoEnd,
+        onVideoReady: this.onVideoReady
       } );
 
+    },
 
-      // Fade out background
-//      this.$backgroundImage
+    onVideoReady: function ( event ) {
+//        console.log('player ready');
+      // 'this' represents the YoutubeCustomPlayer instance
+      // 'this.ytplayer' represents the YouTube player object to access the Iframe API
+//        console.log( this.ytplayer );
 
+      $( '#backgroundImage' ).fadeOut( 500, function () {
+        $( '#big-play-btn-wrapper ' ).hide();
+        $( '#mainEpisode' ).addClass( 'videoPlaying' );
+      } );
+
+      // Update Google Analytics (send)
+      window.ga( 'send', {
+        'hitType': 'event',          // Required.
+        'eventCategory': 'play video',   // Required.
+        'eventAction': 'play',      // Required.
+        'eventLabel': this.ytplayer.id
+      } );
+
+    },
+
+    onVideoEnd: function () {
+
+      // show end slate
+
+      console.log( 'video ENDED' );
     },
 
     render: function ( videoData ) {

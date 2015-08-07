@@ -1,84 +1,94 @@
 <div class="guInteractive">
     <div id="content">
+
+
         <header id="headerContainer">
-            <div id="headerImage">
-                <img src="{{assets}}/imgs/header.jpg"/>
+            <!--<div id="headerImage">-->
+            <!--<img src="{{assets}}/imgs/header.jpg"/>-->
+            <!--</div>-->
+
+            <div id="sc-logo">
+                <a href="#"><img src="{{assets}}/imgs/sc-logo.png"></a>
             </div>
-            <!--<h2>One telephone. Many users. <br/>What happens next?</h2>-->
+
+            <div id="headerImage">
+                <img src="{{assets}}/imgs/video-hub-topbanner.png">
+            </div>
+
+            <!--<div class="animation-wrapper">-->
+            <!--<img src="{{assets}}/imgs/video-hub-topbanner.png" class="bg">-->
+
+            <!--<div class="animated-text"></div>-->
+            <!--</div>-->
+
         </header>
+
+
         <div id="mainVideoContainer"></div>
 
-        <div id="episodeTeaser">
-            <!-- <h4 class="sectionHeading">Coming next week</h4> -->
-            <div class="contentBlock" id="teaserContainer">
-                <!-- <div id="nextWeekTeaser">
-                    <div id="nextWeekVideo">
-                        <div id="nextWeekVideoContainer">
-                            <iframe src="{{teaser.video}}" scrolling="no" frameborder="none" width="100%" height="100%"></iframe>
-                        </div>
-                    </div>
-                    
-                    <p id="teaserMobile">Coming next week</p>
-                    <h3>{{teaser.name}}</h3>
-                    <date>{{teaser.date}}</date>
-                    <p id="teaserDescription">{{{teaser.description}}}</p>
-                </div> -->
 
-                <div id="signupBox">
-                    <div id="signupInformation">
-                        <p id="signupTitle">Don't miss next week’s episode</p>
+        <div class="contentBlock" id="other-videos">
+            <div class="separator"></div>
 
-                        <p id="signupDescription">Submit your email address and we will send you a reminder when new
-                            episodes arrive</p>
-                    </div>
-                    <div id="signupForm">
-                        <iframe id="form" scrolling="no" frameborder="none" width="100%" height="40px"
-                                src="http://interactive.guim.co.uk/visuals-blank-page/watch-me-date/form.html"></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="contentBlock" id="allEpisodes">
             <h4 class="sectionHeading">Other videos</h4>
 
-            <div id="allEpisodesContainer">
-                {{#allEpisodes}}
-                <div class="episodeBlock published-{{published}} {{id}} inactiveVideo" data-video-id="{{id}}">
+            <div class="contentBlock-inner">
+                <!--<div id="allEpisodesContainer">-->
+                    {{#allEpisodes}}
+                    <div class="episodeBlock published-{{published}} {{id}} inactiveVideo" data-video-id="{{id}}">
 
-                    <img src="{{thumbnails.high.url}}">
+                        <img src="{{thumbnails.high.url}}">
 
-                    <div class="episodeBlockContent">
-                        <h2>{{title}}</h2>
-                        <!--<h3>{{subtitle}}</h3>-->
-                        <p>{{{description}}}</p>
+                        <div class="episodeBlockContent">
+                            <h2>{{title}}</h2>
+
+                            <p>{{{description}}}</p>
+                        </div>
                     </div>
+                    {{/allEpisodes}}
+                <!--</div>-->
+            </div>
+        </div>
+
+
+        <div class="contentBlock" id="signup">
+            <h4 class="sectionHeading">More content</h4>
+
+            <div id="signupBox" class="contentBlock-inner">
+
+                <div id="signupInformation">
+                    <h2>Subscribe here for the remaining videos</h2>
+
+                    <p>Enter your email address and we will send you a reminder when new episodes arrive</p>
                 </div>
-                {{/allEpisodes}}
+
+                <div id="signupForm">
+                    <iframe id="form" scrolling="no" frameborder="none" width="100%" height="40px"
+                            src="http://interactive.guim.co.uk/visuals-blank-page/watch-me-date/form.html"></iframe>
+                </div>
+
             </div>
         </div>
 
 
-        <div class="contentBlock" id="aboutDates">
-            <h4 class="sectionHeading">About Watch Me Date</h4>
+        <div class="contentBlock" id="how-safe">
+            <div class="separator"></div>
 
-            <div id="aboutDatesContainer">
-                <p>Each week, we’ve chosen two different people, given them two pairs of Google Glass and packed them
-                    off on a date (there is usually a lot of alcohol involved too). Filming begins the minute they meet,
-                    and that off-button is only pressed once they’ve said goodbye. The results? You’re right there with
-                    them, on these awkward, often funny and sometimes even romantic first dates.</p>
+            <h4 class="sectionHeading">&nbsp;</h4>
+
+            <div class="contentBlock-inner">
+                <h2>How safe is your business?</h2>
+
+                <p>
+                    Click here to put your company to the test.
+                </p>
             </div>
         </div>
-        <div class="contentBlock" id="aboutDates">
-            <h4 class="sectionHeading">Be on our show</h4>
 
-            <div id="aboutDatesContainer">
-                <p>Would you like an all-expenses evening out and the chance of a kiss ... or possibly love? Email <a
-                        href="mailto:watch.me.date@guardian.co.uk">watch.me.date@theguardian.com</a></p>
-            </div>
-        </div>
+
     </div>
+
+
     <footer>
         <div id="soulmatesBanner">
             <div class="advertContainer">
@@ -134,4 +144,6 @@
         </div>
         {{/isWeb}}
     </footer>
+
+
 </div>

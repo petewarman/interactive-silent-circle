@@ -65,7 +65,6 @@ $buffer-color: #999999;
 }
 
 .yt-loading-wrapper {
-  //display: none;
   top: 0;
   height: 100%;
   z-index: 5;
@@ -73,21 +72,12 @@ $buffer-color: #999999;
 }
 
 .yt-skin-wrapper {
-  //  bottom: 0;
   height: 100%;
   text-align: center;
   z-index: 4;
   opacity: 1;
-  //  overflow: hidden;
-  //  filter: none;
-  //  -webkit-transition: opacity 0.4s;
-  //  -moz-transition: opacity 0.4s;
-  //  -ms-transition: opacity 0.4s;
-  //  -o-transition: opacity 0.4s;
-  //  transition: opacity 0.4s;
   .yt-no-controls & {
-    //    opacity: 0;
-    //    filter: alpha(opacity=0)
+
   }
 }
 
@@ -96,22 +86,8 @@ $buffer-color: #999999;
   height: 100%;
   width: 100%;
   z-index: 5;
-  //  &:after {
-  //    content: "";
-  //    position: absolute;
-  //    top: 50%;
-  //    left: 50%;
-  //    width: 12px;
-  //    height: 15px;
-  //    margin-top: - 7px;
-  //    margin-left: -6px;
-  //    background: url(#{$yt-asset-path}yt-skin.png) no-repeat -1px -1px;
-  //  }
   &.active {
     display: none;
-    //    &:after {
-    //      display: none;
-    //    }
   }
 }
 
@@ -138,16 +114,16 @@ $buffer-color: #999999;
   position: absolute;
   bottom: 0;
   z-index: 10;
-  //  display: inline-block;
   width: 100%;
   height: $yt-controls-height;
-  background: rgba(0, 0, 0, 0.8);
+  background-color: #474747;
+
   @include css3-prefix(transition, all 0.4s);
-  @include css3-prefix(transform, translateY(0));
+//  @include css3-prefix(transform, translateY(0));
   opacity: 1;
 
   .yt-no-controls & {
-    @include css3-prefix(transform, translateY(100%));
+//    @include css3-prefix(transform, translateY(100%));
     opacity: 0;
   }
 }
@@ -378,6 +354,16 @@ $buffer-color: #999999;
       height: 2px;
       background-color: $highlight-color;
       width: 90%;
+      &:after {
+        content: ' ';
+        width: 2px;
+        height: 11px;
+        position: absolute;
+        background-color: $highlight-color;
+        right: -2px;
+        top: -4px;
+
+      }
     }
   }
 

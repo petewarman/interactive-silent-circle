@@ -131,7 +131,7 @@ define( [
   // https://www.googleapis.com/youtube/v3/captions?videoId=KsSV-RuxLXQ&part=snippet&key=AIzaSyDiTrZ80LUooXW0H_E2NoWKFUqNTB8sqLY
 
 
-  function YoutubeCustomPlayer( id, options, callback ) {
+  function YoutubeCustomPlayer( id, options ) {
 
     this.$elem = $( '#' + id );
 
@@ -151,14 +151,23 @@ define( [
       hl: 'en',
       cc_load_policy: 1,
       alwaysVisible: true,
-      APIkey: null
+      APIkey: null,
+      onVideoReady: function () {
+      },
+      onVideoEnd: function () {
+      },
+      onVideoPlay: function () {
+      },
+      onVideoPause: function () {
+      },
+      onVideoBuffer: function () {
+      },
+      onVideoError: function () {
+      }
     }, options || {} );
 
 
     this.options.skin = this.options.controls == 1 ? "base" : "controlLess";
-
-    this.callback = callback || function () {
-    };
 
     if ( this.options.videoId == null ) {
       throw new Error( id + " Sorry, options.videoId key must be specified" );
@@ -305,12 +314,14 @@ define( [
       this.currentVolume = this.ytplayer.getVolume();
       this.duration = this.ytplayer.getDuration();
       this.addListenners();
-      this.callback.call( this );
+      this.options.onVideoReady.call( this );
       this.trigger( 'ready' );
     },
 
     onYoutubePlayerError: function ( e ) {
       //console.log('onYoutubePlayerError', e);
+      this.options.onVideoError.call( this );
+
       this.trigger( 'error' );
     },
 
@@ -318,32 +329,32 @@ define( [
 //      debug.log( 'onYoutubePlayerStateChange', e.data );
 
       if ( e.data == 0 ) { //ended
-        this.onYoutubePlayerEnded();
+        this.onYoutubePlayerEnded(e);
       }
       if ( e.data == 1 ) { //play
-        this.onYoutubePlayerPlay();
+        this.onYoutubePlayerPlay(e);
       }
       if ( e.data == 2 ) { //pause
-        this.onYoutubePlayerPause();
+        this.onYoutubePlayerPause(e);
       }
       if ( e.data == 3 ) { //buffer
-        this.onYoutubePlayerBuffer();
+        this.onYoutubePlayerBuffer(e);
       }
     },
 
     onYoutubePlayerBuffer: function () {
-//      this.trigger( 'buffer' );
-    },
 
-//    updateBuffer: function() {
-//      console.log(this.ytplayer.getVideoLoadedFraction());
-//    },
+      this.options.onVideoBuffer.call( this );
+
+      this.trigger( 'buffer' );
+    },
 
     addListenners: function () {
 
       var self = this;
+      var click = this.hasTouch ? 'touchstart' : 'click';
 
-      this.$bigPlayBtn.on( 'click', function ( e ) {
+      this.$bigPlayBtn.on( click, function ( e ) {
         e.preventDefault();
         self.togglePlay();
       } );
@@ -352,18 +363,28 @@ define( [
         return;
       }
 
-      this.$skinWrapper.on( 'click', function ( e ) {
+      this.$skinWrapper.on( click, function ( e ) {
         e.stopPropagation();
       } );
 
-      this.$playBtn.on( 'click', function ( e ) {
+      // Change captions / subtitles language
+      this.$skinWrapper.on( click, 'li.lang', function ( e ) {
+        if ( self.ytplayer ) {
+          //console.log( $( this ).data( 'lang' ) );
+          self.ytplayer.setOption( "captions", "track", {"languageCode": $( this ).data( 'lang' )} );
+        }
+      } );
+
+      // Toggle play
+      this.$playBtn.on( click, function ( e ) {
         e.preventDefault();
         self.togglePlay();
       } );
 
-      this.$cc.on( 'click', this.toggleCaptions.bind( this ) );
+      // Toggle captions on/off
+      this.$cc.on( click, this.toggleCaptions.bind( this ) );
 
-      this.$muteBtn.on( 'click',function ( e ) {
+      this.$muteBtn.on( click,function ( e ) {
         e.preventDefault();
         if ( self.muted ) {
           self.unmute();
@@ -372,10 +393,9 @@ define( [
         }
       } ).addClass( "active" );
 
+      this.$embed.on( click, this.toggleEmbedMessage.bind( this ) );
 
-      this.$embed.on( 'click', this.toggleEmbedMessage.bind( this ) );
-
-      this.$fullscreenBtn.on( 'click', function () {
+      this.$fullscreenBtn.on( click, function () {
         self.toggleFullScreen();
       } );
 
@@ -451,21 +471,27 @@ define( [
     },
 
     toggleControls: function () {
+
       var self = this;
+
       clearTimeout( this.mouseMoveTimer );
+
       if ( this.isControlsHidden ) {
         this.isControlsHidden = false;
         this.$elem.removeClass( 'yt-no-controls' );
       }
+
       this.mouseMoveTimer = setTimeout( function () {
         self.isControlsHidden = true;
         self.$elem.addClass( 'yt-no-controls' );
-      }, 2000 );
+      }, 1000 );
+
     },
 
 
     onYoutubePlayerEnded: function () {
       this.onYoutubePlayerPause();
+      this.options.onVideoEnd.call( this );
       this.trigger( 'ended' );
     },
 
@@ -494,6 +520,8 @@ define( [
         this.updateSeekBar();
       }
 
+      this.options.onVideoPlay.call( this );
+
       this.trigger( 'play' );
 
     },
@@ -514,6 +542,9 @@ define( [
       if ( this.options.controls == 1 ) {
         this.$playBtn.removeClass( 'active' );
       }
+
+      this.options.onVideoPause.call( this );
+
       this.trigger( 'pause' );
     },
 
@@ -703,7 +734,7 @@ define( [
       }.bind( this ) );
       this.$languagesList.html( html );
 
-      console.log( this.languages );
+//      console.log( this.languages );
 
     },
 

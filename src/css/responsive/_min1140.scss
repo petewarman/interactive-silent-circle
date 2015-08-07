@@ -1,30 +1,20 @@
 @media(min-width: 1140px) {
-  .sectionHeading {
-    width: 140px;
-    border-top: none;
-    position: absolute;
-    margin-top: 0;
-    margin-bottom: 0;
-  }
+
+//  .sectionHeading {
+//    width: 140px;
+//    border-top: none;
+//    position: absolute;
+//    margin-top: 0;
+//    margin-bottom: 0;
+//  }
+
   .layerInfo {
     left: 160px;
   }
   #episodeQuote {
     margin-top: 40px;
   }
-  #episodeTeaser {
-//    margin: 0 -20px;
-    padding-top: 12px;
-    .sectionHeading {
-      padding: 0;
-      line-height: 1.2;
-      display: block;
-      margin: 0;
-    }
-  }
-  #teaserMobile {
-    display: none;
-  }
+
   #allEpisodes {
     margin-top: 40px;
     border-top: 1px solid #767676;
@@ -41,15 +31,7 @@
   #teaserContainer {
     margin-left: 160px;
   }
-  .episodeBlock {
-    p {
-      font-size: 18px;
-      span {
-        font-size: 14px;
-      }
-    }
 
-  }
   #aboutDates {
     margin-top: 40px;
     border-top: 1px solid #767676;
@@ -64,10 +46,6 @@
   #aboutDatesContainer {
     margin-left: 160px;
     margin-top: 10px;
-  }
-
-  #mainEpisodeContent {
-    margin-left: 160px;
   }
 
   footer #soulmatesBanner {

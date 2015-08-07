@@ -1,16 +1,12 @@
 @media(min-width: 740px) {
-  .contentBlock {
-    max-width: 700px;
-    margin: 0 auto;
-  }
-  .sectionHeading {
-    max-width: 700px;
-    margin-right: auto;
-    margin-left: auto;
-  }
-  .sectionHeading {
-    font-size: 22px;
-  }
+//  .sectionHeading {
+//    max-width: 700px;
+//    margin-right: auto;
+//    margin-left: auto;
+//  }
+//  .sectionHeading {
+//    font-size: 22px;
+//  }
   #content,
   #navContainer,
   #footerContent {
@@ -20,12 +16,7 @@
   #episodeTeaser {
     max-width: 700px;
   }
-  #mainEpisodeContent {
-    max-width: 700px;
-    h3 {
-      font-size: 48px;
-    }
-  }
+
   #mainEpisode {
     &.videoPlaying {
       #backgroundLayer {
@@ -95,10 +86,7 @@
   #mainEpisode {
     margin-bottom: 60px;
   }
-  #signupBox {
-    clear: both;
-    margin-top: 10px;
-  }
+
   #footerContent {
     .colophon {
       column-count: 3;

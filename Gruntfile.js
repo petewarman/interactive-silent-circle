@@ -118,7 +118,8 @@ module.exports = function ( grunt ) {
           { src: 'src/boot.js', dest: 'build/boot.js' },
           { cwd: 'src/', src: 'imgs/**', dest: 'build/assets/', expand: true},
 
-          { src: 'src/js/app/data/data.json', dest: 'build/assets/data/data.json' }
+          { src: 'src/data/data.json', dest: 'build/assets/data/data.json' },
+          { cwd: 'src/', src: 'fonts/**', dest: 'build/assets/', expand: true }
         ]
       }
     },

@@ -602,473 +602,20 @@
     -   animation               - arguments: name duration timing-function delay iteration-count direction fill-mode play-state
                                              (http://www.w3schools.com/cssref/css3_pr_animation.asp)
 ------------------------------------------------------------- */
-/*------------------------------------*\
-    $YOUTUBE CUSTOM SKIN
-\*------------------------------------*/
-.unselectable {
-  -moz-user-select: none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+@font-face {
+  font-family: 'de1_display_egyptian_thinRg';
+  src: url("../fonts/gdnegyde1thi-webfont.eot");
+  src: url("../fonts/gdnegyde1thi-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/gdnegyde1thi-webfont.woff2") format("woff2"), url("../fonts/gdnegyde1thi-webfont.woff") format("woff"), url("../fonts/gdnegyde1thi-webfont.ttf") format("truetype"), url("../fonts/gdnegyde1thi-webfont.svg#de1_display_egyptian_thinRg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'de3_display_egyptianregular';
+  src: url("../fonts/gdnegyde3reg-webfont.eot");
+  src: url("../fonts/gdnegyde3reg-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/gdnegyde3reg-webfont.woff2") format("woff2"), url("../fonts/gdnegyde3reg-webfont.woff") format("woff"), url("../fonts/gdnegyde3reg-webfont.ttf") format("truetype"), url("../fonts/gdnegyde3reg-webfont.svg#de3_display_egyptianregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
 }
-
-/** create a div that keep video ratio */
-.yt-player-wrapper {
-  height: auto;
-  padding-top: 56px;
-  position: relative;
-  margin-bottom: 30px;
-}
-
-.yt-player {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-}
-.yt-player.yt-fullscreen {
-  position: fixed;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  z-index: 999;
-}
-
-.yt-loading-wrapper,
-.yt-skin-wrapper,
-.yt-big-play-btn,
-.yt-video-wrapper {
-  position: absolute;
-  left: 0;
-  width: 100%;
-}
-
-.yt-skin-wrapper,
-.yt-big-play-btn {
-  display: none;
-}
-
-.yt-ready .yt-skin-wrapper,
-.yt-ready .yt-big-play-btn {
-  display: block;
-}
-.yt-ready .yt-loading-wrapper {
-  display: none;
-}
-
-.yt-loading-wrapper {
-  top: 0;
-  height: 100%;
-  z-index: 5;
-  background: rgba(0, 0, 0, 0.9);
-}
-
-.yt-skin-wrapper {
-  height: 100%;
-  text-align: center;
-  z-index: 4;
-  opacity: 1;
-}
-
-.yt-big-play-btn {
-  top: 0;
-  height: 100%;
-  width: 100%;
-  z-index: 5;
-}
-.yt-big-play-btn.active {
-  display: none;
-}
-
-.yt-video-wrapper {
-  top: 0;
-  height: 100%;
-  z-index: 1;
-}
-
-.yt-loading {
-  color: #fff;
-  font-size: 12px;
-  display: inline-block;
-  height: 50px;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  margin-top: -25px;
-  width: 100%;
-  text-align: center;
-}
-
-.yt-controls-wrapper {
-  position: absolute;
-  bottom: 0;
-  z-index: 10;
-  width: 100%;
-  height: 48px;
-  background: rgba(0, 0, 0, 0.8);
-  -khtml-transition: all 0.4s;
-  transition: all 0.4s;
-  -webkit-transform: translateY(0);
-  -khtml-transform: translateY(0);
-  -ms-transform: translateY(0);
-  transform: translateY(0);
-  opacity: 1;
-}
-.yt-no-controls .yt-controls-wrapper {
-  -webkit-transform: translateY(100%);
-  -khtml-transform: translateY(100%);
-  -ms-transform: translateY(100%);
-  transform: translateY(100%);
-  opacity: 0;
-}
-
-.yt-btn, .yt-play-btn,
-.yt-languages-btn,
-.yt-cc-btn,
-.yt-mute-btn,
-.yt-embed-btn,
-.yt-volume-wrapper,
-.yt-fullscreen-btn {
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -khtml-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-
-.yt-play-btn .svg,
-.yt-languages-btn .svg,
-.yt-cc-btn .svg,
-.yt-mute-btn .svg,
-.yt-embed-btn .svg,
-.yt-volume-wrapper .svg,
-.yt-fullscreen-btn .svg {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  -webkit-transform: translateY(-50%);
-  -khtml-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-.yt-play-btn .svg .shape,
-.yt-languages-btn .svg .shape,
-.yt-cc-btn .svg .shape,
-.yt-mute-btn .svg .shape,
-.yt-embed-btn .svg .shape,
-.yt-volume-wrapper .svg .shape,
-.yt-fullscreen-btn .svg .shape {
-  fill: #FFFFFF;
-}
-.yt-play-btn:hover .svg .shape,
-.yt-languages-btn:hover .svg .shape,
-.yt-cc-btn:hover .svg .shape,
-.yt-mute-btn:hover .svg .shape,
-.yt-embed-btn:hover .svg .shape,
-.yt-volume-wrapper:hover .svg .shape,
-.yt-fullscreen-btn:hover .svg .shape {
-  fill: #ff827f;
-}
-
-.yt-play-btn {
-  left: 10px;
-  width: 32px;
-  height: 32px;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  position: relative;
-}
-.yt-play-btn .svg {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-.yt-play-btn .svg .yt-play {
-  display: block;
-}
-.yt-play-btn .svg .yt-pause {
-  display: none;
-}
-.yt-play-btn.active .svg .yt-play {
-  display: none;
-}
-.yt-play-btn.active .svg .yt-pause {
-  display: block;
-}
-
-.yt-timeline {
-  position: absolute;
-  width: 100%;
-  left: 0;
-  right: 0;
-  height: 6px;
-  top: -6px;
-  background: #313131;
-}
-
-.yt-seek {
-  position: absolute;
-  z-index: 10;
-  height: 6px;
-  background: #ff827f;
-}
-
-.yt-buffer {
-  position: absolute;
-  z-index: 9;
-  height: 6px;
-  background: #999999;
-}
-
-.yt-fullscreen-btn {
-  width: 20px;
-  right: 20px;
-}
-.yt-fullscreen-btn.active .svg .shape {
-  fill: #ff827f;
-}
-.yt-ipad .yt-fullscreen-btn {
-  right: 10px;
-}
-
-.yt-time {
-  color: #fff;
-  position: absolute;
-  top: 50%;
-  left: 60px;
-  height: 48px;
-  line-height: 48px;
-  width: 100px;
-  font-size: 12px;
-  -webkit-transform: translateY(-50%);
-  -khtml-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-
-.yt-embed-message {
-  position: absolute;
-  z-index: 6;
-  background-color: rgba(25, 25, 25, 0.8);
-  width: 100%;
-  height: 100%;
-  display: none;
-}
-.yt-embed-message .yt-embed-code-wrapper {
-  position: absolute;
-  top: 40%;
-  -webkit-transform: translateY(-50%);
-  -khtml-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  width: 100%;
-}
-.yt-embed-message .yt-embed-code-wrapper .yt-embed-title {
-  font-size: 15px;
-  line-height: 60px;
-}
-.yt-embed-message .yt-embed-code-wrapper .yt-embed-code {
-  white-space: nowrap;
-  background-color: #FFF;
-  width: 90%;
-  font-size: 13px;
-  color: #333;
-  padding: 15px;
-  margin: 0 auto;
-}
-
-.yt-embed-btn {
-  right: 230px;
-  width: 80px;
-  height: 14px;
-  text-align: left;
-  padding: 4px;
-}
-.yt-embed-btn:hover span, .yt-embed-btn.active span {
-  color: #ff827f;
-}
-.yt-embed-btn:hover .svg .shape, .yt-embed-btn.active .svg .shape {
-  fill: #ff827f;
-}
-.yt-embed-btn span {
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -khtml-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-.yt-embed-btn .svg {
-  margin-right: 10px;
-  height: 14px;
-}
-.yt-embed-btn span {
-  left: 35px;
-  font-size: 12px;
-  line-height: 14px;
-}
-
-.yt-volume-wrapper {
-  width: 150px;
-  height: 25px;
-  right: 60px;
-}
-.yt-volume-wrapper .yt-mute-btn {
-  width: 25px;
-  height: 25px;
-  position: absolute;
-}
-.yt-volume-wrapper .yt-mute-btn .svg .shape {
-  display: none;
-}
-.yt-volume-wrapper .yt-mute-btn .svg .shape.off {
-  display: block;
-}
-.yt-volume-wrapper .yt-mute-btn.active .svg .shape {
-  display: block;
-}
-.yt-volume-wrapper .yt-mute-btn.active .svg .shape.off {
-  display: none;
-}
-.yt-volume-wrapper .yt-volume {
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -khtml-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  height: 2px;
-  background-color: #FFF;
-  width: 100px;
-  left: 35px;
-}
-.yt-volume-wrapper .yt-volume .yt-volume-level {
-  position: absolute;
-  z-index: 5;
-  height: 2px;
-  background-color: #ff827f;
-  width: 90%;
-}
-
-.yt-languages-btn {
-  right: 375px;
-  width: 22px;
-  height: 22px;
-}
-.yt-languages-btn:hover, .yt-languages-btn.open {
-  background-color: #333;
-}
-.yt-languages-btn:hover .yt-languages-list, .yt-languages-btn.open .yt-languages-list {
-  display: block;
-}
-.yt-languages-btn .yt-languages-list {
-  display: none;
-  position: absolute;
-  left: 0;
-  top: 22px;
-  padding: 0;
-  margin: 0;
-  z-index: 20;
-}
-.yt-languages-btn .yt-languages-list li {
-  cursor: pointer;
-  background-color: #333;
-  color: #FFF;
-  padding: 7px 14px;
-  margin: 0;
-  border-bottom: 1px solid #666;
-  list-style: none;
-  text-align: left;
-  font-size: 13px;
-  white-space: nowrap;
-}
-.yt-languages-btn .yt-languages-list li i,
-.yt-languages-btn .yt-languages-list li span {
-  display: inline-block;
-}
-.yt-languages-btn .yt-languages-list li i {
-  margin: 0 5px;
-  content: ' ';
-  width: 8px;
-  height: 8px;
-  -khtml-border-radius: 50%;
-  -o-border-radius: 50%;
-  border-radius: 50%;
-  background-color: #999;
-}
-.yt-languages-btn .yt-languages-list li:last-child {
-  border-bottom: none !important;
-}
-.yt-languages-btn .yt-languages-list li:hover {
-  color: #ff827f;
-  background-color: #666;
-}
-.yt-languages-btn .yt-languages-list li:hover i {
-  background-color: #ff827f;
-}
-
-.yt-cc-btn {
-  right: 335px;
-  width: 22px;
-  height: 22px;
-}
-.yt-cc-btn.active .svg .shape {
-  fill: #ff827f;
-}
-
-#shareButtons {
-  font-family: 'Guardian Text Sans Web', 'Agate Sans', sans-serif;
-  font-size: 14px;
-  color: #767676;
-  margin-top: 0;
-}
-#shareButtons p {
-  margin: 0 0 5px;
-}
-#shareButtons button {
-  background: #333;
-  width: 32px;
-  height: 32px;
-  border: none;
-  border-radius: 9000px;
-  display: inline-block;
-  vertical-align: top;
-  color: #fff;
-  margin-bottom: 5px;
-  cursor: pointer;
-  outline: none;
-}
-#shareButtons button#shareTwitter {
-  background: #03b3ee url(../imgs/twitterIcon.svg) no-repeat center center;
-}
-#shareButtons button#shareTwitter:hover {
-  background-color: #028dbc;
-}
-#shareButtons button#shareFacebook {
-  background: #3067a3 url(../imgs/facebookIcon.svg) no-repeat center center;
-}
-#shareButtons button#shareFacebook:hover {
-  background-color: #244e7c;
-}
-#shareButtons button#sharePinterest {
-  background: #b9252c url(../imgs/pinterestIcon.svg) no-repeat center center;
-}
-#shareButtons button#sharePinterest:hover {
-  background-color: #8f1d22;
-}
-#shareButtons button#shareTumblr {
-  background: #36465d url(../imgs/tumblrIcon2.svg) no-repeat center center;
-  background-size: 11px;
-}
-#shareButtons button#shareTumblr:hover {
-  background-color: #232e3d;
-}
-
 body {
   margin: 0;
 }
@@ -1079,6 +626,10 @@ body {
 }
 
 .guInteractive {
+  /*------------------------------------*\
+      $YOUTUBE CUSTOM SKIN
+  \*------------------------------------*/
+  /** create a div that keep video ratio */
   background: #555;
   color: #fff;
 }
@@ -1086,32 +637,10 @@ body {
   .guInteractive iframe#form {
     height: 50px;
   }
-  .guInteractive .episodeBlock {
-    width: 90%;
-    display: block;
-    margin: 0 auto 20px;
-  }
 }
 @media (min-width: 480px) {
   .guInteractive #navContainer {
     padding: 0 20px;
-  }
-  .guInteractive .contentBlock {
-    margin: 0 20px;
-  }
-  .guInteractive .sectionHeading {
-    margin: 40px 0 20px;
-    font-size: 20px;
-  }
-  .guInteractive #mainEpisodeContent p, .guInteractive #episodeTeaser p {
-    font-size: 16px;
-  }
-  .guInteractive #mainEpisodeContent {
-    padding-right: 20px;
-    padding-left: 20px;
-  }
-  .guInteractive #backgroundContainer {
-    margin: 0 -20px;
   }
   .guInteractive .startVideo {
     width: 80px;
@@ -1123,22 +652,6 @@ body {
   }
   .guInteractive #aboutDates #participate {
     font-size: 22px;
-  }
-  .guInteractive #mainEpisodeContent h3 {
-    font-size: 38px;
-  }
-  .guInteractive #episodeTeaser h3 {
-    font-size: 30px;
-  }
-  .guInteractive #episodeTeaser .sectionHeading {
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-  .guInteractive #signupBox #signupTitle {
-    font-size: 20px;
-  }
-  .guInteractive .episodeBlock p {
-    font-size: 16px;
   }
   .guInteractive footer #soulmatesBanner {
     height: 220px;
@@ -1173,61 +686,6 @@ body {
   .guInteractive #backgroundContainer {
     margin: 0;
   }
-  .guInteractive .contentBlock {
-    max-width: 620px;
-    margin: 0 auto;
-  }
-  .guInteractive .sectionHeading {
-    max-width: 620px;
-    margin-right: auto;
-    margin-left: auto;
-  }
-  .guInteractive #mainEpisodeContent {
-    max-width: 620px;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin: 0 auto;
-  }
-  .guInteractive #episodeTeaser {
-    max-width: 620px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 20px;
-  }
-  .guInteractive #episodeTeaser #nextWeekTeaser #nextWeekVideo {
-    width: 50%;
-    float: right;
-  }
-  .guInteractive #episodeTeaser #nextWeekTeaser h3 {
-    padding-right: 60%;
-  }
-  .guInteractive #episodeTeaser #nextWeekTeaser p {
-    margin-right: 55%;
-    margin-bottom: 10px;
-  }
-  .guInteractive #episodeTeaser #nextWeekTeaser:after {
-    content: '';
-    clear: both;
-    display: block;
-  }
-  .guInteractive #episodeTeaser .sectionHeading {
-    display: none;
-  }
-  .guInteractive #teaserMobile {
-    display: block;
-  }
-  .guInteractive #signupBox {
-    overflow: hidden;
-    margin-top: 10px;
-  }
-  .guInteractive #signupBox #signupDescription {
-    margin-top: 10px;
-  }
-  .guInteractive #signupBox #signupTitle {
-    font-size: 24px;
-  }
   .guInteractive #signupInformation {
     width: 50%;
     float: left;
@@ -1252,18 +710,6 @@ body {
   }
 }
 @media (min-width: 740px) {
-  .guInteractive .contentBlock {
-    max-width: 700px;
-    margin: 0 auto;
-  }
-  .guInteractive .sectionHeading {
-    max-width: 700px;
-    margin-right: auto;
-    margin-left: auto;
-  }
-  .guInteractive .sectionHeading {
-    font-size: 22px;
-  }
   .guInteractive #content,
   .guInteractive #navContainer,
   .guInteractive #footerContent {
@@ -1272,12 +718,6 @@ body {
   }
   .guInteractive #episodeTeaser {
     max-width: 700px;
-  }
-  .guInteractive #mainEpisodeContent {
-    max-width: 700px;
-  }
-  .guInteractive #mainEpisodeContent h3 {
-    font-size: 48px;
   }
   .guInteractive #mainEpisode.videoPlaying #backgroundLayer {
     display: none;
@@ -1338,10 +778,6 @@ body {
   .guInteractive #mainEpisode {
     margin-bottom: 60px;
   }
-  .guInteractive #signupBox {
-    clear: both;
-    margin-top: 10px;
-  }
   .guInteractive #footerContent .colophon {
     -webkit-column-count: 3;
     -moz-column-count: 3;
@@ -1397,32 +833,11 @@ body {
   .guInteractive #footerContent {
     max-width: 980px;
   }
-  .guInteractive .contentBlock {
-    max-width: none;
-    margin: 0 auto;
-  }
-  .guInteractive .sectionHeading {
-    max-width: none;
-    margin-right: auto;
-    margin-left: auto;
-  }
   .guInteractive #episodeTeaser {
     max-width: none;
   }
   .guInteractive #signupForm {
     margin-top: 5px;
-  }
-  .guInteractive .episodeBlock {
-    margin-right: 2%;
-    padding: 0;
-    width: 40%;
-    display: inline-block;
-  }
-  .guInteractive .episodeBlock:nth-of-type(4n) {
-    margin-right: 0;
-  }
-  .guInteractive .episodeBlock:nth-of-type(2n) {
-    padding: 0;
   }
   .guInteractive #episodeQuote {
     font-size: 54px;
@@ -1436,12 +851,6 @@ body {
   }
   .guInteractive .layerColumn {
     padding-bottom: 120px;
-  }
-  .guInteractive #mainEpisodeContent {
-    padding: 20px 20px;
-    max-width: 530px;
-    margin-left: 110px;
-    margin-bottom: 80px;
   }
   .guInteractive footer #soulmatesBanner {
     height: 115px;
@@ -1462,30 +871,11 @@ body {
   }
 }
 @media (min-width: 1140px) {
-  .guInteractive .sectionHeading {
-    width: 140px;
-    border-top: none;
-    position: absolute;
-    margin-top: 0;
-    margin-bottom: 0;
-  }
   .guInteractive .layerInfo {
     left: 160px;
   }
   .guInteractive #episodeQuote {
     margin-top: 40px;
-  }
-  .guInteractive #episodeTeaser {
-    padding-top: 12px;
-  }
-  .guInteractive #episodeTeaser .sectionHeading {
-    padding: 0;
-    line-height: 1.2;
-    display: block;
-    margin: 0;
-  }
-  .guInteractive #teaserMobile {
-    display: none;
   }
   .guInteractive #allEpisodes {
     margin-top: 40px;
@@ -1503,12 +893,6 @@ body {
   .guInteractive #teaserContainer {
     margin-left: 160px;
   }
-  .guInteractive .episodeBlock p {
-    font-size: 18px;
-  }
-  .guInteractive .episodeBlock p span {
-    font-size: 14px;
-  }
   .guInteractive #aboutDates {
     margin-top: 40px;
     border-top: 1px solid #767676;
@@ -1524,9 +908,6 @@ body {
     margin-left: 160px;
     margin-top: 10px;
   }
-  .guInteractive #mainEpisodeContent {
-    margin-left: 160px;
-  }
   .guInteractive footer #soulmatesBanner {
     height: 135px;
   }
@@ -1539,14 +920,8 @@ body {
   }
 }
 @media (min-width: 1300px) {
-  .guInteractive .sectionHeading {
-    width: 220px;
-  }
   .guInteractive #allEpisodesContainer, .guInteractive #teaserContainer, .guInteractive #aboutDatesContainer {
     margin-left: 240px;
-  }
-  .guInteractive #mainEpisodeContent {
-    margin-left: 220px;
   }
   .guInteractive .layerInfo {
     position: absolute;
@@ -1581,31 +956,752 @@ body {
 }
 .guInteractive #headerContainer {
   position: relative;
+  margin-bottom: 20px;
 }
-.guInteractive #headerContainer h2 {
-  color: #ff827f;
-  font-size: 16px;
-  font-weight: bold;
-  line-height: 1.25;
-  z-index: 6;
+.guInteractive #headerContainer #sc-logo {
   position: relative;
-  opacity: 0.8;
-  text-align: center;
+  text-align: right;
+  padding: 20px 20px 0 20px;
 }
-.guInteractive #headerContainer img {
-  width: 100%;
-  z-index: 4;
-  position: relative;
+.guInteractive #headerContainer #sc-logo img {
+  width: 200px;
 }
 .guInteractive #headerContainer #headerImage {
   font-size: 0;
   position: relative;
+  padding: 20px;
+}
+.guInteractive #headerContainer #headerImage img {
   width: 100%;
+  z-index: 4;
+  position: relative;
 }
 @media (min-width: 480px) {
   .guInteractive #headerContainer img {
     width: 100%;
     margin-left: 0;
+  }
+}
+.guInteractive .contentBlock {
+  max-width: 1300px;
+  position: relative;
+}
+.guInteractive .contentBlock .separator {
+  height: 1px;
+  background-color: #666;
+  margin: 0 20px;
+}
+.guInteractive .contentBlock h4.sectionHeading {
+  color: white;
+  width: 180px;
+  padding: 20px;
+  position: absolute;
+  font-size: 20px;
+}
+@media (min-width: 980px) {
+  .guInteractive .contentBlock h4.sectionHeading .sectionHeading {
+    font-size: 22px;
+  }
+}
+.guInteractive .contentBlock .contentBlock-inner {
+  padding-top: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.guInteractive .contentBlock .contentBlock-inner h2 {
+  font-size: 20px;
+  line-height: 1.2em;
+  font-weight: 500;
+  margin-top: 10px;
+  color: #ff827f;
+}
+.guInteractive .contentBlock .contentBlock-inner p {
+  font-size: 14px;
+}
+@media (min-width: 660px) {
+  .guInteractive .contentBlock {
+    margin: 0 auto;
+  }
+  .guInteractive .contentBlock .contentBlock-inner {
+    padding-left: 220px;
+  }
+}
+@media (min-width: 740px) {
+  .guInteractive .contentBlock {
+    margin: 0 auto;
+  }
+}
+@media (min-width: 980px) {
+  .guInteractive .contentBlock {
+    max-width: none;
+    margin: 0 auto;
+  }
+}
+.guInteractive .unselectable {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.guInteractive .yt-player-wrapper {
+  height: auto;
+  padding-top: 56px;
+  position: relative;
+  margin-bottom: 30px;
+}
+.guInteractive .yt-player {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.guInteractive .yt-player.yt-fullscreen {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 999;
+}
+.guInteractive .yt-loading-wrapper,
+.guInteractive .yt-skin-wrapper,
+.guInteractive .yt-big-play-btn,
+.guInteractive .yt-video-wrapper {
+  position: absolute;
+  left: 0;
+  width: 100%;
+}
+.guInteractive .yt-skin-wrapper,
+.guInteractive .yt-big-play-btn {
+  display: none;
+}
+.guInteractive .yt-ready .yt-skin-wrapper,
+.guInteractive .yt-ready .yt-big-play-btn {
+  display: block;
+}
+.guInteractive .yt-ready .yt-loading-wrapper {
+  display: none;
+}
+.guInteractive .yt-loading-wrapper {
+  top: 0;
+  height: 100%;
+  z-index: 5;
+  background: rgba(0, 0, 0, 0.9);
+}
+.guInteractive .yt-skin-wrapper {
+  height: 100%;
+  text-align: center;
+  z-index: 4;
+  opacity: 1;
+}
+.guInteractive .yt-big-play-btn {
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 5;
+}
+.guInteractive .yt-big-play-btn.active {
+  display: none;
+}
+.guInteractive .yt-video-wrapper {
+  top: 0;
+  height: 100%;
+  z-index: 1;
+}
+.guInteractive .yt-loading {
+  color: #fff;
+  font-size: 12px;
+  display: inline-block;
+  height: 50px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: -25px;
+  width: 100%;
+  text-align: center;
+}
+.guInteractive .yt-controls-wrapper {
+  position: absolute;
+  bottom: 0;
+  z-index: 10;
+  width: 100%;
+  height: 48px;
+  background-color: #474747;
+  -khtml-transition: all 0.4s;
+  transition: all 0.4s;
+  opacity: 1;
+}
+.yt-no-controls .guInteractive .yt-controls-wrapper {
+  opacity: 0;
+}
+.guInteractive .yt-btn, .guInteractive .yt-play-btn,
+.guInteractive .yt-languages-btn,
+.guInteractive .yt-cc-btn,
+.guInteractive .yt-mute-btn,
+.guInteractive .yt-embed-btn,
+.guInteractive .yt-volume-wrapper,
+.guInteractive .yt-fullscreen-btn {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -khtml-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.guInteractive .yt-play-btn .svg,
+.guInteractive .yt-languages-btn .svg,
+.guInteractive .yt-cc-btn .svg,
+.guInteractive .yt-mute-btn .svg,
+.guInteractive .yt-embed-btn .svg,
+.guInteractive .yt-volume-wrapper .svg,
+.guInteractive .yt-fullscreen-btn .svg {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+  -khtml-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.guInteractive .yt-play-btn .svg .shape,
+.guInteractive .yt-languages-btn .svg .shape,
+.guInteractive .yt-cc-btn .svg .shape,
+.guInteractive .yt-mute-btn .svg .shape,
+.guInteractive .yt-embed-btn .svg .shape,
+.guInteractive .yt-volume-wrapper .svg .shape,
+.guInteractive .yt-fullscreen-btn .svg .shape {
+  fill: #FFFFFF;
+}
+.guInteractive .yt-play-btn:hover .svg .shape,
+.guInteractive .yt-languages-btn:hover .svg .shape,
+.guInteractive .yt-cc-btn:hover .svg .shape,
+.guInteractive .yt-mute-btn:hover .svg .shape,
+.guInteractive .yt-embed-btn:hover .svg .shape,
+.guInteractive .yt-volume-wrapper:hover .svg .shape,
+.guInteractive .yt-fullscreen-btn:hover .svg .shape {
+  fill: #ff827f;
+}
+.guInteractive .yt-play-btn {
+  left: 10px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+}
+.guInteractive .yt-play-btn .svg {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.guInteractive .yt-play-btn .svg .yt-play {
+  display: block;
+}
+.guInteractive .yt-play-btn .svg .yt-pause {
+  display: none;
+}
+.guInteractive .yt-play-btn.active .svg .yt-play {
+  display: none;
+}
+.guInteractive .yt-play-btn.active .svg .yt-pause {
+  display: block;
+}
+.guInteractive .yt-timeline {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  right: 0;
+  height: 6px;
+  top: -6px;
+  background: #313131;
+}
+.guInteractive .yt-seek {
+  position: absolute;
+  z-index: 10;
+  height: 6px;
+  background: #ff827f;
+}
+.guInteractive .yt-buffer {
+  position: absolute;
+  z-index: 9;
+  height: 6px;
+  background: #999999;
+}
+.guInteractive .yt-fullscreen-btn {
+  width: 20px;
+  right: 20px;
+}
+.guInteractive .yt-fullscreen-btn.active .svg .shape {
+  fill: #ff827f;
+}
+.yt-ipad .guInteractive .yt-fullscreen-btn {
+  right: 10px;
+}
+.guInteractive .yt-time {
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 60px;
+  height: 48px;
+  line-height: 48px;
+  width: 100px;
+  font-size: 12px;
+  -webkit-transform: translateY(-50%);
+  -khtml-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.guInteractive .yt-embed-message {
+  position: absolute;
+  z-index: 6;
+  background-color: rgba(25, 25, 25, 0.8);
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+.guInteractive .yt-embed-message .yt-embed-code-wrapper {
+  position: absolute;
+  top: 40%;
+  -webkit-transform: translateY(-50%);
+  -khtml-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 100%;
+}
+.guInteractive .yt-embed-message .yt-embed-code-wrapper .yt-embed-title {
+  font-size: 15px;
+  line-height: 60px;
+}
+.guInteractive .yt-embed-message .yt-embed-code-wrapper .yt-embed-code {
+  white-space: nowrap;
+  background-color: #FFF;
+  width: 90%;
+  font-size: 13px;
+  color: #333;
+  padding: 15px;
+  margin: 0 auto;
+}
+.guInteractive .yt-embed-btn {
+  right: 230px;
+  width: 80px;
+  height: 14px;
+  text-align: left;
+  padding: 4px;
+}
+.guInteractive .yt-embed-btn:hover span, .guInteractive .yt-embed-btn.active span {
+  color: #ff827f;
+}
+.guInteractive .yt-embed-btn:hover .svg .shape, .guInteractive .yt-embed-btn.active .svg .shape {
+  fill: #ff827f;
+}
+.guInteractive .yt-embed-btn span {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -khtml-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.guInteractive .yt-embed-btn .svg {
+  margin-right: 10px;
+  height: 14px;
+}
+.guInteractive .yt-embed-btn span {
+  left: 35px;
+  font-size: 12px;
+  line-height: 14px;
+}
+.guInteractive .yt-volume-wrapper {
+  width: 150px;
+  height: 25px;
+  right: 60px;
+}
+.guInteractive .yt-volume-wrapper .yt-mute-btn {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+}
+.guInteractive .yt-volume-wrapper .yt-mute-btn .svg .shape {
+  display: none;
+}
+.guInteractive .yt-volume-wrapper .yt-mute-btn .svg .shape.off {
+  display: block;
+}
+.guInteractive .yt-volume-wrapper .yt-mute-btn.active .svg .shape {
+  display: block;
+}
+.guInteractive .yt-volume-wrapper .yt-mute-btn.active .svg .shape.off {
+  display: none;
+}
+.guInteractive .yt-volume-wrapper .yt-volume {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -khtml-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  height: 2px;
+  background-color: #FFF;
+  width: 100px;
+  left: 35px;
+}
+.guInteractive .yt-volume-wrapper .yt-volume .yt-volume-level {
+  position: absolute;
+  z-index: 5;
+  height: 2px;
+  background-color: #ff827f;
+  width: 90%;
+}
+.guInteractive .yt-volume-wrapper .yt-volume .yt-volume-level:after {
+  content: ' ';
+  width: 2px;
+  height: 11px;
+  position: absolute;
+  background-color: #ff827f;
+  right: -2px;
+  top: -4px;
+}
+.guInteractive .yt-languages-btn {
+  right: 375px;
+  width: 22px;
+  height: 22px;
+}
+.guInteractive .yt-languages-btn:hover, .guInteractive .yt-languages-btn.open {
+  background-color: #333;
+}
+.guInteractive .yt-languages-btn:hover .yt-languages-list, .guInteractive .yt-languages-btn.open .yt-languages-list {
+  display: block;
+}
+.guInteractive .yt-languages-btn .yt-languages-list {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 22px;
+  padding: 0;
+  margin: 0;
+  z-index: 20;
+}
+.guInteractive .yt-languages-btn .yt-languages-list li {
+  cursor: pointer;
+  background-color: #333;
+  color: #FFF;
+  padding: 7px 14px;
+  margin: 0;
+  border-bottom: 1px solid #666;
+  list-style: none;
+  text-align: left;
+  font-size: 13px;
+  white-space: nowrap;
+}
+.guInteractive .yt-languages-btn .yt-languages-list li i,
+.guInteractive .yt-languages-btn .yt-languages-list li span {
+  display: inline-block;
+}
+.guInteractive .yt-languages-btn .yt-languages-list li i {
+  margin: 0 5px;
+  content: ' ';
+  width: 8px;
+  height: 8px;
+  -khtml-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  background-color: #999;
+}
+.guInteractive .yt-languages-btn .yt-languages-list li:last-child {
+  border-bottom: none !important;
+}
+.guInteractive .yt-languages-btn .yt-languages-list li:hover {
+  color: #ff827f;
+  background-color: #666;
+}
+.guInteractive .yt-languages-btn .yt-languages-list li:hover i {
+  background-color: #ff827f;
+}
+.guInteractive .yt-cc-btn {
+  right: 335px;
+  width: 22px;
+  height: 22px;
+}
+.guInteractive .yt-cc-btn.active .svg .shape {
+  fill: #ff827f;
+}
+.guInteractive #shareButtons {
+  font-family: 'Guardian Text Sans Web', 'Agate Sans', sans-serif;
+  font-size: 14px;
+  color: #767676;
+  margin-top: 0;
+}
+.guInteractive #shareButtons p {
+  margin: 0 0 5px;
+}
+.guInteractive #shareButtons button {
+  background: #333;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 9000px;
+  display: inline-block;
+  vertical-align: top;
+  color: #fff;
+  margin-bottom: 5px;
+  cursor: pointer;
+  outline: none;
+}
+.guInteractive #shareButtons button#shareTwitter {
+  background: #03b3ee url(../imgs/twitterIcon.svg) no-repeat center center;
+}
+.guInteractive #shareButtons button#shareTwitter:hover {
+  background-color: #028dbc;
+}
+.guInteractive #shareButtons button#shareFacebook {
+  background: #3067a3 url(../imgs/facebookIcon.svg) no-repeat center center;
+}
+.guInteractive #shareButtons button#shareFacebook:hover {
+  background-color: #244e7c;
+}
+.guInteractive #shareButtons button#sharePinterest {
+  background: #b9252c url(../imgs/pinterestIcon.svg) no-repeat center center;
+}
+.guInteractive #shareButtons button#sharePinterest:hover {
+  background-color: #8f1d22;
+}
+.guInteractive #shareButtons button#shareTumblr {
+  background: #36465d url(../imgs/tumblrIcon2.svg) no-repeat center center;
+  background-size: 11px;
+}
+.guInteractive #shareButtons button#shareTumblr:hover {
+  background-color: #232e3d;
+}
+.guInteractive #mainEpisode {
+  position: relative;
+}
+.guInteractive #mainEpisode #mainEpisodeVideo {
+  position: relative;
+  cursor: pointer;
+}
+.guInteractive #mainEpisode #mainEpisodeVideo #videoContainer {
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  position: relative;
+}
+.guInteractive #mainEpisode #mainEpisodeVideo #videoContainer iframe {
+  background-color: #000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border-width: 0;
+}
+.guInteractive #mainEpisode #mainEpisodeVideo #big-play-btn-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+}
+.guInteractive #mainEpisode #mainEpisodeVideo #big-play-btn-wrapper:hover #big-play-btn {
+  background: #ff827f;
+}
+.guInteractive #mainEpisode #mainEpisodeVideo #big-play-btn-wrapper #big-play-btn {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -khtml-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  width: 80px;
+  height: 80px;
+  border: none;
+  background-color: #ff827f;
+  outline: none;
+  cursor: pointer;
+  -khtml-transition: 0.5s all;
+  transition: 0.5s all;
+  -khtml-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  font-size: 0;
+}
+.guInteractive #mainEpisode #mainEpisodeVideo #big-play-btn-wrapper #big-play-btn span {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 26px;
+  height: 22px;
+  background-image: url(../imgs/playArrow.svg);
+  top: 50%;
+  left: 50%;
+  margin-left: -11px;
+  margin-top: -11px;
+}
+.guInteractive #mainEpisode #mainEpisodeVideo #backgroundImage {
+  opacity: 1;
+  position: absolute;
+  z-index: 10;
+  display: block;
+}
+.guInteractive #mainEpisode #mainEpisodeContent {
+  padding: 15px 10px 15px;
+  background: #424242;
+  position: relative;
+  z-index: 5;
+  margin-bottom: 40px;
+}
+.guInteractive #mainEpisode #mainEpisodeContent h3, .guInteractive #mainEpisode #mainEpisodeContent h4 {
+  margin: 0;
+}
+.guInteractive #mainEpisode #mainEpisodeContent h3 {
+  font-weight: 100;
+  color: #ff827f;
+  font-size: 24px;
+  line-height: 1.2em;
+}
+.guInteractive #mainEpisode #mainEpisodeContent p {
+  font-size: 14px;
+  padding-top: 20px;
+  margin-top: 1em;
+}
+@media (min-width: 480px) {
+  .guInteractive #mainEpisode #mainEpisodeContent h3 {
+    font-size: 38px;
+  }
+  .guInteractive #mainEpisode #mainEpisodeContent p {
+    font-size: 16px;
+  }
+}
+@media (min-width: 660px) {
+  .guInteractive #mainEpisode #mainEpisodeContent {
+    max-width: 620px;
+  }
+  .guInteractive #mainEpisode #mainEpisodeContent p {
+    font-size: 14px;
+  }
+}
+@media (min-width: 740px) {
+  .guInteractive #mainEpisode #mainEpisodeContent {
+    max-width: 700px;
+  }
+  .guInteractive #mainEpisode #mainEpisodeContent h3 {
+    font-size: 32px;
+  }
+}
+@media (min-width: 980px) {
+  .guInteractive #mainEpisode #mainEpisodeContent {
+    max-width: 40%;
+    margin-bottom: 80px;
+  }
+}
+.guInteractive #mainEpisode.videoPlaying .startVideo {
+  display: none;
+}
+.guInteractive #mainEpisode.videoPlaying #videoContainer {
+  display: block;
+}
+.guInteractive #mainEpisode .contentBlock-inner {
+  padding-top: 0;
+}
+.guInteractive .episodeBlock {
+  vertical-align: top;
+  margin-bottom: 40px;
+}
+.guInteractive .episodeBlock.activeVideo img {
+  border: 4px solid #ff827f;
+}
+.guInteractive .episodeBlock img {
+  width: 100%;
+  -khtml-transition: 0.5s opacity;
+  transition: 0.5s opacity;
+  margin-bottom: 10px;
+  display: block;
+}
+.guInteractive .episodeBlock .episodeBlockContent {
+  font-family: "Guardian Egyptian Web", "Egyptian Display", "Guardian Text Egyptian Web", "Egyptian Text", Georgia, serif;
+}
+.guInteractive .episodeBlock.inactiveVideo {
+  cursor: pointer;
+}
+.guInteractive .episodeBlock.inactiveVideo:hover img {
+  opacity: 0.8;
+}
+@media (min-width: 440px) {
+  .guInteractive .episodeBlock {
+    display: block;
+  }
+}
+@media (min-width: 480px) {
+  .guInteractive .episodeBlock p {
+    font-size: 16px;
+  }
+}
+@media (min-width: 980px) {
+  .guInteractive .episodeBlock {
+    margin-right: 2%;
+    padding: 0;
+    width: 40%;
+    display: inline-block;
+  }
+  .guInteractive .episodeBlock:nth-of-type(4n) {
+    margin-right: 0;
+  }
+  .guInteractive .episodeBlock:nth-of-type(2n) {
+    padding: 0;
+  }
+}
+@media (min-width: 1140px) {
+  .guInteractive .episodeBlock p {
+    font-size: 18px;
+  }
+  .guInteractive .episodeBlock p span {
+    font-size: 14px;
+  }
+}
+.guInteractive #how-safe {
+  background-color: #424242;
+  padding: 20px 0;
+}
+.guInteractive #signup {
+  background-color: #424242;
+}
+.guInteractive #signup #signupBox #signupTitle {
+  font-family: "Guardian Egyptian Web", "Egyptian Display", "Guardian Text Egyptian Web", "Egyptian Text", Georgia, serif;
+  color: #ff827f;
+  font-weight: bold;
+  font-size: 18px;
+  margin: 0;
+  line-height: 1.2em;
+}
+.guInteractive #signup #signupBox #signupDescription {
+  font-family: 'Guardian Text Sans Web', 'Agate Sans', sans-serif;
+  margin-top: 0.5em;
+}
+@media (min-width: 480px) {
+  .guInteractive #signup #signupBox #signupTitle {
+    font-size: 20px;
+  }
+}
+@media (min-width: 660px) {
+  .guInteractive #signup #signupBox {
+    overflow: hidden;
+    margin-top: 10px;
+  }
+  .guInteractive #signup #signupBox #signupDescription {
+    margin-top: 10px;
+  }
+  .guInteractive #signup #signupBox #signupTitle {
+    font-size: 24px;
+  }
+}
+@media (min-width: 740px) {
+  .guInteractive #signup #signupBox {
+    clear: both;
+    margin-top: 10px;
   }
 }
 .guInteractive iframe {
@@ -1633,23 +1729,14 @@ body {
   box-sizing: border-box;
 }
 .guInteractive h1, .guInteractive h2, .guInteractive h3, .guInteractive h4, .guInteractive h5 {
+  margin: 0;
+  padding: 0;
   font-family: "Guardian Egyptian Web", "Egyptian Display", "Guardian Text Egyptian Web", "Egyptian Text", Georgia, serif;
-}
-.guInteractive .sectionHeading {
-  margin: 40px 0 20px;
-  border-top: 1px solid #767676;
-  line-height: 1.2;
-  padding: 4px 0;
-  font-size: 18px;
 }
 .guInteractive #guardianNav {
   height: 48px;
   background: #296d96;
   width: 100%;
-}
-.guInteractive .contentBlock {
-  margin: 0 10px;
-  max-width: 1300px;
 }
 .guInteractive #navContainer {
   background: #005689;
@@ -1676,88 +1763,10 @@ body {
   vertical-align: top;
 }
 .guInteractive #content {
-  background: #030303;
+  background: #333333;
   height: auto;
   padding: 1px 0 80px;
   margin: 0 auto;
-}
-.guInteractive #mainEpisode {
-  position: relative;
-}
-.guInteractive #mainEpisode.videoPlaying .startVideo {
-  display: none;
-}
-.guInteractive #mainEpisode.videoPlaying #videoContainer {
-  display: block;
-}
-.guInteractive #mainEpisode #videoContainer {
-  width: 100%;
-  height: 0;
-  padding-bottom: 56.25%;
-  position: relative;
-}
-.guInteractive #mainEpisode #videoContainer iframe {
-  background-color: #000;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  border-width: 0;
-}
-.guInteractive #mainEpisodeVideo {
-  position: relative;
-  cursor: pointer;
-}
-.guInteractive #mainEpisodeVideo #big-play-btn-wrapper {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 20;
-}
-.guInteractive #mainEpisodeVideo #big-play-btn-wrapper:hover #big-play-btn {
-  background: #ff827f;
-}
-.guInteractive #mainEpisodeVideo #big-play-btn-wrapper #big-play-btn {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-  -khtml-transform: translateX(-50%) translateY(-50%);
-  -ms-transform: translateX(-50%) translateY(-50%);
-  transform: translateX(-50%) translateY(-50%);
-  width: 80px;
-  height: 80px;
-  border: none;
-  background-color: rgba(0, 0, 0, 0.6);
-  outline: none;
-  cursor: pointer;
-  -khtml-transition: 0.5s background;
-  transition: 0.5s background;
-  -khtml-border-radius: 50%;
-  -o-border-radius: 50%;
-  border-radius: 50%;
-  font-size: 0;
-}
-.guInteractive #mainEpisodeVideo #big-play-btn-wrapper #big-play-btn span {
-  content: '';
-  position: absolute;
-  display: block;
-  width: 26px;
-  height: 22px;
-  background-image: url(../imgs/playArrow.svg);
-  top: 50%;
-  left: 50%;
-  margin-left: -11px;
-  margin-top: -11px;
-}
-.guInteractive #mainEpisodeVideo #backgroundImage {
-  opacity: 1;
-  position: absolute;
-  z-index: 10;
-  display: block;
 }
 .guInteractive #episodeQuote {
   font-family: "Guardian Egyptian Web", "Egyptian Display", "Guardian Text Egyptian Web", "Egyptian Text", Georgia, serif;
@@ -1766,7 +1775,6 @@ body {
 .guInteractive #backgroundContainer {
   position: relative;
   font-size: 0;
-  margin: 0 -10px;
 }
 .guInteractive #backgroundContainer img {
   width: 100%;
@@ -1785,150 +1793,6 @@ body {
   display: none;
   -khtml-transition: 0.5s background;
   transition: 0.5s background;
-}
-.guInteractive #mainEpisodeContent {
-  padding: 15px 10px 15px;
-  background: #424242;
-  position: relative;
-  z-index: 5;
-}
-.guInteractive #mainEpisodeContent h3, .guInteractive #mainEpisodeContent h4 {
-  margin: 0;
-}
-.guInteractive #mainEpisodeContent h3 {
-  font-weight: bold;
-  font-size: 30px;
-  line-height: 1.2em;
-}
-.guInteractive #mainEpisodeContent p {
-  font-size: 14px;
-  border-top: 1px solid #767676;
-  padding-top: 20px;
-  margin-top: 1em;
-}
-.guInteractive #episodeTeaser {
-  background: #424242;
-  margin-top: 40px;
-  padding-top: 1px;
-  padding-bottom: 10px;
-}
-.guInteractive #episodeTeaser .sectionHeading {
-  border-top: none;
-  margin-top: 0;
-  margin-left: 10px;
-  margin-right: 10px;
-  line-height: 1.2;
-}
-.guInteractive #episodeTeaser #teaserDescription {
-  border-top: 1px solid #767676;
-  padding-top: 9px;
-  margin-top: 15px;
-}
-.guInteractive #episodeTeaser #nextWeekVideo {
-  margin-bottom: 1em;
-}
-.guInteractive #episodeTeaser #nextWeekVideoContainer {
-  height: 0;
-  width: 100%;
-  padding-bottom: 56.25%;
-  position: relative;
-}
-.guInteractive #episodeTeaser #nextWeekVideoContainer iframe {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-}
-.guInteractive #episodeTeaser img {
-  width: 100%;
-  margin-bottom: 8px;
-}
-.guInteractive #episodeTeaser h3 {
-  font-size: 22px;
-  margin: 0;
-  line-height: 1.2em;
-  font-weight: bold;
-}
-.guInteractive #episodeTeaser p {
-  margin-top: 5px;
-  font-size: 14px;
-}
-.guInteractive #teaserMobile {
-  display: none;
-  font-family: 'Guardian Text Sans Web', 'Agate Sans', sans-serif;
-}
-.guInteractive #signupAlert {
-  border-top: 1px solid #dcdcdc;
-  margin-top: 40px;
-  padding-top: 20px;
-}
-.guInteractive #signupBox {
-  margin-top: 30px;
-}
-.guInteractive #signupBox #signupTitle {
-  font-family: "Guardian Egyptian Web", "Egyptian Display", "Guardian Text Egyptian Web", "Egyptian Text", Georgia, serif;
-  color: #ff827f;
-  font-weight: bold;
-  font-size: 18px;
-  margin: 0;
-  line-height: 1.2em;
-}
-.guInteractive #signupBox #signupDescription {
-  font-family: 'Guardian Text Sans Web', 'Agate Sans', sans-serif;
-  margin-top: 0.5em;
-}
-.guInteractive #allEpisodes {
-  font-size: 0;
-}
-.guInteractive #allEpisodesContainer:after {
-  clear: both;
-  content: '';
-  display: block;
-}
-.guInteractive .episodeBlock {
-  vertical-align: top;
-  margin-bottom: 20px;
-  padding: 0 5px 0 0;
-}
-.guInteractive .episodeBlock.activeVideo img {
-  border: 4px solid #ff827f;
-}
-.guInteractive .episodeBlock:nth-of-type(2n) {
-  padding: 0 0 0 5px;
-}
-.guInteractive .episodeBlock img {
-  width: 100%;
-  -khtml-transition: 0.5s opacity;
-  transition: 0.5s opacity;
-  margin-bottom: 10px;
-  display: block;
-}
-.guInteractive .episodeBlock .episodeBlockContent {
-  font-family: "Guardian Egyptian Web", "Egyptian Display", "Guardian Text Egyptian Web", "Egyptian Text", Georgia, serif;
-}
-.guInteractive .episodeBlock .episodeBlockContent h2 {
-  font-size: 14px;
-  line-height: 1.2em;
-  font-weight: bold;
-  margin-top: 0;
-  color: #ff827f;
-}
-.guInteractive .episodeBlock .episodeBlockContent h3 {
-  font-family: 'Guardian Text Sans Web', 'Agate Sans', sans-serif;
-  font-weight: normal;
-  color: #b2b2b2;
-  font-size: 12px;
-}
-.guInteractive .episodeBlock .episodeBlockContent p {
-  font-size: 12px;
-}
-.guInteractive .episodeBlock.published-no {
-  opacity: 0.2;
-}
-.guInteractive .episodeBlock.inactiveVideo {
-  cursor: pointer;
-}
-.guInteractive .episodeBlock.inactiveVideo:hover img {
-  opacity: 0.8;
 }
 .guInteractive #aboutDates p {
   margin-top: 0;

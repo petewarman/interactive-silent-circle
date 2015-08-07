@@ -3,25 +3,6 @@
   #navContainer {
     padding: 0 20px;
   }
-  .contentBlock {
-    margin: 0 20px;
-  }
-  .sectionHeading {
-    margin: 40px 0 20px;
-    font-size: 20px;
-  }
-  #mainEpisodeContent p, #episodeTeaser p {
-    font-size: 16px;
-  }
-  #mainEpisodeContent {
-    padding-right: 20px;
-    padding-left: 20px;
-//    margin-left: -20px;
-//    margin-right: -20px;
-  }
-  #backgroundContainer {
-    margin: 0 -20px;
-  }
   .startVideo {
     width: 80px;
     height: 80px;
@@ -35,28 +16,7 @@
       font-size: 22px;
     }
   }
-  #mainEpisodeContent h3 {
-    font-size: 38px;
-  }
-  #episodeTeaser {
-    h3 {
-      font-size: 30px;
-    }
-    .sectionHeading {
-      margin-left: 20px;
-      margin-right: 20px;
-    }
-  }
 
-  #signupBox #signupTitle {
-    font-size: 20px;
-  }
-  .episodeBlock {
-//    height: $videoThumbHeight * 0.5;
-    p {
-      font-size: 16px;
-    }
-  }
   footer #soulmatesBanner {
     height: 220px;
     .advertContainer {

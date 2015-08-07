@@ -1,0 +1,21 @@
+#mainEpisode {
+
+  @import 'main-episode-video';
+  @import 'main-episode-content';
+
+  position: relative;
+
+  &.videoPlaying {
+    .startVideo {
+      display: none;
+    }
+    #videoContainer {
+      display: block;
+    }
+  }
+
+  .contentBlock-inner {
+    padding-top: 0;
+  }
+
+}

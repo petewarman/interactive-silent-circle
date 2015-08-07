@@ -1,0 +1,48 @@
+#signup {
+  background-color: #424242;
+
+  #signupBox {
+
+    #signupTitle {
+      font-family: "Guardian Egyptian Web", "Egyptian Display", "Guardian Text Egyptian Web", "Egyptian Text", Georgia, serif;
+      color: $accent-color;
+      font-weight: bold;
+      font-size: 18px;
+      margin: 0;
+      line-height: 1.2em;
+    }
+
+    #signupDescription {
+      font-family: 'Guardian Text Sans Web', 'Agate Sans', sans-serif;
+      margin-top: 0.5em;
+    }
+
+  }
+
+  @media(min-width: 480px) {
+    #signupBox #signupTitle {
+      font-size: 20px;
+    }
+  }
+
+  @media(min-width: 660px) {
+    #signupBox {
+      overflow: hidden;
+      margin-top: 10px;
+      #signupDescription {
+        margin-top: 10px;
+      }
+      #signupTitle {
+        font-size: 24px
+      }
+    }
+  }
+
+  @media(min-width: 740px) {
+    #signupBox {
+      clear: both;
+      margin-top: 10px;
+    }
+  }
+
+}

@@ -1,13 +1,11 @@
 $accent-color: #ff827f;
 $blue-color: #6eb9d0;
-$content-bg-color: #030303;
+$content-bg-color: #333333;
 
 // YouTube thumbnails
 $videoThumbWidth: 480px;
 $videoThumbHeight: 360px;
 
-@import "partials/youtube-player";
-@import 'partials/share-buttons';
 
 // Main site CSS
 body {
@@ -22,7 +20,16 @@ body {
 .guInteractive {
 
   @import 'responsive/main';
+
   @import 'partials/header';
+  @import 'partials/content-block';
+  @import "partials/youtube-player";
+  @import 'partials/share-buttons';
+
+  @import 'sections/main-episode';
+  @import 'sections/episode-block';
+  @import 'sections/how-safe';
+  @import 'sections/signup';
 
   iframe {
     border: none;
@@ -51,15 +58,9 @@ body {
     box-sizing: border-box;
   }
   h1, h2, h3, h4, h5 {
+    margin: 0;
+    padding: 0;
     font-family: "Guardian Egyptian Web", "Egyptian Display", "Guardian Text Egyptian Web", "Egyptian Text", Georgia, serif;
-  }
-
-  .sectionHeading {
-    margin: 40px 0 20px;
-    border-top: 1px solid #767676;
-    line-height: 1.2;
-    padding: 4px 0;
-    font-size: 18px;
   }
 
   // GDN NAVIGATION
@@ -67,10 +68,6 @@ body {
     height: 48px;
     background: #296d96;
     width: 100%;
-  }
-  .contentBlock {
-    margin: 0 10px;
-    max-width: 1300px;
   }
 
   #navContainer {
@@ -100,8 +97,6 @@ body {
     vertical-align: top;
   }
 
-
-
   // CONTENT
   #content {
     background: $content-bg-color;
@@ -110,120 +105,17 @@ body {
     margin: 0 auto;
   }
 
-  // MAIN VIDEO
-  #mainEpisode {
-    position: relative;
 
-    &.videoPlaying {
-      //      #videoContainer {
-      //        opacity: 1;
-      //      }
-      //      #backgroundImage {
-      //        opacity: 0;
-      //      }
-      //      #mainEpisodeContent {
-      //        margin-top: 0;
-      //      }
-      .startVideo {
-        display: none;
-      }
-      #videoContainer {
-        display: block;
-      }
-    }
-    #videoContainer {
-      //      z-index: 5;
-      width: 100%;
-      height: 0;
-      padding-bottom: 56.25%;
-      position: relative;
-      iframe {
-        background-color: #000;
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        width: 100%;
-        height: 100%;
-        border-width: 0;
-      }
-    }
-  }
-  #mainEpisodeVideo {
-    position: relative;
-    cursor: pointer;
-
-    #big-play-btn-wrapper {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      z-index: 20;
-      //      opacity: 1;
-      //      @include css3-prefix(transition, 1s opacity);
-
-      &:hover {
-        #big-play-btn {
-          background: $accent-color;
-        }
-      }
-
-      #big-play-btn {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        @include css3-prefix(transform, translateX(-50%) translateY(-50%));
-
-        width: 80px;
-        height: 80px;
-        border: none;
-        background-color: rgba(0, 0, 0, 0.6);
-        outline: none;
-        cursor: pointer;
-        @include css3-prefix(transition, 0.5s background);
-        @include css3-prefix(border-radius, 50%);
-        font-size: 0;
-
-        span {
-          //      position: relative;
-          content: '';
-          position: absolute;
-          display: block;
-          width: 26px;
-          height: 22px;
-          background-image: url(../imgs/playArrow.svg);
-          top: 50%;
-          left: 50%;
-          margin-left: -11px;
-          margin-top: -11px;
-        }
-
-      }
-    }
-
-    #backgroundImage {
-      opacity: 1;
-      position: absolute;
-      z-index: 10;
-      display: block;
-      //      @include css3-prefix(transition, 1s opacity);
-    }
-
-  }
-  .startVideo {
-
-  }
 
   #episodeQuote {
     font-family: "Guardian Egyptian Web", "Egyptian Display", "Guardian Text Egyptian Web", "Egyptian Text", Georgia, serif;
     font-size: 20px;
-
   }
 
   #backgroundContainer {
     position: relative;
     font-size: 0;
-    margin: 0 -10px;
+//    margin: 0 -10px;
     img {
       width: 100%;
     }
@@ -241,199 +133,9 @@ body {
     @include css3-prefix(transition, 0.5s background);
   }
 
-  #mainEpisodeContent {
-    padding: 15px 10px 15px;
-    //    margin: 0 -10px;
-    background: #424242;
-    position: relative;
-    z-index: 5;
-    //    @include css3-prefix(transition, 0.5s margin);
 
-    h3, h4 {
-      margin: 0;
-    }
-    h3 {
-      font-weight: bold;
-      font-size: 30px;
-      line-height: 1.2em;
-    }
-    //    date {
-    //      display: block;
-    //
-    //      font-family: 'Guardian Text Sans Web', 'Agate Sans', sans-serif;
-    //      color: #bdbdbd;
-    //      font-size: 14px;
-    //    }
-    p {
-      font-size: 14px;
-      border-top: 1px solid #767676;
-      padding-top: 20px;
-      margin-top: 1em;
-    }
-  }
 
-  // NEXT WEEK TEASER
-  #episodeTeaser {
-    background: #424242;
-    margin-top: 40px;
-    padding-top: 1px;
-    padding-bottom: 10px;
-    .sectionHeading {
-      border-top: none;
-      margin-top: 0;
-      margin-left: 10px;
-      margin-right: 10px;
-      line-height: 1.2;
-    }
-    #teaserDescription {
-      border-top: 1px solid #767676;
-      padding-top: 9px;
-      margin-top: 15px;
-    }
-    #nextWeekVideo {
-      margin-bottom: 1em;
-    }
-    #nextWeekVideoContainer {
-      height: 0;
-      width: 100%;
-      padding-bottom: 56.25%;
-      position: relative;
-      iframe {
-        width: 100%;
-        height: 100%;
-        position: absolute
-      }
-    }
-    img {
-      width: 100%;
-      margin-bottom: 8px;
-    }
-    h3 {
-      font-size: 22px;
-      margin: 0;
-      line-height: 1.2em;
-      font-weight: bold;
-    }
-    p {
-      margin-top: 5px;
-      font-size: 14px;
 
-    }
-    //    date {
-    //      display: block;
-    //      font-family: 'Guardian Text Sans Web', 'Agate Sans', sans-serif;
-    //      color: #bdbdbd;
-    //      font-size: 14px;
-    //      margin: 2px 0 0;
-    //    }
-  }
-  #teaserMobile {
-    display: none;
-    font-family: 'Guardian Text Sans Web', 'Agate Sans', sans-serif;
-  }
-
-  // SIGN UP ALERT
-  #signupAlert {
-    border-top: 1px solid #dcdcdc;
-    margin-top: 40px;
-    padding-top: 20px;
-  }
-
-  #signupBox {
-    margin-top: 30px;
-    #signupTitle {
-      font-family: "Guardian Egyptian Web", "Egyptian Display", "Guardian Text Egyptian Web", "Egyptian Text", Georgia, serif;
-      color: $accent-color;
-      font-weight: bold;
-      font-size: 18px;
-      margin: 0;
-      line-height: 1.2em;
-    }
-    #signupDescription {
-      font-family: 'Guardian Text Sans Web', 'Agate Sans', sans-serif;
-      margin-top: 0.5em;
-    }
-  }
-
-  // ALL episodes
-  #allEpisodes {
-    font-size: 0;
-  }
-  #allEpisodesContainer:after {
-    clear: both;
-    content: '';
-    display: block;
-  }
-  .episodeBlock {
-    //    width: 40%;
-    //    float: left;
-    //    display: inline-block;
-    vertical-align: top;
-    margin-bottom: 20px;
-    padding: 0 5px 0 0;
-
-    // Original size: 480 x 360
-    //    width: 240px;
-    //    height: 180px;
-
-    &.activeVideo {
-      img {
-        border: 4px solid $accent-color;
-      }
-
-    }
-
-    &:nth-of-type(2n) {
-      padding: 0 0 0 5px;
-    }
-
-    img {
-      width: 100%;
-      @include css3-prefix(transition, 0.5s opacity);
-      margin-bottom: 10px;
-      display: block;
-//      backface-visibility: hidden;
-//      -o-backface-visibility: hidden;
-//      -moz-backface-visibility: hidden;
-//      -webkit-backface-visibility: hidden;
-    }
-
-    .episodeBlockContent {
-
-      font-family: "Guardian Egyptian Web", "Egyptian Display", "Guardian Text Egyptian Web", "Egyptian Text", Georgia, serif;
-
-      h2 {
-        font-size: 14px;
-        line-height: 1.2em;
-        font-weight: bold;
-        margin-top: 0;
-        color: $highlight-color;
-      }
-
-      h3 {
-        font-family: 'Guardian Text Sans Web', 'Agate Sans', sans-serif;
-        font-weight: normal;
-        color: #b2b2b2;
-        font-size: 12px;
-      }
-
-      p {
-        font-size: 12px;
-      }
-    }
-    &.published-no {
-      opacity: 0.2;
-    }
-    &.inactiveVideo {
-      cursor: pointer;
-
-      &:hover {
-        img {
-          opacity: 0.8;
-        }
-      }
-    }
-  }
 
   #aboutDates {
     p {

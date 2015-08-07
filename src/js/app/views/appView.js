@@ -94,19 +94,21 @@ define( [
 
 
     initialize: function ( options ) {
+
       this.mainVideo = new mainVideo( {
         youtubeDataApiKey: options.youtubeDataApiKey
       } );
-      this.data = options.json.sheets;
-//      this.playlistItemsData = options.playlistItemsData;
+
+      this.data = options.json;
+
       this.videos = this.getVideos( options.playlistItemsData );
 
       // Reverse the order of videos to get the last first
       this.videos.reverse();
 
-      console.log( this.data );
-      console.log( options.playlistItemsData );
-      console.log( this.videos );
+//      console.log( this.data );
+//      console.log( options.playlistItemsData );
+//      console.log( this.videos );
     },
 
     getVideos: function ( playlistItemsData ) {
