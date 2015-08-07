@@ -12,7 +12,10 @@ define( [
 
   return Backbone.View.extend( {
 
-    initialize: function () {
+    initialize: function ( options ) {
+
+      this.videos = options.videos;
+      this.otherVideos = [];
 
       this.setupElements();
       this.setupEvents();
@@ -27,8 +30,26 @@ define( [
 
     },
 
-    render: function () {
+    update: function ( currentVideoId ) {
+//      console.log(this.videos);
 
+      this.otherVideos = _.without(this.videos, _.findWhere(this.videos, {id: currentVideoId}));
+      this.currentVideo = _.findWhere(this.videos, {id: currentVideoId});
+
+      return this;
+    },
+
+    render: function () {
+      this.$el.html( Mustache.render( template, {
+        videos: this.otherVideos,
+        currentVideo: this.currentVideo
+      } ) );
+
+      return this;
+    },
+
+    show: function() {
+      this.$el.fadeIn();
     }
 
   } );

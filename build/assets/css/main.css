@@ -993,9 +993,9 @@ body {
 }
 .guInteractive .contentBlock h4.sectionHeading {
   color: white;
-  width: 180px;
+  width: auto;
   padding: 20px;
-  position: absolute;
+  position: relative;
   font-size: 20px;
 }
 @media (min-width: 980px) {
@@ -1021,6 +1021,10 @@ body {
 @media (min-width: 660px) {
   .guInteractive .contentBlock {
     margin: 0 auto;
+  }
+  .guInteractive .contentBlock h4.sectionHeading {
+    width: 180px;
+    position: absolute;
   }
   .guInteractive .contentBlock .contentBlock-inner {
     padding-left: 220px;
@@ -1551,7 +1555,6 @@ body {
   padding: 15px 10px 15px;
   background: #424242;
   position: relative;
-  z-index: 5;
   margin-bottom: 40px;
 }
 .guInteractive #mainEpisode #mainEpisodeContent h3, .guInteractive #mainEpisode #mainEpisodeContent h4 {
@@ -1606,6 +1609,9 @@ body {
 }
 .guInteractive #mainEpisode .contentBlock-inner {
   padding-top: 0;
+}
+.guInteractive #mainEpisode h4.sectionHeading {
+  display: none;
 }
 .guInteractive .episodeBlock {
   vertical-align: top;
@@ -1666,6 +1672,9 @@ body {
   background-color: #424242;
   padding: 20px 0;
 }
+.guInteractive #how-safe h4.sectionHeading {
+  display: none;
+}
 .guInteractive #signup {
   background-color: #424242;
 }
@@ -1703,6 +1712,37 @@ body {
     clear: both;
     margin-top: 10px;
   }
+}
+.guInteractive #endslate {
+  display: none;
+  position: absolute;
+  z-index: 20;
+  width: 80%;
+  height: 80%;
+  top: 50%;
+  left: 50%;
+  background-color: #333333;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -khtml-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+.guInteractive #endslate .videos-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.guInteractive #endslate .videos-wrapper .video {
+  display: inline-block;
+  width: 15%;
+  background-color: #666;
+  margin: 0 2%;
+}
+.guInteractive #endslate .videos-wrapper .video img {
+  position: relative;
+  display: block;
+  width: 100%;
 }
 .guInteractive iframe {
   border: none;

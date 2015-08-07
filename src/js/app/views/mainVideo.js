@@ -4,10 +4,11 @@ define( [
   'text!templates/mainVideo.html',
   'underscore',
   'yt-player',
+  'views/endslateView'
 //  'TweenLite',
 //  'TweenLite-css',
 //  'TweenLite-ease'
-], function ( Backbone, Mustache, template, _, YoutubeCustomPlayer ) {
+], function ( Backbone, Mustache, template, _, YoutubeCustomPlayer, EndslateView ) {
 
   'use strict';
 
@@ -18,6 +19,9 @@ define( [
 
       // Google YouTube Data API key (necessary for captions or playlist requests)
       this.youtubeDataApiKey = options.youtubeDataApiKey;
+
+      // Get all the available videos from the YouTube playlist (to create the end slate)
+      this.videos = options.videos;
 
       this.setupElements();
       this.setupEvents();
@@ -69,13 +73,13 @@ define( [
     playVideo: function ( e ) {
 //      console.log( this.videoData );
 
-      var self = this;
-      var videoId = this.videoData.id;
+//      var self = this;
+//      var videoId = this.videoData.id;
       var youtubeId = this.videoData.youtubeId;
       var youtubeDataApiKey = this.youtubeDataApiKey;
 
       //create a new Player
-      var ytPlayer = new YoutubeCustomPlayer( 'videoContainer', {
+      this.ytplayer = new YoutubeCustomPlayer( 'videoContainer', {
 //        embedCode: embedCode, // custom embed code
         alwaysVisible: false, // if the controls should be always visible or hide after a few seconds
         hl: 'it', // the language for subtitles and CC
@@ -86,10 +90,19 @@ define( [
         autoplay: 1, //autoplay ?
         rel: 0, //show related videos at the end ?
         APIkey: youtubeDataApiKey,
-        onVideoEnd: this.onVideoEnd,
+//        onVideoEnd: this.onVideoEnd,
+//        onVideoPlay: this.onVideoPlay,
         onVideoReady: this.onVideoReady
       } );
 
+      this.ytplayer.on( 'ended', this.onVideoEnd.bind( this ) );
+      this.ytplayer.on( 'play', this.onVideoPlay.bind( this ) );
+
+    },
+
+    onVideoPlay: function () {
+//      console.log( 'video PLAY' );
+      $( '#mainEpisode' ).addClass( 'videoPlaying' );
     },
 
     onVideoReady: function ( event ) {
@@ -98,8 +111,7 @@ define( [
       // 'this.ytplayer' represents the YouTube player object to access the Iframe API
 //        console.log( this.ytplayer );
 
-      $( '#backgroundImage' ).fadeOut( 500, function () {
-        $( '#big-play-btn-wrapper ' ).hide();
+      $( '#backgroundImage, #big-play-btn-wrapper' ).fadeOut( 500, function () {
         $( '#mainEpisode' ).addClass( 'videoPlaying' );
       } );
 
@@ -114,10 +126,25 @@ define( [
     },
 
     onVideoEnd: function () {
-
-      // show end slate
-
       console.log( 'video ENDED' );
+//      console.log(this);
+
+      // Show big play btn
+      $( '#big-play-btn-wrapper' ).fadeIn();
+      $( '#mainEpisode' ).removeClass( 'videoPlaying' );
+      this.ytplayer.seek( 0 );
+      this.ytplayer.pause();
+
+      // @TODO create end slate view and show
+      if ( !this.endSlateView ) {
+        this.endSlateView = new EndslateView( {
+          el: document.getElementById( 'endslate' ),
+          videos: this.videos
+        } );
+      }
+
+      this.endSlateView.update( this.ytplayer.id ).render().show();
+
     },
 
     render: function ( videoData ) {

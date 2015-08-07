@@ -1,19 +1,15 @@
-<div id="endslate">
+<div class="videos-wrapper">
 
-    <div class="videos-wrapper">
+    {{#videos}}
+    <div class="video" data-video-id="{{id}}">
 
-        {{#allEpisodes}}
-        <div class="episodeBlock published-{{published}} {{id}} inactiveVideo" data-video-id="{{id}}">
+        <img src="{{thumbnails.medium.url}}">
 
-            <img src="{{thumbnails.high.url}}">
-
-            <div class="episodeBlockContent">
-                <h2>{{title}}</h2>
-                <p>{{{description}}}</p>
-            </div>
+        <div class="episodeBlockContent">
+            <h2>{{title}}</h2>
+            <p>{{{description}}}</p>
         </div>
-        {{/allEpisodes}}
-
     </div>
+    {{/videos}}
 
 </div>

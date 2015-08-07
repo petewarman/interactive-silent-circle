@@ -11,9 +11,9 @@
 
   h4.sectionHeading {
     color: white;
-    width: 180px;
+    width: auto;
     padding: 20px;
-    position: absolute;
+    position: relative;
     font-size: 20px;
 
     @media(min-width: 980px) {
@@ -21,7 +21,6 @@
         font-size: 22px;
       }
     }
-
   }
 
   .contentBlock-inner {
@@ -29,10 +28,9 @@
     padding-right: 20px;
     padding-left: 20px;
 
-
     h2 {
       font-size: 20px;
-      line-height: 1.2em; //
+      line-height: 1.2em;
       font-weight: 500;
       margin-top: 10px;
       color: $accent-color;
@@ -47,6 +45,11 @@
   @media(min-width: 660px) {
     //      max-width: 620px;
     margin: 0 auto;
+
+    h4.sectionHeading {
+      width: 180px;
+      position: absolute;
+    }
 
     .contentBlock-inner {
       padding-left: 220px;

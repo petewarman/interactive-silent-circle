@@ -329,16 +329,16 @@ define( [
 //      debug.log( 'onYoutubePlayerStateChange', e.data );
 
       if ( e.data == 0 ) { //ended
-        this.onYoutubePlayerEnded(e);
+        this.onYoutubePlayerEnded( e );
       }
       if ( e.data == 1 ) { //play
-        this.onYoutubePlayerPlay(e);
+        this.onYoutubePlayerPlay( e );
       }
       if ( e.data == 2 ) { //pause
-        this.onYoutubePlayerPause(e);
+        this.onYoutubePlayerPause( e );
       }
       if ( e.data == 3 ) { //buffer
-        this.onYoutubePlayerBuffer(e);
+        this.onYoutubePlayerBuffer( e );
       }
     },
 
@@ -471,7 +471,6 @@ define( [
     },
 
     toggleControls: function () {
-
       var self = this;
 
       clearTimeout( this.mouseMoveTimer );
@@ -491,7 +490,7 @@ define( [
 
     onYoutubePlayerEnded: function () {
       this.onYoutubePlayerPause();
-      this.options.onVideoEnd.call( this );
+      this.options.onVideoEnd();
       this.trigger( 'ended' );
     },
 
@@ -625,10 +624,12 @@ define( [
 
     play: function () {
       this.ytplayer.playVideo();
+      this.trigger( 'play' );
     },
 
     pause: function () {
       this.ytplayer.pauseVideo();
+      this.trigger( 'pause' );
     },
 
     unmute: function () {
@@ -845,8 +846,9 @@ define( [
     on: function ( event, method ) {
       var self = this;
       this.handlers[method] = function () {
-        method.apply( self, arguments );
-      };
+//        method.apply( self, arguments );
+        method();
+      }; //
       this.$elem.on( event, this.handlers[method] );
     },
 
@@ -975,8 +977,6 @@ define( [
       '</div>' +
       '</div>',
 
-    languages: '<ul id="yt-languages-list"></ul>',
-
     controlLess: '<div class="yt-video-wrapper"></div>' +
       '<div class="yt-loading-wrapper"><div class="yt-loading">loading</div></div>' +
       '<div class="yt-big-play-btn"></div>'
@@ -987,15 +987,11 @@ define( [
     YoutubeCustomPlayer.init();
   };
 
-  /** load YT API */
+  // Get YouTube Iframe API
   var tag = document.createElement( 'script' );
-//  tag.src = "https://www.youtube.com/player_api";
   tag.src = "https://www.youtube.com/iframe_api";
   var firstScriptTag = document.getElementsByTagName( 'script' )[0];
   firstScriptTag.parentNode.insertBefore( tag, firstScriptTag );
-
-// Export YoutubeCustomPlayer
-//    window.YoutubeCustomPlayer = YoutubeCustomPlayer;
 
   return YoutubeCustomPlayer;
 
