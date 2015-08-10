@@ -5,7 +5,7 @@ define( [
   'text!templates/appTemplate.html',
   'views/mainVideo',
   'underscore',
-  'views/analytics'
+//  'views/analytics'
 ], function ( Backbone, Mustache, routes, template, mainVideo, _, ga ) {
   'use strict';
 
@@ -13,20 +13,21 @@ define( [
 
     className: 'guInteractive',
 
-    events: {
-      'click .episodeBlock.inactiveVideo': 'switchVideo'
-    },
+//    events: {
+//      'click .episodeBlock.inactiveVideo': 'switchVideo'
+//    },
 
     switchVideo: function ( e ) {
 
-      var videoId = $( e.currentTarget ).attr( 'data-video-id' );
+      var videoId = _.isString( e ) ? e : $( e.currentTarget ).attr( 'data-video-id' );
+//      var videoId = $( e.currentTarget ).attr( 'data-video-id' );
 
-      window.ga( 'send', {
-        'hitType': 'event',          // Required.
-        'eventCategory': 'switch video',   // Required.
-        'eventAction': 'click',      // Required.
-        'eventLabel': videoId
-      } );
+//      window.ga( 'send', {
+//        'hitType': 'event',          // Required.
+//        'eventCategory': 'switch video',   // Required.
+//        'eventAction': 'click',      // Required.
+//        'eventLabel': videoId
+//      } );
 
       var foundValue = _.findWhere( this.allEpisodes, {
         'id': videoId
@@ -95,8 +96,16 @@ define( [
 
     initialize: function ( options ) {
 
+      // Touch?
+      this.isTouch = (('ontouchstart' in window) || ('ontouchstart' in document.documentElement) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
+      if ( this.isTouch ) {
+        $( 'body' ).addClass( 'touch' );
+      }
+
+      // Get custom data for videos
       this.data = options.json;
 
+      // Get videos data from YouTube playlist
       this.videos = this.getVideos( options.playlistItemsData );
 
       // Reverse the order of videos to get the last first
@@ -104,17 +113,30 @@ define( [
 
       this.mainVideo = new mainVideo( {
         youtubeDataApiKey: options.youtubeDataApiKey,
-        videos: this.videos
+        videos: this.videos,
+        isTouch: this.isTouch,
+        mainApp: this
       } );
+
+      this.setupEvents();
 
 //      console.log( this.data );
 //      console.log( options.playlistItemsData );
 //      console.log( this.videos );
     },
 
+    setupEvents: function () {
+      var click = this.isTouch ? 'touchstart' : 'click';
+
+      //'click .episodeBlock.inactiveVideo': 'switchVideo'
+      this.$el.on( click, '.episodeBlock.inactiveVideo', this.switchVideo.bind( this ) );
+
+    },
+
     getVideos: function ( playlistItemsData ) {
       var videos = [];
       var items = playlistItemsData.items;
+      var maxDescriptionLength = 80;
 
       items.forEach( function ( item, i ) {
         var item = item.snippet;
@@ -124,7 +146,9 @@ define( [
           video.id = item.resourceId.videoId;
           video.youtubeId = video.id;
           video.title = item.title;
-          video.description = item.description.replace(/\n/g,"<br>");
+          video.description = item.description.replace( /\n/g, "<br>" );
+          video.shortDescription = item.description.substring( 0, maxDescriptionLength ) + '...';
+          video.shortDescription = video.shortDescription.replace( /\n/g, "<br>" ).trim();
           video.thumbnails = item.thumbnails;
           video.publishedAt = item.publishedAt;
           videos.push( video );

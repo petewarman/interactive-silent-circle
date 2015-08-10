@@ -17,6 +17,10 @@ define( [
     initialize: function ( options ) {
 //      console.log(YoutubeCustomPlayer);
 
+      this.isTouch = options.isTouch;
+
+      this.mainApp = options.mainApp;
+
       // Google YouTube Data API key (necessary for captions or playlist requests)
       this.youtubeDataApiKey = options.youtubeDataApiKey;
 
@@ -37,8 +41,10 @@ define( [
     },
 
     setupEvents: function () {
-      $( document ).on( 'click', '#mainEpisodeVideo', this.playVideo.bind( this ) );
-      $( document ).on( 'click', '#shareButtons button', this.shareVideo.bind( this ) );
+      var click = this.isTouch ? 'touchstart' : 'click';
+
+      $( document ).on( click, '#big-play-btn-wrapper', this.playVideo.bind( this ) );
+      $( document ).on( click, '#shareButtons button', this.shareVideo.bind( this ) );
     },
 
     shareVideo: function ( e ) {
@@ -72,6 +78,9 @@ define( [
 
     playVideo: function ( e ) {
 //      console.log( this.videoData );
+
+      // Hide end slate
+      this.hideEndSlate();
 
 //      var self = this;
 //      var videoId = this.videoData.id;
@@ -116,12 +125,12 @@ define( [
       } );
 
       // Update Google Analytics (send)
-      window.ga( 'send', {
-        'hitType': 'event',          // Required.
-        'eventCategory': 'play video',   // Required.
-        'eventAction': 'play',      // Required.
-        'eventLabel': this.ytplayer.id
-      } );
+//      window.ga( 'send', {
+//        'hitType': 'event',          // Required.
+//        'eventCategory': 'play video',   // Required.
+//        'eventAction': 'play',      // Required.
+//        'eventLabel': this.ytplayer.id
+//      } );
 
     },
 
@@ -130,26 +139,47 @@ define( [
 //      console.log(this);
 
       // Show big play btn
-      $( '#big-play-btn-wrapper' ).fadeIn();
+      $( '#backgroundImage, #big-play-btn-wrapper' ).fadeIn();
+      $( '#big-play-btn' ).removeClass( 'startVideo' );
       $( '#mainEpisode' ).removeClass( 'videoPlaying' );
       this.ytplayer.seek( 0 );
       this.ytplayer.pause();
 
-      // @TODO create end slate view and show
+      // Endslate
+      if ( this.videos.length > 1 ) {
+        setTimeout( this.showEndSlate.bind( this ), 500 );
+      }
+    },
+
+    hideEndSlate: function () {
+      if ( this.endSlateView ) {
+        this.endSlateView.hide();
+      }
+    },
+
+    showEndSlate: function () {
       if ( !this.endSlateView ) {
         this.endSlateView = new EndslateView( {
           el: document.getElementById( 'endslate' ),
-          videos: this.videos
+          videos: this.videos,
+          isTouch: this.isTouch,
+          mainApp: this.mainApp
         } );
       }
 
-      this.endSlateView.update( this.ytplayer.id ).render().show();
+      if ( this.videos.length > 1 )
+        this.endSlateView.update( this.ytplayer.getSrc() ).render().show();
 
     },
 
     render: function ( videoData ) {
+      if ( this.ytplayer )
+        this.ytplayer.destroy();
+
       this.videoData = videoData;
-      this.$el.html( Mustache.render( template, { mainEpisode: videoData } ) );
+      this.$el.html( Mustache.render( template, {
+        mainEpisode: videoData
+      } ) );
       return this;
     }
 

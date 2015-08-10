@@ -14716,7 +14716,7 @@ define('text',['module'], function (module) {
 define('text!templates/appTemplate.html',[],function () { return '<div class="guInteractive">\n    <div id="content">\n\n\n        <header id="headerContainer">\n            <!--<div id="headerImage">-->\n            <!--<img src="http://localhost:9000/build/assets/imgs/header.jpg"/>-->\n            <!--</div>-->\n\n            <div id="sc-logo">\n                <a href="#"><img src="http://localhost:9000/build/assets/imgs/sc-logo.png"></a>\n            </div>\n\n            <div id="headerImage">\n                <img src="http://localhost:9000/build/assets/imgs/video-hub-topbanner.png">\n            </div>\n\n            <!--<div class="animation-wrapper">-->\n            <!--<img src="http://localhost:9000/build/assets/imgs/video-hub-topbanner.png" class="bg">-->\n\n            <!--<div class="animated-text"></div>-->\n            <!--</div>-->\n\n        </header>\n\n\n        <div id="mainVideoContainer"></div>\n\n\n        <div class="contentBlock" id="other-videos">\n            <div class="separator"></div>\n\n            <h4 class="sectionHeading">Other videos</h4>\n\n            <div class="contentBlock-inner">\n                <!--<div id="allEpisodesContainer">-->\n                    {{#allEpisodes}}\n                    <div class="episodeBlock published-{{published}} {{id}} inactiveVideo" data-video-id="{{id}}">\n\n                        <img src="{{thumbnails.high.url}}">\n\n                        <div class="episodeBlockContent">\n                            <h2>{{title}}</h2>\n\n                            <p>{{{description}}}</p>\n                        </div>\n                    </div>\n                    {{/allEpisodes}}\n                <!--</div>-->\n            </div>\n        </div>\n\n\n        <div class="contentBlock" id="signup">\n            <h4 class="sectionHeading">More content</h4>\n\n            <div id="signupBox" class="contentBlock-inner">\n\n                <div id="signupInformation">\n                    <h2>Subscribe here for the remaining videos</h2>\n\n                    <p>Enter your email address and we will send you a reminder when new episodes arrive</p>\n                </div>\n\n                <div id="signupForm">\n                    <iframe id="form" scrolling="no" frameborder="none" width="100%" height="40px"\n                            src="http://interactive.guim.co.uk/visuals-blank-page/watch-me-date/form.html"></iframe>\n                </div>\n\n            </div>\n        </div>\n\n\n        <div class="contentBlock" id="how-safe">\n            <div class="separator"></div>\n\n            <h4 class="sectionHeading">&nbsp;</h4>\n\n            <div class="contentBlock-inner">\n                <h2>How safe is your business?</h2>\n\n                <p>\n                    Click here to put your company to the test.\n                </p>\n            </div>\n        </div>\n\n\n    </div>\n\n\n    <!--<footer>-->\n        <!--<div id="soulmatesBanner">-->\n            <!--<div class="advertContainer">-->\n                <!--<p>Sign up here for a free three-day trial of Guardian Soulmates</p>-->\n                <!--<img src="http://localhost:9000/build/assets/imgs/soulmatesIcon.svg" id="soulmatesIcon"/>-->\n                <!--<a href="https://soulmates.theguardian.com/subscribe/freefebruary">-->\n                    <!--Join Now-->\n                    <!--<span id=""><img src="http://localhost:9000/build/assets/imgs/soulmatesArrow.png"/></span>-->\n                <!--</a>-->\n            <!--</div>-->\n        <!--</div>-->\n        <!--{{#isWeb}}-->\n        <!--<div id="footerContent">-->\n            <!--<ul class="colophon u-cf">-->\n                <!--<li class="colophon__item"><a data-link-name="uk : footer : membership"-->\n                                              <!--href="https://membership.theguardian.com/?INTCMP=NGW_FOOTER_UK_GU_MEMBERSHIP">-->\n                    <!--membership</a></li>-->\n                <!--<li class="colophon__item"><a data-link-name="uk : footer : jobs"-->\n                                              <!--href="http://jobs.theguardian.com/?INTCMP=NGW_FOOTER_UK_GU_JOBS">-->\n                    <!--jobs</a></li>-->\n                <!--<li class="colophon__item"><a data-link-name="uk : footer : soulmates"-->\n                                              <!--href="https://soulmates.theguardian.com/?INTCMP=NGW_FOOTER_UK_GU_SOULMATES">-->\n                    <!--dating</a></li>-->\n                <!--<li class="colophon__item"><a data-link-name="uk : footer : masterclasses"-->\n                                              <!--href="/guardian-masterclasses?INTCMP=NGW_FOOTER_UK_GU_MASTERCLASSES">-->\n                    <!--masterclasses</a></li>-->\n                <!--<li class="colophon__item"><a data-link-name="uk : footer : subscribe" target="_blank"-->\n                                              <!--href="http://subscribe.theguardian.com/?INTCMP=NGW_FOOTER_UK_GU_SUBSCRIBE">-->\n                    <!--subscribe</a></li>-->\n                <!--<li class="colophon__item"><a data-link-name="all topics" href="/index/subjects/a">all topics</a></li>-->\n                <!--<li class="colophon__item"><a data-link-name="all contributors" href="/index/contributors">all-->\n                    <!--contributors</a></li>-->\n                <!--<li class="colophon__item"><a data-link-name="uk : footer : about us" target="_blank" href="/info">-->\n                    <!--about us</a></li>-->\n                <!--<li class="colophon__item"><a data-link-name="uk : footer : contact us" target="_blank"-->\n                                              <!--href="/help/contact-us">-->\n                    <!--contact us</a></li>-->\n                <!--<li class="colophon__item"><a data-link-name="complaints" href="/info/complaints-and-corrections">-->\n                    <!--complaints &amp; corrections</a></li>-->\n                <!--<li class="colophon__item"><a data-link-name="terms" href="/help/terms-of-service">terms &amp;-->\n                    <!--conditions</a></li>-->\n                <!--<li class="colophon__item"><a data-link-name="privacy" href="/help/privacy-policy">privacy policy</a>-->\n                <!--</li>-->\n                <!--<li class="colophon__item"><a data-link-name="cookie" href="/info/cookies">cookie policy</a></li>-->\n                <!--<li class="colophon__item"><a data-link-name="securedrop" href="https://securedrop.theguardian.com/">securedrop</a>-->\n                <!--</li>-->\n            <!--</ul>-->\n            <!--<div class="l-footer__misc">-->\n                <!--<div class="really-serious-copyright">© 2015 Guardian News and Media Limited or its affiliated-->\n                    <!--companies. All&nbsp;rights&nbsp;reserved.-->\n                <!--</div>-->\n            <!--</div>-->\n        <!--</div>-->\n        <!--{{/isWeb}}-->\n    <!--</footer>-->\n\n\n</div>\n';});
 
 
-define('text!templates/mainVideo.html',[],function () { return '{{#mainEpisode}}\n<div id="mainEpisode" class="contentBlock">\n\n    <div id="mainEpisodeVideo">\n\n        <div id="big-play-btn-wrapper">\n            <button id="big-play-btn" data-video-id="{{id}}" class="startVideo">\n                <span></span>\n            </button>\n        </div>\n\n        <div id="backgroundContainer">\n\n            <!--Poster image for youtube video-->\n            <img id="backgroundImage" src="{{thumbnails.maxres.url}}"/>\n\n            <!-- Custom player + YouTube iframe will be injected here -->\n            <div id="videoContainer"></div>\n\n            <!--Big play button-->\n            <button data-video-id="{{id}}" class="startVideo"><span></span></button>\n\n            <!--End slate appearing at the end of the video-->\n            <div id="endslate"></div>\n\n        </div>\n    </div>\n\n    <div class="contentBlock">\n        <h4 class="sectionHeading">&nbsp;</h4>\n\n        <div class="contentBlock-inner">\n            <div id="mainEpisodeContent">\n                <h3>{{title}}</h3>\n\n                <p id="episodeDescription">{{{description}}}</p>\n\n                <div id="shareButtons">\n                    <button data-source="twitter" id="shareTwitter" data-video-id="{{id}}"></button>\n                    <button data-source="facebook" id="shareFacebook" data-video-id="{{id}}"></button>\n                </div>\n            </div>\n        </div>\n\n    </div>\n\n</div>\n{{/mainEpisode}}\n';});
+define('text!templates/mainVideo.html',[],function () { return '{{#mainEpisode}}\n<div id="mainEpisode" class="contentBlock">\n\n    <div id="mainEpisodeVideo">\n\n        <div id="big-play-btn-wrapper">\n            <button id="big-play-btn" data-video-id="{{id}}" class="startVideo">\n                <span></span>\n            </button>\n        </div>\n\n        <div id="backgroundContainer">\n\n            <!--Poster image for youtube video-->\n            <img id="backgroundImage" src="{{thumbnails.maxres.url}}"/>\n\n            <!-- Custom player + YouTube iframe will be injected here -->\n            <div id="videoContainer"></div>\n\n            <!--Big play button-->\n            <button data-video-id="{{id}}" class="startVideo"><span></span></button>\n\n            <!--End slate appearing at the end of the video-->\n            <div id="endslate">{{endSlate}}</div>\n\n        </div>\n    </div>\n\n    <div class="contentBlock">\n        <h4 class="sectionHeading">&nbsp;</h4>\n\n        <div class="contentBlock-inner">\n            <div id="mainEpisodeContent">\n                <h3>{{title}}</h3>\n\n                <p id="episodeDescription">{{{description}}}</p>\n\n                <div id="shareButtons">\n                    <button data-source="twitter" id="shareTwitter" data-video-id="{{id}}"></button>\n                    <button data-source="facebook" id="shareFacebook" data-video-id="{{id}}"></button>\n                </div>\n            </div>\n        </div>\n\n    </div>\n\n</div>\n{{/mainEpisode}}\n';});
 
 
 define('text!yt-player-icon-play-pause',[],function () { return '<svg class="svg yt-play-pause" xmlns="http://www.w3.org/2000/svg" width="32" height="32">\n    <circle fill="#ff827f" cx="16" cy="16" r="16"/>\n    <path class="yt-play" fill="#333" d="M23 15.67L12 11l-.99.3v9.257l1 .3 11-4.67v-.5"/>\n    <path class="yt-pause" fill="#333" d="M14 22h-3V11.1l1-1.1h2v12m4-12h3v10.9L20 22h-2V10"/>\n</svg>\n\n';});
@@ -14747,11 +14747,11 @@ define( 'yt-player',[
 
   'use strict';
 
-  var hasTouch = (('ontouchstart' in window) || ('ontouchstart' in document.documentElement) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
+  var isTouch = (('ontouchstart' in window) || ('ontouchstart' in document.documentElement) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
   var hasMSPointer = window.navigator.msPointerEnabled;
-  var UI_DOWN = hasTouch ? 'touchstart' : ( hasMSPointer ? 'MSPointerDown' : 'mousedown' );
-  var UI_UP = hasTouch ? 'touchend' : ( hasMSPointer ? 'MSPointerUp' : 'mouseup' );
-  var UI_MOVE = hasTouch ? 'touchmove' : ( hasMSPointer ? 'MSPointerMove' : 'mousemove' );
+  var UI_DOWN = isTouch ? 'touchstart' : ( hasMSPointer ? 'MSPointerDown' : 'mousedown' );
+  var UI_UP = isTouch ? 'touchend' : ( hasMSPointer ? 'MSPointerUp' : 'mouseup' );
+  var UI_MOVE = isTouch ? 'touchmove' : ( hasMSPointer ? 'MSPointerMove' : 'mousemove' );
 
   var a = function ( elem, options ) {
 
@@ -14815,8 +14815,8 @@ define( 'yt-player',[
     function i( e ) {
       var s = $elem.offset(),
         o = d.orientation === "horizontal" ? s.left : s.top,
-        pageX = hasTouch ? e.originalEvent.touches[0].pageX : e.pageX,
-        pageY = hasTouch ? e.originalEvent.touches[0].pageY : e.pageY,
+        pageX = isTouch ? e.originalEvent.touches[0].pageX : e.pageX,
+        pageY = isTouch ? e.originalEvent.touches[0].pageY : e.pageY,
         n = d.orientation === "horizontal" ? pageX : pageY,
         q = k.slider.invert ? (o + $elem[l]() - n) : (n - o),
         p;
@@ -14920,10 +14920,10 @@ define( 'yt-player',[
     this.isIOs = ( this.isIpad || this.isIphone ) ? true : false;
     this.isAndroid = ( navigator.userAgent.match( /.*(Android).*/ ) ) ? true : false;
 
-    this.hasTouch = (('ontouchstart' in window) || ('ontouchstart' in document.documentElement) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
+    this.isTouch = (('ontouchstart' in window) || ('ontouchstart' in document.documentElement) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
     this.htmlClass = this.isIpad ? 'yt-ipad yt-ios' : ( this.isIphone ? 'yt-iphone yt-ios' : '' );
 
-    if ( this.hasTouch )
+    if ( this.isTouch )
       this.htmlClass += ' yt-touch';
 
     if ( YoutubeCustomPlayer.requestFullScreen )
@@ -15090,12 +15090,7 @@ define( 'yt-player',[
     addListenners: function () {
 
       var self = this;
-      var click = this.hasTouch ? 'touchstart' : 'click';
-
-      this.$bigPlayBtn.on( click, function ( e ) {
-        e.preventDefault();
-        self.togglePlay();
-      } );
+      var click = this.isTouch ? 'touchstart' : 'click';
 
       if ( this.options.controls === 0 ) {
         return;
@@ -15147,7 +15142,7 @@ define( 'yt-player',[
 
       //show/hide controls on user activity
       if ( !this.options.alwaysVisible ) {
-        $( document ).on( UI_MOVE + ' ' + (this.hasTouch ? this.UI_DOWN : ''), this.toggleControls.bind( this ) );
+        $( document ).on( UI_MOVE + ' ' + (this.isTouch ? this.UI_DOWN : ''), this.toggleControls.bind( this ) );
       }
 
 
@@ -15191,6 +15186,15 @@ define( 'yt-player',[
 
     },
 
+//    onBigPlayBtnClick: function () {
+//
+//      console.log( 'YP plugin - onBigPlayBtnClick' );
+//
+//      this.options.onBigPlayBtnClick();
+//      this.togglePlay();
+//      this.trigger( 'playBtnClick' );
+//    },
+
     toggleEmbedMessage: function () {
       this.$embedCode.val( this.ytplayer.getVideoEmbedCode() );
       this.$embedCode.on( 'mouseup touchend', function () {
@@ -15209,20 +15213,25 @@ define( 'yt-player',[
     },
 
     toggleControls: function () {
-      var self = this;
 
       clearTimeout( this.mouseMoveTimer );
 
       if ( this.isControlsHidden ) {
-        this.isControlsHidden = false;
-        this.$elem.removeClass( 'yt-no-controls' );
+        this.showControls();
       }
 
-      this.mouseMoveTimer = setTimeout( function () {
-        self.isControlsHidden = true;
-        self.$elem.addClass( 'yt-no-controls' );
-      }, 1000 );
+      this.mouseMoveTimer = setTimeout( this.hideControls.bind( this ), 1000 );
 
+    },
+
+    showControls: function () {
+      this.isControlsHidden = false;
+      this.$elem.removeClass( 'yt-no-controls' );
+    },
+
+    hideControls: function () {
+      this.isControlsHidden = true;
+      this.$elem.addClass( 'yt-no-controls' );
     },
 
 
@@ -15578,6 +15587,9 @@ define( 'yt-player',[
     destroy: function () {
       this.pause();
       this.$elem.empty();
+
+      this.ytplayer.destroy();
+
       delete YoutubeCustomPlayer[ this.instanceId ];
     },
 
@@ -15737,7 +15749,7 @@ define( 'yt-player',[
 
 
 
-define('text!templates/endslate.html',[],function () { return '<div class="videos-wrapper">\n\n    {{#videos}}\n    <div class="video" data-video-id="{{id}}">\n\n        <img src="{{thumbnails.medium.url}}">\n\n        <div class="episodeBlockContent">\n            <h2>{{title}}</h2>\n            <p>{{{description}}}</p>\n        </div>\n    </div>\n    {{/videos}}\n\n</div>\n';});
+define('text!templates/endslate.html',[],function () { return '<svg class="close-btn svg" height="48" viewBox="0 0 48 48" width="48" version="1.1" xmlns="http://www.w3.org/2000/svg">\n    <path class="shape" fill="#FFFFFF" d="M38 12.83l-2.83-2.83-11.17 11.17-11.17-11.17-2.83 2.83 11.17 11.17-11.17 11.17 2.83 2.83 11.17-11.17 11.17 11.17 2.83-2.83-11.17-11.17z"/>\n</svg>\n\n<div class="videos-wrapper">\n\n    <div class="inner-container">\n        <h2>More videos from this series</h2>\n\n        {{#videos}}\n        <div class="video" data-video-id="{{id}}">\n\n            <img src="{{thumbnails.medium.url}}">\n\n            <div class="video-content">\n                <h2>{{title}}</h2>\n\n                <p>{{{shortDescription}}}</p>\n            </div>\n        </div>\n        {{/videos}}\n    </div>\n\n</div>\n';});
 
 define( 'views/endslateView',[
   'backbone',
@@ -15755,7 +15767,9 @@ define( 'views/endslateView',[
 
     initialize: function ( options ) {
 
+      this.isTouch = options.isTouch;
       this.videos = options.videos;
+      this.mainApp = options.mainApp;
       this.otherVideos = [];
 
       this.setupElements();
@@ -15768,29 +15782,71 @@ define( 'views/endslateView',[
     },
 
     setupEvents: function () {
+      var self = this;
+      var click = this.isTouch ? 'touchstart' : 'click';
+
+      $( document ).on( click, '#endslate .videos-wrapper', function ( e ) {
+        e.stopPropagation();
+      } );
+
+      $( document ).on( click, '#endslate .close-btn', function ( e ) {
+        e.stopPropagation();
+        self.hide();
+      } );
+
+      $( document ).on( click, '#endslate .video', function () {
+        if ( $( this ).hasClass( 'video' ) ) {
+          var videoId = $( this ).data( 'video-id' );
+
+          if ( videoId ) {
+            $( '#endslate' ).fadeOut( function () {
+              self.mainApp.switchVideo( videoId );
+            } );
+          }
+        }
+      } );
 
     },
 
     update: function ( currentVideoId ) {
 //      console.log(this.videos);
 
-      this.otherVideos = _.without(this.videos, _.findWhere(this.videos, {id: currentVideoId}));
-      this.currentVideo = _.findWhere(this.videos, {id: currentVideoId});
+      console.log( currentVideoId );
+
+      // Update the view DOM element (cause it is overwritten every time a new video is loaded)
+      this.setElement( '#endslate' );
+
+      // Get an array wuth the other video (all but the current one)
+      this.otherVideos = _.reject( this.videos, function ( video ) {
+        return video.id == currentVideoId;
+      } );//_.without( this.videos, _.findWhere( this.videos, {id: currentVideoId} ) );
+      this.currentVideo = _.findWhere( this.videos, {id: currentVideoId} );
+
+      console.log( this.otherVideos );
 
       return this;
     },
 
     render: function () {
-      this.$el.html( Mustache.render( template, {
-        videos: this.otherVideos,
-        currentVideo: this.currentVideo
-      } ) );
+
+      // If there are other videos, show the endslate - otherwise show the play button
+      if ( this.otherVideos.length ) {
+
+        this.$el.html( Mustache.render( template, {
+          videos: this.otherVideos,
+          currentVideo: this.currentVideo
+        } ) );
+      }
 
       return this;
     },
 
-    show: function() {
+    show: function () {
       this.$el.fadeIn();
+    },
+
+    hide: function () {
+      this.$el.fadeOut( 200 );
     }
 
   } );
@@ -15815,6 +15871,10 @@ define( 'views/mainVideo',[
     initialize: function ( options ) {
 //      console.log(YoutubeCustomPlayer);
 
+      this.isTouch = options.isTouch;
+
+      this.mainApp = options.mainApp;
+
       // Google YouTube Data API key (necessary for captions or playlist requests)
       this.youtubeDataApiKey = options.youtubeDataApiKey;
 
@@ -15835,8 +15895,10 @@ define( 'views/mainVideo',[
     },
 
     setupEvents: function () {
-      $( document ).on( 'click', '#mainEpisodeVideo', this.playVideo.bind( this ) );
-      $( document ).on( 'click', '#shareButtons button', this.shareVideo.bind( this ) );
+      var click = this.isTouch ? 'touchstart' : 'click';
+
+      $( document ).on( click, '#big-play-btn-wrapper', this.playVideo.bind( this ) );
+      $( document ).on( click, '#shareButtons button', this.shareVideo.bind( this ) );
     },
 
     shareVideo: function ( e ) {
@@ -15870,6 +15932,9 @@ define( 'views/mainVideo',[
 
     playVideo: function ( e ) {
 //      console.log( this.videoData );
+
+      // Hide end slate
+      this.hideEndSlate();
 
 //      var self = this;
 //      var videoId = this.videoData.id;
@@ -15914,12 +15979,12 @@ define( 'views/mainVideo',[
       } );
 
       // Update Google Analytics (send)
-      window.ga( 'send', {
-        'hitType': 'event',          // Required.
-        'eventCategory': 'play video',   // Required.
-        'eventAction': 'play',      // Required.
-        'eventLabel': this.ytplayer.id
-      } );
+//      window.ga( 'send', {
+//        'hitType': 'event',          // Required.
+//        'eventCategory': 'play video',   // Required.
+//        'eventAction': 'play',      // Required.
+//        'eventLabel': this.ytplayer.id
+//      } );
 
     },
 
@@ -15928,49 +15993,52 @@ define( 'views/mainVideo',[
 //      console.log(this);
 
       // Show big play btn
-      $( '#big-play-btn-wrapper' ).fadeIn();
+      $( '#backgroundImage, #big-play-btn-wrapper' ).fadeIn();
+      $( '#big-play-btn' ).removeClass( 'startVideo' );
       $( '#mainEpisode' ).removeClass( 'videoPlaying' );
       this.ytplayer.seek( 0 );
       this.ytplayer.pause();
 
-      // @TODO create end slate view and show
+      // Endslate
+      if ( this.videos.length > 1 ) {
+        setTimeout( this.showEndSlate.bind( this ), 500 );
+      }
+    },
+
+    hideEndSlate: function () {
+      if ( this.endSlateView ) {
+        this.endSlateView.hide();
+      }
+    },
+
+    showEndSlate: function () {
       if ( !this.endSlateView ) {
         this.endSlateView = new EndslateView( {
           el: document.getElementById( 'endslate' ),
-          videos: this.videos
+          videos: this.videos,
+          isTouch: this.isTouch,
+          mainApp: this.mainApp
         } );
       }
 
-      this.endSlateView.update( this.ytplayer.id ).render().show();
+      if ( this.videos.length > 1 )
+        this.endSlateView.update( this.ytplayer.getSrc() ).render().show();
 
     },
 
     render: function ( videoData ) {
+      if ( this.ytplayer )
+        this.ytplayer.destroy();
+
       this.videoData = videoData;
-      this.$el.html( Mustache.render( template, { mainEpisode: videoData } ) );
+      this.$el.html( Mustache.render( template, {
+        mainEpisode: videoData
+      } ) );
       return this;
     }
 
   } );
 } );
-define('views/analytics',[],
-	function(){
-
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-	  ga('create', 'UA-25353554-26', 'auto');
-	  ga('send', 'pageview');
-
-	 
-	  return ga;
-
-
-
-	});
-
 define( 'views/appView',[
   'backbone',
   'mustache',
@@ -15978,7 +16046,7 @@ define( 'views/appView',[
   'text!templates/appTemplate.html',
   'views/mainVideo',
   'underscore',
-  'views/analytics'
+//  'views/analytics'
 ], function ( Backbone, Mustache, routes, template, mainVideo, _, ga ) {
   'use strict';
 
@@ -15986,20 +16054,21 @@ define( 'views/appView',[
 
     className: 'guInteractive',
 
-    events: {
-      'click .episodeBlock.inactiveVideo': 'switchVideo'
-    },
+//    events: {
+//      'click .episodeBlock.inactiveVideo': 'switchVideo'
+//    },
 
     switchVideo: function ( e ) {
 
-      var videoId = $( e.currentTarget ).attr( 'data-video-id' );
+      var videoId = _.isString( e ) ? e : $( e.currentTarget ).attr( 'data-video-id' );
+//      var videoId = $( e.currentTarget ).attr( 'data-video-id' );
 
-      window.ga( 'send', {
-        'hitType': 'event',          // Required.
-        'eventCategory': 'switch video',   // Required.
-        'eventAction': 'click',      // Required.
-        'eventLabel': videoId
-      } );
+//      window.ga( 'send', {
+//        'hitType': 'event',          // Required.
+//        'eventCategory': 'switch video',   // Required.
+//        'eventAction': 'click',      // Required.
+//        'eventLabel': videoId
+//      } );
 
       var foundValue = _.findWhere( this.allEpisodes, {
         'id': videoId
@@ -16068,8 +16137,16 @@ define( 'views/appView',[
 
     initialize: function ( options ) {
 
+      // Touch?
+      this.isTouch = (('ontouchstart' in window) || ('ontouchstart' in document.documentElement) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
+      if ( this.isTouch ) {
+        $( 'body' ).addClass( 'touch' );
+      }
+
+      // Get custom data for videos
       this.data = options.json;
 
+      // Get videos data from YouTube playlist
       this.videos = this.getVideos( options.playlistItemsData );
 
       // Reverse the order of videos to get the last first
@@ -16077,17 +16154,30 @@ define( 'views/appView',[
 
       this.mainVideo = new mainVideo( {
         youtubeDataApiKey: options.youtubeDataApiKey,
-        videos: this.videos
+        videos: this.videos,
+        isTouch: this.isTouch,
+        mainApp: this
       } );
+
+      this.setupEvents();
 
 //      console.log( this.data );
 //      console.log( options.playlistItemsData );
 //      console.log( this.videos );
     },
 
+    setupEvents: function () {
+      var click = this.isTouch ? 'touchstart' : 'click';
+
+      //'click .episodeBlock.inactiveVideo': 'switchVideo'
+      this.$el.on( click, '.episodeBlock.inactiveVideo', this.switchVideo.bind( this ) );
+
+    },
+
     getVideos: function ( playlistItemsData ) {
       var videos = [];
       var items = playlistItemsData.items;
+      var maxDescriptionLength = 80;
 
       items.forEach( function ( item, i ) {
         var item = item.snippet;
@@ -16097,7 +16187,9 @@ define( 'views/appView',[
           video.id = item.resourceId.videoId;
           video.youtubeId = video.id;
           video.title = item.title;
-          video.description = item.description.replace(/\n/g,"<br>");
+          video.description = item.description.replace( /\n/g, "<br>" );
+          video.shortDescription = item.description.substring( 0, maxDescriptionLength ) + '...';
+          video.shortDescription = video.shortDescription.replace( /\n/g, "<br>" ).trim();
           video.thumbnails = item.thumbnails;
           video.publishedAt = item.publishedAt;
           videos.push( video );

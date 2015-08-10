@@ -1,15 +1,24 @@
+<svg class="close-btn svg" height="48" viewBox="0 0 48 48" width="48" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <path class="shape" fill="#FFFFFF" d="M38 12.83l-2.83-2.83-11.17 11.17-11.17-11.17-2.83 2.83 11.17 11.17-11.17 11.17 2.83 2.83 11.17-11.17 11.17 11.17 2.83-2.83-11.17-11.17z"/>
+</svg>
+
 <div class="videos-wrapper">
 
-    {{#videos}}
-    <div class="video" data-video-id="{{id}}">
+    <div class="inner-container">
+        <h2>More videos from this series</h2>
 
-        <img src="{{thumbnails.medium.url}}">
+        {{#videos}}
+        <div class="video" data-video-id="{{id}}">
 
-        <div class="episodeBlockContent">
-            <h2>{{title}}</h2>
-            <p>{{{description}}}</p>
+            <img src="{{thumbnails.medium.url}}">
+
+            <div class="video-content">
+                <h2>{{title}}</h2>
+
+                <p>{{{shortDescription}}}</p>
+            </div>
         </div>
+        {{/videos}}
     </div>
-    {{/videos}}
 
 </div>

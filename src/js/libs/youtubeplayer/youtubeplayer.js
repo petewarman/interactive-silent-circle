@@ -9,11 +9,11 @@ define( [
 
   'use strict';
 
-  var hasTouch = (('ontouchstart' in window) || ('ontouchstart' in document.documentElement) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
+  var isTouch = (('ontouchstart' in window) || ('ontouchstart' in document.documentElement) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
   var hasMSPointer = window.navigator.msPointerEnabled;
-  var UI_DOWN = hasTouch ? 'touchstart' : ( hasMSPointer ? 'MSPointerDown' : 'mousedown' );
-  var UI_UP = hasTouch ? 'touchend' : ( hasMSPointer ? 'MSPointerUp' : 'mouseup' );
-  var UI_MOVE = hasTouch ? 'touchmove' : ( hasMSPointer ? 'MSPointerMove' : 'mousemove' );
+  var UI_DOWN = isTouch ? 'touchstart' : ( hasMSPointer ? 'MSPointerDown' : 'mousedown' );
+  var UI_UP = isTouch ? 'touchend' : ( hasMSPointer ? 'MSPointerUp' : 'mouseup' );
+  var UI_MOVE = isTouch ? 'touchmove' : ( hasMSPointer ? 'MSPointerMove' : 'mousemove' );
 
   var a = function ( elem, options ) {
 
@@ -77,8 +77,8 @@ define( [
     function i( e ) {
       var s = $elem.offset(),
         o = d.orientation === "horizontal" ? s.left : s.top,
-        pageX = hasTouch ? e.originalEvent.touches[0].pageX : e.pageX,
-        pageY = hasTouch ? e.originalEvent.touches[0].pageY : e.pageY,
+        pageX = isTouch ? e.originalEvent.touches[0].pageX : e.pageX,
+        pageY = isTouch ? e.originalEvent.touches[0].pageY : e.pageY,
         n = d.orientation === "horizontal" ? pageX : pageY,
         q = k.slider.invert ? (o + $elem[l]() - n) : (n - o),
         p;
@@ -182,10 +182,10 @@ define( [
     this.isIOs = ( this.isIpad || this.isIphone ) ? true : false;
     this.isAndroid = ( navigator.userAgent.match( /.*(Android).*/ ) ) ? true : false;
 
-    this.hasTouch = (('ontouchstart' in window) || ('ontouchstart' in document.documentElement) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
+    this.isTouch = (('ontouchstart' in window) || ('ontouchstart' in document.documentElement) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
     this.htmlClass = this.isIpad ? 'yt-ipad yt-ios' : ( this.isIphone ? 'yt-iphone yt-ios' : '' );
 
-    if ( this.hasTouch )
+    if ( this.isTouch )
       this.htmlClass += ' yt-touch';
 
     if ( YoutubeCustomPlayer.requestFullScreen )
@@ -352,12 +352,7 @@ define( [
     addListenners: function () {
 
       var self = this;
-      var click = this.hasTouch ? 'touchstart' : 'click';
-
-      this.$bigPlayBtn.on( click, function ( e ) {
-        e.preventDefault();
-        self.togglePlay();
-      } );
+      var click = this.isTouch ? 'touchstart' : 'click';
 
       if ( this.options.controls === 0 ) {
         return;
@@ -409,7 +404,7 @@ define( [
 
       //show/hide controls on user activity
       if ( !this.options.alwaysVisible ) {
-        $( document ).on( UI_MOVE + ' ' + (this.hasTouch ? this.UI_DOWN : ''), this.toggleControls.bind( this ) );
+        $( document ).on( UI_MOVE + ' ' + (this.isTouch ? this.UI_DOWN : ''), this.toggleControls.bind( this ) );
       }
 
 
@@ -453,6 +448,15 @@ define( [
 
     },
 
+//    onBigPlayBtnClick: function () {
+//
+//      console.log( 'YP plugin - onBigPlayBtnClick' );
+//
+//      this.options.onBigPlayBtnClick();
+//      this.togglePlay();
+//      this.trigger( 'playBtnClick' );
+//    },
+
     toggleEmbedMessage: function () {
       this.$embedCode.val( this.ytplayer.getVideoEmbedCode() );
       this.$embedCode.on( 'mouseup touchend', function () {
@@ -471,20 +475,25 @@ define( [
     },
 
     toggleControls: function () {
-      var self = this;
 
       clearTimeout( this.mouseMoveTimer );
 
       if ( this.isControlsHidden ) {
-        this.isControlsHidden = false;
-        this.$elem.removeClass( 'yt-no-controls' );
+        this.showControls();
       }
 
-      this.mouseMoveTimer = setTimeout( function () {
-        self.isControlsHidden = true;
-        self.$elem.addClass( 'yt-no-controls' );
-      }, 1000 );
+      this.mouseMoveTimer = setTimeout( this.hideControls.bind( this ), 1000 );
 
+    },
+
+    showControls: function () {
+      this.isControlsHidden = false;
+      this.$elem.removeClass( 'yt-no-controls' );
+    },
+
+    hideControls: function () {
+      this.isControlsHidden = true;
+      this.$elem.addClass( 'yt-no-controls' );
     },
 
 
@@ -840,6 +849,9 @@ define( [
     destroy: function () {
       this.pause();
       this.$elem.empty();
+
+      this.ytplayer.destroy();
+
       delete YoutubeCustomPlayer[ this.instanceId ];
     },
 

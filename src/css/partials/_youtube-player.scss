@@ -4,7 +4,8 @@
 
 $yt-asset-path: "../imgs/";
 $highlight-color: $accent-color;
-$yt-controls-height: 48px;
+$yt-controls-height: $yt-player-controls-height;
+
 
 $buffer-color: #999999;
 
@@ -117,6 +118,7 @@ $buffer-color: #999999;
   width: 100%;
   height: $yt-controls-height;
   background-color: #474747;
+  background-color: rgba(71,71,71,0.95);
 
   @include css3-prefix(transition, all 0.4s);
 //  @include css3-prefix(transform, translateY(0));
@@ -196,22 +198,22 @@ $buffer-color: #999999;
   width: 100%;
   left: 0;
   right: 0;
-  height: 6px;
-  top: -6px;
+  height: $yt-slider-height;
+  top: -$yt-slider-height;
   background: #313131;
 }
 
 .yt-seek {
   position: absolute;
   z-index: 10;
-  height: 6px;
+  height: $yt-slider-height;
   background: $highlight-color;
 }
 
 .yt-buffer {
   position: absolute;
   z-index: 9;
-  height: 6px;
+  height: $yt-slider-height;
   background: $buffer-color;
 }
 
