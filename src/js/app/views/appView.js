@@ -147,8 +147,14 @@ define( [
           video.youtubeId = video.id;
           video.title = item.title;
           video.description = item.description.replace( /\n/g, "<br>" );
-          video.shortDescription = item.description.substring( 0, maxDescriptionLength ) + '...';
-          video.shortDescription = video.shortDescription.replace( /\n/g, "<br>" ).trim();
+
+          // Short description for end slate
+          video.shortDescription = '';
+          if (video.description.length > 1) {
+            video.shortDescription = item.description.substring( 0, maxDescriptionLength ) + '...';
+            video.shortDescription = video.shortDescription.replace( /\n/g, "<br>" ).trim();
+          }
+
           video.thumbnails = item.thumbnails;
           video.publishedAt = item.publishedAt;
           videos.push( video );

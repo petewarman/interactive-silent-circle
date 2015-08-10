@@ -5,7 +5,7 @@
   top: 50%;
   left: 50%;
   @include css3-prefix(transform, translateX(-50%) translateY(-50%));
-  background-color: $content-bg-color;
+  background-color: rgba(51,51,51, 0.95); //$content-bg-color;
   cursor: auto;
   //  height: calc(100% - #{$yt-slider-height + $yt-player-controls-height});
   width: 100%;
@@ -64,7 +64,6 @@
       top: 50%;
       left: 50%;
       @include css3-prefix(transform, translateX(-50%) translateY(-50%));
-      overflow: scroll;
 
 //      @media (min-width: 740px) {
 //        width: 100%;

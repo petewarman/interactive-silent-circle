@@ -475,7 +475,6 @@ define( [
     },
 
     toggleControls: function () {
-
       clearTimeout( this.mouseMoveTimer );
 
       if ( this.isControlsHidden ) {
@@ -483,7 +482,6 @@ define( [
       }
 
       this.mouseMoveTimer = setTimeout( this.hideControls.bind( this ), 1000 );
-
     },
 
     showControls: function () {
@@ -965,7 +963,7 @@ define( [
     base: '<div class="yt-video-wrapper"></div>' +
       '<div class="yt-loading-wrapper"><div class="yt-loading"></div></div>' +
       '<div class="yt-skin-wrapper">' +
-      '<div class="yt-big-play-btn"></div>' +
+      '<div class="yt-big-play-btn unselectable"><div class="play-button"><span></span></div></div>' +
       '<div class="yt-embed-message">' +
       '<div class="yt-embed-code-wrapper"><div class="yt-embed-title">Embed code</div><input type="text" class="yt-embed-code" value=""></div>' +
       '</div>' +

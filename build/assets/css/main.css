@@ -956,31 +956,56 @@ body {
 }
 .guInteractive #headerContainer {
   position: relative;
-  margin-bottom: 20px;
 }
 .guInteractive #headerContainer #sc-logo {
   position: relative;
   text-align: right;
-  padding: 20px 20px 0 20px;
+  padding: 20px;
 }
 .guInteractive #headerContainer #sc-logo img {
-  width: 200px;
+  height: 40px;
+}
+@media (min-width: 660px) {
+  .guInteractive #headerContainer #sc-logo img {
+    height: 40px;
+  }
+}
+@media (min-width: 980px) {
+  .guInteractive #headerContainer #sc-logo img {
+    height: 50px;
+  }
+}
+@media (min-width: 1300px) {
+  .guInteractive #headerContainer #sc-logo img {
+    height: 50px;
+  }
 }
 .guInteractive #headerContainer #headerImage {
   font-size: 0;
   position: relative;
-  padding: 20px;
+  padding: 0 10px 20px 10px;
+}
+@media (min-width: 660px) {
+  .guInteractive #headerContainer #headerImage {
+    padding: 0 10px 20px 10px;
+  }
+}
+@media (min-width: 980px) {
+  .guInteractive #headerContainer #headerImage {
+    padding: 0 20px 20px 20px;
+  }
+}
+@media (min-width: 1300px) {
+  .guInteractive #headerContainer #headerImage {
+    padding: 0 40px 40px 40px;
+  }
 }
 .guInteractive #headerContainer #headerImage img {
+  display: block;
   width: 100%;
+  max-width: 100%;
   z-index: 4;
   position: relative;
-}
-@media (min-width: 480px) {
-  .guInteractive #headerContainer img {
-    width: 100%;
-    margin-left: 0;
-  }
 }
 .guInteractive .contentBlock {
   max-width: 1300px;
@@ -1105,6 +1130,42 @@ body {
   height: 100%;
   width: 100%;
   z-index: 5;
+}
+.guInteractive .yt-big-play-btn .play-button {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border: none;
+  background-color: #ff827f;
+  outline: none;
+  cursor: pointer;
+  -khtml-transition: 0.5s all;
+  transition: 0.5s all;
+  -khtml-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  font-size: 0;
+}
+.guInteractive .yt-big-play-btn .play-button span {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 26px;
+  height: 22px;
+  background-image: url(../imgs/playArrow.svg);
+  top: 50%;
+  left: 50%;
+  margin-left: -11px;
+  margin-top: -11px;
+}
+.guInteractive .yt-big-play-btn .play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -khtml-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
 }
 .guInteractive .yt-big-play-btn.active {
   display: none;
@@ -1480,6 +1541,33 @@ body {
 .guInteractive #shareButtons button#shareTumblr:hover {
   background-color: #232e3d;
 }
+.guInteractive .play-button {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border: none;
+  background-color: #ff827f;
+  outline: none;
+  cursor: pointer;
+  -khtml-transition: 0.5s all;
+  transition: 0.5s all;
+  -khtml-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  font-size: 0;
+}
+.guInteractive .play-button span {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 26px;
+  height: 22px;
+  background-image: url(../imgs/playArrow.svg);
+  top: 50%;
+  left: 50%;
+  margin-left: -11px;
+  margin-top: -11px;
+}
 .guInteractive #mainEpisode {
   position: relative;
 }
@@ -1492,7 +1580,7 @@ body {
   width: 100%;
   height: 100%;
   z-index: 20;
-  opacity: 0.5;
+  opacity: 0.3;
   -khtml-transition-duration: 0.6s;
   transition-duration: 0.6s;
   cursor: pointer;
@@ -1508,30 +1596,6 @@ body {
   -khtml-transform: translateX(-50%) translateY(-50%);
   -ms-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
-  width: 80px;
-  height: 80px;
-  border: none;
-  background-color: #ff827f;
-  outline: none;
-  cursor: pointer;
-  -khtml-transition: 0.5s all;
-  transition: 0.5s all;
-  -khtml-border-radius: 50%;
-  -o-border-radius: 50%;
-  border-radius: 50%;
-  font-size: 0;
-}
-.guInteractive #mainEpisode #mainEpisodeVideo #big-play-btn-wrapper #big-play-btn span {
-  content: '';
-  position: absolute;
-  display: block;
-  width: 26px;
-  height: 22px;
-  background-image: url(../imgs/playArrow.svg);
-  top: 50%;
-  left: 50%;
-  margin-left: -11px;
-  margin-top: -11px;
 }
 .guInteractive #mainEpisode #mainEpisodeVideo #videoContainer {
   width: 100%;
@@ -1625,7 +1689,28 @@ body {
 .guInteractive .episodeBlock.activeVideo img {
   border: 4px solid #ff827f;
 }
-.guInteractive .episodeBlock img {
+.guInteractive .episodeBlock .thumb-wrapper {
+  position: relative;
+}
+.guInteractive .episodeBlock .thumb-wrapper:hover button {
+  opacity: 1;
+}
+.guInteractive .episodeBlock .thumb-wrapper button {
+  display: none;
+  position: absolute;
+  z-index: 20;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%) scale(0.66, 0.66);
+  -khtml-transform: translateX(-50%) translateY(-50%) scale(0.66, 0.66);
+  -ms-transform: translateX(-50%) translateY(-50%) scale(0.66, 0.66);
+  transform: translateX(-50%) translateY(-50%) scale(0.66, 0.66);
+  opacity: 0.5;
+  -khtml-transition-duration: 0.6s;
+  transition-duration: 0.6s;
+}
+.guInteractive .episodeBlock .thumb-wrapper img {
+  position: relative;
   width: 100%;
   -khtml-transition: 0.5s opacity;
   transition: 0.5s opacity;
@@ -1637,6 +1722,9 @@ body {
 }
 .guInteractive .episodeBlock.inactiveVideo {
   cursor: pointer;
+}
+.guInteractive .episodeBlock.inactiveVideo .thumb-wrapper button {
+  display: block;
 }
 .guInteractive .episodeBlock.inactiveVideo:hover img {
   opacity: 0.8;
@@ -1728,7 +1816,7 @@ body {
   -khtml-transform: translateX(-50%) translateY(-50%);
   -ms-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
-  background-color: #333333;
+  background-color: rgba(51, 51, 51, 0.95);
   cursor: auto;
   width: 100%;
   height: 100%;
@@ -1780,7 +1868,6 @@ body {
   -khtml-transform: translateX(-50%) translateY(-50%);
   -ms-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
-  overflow: scroll;
 }
 .guInteractive #endslate .videos-wrapper .inner-container h2 {
   color: #FFF;

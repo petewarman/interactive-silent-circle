@@ -9,11 +9,36 @@
     }
   }
 
-  img {
-    width: 100%;
-    @include css3-prefix(transition, 0.5s opacity);
-    margin-bottom: 10px;
-    display: block;
+  .thumb-wrapper {
+    position: relative;
+
+    &:hover {
+
+      button {
+        opacity: 1;
+      }
+    }
+
+    button {
+      display: none;
+      position: absolute;
+      z-index: 20;
+      top: 50%;
+      left: 50%;
+      @include css3-prefix(transform, translateX(-50%) translateY(-50%) scale(0.66, 0.66));
+      opacity: 0.5;
+      @include css3-prefix(transition-duration, 0.6s);
+
+    }
+
+    img {
+      position: relative;
+      width: 100%;
+      @include css3-prefix(transition, 0.5s opacity);
+      margin-bottom: 10px;
+      display: block;
+    }
+
   }
 
   .episodeBlockContent {
@@ -23,6 +48,13 @@
   &.inactiveVideo {
     cursor: pointer;
 
+    .thumb-wrapper {
+
+      button {
+        display: block;
+      }
+    }
+
     &:hover {
       img {
         opacity: 0.8;
@@ -31,9 +63,9 @@
   }
 
   @media(min-width: 440px) {
-//    width: 90%;
+    //    width: 90%;
     display: block;
-//    margin: 0 auto 20px;
+    //    margin: 0 auto 20px;
   }
 
   @media(min-width: 480px) {

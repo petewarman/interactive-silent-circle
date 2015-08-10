@@ -37,11 +37,15 @@
                     {{#allEpisodes}}
                     <div class="episodeBlock published-{{published}} {{id}} inactiveVideo" data-video-id="{{id}}">
 
-                        <img src="{{thumbnails.high.url}}">
+                        <div class="thumb-wrapper">
+                            <button data-video-id="{{id}}" class="play-button">
+                                <span></span>
+                            </button>
+                            <img src="{{thumbnails.high.url}}">
+                        </div>
 
                         <div class="episodeBlockContent">
                             <h2>{{title}}</h2>
-
                             <p>{{{description}}}</p>
                         </div>
                     </div>
