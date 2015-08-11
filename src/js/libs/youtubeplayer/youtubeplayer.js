@@ -127,10 +127,9 @@ define( [
   };
 
 
-  // Get captions list
-  // https://www.googleapis.com/youtube/v3/captions?videoId=KsSV-RuxLXQ&part=snippet&key=AIzaSyDiTrZ80LUooXW0H_E2NoWKFUqNTB8sqLY
-
-
+  /**
+   * YoutubeCustomPlayer class.
+   */
   function YoutubeCustomPlayer( id, options ) {
 
     this.$elem = $( '#' + id );
@@ -150,8 +149,9 @@ define( [
       rel: 0,
       hl: 'en',
       cc_load_policy: 1,
-      alwaysVisible: true,
+      alwaysVisible: false,
       APIkey: null,
+      hideControlsDelay: 1000,
       onVideoReady: function () {
       },
       onVideoEnd: function () {
@@ -220,6 +220,7 @@ define( [
 
       this.$elem.replaceWith( '<div id="' + this.id + '"></div>' );
       this.$elem = $( '#' + this.id );
+      this.$elem.addClass( 'yt-player' );
 
       $.each( this.elemAttributes, function () {
         if ( this.value != null && this.value != 'null' ) {
@@ -281,7 +282,7 @@ define( [
         width: '100%',
         videoId: this.options.videoId,
         playerVars: {
-          hl: this.options.hl,
+//          hl: this.options.hl,
           cc_load_policy: this.options.cc_load_policy,
           wmode: this.options.wmode,
           controls: 0,
@@ -315,6 +316,7 @@ define( [
       this.duration = this.ytplayer.getDuration();
       this.addListenners();
       this.options.onVideoReady.call( this );
+
       this.trigger( 'ready' );
     },
 
@@ -371,6 +373,10 @@ define( [
       } );
 
       // Toggle play
+      this.$bigPlayBtn.on( click, function ( e ) {
+        e.preventDefault();
+        self.togglePlay();
+      } );
       this.$playBtn.on( click, function ( e ) {
         e.preventDefault();
         self.togglePlay();
@@ -402,11 +408,10 @@ define( [
         }
       } );
 
-      //show/hide controls on user activity
+      // Show/Hide controls on mousemove
       if ( !this.options.alwaysVisible ) {
-        $( document ).on( UI_MOVE + ' ' + (this.isTouch ? this.UI_DOWN : ''), this.toggleControls.bind( this ) );
+        this.$elem.on( UI_MOVE + ' ' + (this.isTouch ? UI_DOWN : ''), this.toggleControls.bind( this ) );
       }
-
 
       // Create timeline slider
       this.$timeline.slider( {
@@ -475,21 +480,25 @@ define( [
     },
 
     toggleControls: function () {
+//      console.log( 'toggle controls' );
+
       clearTimeout( this.mouseMoveTimer );
 
       if ( this.isControlsHidden ) {
         this.showControls();
       }
 
-      this.mouseMoveTimer = setTimeout( this.hideControls.bind( this ), 1000 );
+      this.mouseMoveTimer = setTimeout( this.hideControls.bind( this ), this.options.hideControlsDelay );
     },
 
     showControls: function () {
+      console.log( 'show controls' );
       this.isControlsHidden = false;
       this.$elem.removeClass( 'yt-no-controls' );
     },
 
     hideControls: function () {
+      console.log( 'hide controls' );
       this.isControlsHidden = true;
       this.$elem.addClass( 'yt-no-controls' );
     },
@@ -504,7 +513,7 @@ define( [
     onYoutubePlayerPlay: function () {
 
       this.paused = false;
-//      this.$bigPlayBtn.addClass( 'active' );
+      this.$bigPlayBtn.addClass( 'active' );
       this.startProgress();
 
       if ( this.options.controls == 1 ) {
@@ -529,7 +538,6 @@ define( [
       this.options.onVideoPlay.call( this );
 
       this.trigger( 'play' );
-
     },
 
     updateSeekBar: function () {
@@ -543,7 +551,7 @@ define( [
 
     onYoutubePlayerPause: function () {
       this.paused = true;
-//      this.$bigPlayBtn.removeClass( 'active' );
+      this.$bigPlayBtn.removeClass( 'active' );
       this.stopProgress();
       if ( this.options.controls == 1 ) {
         this.$playBtn.removeClass( 'active' );
@@ -737,7 +745,12 @@ define( [
 
         var l = this.localeCodeToEnglish( lang );
         if ( l ) {
-          html += '<li data-lang="' + lang + '" class="lang ' + lang + '"><span>' + l + '</span><i></i></li>';
+          html += '<li data-lang="' + lang + '" class="lang ' + lang + '">';
+          html += '<p>';
+          html += '<span>' + l + '</span>';
+          html += '<i></i>';
+          html += '</p>';
+          html += '</li>';
         }
       }.bind( this ) );
       this.$languagesList.html( html );
@@ -963,7 +976,9 @@ define( [
     base: '<div class="yt-video-wrapper"></div>' +
       '<div class="yt-loading-wrapper"><div class="yt-loading"></div></div>' +
       '<div class="yt-skin-wrapper">' +
-      '<div class="yt-big-play-btn unselectable"><div class="play-button"><span></span></div></div>' +
+      '<div class="yt-big-play-btn unselectable">' +
+      '<div class="play-button"><span></span></div>' +
+      '</div>' +
       '<div class="yt-embed-message">' +
       '<div class="yt-embed-code-wrapper"><div class="yt-embed-title">Embed code</div><input type="text" class="yt-embed-code" value=""></div>' +
       '</div>' +

@@ -1066,6 +1066,9 @@ body {
     margin: 0 auto;
   }
 }
+.guInteractive .yt-player:hover .yt-controls-wrapper {
+  opacity: 1 !important;
+}
 .guInteractive .unselectable {
   -moz-user-select: none;
   -khtml-user-select: none;
@@ -1130,6 +1133,12 @@ body {
   height: 100%;
   width: 100%;
   z-index: 5;
+  opacity: 0.3;
+  -khtml-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+.guInteractive .yt-big-play-btn:hover {
+  opacity: 1;
 }
 .guInteractive .yt-big-play-btn .play-button {
   position: relative;
@@ -1166,9 +1175,12 @@ body {
   -khtml-transform: translateX(-50%) translateY(-50%);
   -ms-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
+  -khtml-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  opacity: 1;
 }
-.guInteractive .yt-big-play-btn.active {
-  display: none;
+.guInteractive .yt-big-play-btn.active .play-button {
+  opacity: 0;
 }
 .guInteractive .yt-video-wrapper {
   top: 0;
@@ -1187,6 +1199,9 @@ body {
   width: 100%;
   text-align: center;
 }
+.guInteractive .yt-no-controls .yt-controls-wrapper {
+  opacity: 0;
+}
 .guInteractive .yt-controls-wrapper {
   position: absolute;
   bottom: 0;
@@ -1195,12 +1210,9 @@ body {
   height: 48px;
   background-color: #474747;
   background-color: rgba(71, 71, 71, 0.95);
-  -khtml-transition: all 0.4s;
-  transition: all 0.4s;
+  -khtml-transition-duration: 0.4s;
+  transition-duration: 0.4s;
   opacity: 1;
-}
-.yt-no-controls .guInteractive .yt-controls-wrapper {
-  opacity: 0;
 }
 .guInteractive .yt-btn, .guInteractive .yt-play-btn,
 .guInteractive .yt-languages-btn,
@@ -1225,11 +1237,11 @@ body {
 .guInteractive .yt-fullscreen-btn .svg {
   position: absolute;
   top: 50%;
-  left: 0;
-  -webkit-transform: translateY(-50%);
-  -khtml-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+  left: 50%;
+  -webkit-transform: translateY(-50%) translateX(-50%);
+  -khtml-transform: translateY(-50%) translateX(-50%);
+  -ms-transform: translateY(-50%) translateX(-50%);
+  transform: translateY(-50%) translateX(-50%);
 }
 .guInteractive .yt-play-btn .svg .shape,
 .guInteractive .yt-languages-btn .svg .shape,
@@ -1294,7 +1306,7 @@ body {
   position: absolute;
   z-index: 9;
   height: 6px;
-  background: #999999;
+  background: #999;
 }
 .guInteractive .yt-fullscreen-btn {
   width: 20px;
@@ -1356,6 +1368,13 @@ body {
   height: 14px;
   text-align: left;
   padding: 4px;
+}
+.guInteractive .yt-embed-btn .svg {
+  left: 0;
+  -webkit-transform: translateY(-50%);
+  -khtml-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 .guInteractive .yt-embed-btn:hover span, .guInteractive .yt-embed-btn.active span {
   color: #ff827f;
@@ -1432,11 +1451,12 @@ body {
 }
 .guInteractive .yt-languages-btn {
   right: 375px;
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
+  padding: 24px;
 }
-.guInteractive .yt-languages-btn:hover, .guInteractive .yt-languages-btn.open {
-  background-color: #333;
+.guInteractive .yt-languages-btn .svg {
+  display: block;
 }
 .guInteractive .yt-languages-btn:hover .yt-languages-list, .guInteractive .yt-languages-btn.open .yt-languages-list {
   display: block;
@@ -1445,28 +1465,35 @@ body {
   display: none;
   position: absolute;
   left: 0;
-  top: 22px;
-  padding: 0;
+  top: 48px;
+  padding: 3px 0;
   margin: 0;
-  z-index: 20;
+  z-index: 40;
+  background-color: rgba(71, 71, 71, 0.95);
 }
 .guInteractive .yt-languages-btn .yt-languages-list li {
   cursor: pointer;
-  background-color: #333;
   color: #FFF;
-  padding: 7px 14px;
+  padding: 3px 6px;
   margin: 0;
-  border-bottom: 1px solid #666;
   list-style: none;
   text-align: left;
   font-size: 13px;
   white-space: nowrap;
 }
-.guInteractive .yt-languages-btn .yt-languages-list li i,
-.guInteractive .yt-languages-btn .yt-languages-list li span {
-  display: inline-block;
+.guInteractive .yt-languages-btn .yt-languages-list li p {
+  padding: 5px;
+  margin: 0;
 }
-.guInteractive .yt-languages-btn .yt-languages-list li i {
+.guInteractive .yt-languages-btn .yt-languages-list li p i,
+.guInteractive .yt-languages-btn .yt-languages-list li p span {
+  display: inline-block;
+  vertical-align: middle;
+}
+.guInteractive .yt-languages-btn .yt-languages-list li p span {
+  width: 120px;
+}
+.guInteractive .yt-languages-btn .yt-languages-list li p i {
   margin: 0 5px;
   content: ' ';
   width: 8px;
@@ -1476,20 +1503,20 @@ body {
   border-radius: 50%;
   background-color: #999;
 }
-.guInteractive .yt-languages-btn .yt-languages-list li:last-child {
-  border-bottom: none !important;
-}
-.guInteractive .yt-languages-btn .yt-languages-list li:hover {
+.guInteractive .yt-languages-btn .yt-languages-list li:hover p {
   color: #ff827f;
-  background-color: #666;
+  background-color: #333;
 }
-.guInteractive .yt-languages-btn .yt-languages-list li:hover i {
+.guInteractive .yt-languages-btn .yt-languages-list li:hover p i {
   background-color: #ff827f;
 }
 .guInteractive .yt-cc-btn {
   right: 335px;
   width: 22px;
   height: 22px;
+}
+.guInteractive .yt-cc-btn:hover .svg .shape {
+  fill: #FFF;
 }
 .guInteractive .yt-cc-btn.active .svg .shape {
   fill: #ff827f;
@@ -1580,10 +1607,10 @@ body {
   width: 100%;
   height: 100%;
   z-index: 20;
-  opacity: 0.3;
   -khtml-transition-duration: 0.6s;
   transition-duration: 0.6s;
   cursor: pointer;
+  opacity: 0.3;
 }
 .guInteractive #mainEpisode #mainEpisodeVideo #big-play-btn-wrapper:hover {
   opacity: 1;

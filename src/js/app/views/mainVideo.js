@@ -91,11 +91,12 @@ define( [
       this.ytplayer = new YoutubeCustomPlayer( 'videoContainer', {
 //        embedCode: embedCode, // custom embed code
         alwaysVisible: false, // if the controls should be always visible or hide after a few seconds
-        hl: 'it', // the language for subtitles and CC
+        //hl: 'en', // force the language for subtitles and CC
+        hideControlsDelay: 500, // time in ms before hiding the controls, after mouse exits the video
         videoId: youtubeId, //id of the yt video
         wmode: 'transparent', //opaque/transparent/direct
-        controls: 1, // show yt controls ?
-        showinfo: 0, // show infos bubules on video ?
+        controls: 1, // show custom controls (1 yes - 0 controlless)
+        // showinfo: 0, // show infos bubules on video ?
         autoplay: 1, //autoplay ?
         rel: 0, //show related videos at the end ?
         APIkey: youtubeDataApiKey,

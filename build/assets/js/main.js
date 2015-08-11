@@ -14734,7 +14734,7 @@ define('text!yt-player-icon-fullscreen',[],function () { return '<svg class="svg
 define('text!yt-player-icon-cc',[],function () { return '<svg class="svg" width="22" height="22" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">\n    <path class="shape" fill="#FFFFFF" d="M40 8H8c-2.21 0-4 1.79-4 4v24c0 2.21 1.79 4 4 4h32c2.21 0 4-1.79 4-4V12c0-2.21-1.79-4-4-4zM8 24h8v4H8v-4zm20 12H8v-4h20v4zm12 0h-8v-4h8v4zm0-8H20v-4h20v4z"/>\n</svg>';});
 
 
-define('text!yt-player-icon-languages',[],function () { return '<svg class="svg" width="22" height="22" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">\n    <path class="shape" fill="#FFFFFF" d="M8 21c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zm0-12c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zm0 24.33c-1.47 0-2.67 1.19-2.67 2.67s1.2 2.67 2.67 2.67 2.67-1.19 2.67-2.67-1.2-2.67-2.67-2.67zm6 4.67h28v-4h-28v4zm0-12h28v-4h-28v4zm0-16v4h28v-4h-28z"/>\n</svg>';});
+define('text!yt-player-icon-languages',[],function () { return '<svg class="svg" version="1.1"  xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 268.765 268.765" width="20px" height="20px" xml:space="preserve">\n\t\t<path class="shape" fill="#FFFFFF" d="M267.92,119.461c-0.425-3.778-4.83-6.617-8.639-6.617\n\t\t\tc-12.315,0-23.243-7.231-27.826-18.414c-4.682-11.454-1.663-24.812,7.515-33.231c2.889-2.641,3.24-7.062,0.817-10.133\n\t\t\tc-6.303-8.004-13.467-15.234-21.289-21.5c-3.063-2.458-7.557-2.116-10.213,0.825c-8.01,8.871-22.398,12.168-33.516,7.529\n\t\t\tc-11.57-4.867-18.866-16.591-18.152-29.176c0.235-3.953-2.654-7.39-6.595-7.849c-10.038-1.161-20.164-1.197-30.232-0.08\n\t\t\tc-3.896,0.43-6.785,3.786-6.654,7.689c0.438,12.461-6.946,23.98-18.401,28.672c-10.985,4.487-25.272,1.218-33.266-7.574\n\t\t\tc-2.642-2.896-7.063-3.252-10.141-0.853c-8.054,6.319-15.379,13.555-21.74,21.493c-2.481,3.086-2.116,7.559,0.802,10.214\n\t\t\tc9.353,8.47,12.373,21.944,7.514,33.53c-4.639,11.046-16.109,18.165-29.24,18.165c-4.261-0.137-7.296,2.723-7.762,6.597\n\t\t\tc-1.182,10.096-1.196,20.383-0.058,30.561c0.422,3.794,4.961,6.608,8.812,6.608c11.702-0.299,22.937,6.946,27.65,18.415\n\t\t\tc4.698,11.454,1.678,24.804-7.514,33.23c-2.875,2.641-3.24,7.055-0.817,10.126c6.244,7.953,13.409,15.19,21.259,21.508\n\t\t\tc3.079,2.481,7.559,2.131,10.228-0.81c8.04-8.893,22.427-12.184,33.501-7.536c11.599,4.852,18.895,16.575,18.181,29.167\n\t\t\tc-0.233,3.955,2.67,7.398,6.595,7.85c5.135,0.599,10.301,0.898,15.481,0.898c4.917,0,9.835-0.27,14.752-0.817\n\t\t\tc3.897-0.43,6.784-3.786,6.653-7.696c-0.451-12.454,6.946-23.973,18.386-28.657c11.059-4.517,25.286-1.211,33.281,7.572\n\t\t\tc2.657,2.89,7.047,3.239,10.142,0.848c8.039-6.304,15.349-13.534,21.74-21.494c2.48-3.079,2.13-7.559-0.803-10.213\n\t\t\tc-9.353-8.47-12.388-21.946-7.529-33.524c4.568-10.899,15.612-18.217,27.491-18.217l1.662,0.043\n\t\t\tc3.853,0.313,7.398-2.655,7.865-6.588C269.044,139.917,269.058,129.639,267.92,119.461z M134.595,179.491\n\t\t\tc-24.718,0-44.824-20.106-44.824-44.824c0-24.717,20.106-44.824,44.824-44.824c24.717,0,44.823,20.107,44.823,44.824\n\t\t\tC179.418,159.385,159.312,179.491,134.595,179.491z"/>\n</svg>\n';});
 
 define( 'yt-player',[
   'text!yt-player-icon-play-pause',
@@ -14865,10 +14865,9 @@ define( 'yt-player',[
   };
 
 
-  // Get captions list
-  // https://www.googleapis.com/youtube/v3/captions?videoId=KsSV-RuxLXQ&part=snippet&key=AIzaSyDiTrZ80LUooXW0H_E2NoWKFUqNTB8sqLY
-
-
+  /**
+   * YoutubeCustomPlayer class.
+   */
   function YoutubeCustomPlayer( id, options ) {
 
     this.$elem = $( '#' + id );
@@ -14888,8 +14887,9 @@ define( 'yt-player',[
       rel: 0,
       hl: 'en',
       cc_load_policy: 1,
-      alwaysVisible: true,
+      alwaysVisible: false,
       APIkey: null,
+      hideControlsDelay: 1000,
       onVideoReady: function () {
       },
       onVideoEnd: function () {
@@ -14958,6 +14958,7 @@ define( 'yt-player',[
 
       this.$elem.replaceWith( '<div id="' + this.id + '"></div>' );
       this.$elem = $( '#' + this.id );
+      this.$elem.addClass( 'yt-player' );
 
       $.each( this.elemAttributes, function () {
         if ( this.value != null && this.value != 'null' ) {
@@ -15019,7 +15020,7 @@ define( 'yt-player',[
         width: '100%',
         videoId: this.options.videoId,
         playerVars: {
-          hl: this.options.hl,
+//          hl: this.options.hl,
           cc_load_policy: this.options.cc_load_policy,
           wmode: this.options.wmode,
           controls: 0,
@@ -15053,6 +15054,7 @@ define( 'yt-player',[
       this.duration = this.ytplayer.getDuration();
       this.addListenners();
       this.options.onVideoReady.call( this );
+
       this.trigger( 'ready' );
     },
 
@@ -15109,6 +15111,10 @@ define( 'yt-player',[
       } );
 
       // Toggle play
+      this.$bigPlayBtn.on( click, function ( e ) {
+        e.preventDefault();
+        self.togglePlay();
+      } );
       this.$playBtn.on( click, function ( e ) {
         e.preventDefault();
         self.togglePlay();
@@ -15140,11 +15146,10 @@ define( 'yt-player',[
         }
       } );
 
-      //show/hide controls on user activity
+      // Show/Hide controls on mousemove
       if ( !this.options.alwaysVisible ) {
-        $( document ).on( UI_MOVE + ' ' + (this.isTouch ? this.UI_DOWN : ''), this.toggleControls.bind( this ) );
+        this.$elem.on( UI_MOVE + ' ' + (this.isTouch ? UI_DOWN : ''), this.toggleControls.bind( this ) );
       }
-
 
       // Create timeline slider
       this.$timeline.slider( {
@@ -15213,21 +15218,25 @@ define( 'yt-player',[
     },
 
     toggleControls: function () {
+//      console.log( 'toggle controls' );
+
       clearTimeout( this.mouseMoveTimer );
 
       if ( this.isControlsHidden ) {
         this.showControls();
       }
 
-      this.mouseMoveTimer = setTimeout( this.hideControls.bind( this ), 1000 );
+      this.mouseMoveTimer = setTimeout( this.hideControls.bind( this ), this.options.hideControlsDelay );
     },
 
     showControls: function () {
+      console.log( 'show controls' );
       this.isControlsHidden = false;
       this.$elem.removeClass( 'yt-no-controls' );
     },
 
     hideControls: function () {
+      console.log( 'hide controls' );
       this.isControlsHidden = true;
       this.$elem.addClass( 'yt-no-controls' );
     },
@@ -15242,7 +15251,7 @@ define( 'yt-player',[
     onYoutubePlayerPlay: function () {
 
       this.paused = false;
-//      this.$bigPlayBtn.addClass( 'active' );
+      this.$bigPlayBtn.addClass( 'active' );
       this.startProgress();
 
       if ( this.options.controls == 1 ) {
@@ -15267,7 +15276,6 @@ define( 'yt-player',[
       this.options.onVideoPlay.call( this );
 
       this.trigger( 'play' );
-
     },
 
     updateSeekBar: function () {
@@ -15281,7 +15289,7 @@ define( 'yt-player',[
 
     onYoutubePlayerPause: function () {
       this.paused = true;
-//      this.$bigPlayBtn.removeClass( 'active' );
+      this.$bigPlayBtn.removeClass( 'active' );
       this.stopProgress();
       if ( this.options.controls == 1 ) {
         this.$playBtn.removeClass( 'active' );
@@ -15475,7 +15483,12 @@ define( 'yt-player',[
 
         var l = this.localeCodeToEnglish( lang );
         if ( l ) {
-          html += '<li data-lang="' + lang + '" class="lang ' + lang + '"><span>' + l + '</span><i></i></li>';
+          html += '<li data-lang="' + lang + '" class="lang ' + lang + '">';
+          html += '<p>';
+          html += '<span>' + l + '</span>';
+          html += '<i></i>';
+          html += '</p>';
+          html += '</li>';
         }
       }.bind( this ) );
       this.$languagesList.html( html );
@@ -15701,7 +15714,9 @@ define( 'yt-player',[
     base: '<div class="yt-video-wrapper"></div>' +
       '<div class="yt-loading-wrapper"><div class="yt-loading"></div></div>' +
       '<div class="yt-skin-wrapper">' +
-      '<div class="yt-big-play-btn unselectable"><div class="play-button"><span></span></div></div>' +
+      '<div class="yt-big-play-btn unselectable">' +
+      '<div class="play-button"><span></span></div>' +
+      '</div>' +
       '<div class="yt-embed-message">' +
       '<div class="yt-embed-code-wrapper"><div class="yt-embed-title">Embed code</div><input type="text" class="yt-embed-code" value=""></div>' +
       '</div>' +
@@ -15943,11 +15958,12 @@ define( 'views/mainVideo',[
       this.ytplayer = new YoutubeCustomPlayer( 'videoContainer', {
 //        embedCode: embedCode, // custom embed code
         alwaysVisible: false, // if the controls should be always visible or hide after a few seconds
-        hl: 'it', // the language for subtitles and CC
+        //hl: 'en', // force the language for subtitles and CC
+        hideControlsDelay: 500, // time in ms before hiding the controls, after mouse exits the video
         videoId: youtubeId, //id of the yt video
         wmode: 'transparent', //opaque/transparent/direct
-        controls: 1, // show yt controls ?
-        showinfo: 0, // show infos bubules on video ?
+        controls: 1, // show custom controls (1 yes - 0 controlless)
+        // showinfo: 0, // show infos bubules on video ?
         autoplay: 1, //autoplay ?
         rel: 0, //show related videos at the end ?
         APIkey: youtubeDataApiKey,

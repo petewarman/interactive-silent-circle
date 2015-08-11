@@ -11,7 +11,7 @@ module.exports = function ( grunt ) {
       server: {
         options: {
           port: pkg.config.port,
-          hostname: '*',
+          hostname: '127.0.0.1',//'*',
           livereload: true,
           base: './',
           middleware: function ( connect, options, middlewares ) {

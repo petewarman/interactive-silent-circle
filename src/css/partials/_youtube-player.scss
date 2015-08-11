@@ -5,9 +5,12 @@
 $yt-asset-path: "../imgs/";
 $highlight-color: $accent-color;
 $yt-controls-height: $yt-player-controls-height;
+$buffer-color: #999;
 
-
-$buffer-color: #999999;
+// Always keep controls visible if the mouse is over the player
+.yt-player:hover .yt-controls-wrapper {
+  opacity: 1 !important;
+}
 
 .unselectable {
   -moz-user-select: none;
@@ -87,6 +90,12 @@ $buffer-color: #999999;
   height: 100%;
   width: 100%;
   z-index: 5;
+  opacity: 0.3;
+  @include css3-prefix(transition-duration, 0.4s);
+
+  &:hover {
+    opacity: 1;
+  }
 
   @import 'play-button';
 
@@ -95,10 +104,14 @@ $buffer-color: #999999;
     top: 50%;
     left: 50%;
     @include css3-prefix(transform, translateX(-50%) translateY(-50%));
+    @include css3-prefix(transition-duration, 0.4s);
+    opacity: 1;
   }
 
   &.active {
-    display: none;
+    .play-button {
+      opacity: 0;
+    }
   }
 }
 
@@ -121,6 +134,13 @@ $buffer-color: #999999;
   text-align: center;
 }
 
+.yt-no-controls {
+  .yt-controls-wrapper {
+    //    @include css3-prefix(transform, translateY(100%));
+    opacity: 0;
+  }
+}
+
 .yt-controls-wrapper {
   position: absolute;
   bottom: 0;
@@ -128,16 +148,10 @@ $buffer-color: #999999;
   width: 100%;
   height: $yt-controls-height;
   background-color: #474747;
-  background-color: rgba(71,71,71,0.95);
-
-  @include css3-prefix(transition, all 0.4s);
-//  @include css3-prefix(transform, translateY(0));
+  background-color: rgba(71, 71, 71, 0.95);
+  @include css3-prefix(transition-duration, 0.4s);
   opacity: 1;
-
-  .yt-no-controls & {
-//    @include css3-prefix(transform, translateY(100%));
-    opacity: 0;
-  }
+  //  @include css3-prefix(transform, translateY(0));
 }
 
 .yt-btn {
@@ -158,8 +172,8 @@ $buffer-color: #999999;
   .svg {
     position: absolute;
     top: 50%;
-    left: 0;
-    @include transform(translateY(-50%));
+    left: 50%;
+    @include transform(translateY(-50%) translateX(-50%));
 
     .shape {
       fill: #FFFFFF;
@@ -291,6 +305,11 @@ $buffer-color: #999999;
   text-align: left;
   padding: 4px;
 
+  .svg {
+    left: 0;
+    @include transform(translateY(-50%));
+  }
+
   &:hover,
   &.active {
     span {
@@ -383,16 +402,17 @@ $buffer-color: #999999;
 
 .yt-languages-btn {
   right: 375px;
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
+  padding: 24px;
+
+  .svg {
+    display: block;
+  }
 
   &:hover,
   &.open {
-    background-color: #333;
-
-    //    .svg .shape {
-    //      fill: #FFF !important;
-    //    }
+    //    background-color: #333;
 
     .yt-languages-list {
       display: block;
@@ -403,47 +423,54 @@ $buffer-color: #999999;
     display: none;
     position: absolute;
     left: 0;
-    top: 22px; //$yt-controls-height * 0.5;
-    //  right: 375px;
-    //    display: block;
-    padding: 0;
+    top: 48px;
+    padding: 3px 0;
     margin: 0;
-    //    width: 100px;
-    z-index: 20;
+    z-index: 40;
+    background-color: rgba(71, 71, 71, 0.95);
 
     li {
       cursor: pointer;
-      background-color: #333;
       color: #FFF;
-      padding: 7px 14px;
+//      padding: 7px 14px;
+      padding: 3px 6px;
       margin: 0;
-      border-bottom: 1px solid #666;
       list-style: none;
       text-align: left;
       font-size: 13px;
       white-space: nowrap;
 
-      i,
-      span {
-        display: inline-block;
+      p {
+        padding: 5px;
+        margin: 0;
+
+        i,
+        span {
+          display: inline-block;
+          vertical-align: middle;
+        }
+
+        span {
+          width: 120px;
+        }
+
+        i {
+          margin: 0 5px;
+          content: ' ';
+          width: 8px;
+          height: 8px;
+          @include css3-prefix(border-radius, 50%);
+          background-color: #999;
+        }
       }
 
-      i {
-        margin: 0 5px;
-        content: ' ';
-        width: 8px;
-        height: 8px;
-        @include css3-prefix(border-radius, 50%);
-        background-color: #999;
-      }
+//      &:last-child {
+//        border-bottom: none !important;
+//      }
 
-      &:last-child {
-        border-bottom: none !important;
-      }
-
-      &:hover {
+      &:hover p {
         color: $highlight-color;
-        background-color: #666;
+        background-color: #333;
 
         i {
           background-color: $highlight-color;
@@ -458,9 +485,20 @@ $buffer-color: #999999;
   width: 22px;
   height: 22px;
 
+  &:hover {
+    .svg .shape {
+      fill: #FFF;
+    }
+  }
+
   &.active {
     .svg .shape {
       fill: $highlight-color;
     }
   }
 }
+
+
+
+
+
