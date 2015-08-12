@@ -52,7 +52,7 @@ define( [
       var click = this.isTouch ? 'touchstart' : 'click';
 
       if ( !this.touch ) {
-        $( document ).on( click, '#big-play-btn-wrapper', this.renderVideo.bind( this ) );
+        $( document ).on( 'click', '#big-play-btn-wrapper', this.renderVideo.bind( this ) );
       }
 
       $( document ).on( click, '#shareButtons button', this.shareVideo.bind( this ) );
@@ -105,7 +105,7 @@ define( [
 //        embedCode: embedCode, // custom embed code
         alwaysVisible: false, // if the controls should be always visible or hide after a few seconds
         //hl: 'en', // force the language for subtitles and CC
-        hideControlsDelay: 1500, // time in ms before hiding the controls, after mouse exits the video
+        hideControlsDelay: 2500, // time in ms before hiding the controls, after mouse exits the video
         videoId: youtubeId, //id of the yt video
         wmode: 'transparent', //opaque/transparent/direct
         YTControls: this.YTControls,

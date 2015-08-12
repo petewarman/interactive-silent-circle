@@ -152,7 +152,7 @@ define( [
       cc_load_policy: 1,
       alwaysVisible: false,
       APIkey: null,
-      hideControlsDelay: 1000,
+      hideControlsDelay: 2000,
       onVideoReady: function () {
       },
       onVideoEnd: function () {
@@ -221,7 +221,7 @@ define( [
 
     createSkin: function () {
 
-      var self = this;
+//      var self = this;
 
       this.$elem.replaceWith( '<div id="' + this.id + '"></div>' );
       this.$elem = $( '#' + this.id );
@@ -263,6 +263,10 @@ define( [
 
         this.$volume = this.$elem.find( '.yt-volume' );
         this.$volumeLevel = this.$elem.find( '.yt-volume-level' );
+      }
+
+      if (this.isIOs) {
+        this.$fullscreenBtn.remove();
       }
 
       if ( this.isIOs || this.isAndroid ) {
@@ -382,11 +386,11 @@ define( [
       } );
 
       // Toggle play
-      this.$bigPlayBtn.on( click, function ( e ) {
+      this.$bigPlayBtn.on( 'click', function ( e ) {
         e.preventDefault();
         self.togglePlay();
       } );
-      this.$playBtn.on( click, function ( e ) {
+      this.$playBtn.on( 'click', function ( e ) {
         e.preventDefault();
         self.togglePlay();
       } );

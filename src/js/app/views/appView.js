@@ -5,13 +5,48 @@ define( [
   'text!templates/appTemplate.html',
   'views/mainVideo',
   'underscore',
+  'velocity',
+  'velocity-ui'
 //  'views/analytics'
-], function ( Backbone, Mustache, routes, template, mainVideo, _, ga ) {
+], function ( Backbone, Mustache, routes, template, mainVideo, _, ga, velocity ) {
   'use strict';
 
   return Backbone.View.extend( {
 
     className: 'guInteractive',
+
+    initialize: function ( options ) {
+      // Touch?
+      this.isTouch = (('ontouchstart' in window) || ('ontouchstart' in document.documentElement) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
+      if ( this.isTouch ) {
+        $( 'body' ).addClass( 'touch' );
+      } else {
+        $( 'body' ).addClass( 'no-touch' );
+      }
+
+      // Get Coming soon data for videos (videos not yet on youtube)
+      this.comingSoon = options.comingSoon;
+
+      // Get videos data from YouTube playlist
+      this.videos = this.getVideos( options.playlistItemsData );
+      this.comingSoonVideos = this.getComingSoonVideos( this.videos );
+
+      // Reverse the order of videos to get the last first
+      this.videos.reverse();
+
+      this.mainVideo = new mainVideo( {
+        youtubeDataApiKey: options.youtubeDataApiKey,
+        videos: this.videos,
+        isTouch: this.isTouch,
+        mainApp: this
+      } );
+
+      this.setupEvents();
+
+//      console.log( this.comingSoon );
+//      console.log( options.playlistItemsData );
+//      console.log( this.videos );
+    },
 
 
 //    animateScroll: function ( elem, style, unit, from, to, time, prop, callback ) {
@@ -56,25 +91,15 @@ define( [
 //        'eventLabel': videoId
 //      } );
 
-
-
-      setTimeout( function () {
-
-        $( 'html,body' ).animate( {
-          scrollTop: videoOffset
-        }, diff, function () {
-
-          // Re-render main video part
+      $( 'html,body' ).velocity( 'scroll', {
+        duration: diff,
+        offset: videoOffset,
+        mobileHA: false,
+        complete: function () {
           self.mainVideo.render( self.mainEpisode );
-
-//          if ( !self.isTouch ) {
-            // immediately render and play video
-            self.mainVideo.renderVideo();
-//          }
-
-        } );
-
-      }, 0 );
+          self.mainVideo.renderVideo();
+        }
+      } );
 
 
 //      setTimeout(function() {
@@ -105,7 +130,7 @@ define( [
 
     updateActiveVideo: function () {
       var currentVideoId = this.mainEpisode.id;
-      var $episodeBlock = $( '.episodeBlock' );
+      var $episodeBlock = $( '.episodeBlock' ).not( '.coming-soon' );
 
       $episodeBlock.removeClass( 'activeVideo inactiveVideo' );
       $episodeBlock.addClass( 'inactiveVideo' );
@@ -139,71 +164,62 @@ define( [
     },
 
 
-    initialize: function ( options ) {
-
-      // Touch?
-      this.isTouch = (('ontouchstart' in window) || ('ontouchstart' in document.documentElement) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
-      if ( this.isTouch ) {
-        $( 'body' ).addClass( 'touch' );
-      } else {
-        $( 'body' ).addClass( 'no-touch' );
-      }
-
-      // Get custom data for videos
-      this.data = options.json;
-
-      // Get videos data from YouTube playlist
-      this.videos = this.getVideos( options.playlistItemsData );
-
-      // Reverse the order of videos to get the last first
-      this.videos.reverse();
-
-      this.mainVideo = new mainVideo( {
-        youtubeDataApiKey: options.youtubeDataApiKey,
-        videos: this.videos,
-        isTouch: this.isTouch,
-        mainApp: this
-      } );
-
-      this.setupEvents();
-
-//      console.log( this.data );
-//      console.log( options.playlistItemsData );
-//      console.log( this.videos );
-    },
-
     setupEvents: function () {
-      var click = this.isTouch ? 'touchstart' : 'click';
+//      var click = this.isTouch ? 'touchstart' : 'click';
 
       //'click .episodeBlock.inactiveVideo': 'switchVideo'
-      this.$el.on( click, '.episodeBlock.inactiveVideo .thumb-wrapper img', this.switchVideo.bind( this ) );
+      this.$el.on( 'click', '.episodeBlock.inactiveVideo .thumb-wrapper img', this.switchVideo.bind( this ) );
+    },
 
+    getComingSoonVideos: function ( playlistVideos ) {
+      var self = this;
+      var videos = [];
+      var items = playlistVideos;
+      var playlistCount = items.length;
+      var comingSoonCount = this.comingSoon.videos.length;
+      var comingSoonToShow = comingSoonCount - playlistCount;
+
+      // Add "coming soon" videos (videos not yet on the YouTube playlist)
+      if ( comingSoonToShow > 0 ) {
+        var comingSoon = this.comingSoon.videos;
+        var startAt = comingSoonCount - comingSoonToShow;
+        for ( var i = startAt; i < comingSoonCount; i++ ) {
+          var video = {};
+          video.comingSoon = true;
+          video.episode = comingSoon[i].episode;
+          video.publishedAt = comingSoon[i].publishedAt;
+          video.title = comingSoon[i].title;
+          video.description = comingSoon[i].description;
+          video.shortDescription = self.getShortDescription( video.description );
+          video.img = comingSoon[i].img;
+          video.date = self.formatDate( comingSoon[i].publishedAt );
+          videos.push( video );
+        }
+      }
+
+      return videos;
     },
 
     getVideos: function ( playlistItemsData ) {
+      var self = this;
       var videos = [];
       var items = playlistItemsData.items;
-      var maxDescriptionLength = 80;
 
       items.forEach( function ( item, i ) {
         var item = item.snippet;
 
-        if ( item.resourceId && item.resourceId.kind == "youtube#video" ) {
+        if ( item.title != 'Private video' && item.resourceId && item.resourceId.kind == "youtube#video" ) {
           var video = {};
+          video.comingSoon = false;
           video.id = item.resourceId.videoId;
           video.youtubeId = video.id;
           video.title = item.title;
           video.description = item.description.replace( /\n/g, "<br>" );
-
-          // Short description for end slate
-          video.shortDescription = '';
-          if ( video.description.length > 1 ) {
-            video.shortDescription = item.description.substring( 0, maxDescriptionLength ) + '...';
-            video.shortDescription = video.shortDescription.replace( /\n/g, "<br>" ).trim();
-          }
+          video.shortDescription = self.getShortDescription( video.description );
 
           video.thumbnails = item.thumbnails;
           video.publishedAt = item.publishedAt;
+//          video.date = self.formatDate( item.publishedAt );
           videos.push( video );
         }
 
@@ -212,10 +228,25 @@ define( [
       return videos;
     },
 
+    getShortDescription: function ( desc ) {
+      var maxDescriptionLength = 80;
+      var shortDesc = '';
+      if ( desc.length > 1 && desc.length < maxDescriptionLength ) {
+        shortDesc = desc.substring( 0, maxDescriptionLength ) + '...';
+        shortDesc = shortDesc.replace( /\n/g, "<br>" ).trim();
+      } else {
+        shortDesc = desc;
+      }
+
+      return shortDesc;
+    },
+
     formatDate: function ( date ) {
+      var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
       var day = date.split( '/' )[0];
       var monthNumber = parseInt( date.split( '/' )[1] );
-      var month = this.months[monthNumber - 1];
+      var month = months[monthNumber - 1];
       return day + " " + month;
     },
 
@@ -234,17 +265,9 @@ define( [
     },
 
     render: function () {
-      var _this = this;
-      this.months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+      this.allEpisodes = this.videos;
 
-      //Format videos
-      var videos = this.videos;
-      this.allEpisodes = _.map( videos, function ( episode ) {
-        if ( episode.date ) {
-          episode.date = _this.formatDate( episode.date );
-        }
-        return episode;
-      } );
+//      console.log( this.allEpisodes );
 
       //Decide which video to play first
       this.selectInitialVideo();
@@ -260,7 +283,8 @@ define( [
 
       // Render main template
       this.$el.html( Mustache.render( template, {
-        allEpisodes: this.allEpisodes,
+        videos: this.allEpisodes,
+        comingSoonVideos: this.comingSoonVideos,
         teaser: this.teaser,
         isWeb: isWeb
       } ) );

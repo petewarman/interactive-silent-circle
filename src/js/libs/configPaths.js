@@ -6,18 +6,20 @@ require.config( {
     'jquery': '../libs/jquery',
     'backbone': '../libs/backbone',
     'crossdomain': '../libs/Backbone.CrossDomain',
-    'nestedmodel': '../libs/backbone-nested',
+    'velocity': '../libs/velocity',
+    'velocity-ui': '../libs/velocity.ui',
+//    'nestedmodel': '../libs/backbone-nested',
     'text': '../libs/text',
-    'json': '../libs/json',
+//    'json': '../libs/json',
 //    'd3': '../libs/d3',
     'mustache': '../libs/mustache',
-    'iframeMessenger': '../libs/iframeMessenger',
-    'mediator-js': '../libs/mediator',
+//    'iframeMessenger': '../libs/iframeMessenger',
+//    'mediator-js': '../libs/mediator',
 
     // Greensock
-    'TweenLite': '../libs/gsap/uncompressed/TweenLite',
-    'TweenLite-css': '../libs/gsap/uncompressed/plugins/CSSPlugin',
-    'TweenLite-ease': '../libs/gsap/uncompressed/easing/EasePack',
+//    'TweenLite': '../libs/gsap/uncompressed/TweenLite',
+//    'TweenLite-css': '../libs/gsap/uncompressed/plugins/CSSPlugin',
+//    'TweenLite-ease': '../libs/gsap/uncompressed/easing/EasePack',
 
     // YouTube custom player
     'yt-player': '../libs/youtubeplayer/youtubeplayer',

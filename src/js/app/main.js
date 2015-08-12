@@ -1,10 +1,10 @@
 define( [
   'backbone',
   'views/appView',
-  'iframeMessenger',
-  'mediator-js',
+//  'iframeMessenger',
+//  'mediator-js',
   'yt-player'
-], function ( Backbone, AppView, iframeMessenger, Mediator, YoutubeCustomPlayer ) {
+], function ( Backbone, AppView, YoutubeCustomPlayer ) {
   'use strict';
 
 
@@ -27,14 +27,14 @@ define( [
 
   function getJsonData() {
     $.ajax( {
-      url: '{{assets}}/data/data.json',
+      url: '{{assets}}/data/coming-soon.json',
       success: getPlaylistItems
     } );
   }
 
   function getPlaylistItems( data ) {
 
-    App.json = data;
+    App.comingSoon = data;
 
     var url = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=' + playlistId + '&key=' + youtubeDataApiKey;
 
@@ -55,7 +55,7 @@ define( [
       var appView = new AppView( {
         el: App.el,
         playlistItemsData: App.playlistItemsData,
-        json: App.json,
+        comingSoon: App.comingSoon,
         youtubeDataApiKey: youtubeDataApiKey
       } );
       appView.render();
@@ -64,7 +64,7 @@ define( [
       Backbone.history.start();
 
       // Enable iframe resizing on the GU site
-      iframeMessenger.enableAutoResize();
+//      iframeMessenger.enableAutoResize();
 
     } );
 

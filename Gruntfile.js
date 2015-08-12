@@ -118,7 +118,7 @@ module.exports = function ( grunt ) {
           { src: 'src/boot.js', dest: 'build/boot.js' },
           { cwd: 'src/', src: 'imgs/**', dest: 'build/assets/', expand: true},
 
-          { src: 'src/data/data.json', dest: 'build/assets/data/data.json' },
+          { src: 'src/data/coming-soon.json', dest: 'build/assets/data/coming-soon.json' },
           { cwd: 'src/', src: 'fonts/**', dest: 'build/assets/', expand: true },
 
           { src: 'src/js/libs/require.js', dest: 'build/assets/js/require.js' }
