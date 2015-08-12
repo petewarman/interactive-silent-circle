@@ -11,7 +11,7 @@ module.exports = function ( grunt ) {
       server: {
         options: {
           port: pkg.config.port,
-          hostname: '127.0.0.1',//'*',
+          hostname: 'localhost',//'*',
           livereload: true,
           base: './',
           middleware: function ( connect, options, middlewares ) {
@@ -119,7 +119,9 @@ module.exports = function ( grunt ) {
           { cwd: 'src/', src: 'imgs/**', dest: 'build/assets/', expand: true},
 
           { src: 'src/data/data.json', dest: 'build/assets/data/data.json' },
-          { cwd: 'src/', src: 'fonts/**', dest: 'build/assets/', expand: true }
+          { cwd: 'src/', src: 'fonts/**', dest: 'build/assets/', expand: true },
+
+          { src: 'src/js/libs/require.js', dest: 'build/assets/js/require.js' }
         ]
       }
     },
@@ -146,11 +148,13 @@ module.exports = function ( grunt ) {
           patterns: [
             {
               match: /{{assets}}/g,
-              replacement: 'http://localhost:' + pkg.config.port + '/build/assets'
+              replacement: 'assets'
+//              replacement: 'http://localhost:' + pkg.config.port + '/build/assets'
             },
             {
               match: /\/\/pasteup\.guim\.co\.uk\/fonts\/0\.1\.0/g,
-              replacement: '/bower_components/guss-webfonts/webfonts'
+//              replacement: '/bower_components/guss-webfonts/webfonts'
+              replacement: '../../../bower_components/guss-webfonts/webfonts'
             }
           ]
         },
@@ -241,7 +245,8 @@ module.exports = function ( grunt ) {
     'copy'
   ] );
 
-  grunt.registerTask( 'default', ['build', 'replace:local', 'connect', 'watch'] );
+//  grunt.registerTask( 'default', ['build', 'replace:local', 'connect', 'watch'] );
+  grunt.registerTask( 'default', ['build', 'replace:local', 'watch'] );
 
   grunt.registerTask( 'deploy', [
     'build',

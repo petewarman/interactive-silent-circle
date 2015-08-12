@@ -28,6 +28,10 @@
     position: absolute;
     z-index: 10;
     display: block;
+
+    body.touch & {
+      pointer-events: none;
+    }
   }
 
 }

@@ -960,24 +960,31 @@ body {
 .guInteractive #headerContainer #sc-logo {
   position: relative;
   text-align: right;
-  padding: 20px;
 }
-.guInteractive #headerContainer #sc-logo img {
-  height: 40px;
+.guInteractive #headerContainer #sc-logo a {
+  position: relative;
+  display: inline-block;
+  width: 50%;
+  padding: 10px 20px;
+}
+.guInteractive #headerContainer #sc-logo a img {
+  display: block;
+  width: 100%;
 }
 @media (min-width: 660px) {
-  .guInteractive #headerContainer #sc-logo img {
-    height: 40px;
+  .guInteractive #headerContainer #sc-logo a {
+    padding: 15px 20px;
   }
 }
 @media (min-width: 980px) {
-  .guInteractive #headerContainer #sc-logo img {
-    height: 50px;
+  .guInteractive #headerContainer #sc-logo a {
+    width: 40%;
+    padding: 20px;
   }
 }
 @media (min-width: 1300px) {
-  .guInteractive #headerContainer #sc-logo img {
-    height: 50px;
+  .guInteractive #headerContainer #sc-logo a {
+    width: 30%;
   }
 }
 .guInteractive #headerContainer #headerImage {
@@ -1032,6 +1039,7 @@ body {
   padding-top: 20px;
   padding-right: 20px;
   padding-left: 20px;
+  font-size: 0;
 }
 .guInteractive .contentBlock .contentBlock-inner h2 {
   font-size: 20px;
@@ -1043,7 +1051,7 @@ body {
 .guInteractive .contentBlock .contentBlock-inner p {
   font-size: 14px;
 }
-@media (min-width: 660px) {
+@media (min-width: 980px) {
   .guInteractive .contentBlock {
     margin: 0 auto;
   }
@@ -1055,19 +1063,24 @@ body {
     padding-left: 220px;
   }
 }
-@media (min-width: 740px) {
-  .guInteractive .contentBlock {
-    margin: 0 auto;
-  }
-}
 @media (min-width: 980px) {
   .guInteractive .contentBlock {
     max-width: none;
     margin: 0 auto;
   }
 }
-.guInteractive .yt-player:hover .yt-controls-wrapper {
+.guInteractive .yt-controls-wrapper:hover {
   opacity: 1 !important;
+}
+.guInteractive .NO-custom-player .yt-skin-wrapper {
+  display: none !important;
+  z-index: -9999 !important;
+  position: absolute !important;
+  top: -10000px !important;
+  left: -10000px !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
 }
 .guInteractive .unselectable {
   -moz-user-select: none;
@@ -1109,8 +1122,8 @@ body {
 .guInteractive .yt-big-play-btn {
   display: none;
 }
-.guInteractive .yt-ready .yt-skin-wrapper,
-.guInteractive .yt-ready .yt-big-play-btn {
+.guInteractive .yt-ready .yt-big-play-btn,
+.guInteractive .yt-ready .yt-skin-wrapper {
   display: block;
 }
 .guInteractive .yt-ready .yt-loading-wrapper {
@@ -1213,14 +1226,10 @@ body {
   -khtml-transition-duration: 0.4s;
   transition-duration: 0.4s;
   opacity: 1;
+  text-align: left;
 }
-.guInteractive .yt-btn, .guInteractive .yt-play-btn,
-.guInteractive .yt-languages-btn,
-.guInteractive .yt-cc-btn,
-.guInteractive .yt-mute-btn,
-.guInteractive .yt-embed-btn,
-.guInteractive .yt-volume-wrapper,
-.guInteractive .yt-fullscreen-btn {
+.guInteractive .yt-controls-wrapper .yt-controls-left,
+.guInteractive .yt-controls-wrapper .yt-controls-right {
   position: absolute;
   top: 50%;
   -webkit-transform: translateY(-50%);
@@ -1228,6 +1237,31 @@ body {
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
+.guInteractive .yt-controls-wrapper .yt-controls-left {
+  text-align: left;
+  left: 0;
+  padding-left: 10px;
+}
+.guInteractive .yt-controls-wrapper .yt-controls-right {
+  text-align: right;
+  right: 0;
+  padding-right: 10px;
+}
+.guInteractive .yt-btn, .guInteractive .yt-time,
+.guInteractive .yt-play-btn,
+.guInteractive .yt-languages-btn,
+.guInteractive .yt-cc-btn,
+.guInteractive .yt-mute-btn,
+.guInteractive .yt-embed-btn,
+.guInteractive .yt-volume-wrapper,
+.guInteractive .yt-fullscreen-btn {
+  text-align: left;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 10px;
+}
+.guInteractive .yt-time .svg,
 .guInteractive .yt-play-btn .svg,
 .guInteractive .yt-languages-btn .svg,
 .guInteractive .yt-cc-btn .svg,
@@ -1235,14 +1269,9 @@ body {
 .guInteractive .yt-embed-btn .svg,
 .guInteractive .yt-volume-wrapper .svg,
 .guInteractive .yt-fullscreen-btn .svg {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translateY(-50%) translateX(-50%);
-  -khtml-transform: translateY(-50%) translateX(-50%);
-  -ms-transform: translateY(-50%) translateX(-50%);
-  transform: translateY(-50%) translateX(-50%);
+  position: relative;
 }
+.guInteractive .yt-time .svg .shape,
 .guInteractive .yt-play-btn .svg .shape,
 .guInteractive .yt-languages-btn .svg .shape,
 .guInteractive .yt-cc-btn .svg .shape,
@@ -1252,6 +1281,7 @@ body {
 .guInteractive .yt-fullscreen-btn .svg .shape {
   fill: #FFFFFF;
 }
+.guInteractive .yt-time:hover .svg .shape,
 .guInteractive .yt-play-btn:hover .svg .shape,
 .guInteractive .yt-languages-btn:hover .svg .shape,
 .guInteractive .yt-cc-btn:hover .svg .shape,
@@ -1262,7 +1292,6 @@ body {
   fill: #ff827f;
 }
 .guInteractive .yt-play-btn {
-  left: 10px;
   width: 32px;
   height: 32px;
   border: none;
@@ -1308,10 +1337,6 @@ body {
   height: 6px;
   background: #999;
 }
-.guInteractive .yt-fullscreen-btn {
-  width: 20px;
-  right: 20px;
-}
 .guInteractive .yt-fullscreen-btn.active .svg .shape {
   fill: #ff827f;
 }
@@ -1320,17 +1345,13 @@ body {
 }
 .guInteractive .yt-time {
   color: #fff;
-  position: absolute;
-  top: 50%;
-  left: 60px;
-  height: 48px;
-  line-height: 48px;
-  width: 100px;
   font-size: 12px;
-  -webkit-transform: translateY(-50%);
-  -khtml-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+  display: none;
+}
+@media (min-width: 660px) {
+  .guInteractive .yt-time {
+    display: inline-block;
+  }
 }
 .guInteractive .yt-embed-message {
   position: absolute;
@@ -1363,18 +1384,13 @@ body {
   margin: 0 auto;
 }
 .guInteractive .yt-embed-btn {
-  right: 230px;
-  width: 80px;
-  height: 14px;
   text-align: left;
-  padding: 4px;
+  display: none;
 }
-.guInteractive .yt-embed-btn .svg {
-  left: 0;
-  -webkit-transform: translateY(-50%);
-  -khtml-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+@media (min-width: 660px) {
+  .guInteractive .yt-embed-btn {
+    display: inline-block;
+  }
 }
 .guInteractive .yt-embed-btn:hover span, .guInteractive .yt-embed-btn.active span {
   color: #ff827f;
@@ -1382,32 +1398,32 @@ body {
 .guInteractive .yt-embed-btn:hover .svg .shape, .guInteractive .yt-embed-btn.active .svg .shape {
   fill: #ff827f;
 }
-.guInteractive .yt-embed-btn span {
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -khtml-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
+.guInteractive .yt-embed-btn span,
 .guInteractive .yt-embed-btn .svg {
-  margin-right: 10px;
-  height: 14px;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 5px;
 }
 .guInteractive .yt-embed-btn span {
-  left: 35px;
   font-size: 12px;
-  line-height: 14px;
+}
+body.touch .guInteractive .yt-volume-wrapper {
+  display: none !important;
+}
+@media (min-width: 1140px) {
+  body.touch .guInteractive .yt-volume-wrapper {
+    display: inline-block !important;
+  }
 }
 .guInteractive .yt-volume-wrapper {
   width: 150px;
-  height: 25px;
-  right: 60px;
 }
+.guInteractive .yt-volume-wrapper .yt-volume,
 .guInteractive .yt-volume-wrapper .yt-mute-btn {
-  width: 25px;
-  height: 25px;
-  position: absolute;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 5px;
 }
 .guInteractive .yt-volume-wrapper .yt-mute-btn .svg .shape {
   display: none;
@@ -1422,16 +1438,9 @@ body {
   display: none;
 }
 .guInteractive .yt-volume-wrapper .yt-volume {
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -khtml-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
   height: 2px;
   background-color: #FFF;
   width: 100px;
-  left: 35px;
 }
 .guInteractive .yt-volume-wrapper .yt-volume .yt-volume-level {
   position: absolute;
@@ -1450,15 +1459,12 @@ body {
   top: -4px;
 }
 .guInteractive .yt-languages-btn {
-  right: 375px;
-  width: 24px;
-  height: 24px;
-  padding: 24px;
+  padding: 14px 10px;
 }
 .guInteractive .yt-languages-btn .svg {
   display: block;
 }
-.guInteractive .yt-languages-btn:hover .yt-languages-list, .guInteractive .yt-languages-btn.open .yt-languages-list {
+.guInteractive .yt-languages-btn.open .yt-languages-list {
   display: block;
 }
 .guInteractive .yt-languages-btn .yt-languages-list {
@@ -1492,6 +1498,9 @@ body {
 }
 .guInteractive .yt-languages-btn .yt-languages-list li p span {
   width: 120px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .guInteractive .yt-languages-btn .yt-languages-list li p i {
   margin: 0 5px;
@@ -1509,11 +1518,6 @@ body {
 }
 .guInteractive .yt-languages-btn .yt-languages-list li:hover p i {
   background-color: #ff827f;
-}
-.guInteractive .yt-cc-btn {
-  right: 335px;
-  width: 22px;
-  height: 22px;
 }
 .guInteractive .yt-cc-btn:hover .svg .shape {
   fill: #FFF;
@@ -1610,9 +1614,15 @@ body {
   -khtml-transition-duration: 0.6s;
   transition-duration: 0.6s;
   cursor: pointer;
+}
+body.touch .guInteractive #mainEpisode #mainEpisodeVideo #big-play-btn-wrapper {
+  opacity: 1 !important;
+  pointer-events: none;
+}
+body.no-touch .guInteractive #mainEpisode #mainEpisodeVideo #big-play-btn-wrapper {
   opacity: 0.3;
 }
-.guInteractive #mainEpisode #mainEpisodeVideo #big-play-btn-wrapper:hover {
+body.no-touch .guInteractive #mainEpisode #mainEpisodeVideo #big-play-btn-wrapper:hover {
   opacity: 1;
 }
 .guInteractive #mainEpisode #mainEpisodeVideo #big-play-btn-wrapper #big-play-btn {
@@ -1646,6 +1656,9 @@ body {
   position: absolute;
   z-index: 10;
   display: block;
+}
+body.touch .guInteractive #mainEpisode #mainEpisodeVideo #backgroundImage {
+  pointer-events: none;
 }
 .guInteractive #mainEpisode #mainEpisodeContent {
   padding: 15px 10px 15px;
@@ -1693,7 +1706,7 @@ body {
 }
 @media (min-width: 980px) {
   .guInteractive #mainEpisode #mainEpisodeContent {
-    max-width: 40%;
+    width: 47%;
     margin-bottom: 80px;
   }
 }
@@ -1711,7 +1724,7 @@ body {
 }
 .guInteractive .episodeBlock {
   vertical-align: top;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 .guInteractive .episodeBlock.activeVideo img {
   border: 4px solid #ff827f;
@@ -1719,7 +1732,7 @@ body {
 .guInteractive .episodeBlock .thumb-wrapper {
   position: relative;
 }
-.guInteractive .episodeBlock .thumb-wrapper:hover button {
+body.no-touch .guInteractive .episodeBlock .thumb-wrapper:hover button {
   opacity: 1;
 }
 .guInteractive .episodeBlock .thumb-wrapper button {
@@ -1747,45 +1760,70 @@ body {
 .guInteractive .episodeBlock .episodeBlockContent {
   font-family: "Guardian Egyptian Web", "Egyptian Display", "Guardian Text Egyptian Web", "Egyptian Text", Georgia, serif;
 }
-.guInteractive .episodeBlock.inactiveVideo {
+@media (min-width: 100px) {
+  .guInteractive .episodeBlock .episodeBlockContent h2 {
+    font-size: 15px;
+  }
+  .guInteractive .episodeBlock .episodeBlockContent p {
+    font-size: 12px;
+  }
+}
+@media (min-width: 660px) {
+  .guInteractive .episodeBlock .episodeBlockContent h2 {
+    font-size: 16px;
+  }
+  .guInteractive .episodeBlock .episodeBlockContent p {
+    font-size: 13px;
+  }
+}
+@media (min-width: 980px) {
+  .guInteractive .episodeBlock .episodeBlockContent h2 {
+    font-size: 20px;
+  }
+  .guInteractive .episodeBlock .episodeBlockContent p {
+    font-size: 14px;
+  }
+}
+@media (min-width: 1140px) {
+  .guInteractive .episodeBlock .episodeBlockContent p {
+    font-size: 18px;
+  }
+  .guInteractive .episodeBlock .episodeBlockContent p span {
+    font-size: 14px;
+  }
+}
+.guInteractive .episodeBlock.inactiveVideo .thumb-wrapper {
   cursor: pointer;
 }
 .guInteractive .episodeBlock.inactiveVideo .thumb-wrapper button {
   display: block;
+  pointer-events: none;
 }
-.guInteractive .episodeBlock.inactiveVideo:hover img {
+body.no-touch .guInteractive .episodeBlock.inactiveVideo:hover img {
   opacity: 0.8;
 }
-@media (min-width: 440px) {
+@media (min-width: 100px) {
   .guInteractive .episodeBlock {
-    display: block;
-  }
-}
-@media (min-width: 480px) {
-  .guInteractive .episodeBlock p {
-    font-size: 16px;
-  }
-}
-@media (min-width: 980px) {
-  .guInteractive .episodeBlock {
-    margin-right: 2%;
+    margin-right: 6%;
     padding: 0;
-    width: 40%;
+    width: 47%;
     display: inline-block;
   }
-  .guInteractive .episodeBlock:nth-of-type(4n) {
+  .guInteractive .episodeBlock:nth-of-type(2n) {
     margin-right: 0;
   }
   .guInteractive .episodeBlock:nth-of-type(2n) {
     padding: 0;
   }
 }
-@media (min-width: 1140px) {
-  .guInteractive .episodeBlock p {
-    font-size: 18px;
+@media (min-width: 660px) {
+  .guInteractive .episodeBlock {
+    margin-bottom: 30px;
   }
-  .guInteractive .episodeBlock p span {
-    font-size: 14px;
+}
+@media (min-width: 980px) {
+  .guInteractive .episodeBlock {
+    margin-bottom: 40px;
   }
 }
 .guInteractive #how-safe {
@@ -1980,7 +2018,7 @@ body.touch .guInteractive #endslate .videos-wrapper .inner-container .video img 
   height: 100px;
   display: none;
 }
-@media (min-width: 740px) {
+@media (min-width: 980px) {
   .guInteractive #endslate .videos-wrapper .inner-container .video .video-content p {
     display: block;
   }
@@ -2048,6 +2086,7 @@ body.touch .guInteractive #endslate .videos-wrapper .inner-container .video img 
   height: auto;
   padding: 1px 0 80px;
   margin: 0 auto;
+  overflow: hidden;
 }
 .guInteractive #episodeQuote {
   font-family: "Guardian Egyptian Web", "Egyptian Display", "Guardian Text Egyptian Web", "Egyptian Text", Georgia, serif;
@@ -2170,272 +2209,272 @@ body.touch .guInteractive #endslate .videos-wrapper .inner-container .video img 
 
 @font-face {
   font-family: "Guardian Agate Sans 1 Web";
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-Regular.eot");
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-Regular.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-Regular.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-Regular.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-Regular.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-Regular.svg#GuardianAgateSans1Web-Regular") format("svg");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-Regular.eot");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-Regular.eot?#iefix") format("embedded-opentype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-Regular.woff2") format("woff2"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-Regular.woff") format("woff"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-Regular.ttf") format("truetype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-Regular.svg#GuardianAgateSans1Web-Regular") format("svg");
   font-weight: 400;
   font-style: normal;
   font-stretch: normal;
 }
 @font-face {
   font-family: "Guardian Agate Sans 1 Web";
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-RegularItalic.eot");
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-RegularItalic.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-RegularItalic.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-RegularItalic.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-RegularItalic.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-RegularItalic.svg#GuardianAgateSans1Web-RegularItalic") format("svg");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-RegularItalic.eot");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-RegularItalic.eot?#iefix") format("embedded-opentype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-RegularItalic.woff2") format("woff2"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-RegularItalic.woff") format("woff"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-RegularItalic.ttf") format("truetype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-RegularItalic.svg#GuardianAgateSans1Web-RegularItalic") format("svg");
   font-weight: 400;
   font-style: italic;
   font-stretch: normal;
 }
 @font-face {
   font-family: "Guardian Agate Sans 1 Web";
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-Bold.eot");
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-Bold.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-Bold.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-Bold.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-Bold.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-Bold.svg#GuardianAgateSans1Web-Bold") format("svg");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-Bold.eot");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-Bold.eot?#iefix") format("embedded-opentype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-Bold.woff2") format("woff2"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-Bold.woff") format("woff"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-Bold.ttf") format("truetype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-Bold.svg#GuardianAgateSans1Web-Bold") format("svg");
   font-weight: 700;
   font-style: normal;
   font-stretch: normal;
 }
 @font-face {
   font-family: "Guardian Agate Sans 1 Web";
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-BoldItalic.eot");
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-BoldItalic.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-BoldItalic.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-BoldItalic.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-BoldItalic.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-BoldItalic.svg#GuardianAgateSans1Web-BoldItalic") format("svg");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-BoldItalic.eot");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-BoldItalic.eot?#iefix") format("embedded-opentype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-BoldItalic.woff2") format("woff2"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-BoldItalic.woff") format("woff"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-BoldItalic.ttf") format("truetype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianAgateSans1Web/GuardianAgateSans1Web-BoldItalic.svg#GuardianAgateSans1Web-BoldItalic") format("svg");
   font-weight: 700;
   font-style: italic;
   font-stretch: normal;
 }
 @font-face {
   font-family: "Guardian Egyptian Web";
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Light.eot");
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Light.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Light.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Light.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Light.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Light.svg#GuardianEgyptianWeb-Light") format("svg");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Light.eot");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Light.eot?#iefix") format("embedded-opentype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Light.woff2") format("woff2"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Light.woff") format("woff"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Light.ttf") format("truetype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Light.svg#GuardianEgyptianWeb-Light") format("svg");
   font-weight: 200;
   font-style: normal;
   font-stretch: normal;
 }
 @font-face {
   font-family: "Guardian Egyptian Web";
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Regular.eot");
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Regular.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Regular.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Regular.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Regular.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Regular.svg#GuardianEgyptianWeb-Regular") format("svg");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Regular.eot");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Regular.eot?#iefix") format("embedded-opentype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Regular.woff2") format("woff2"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Regular.woff") format("woff"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Regular.ttf") format("truetype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Regular.svg#GuardianEgyptianWeb-Regular") format("svg");
   font-weight: 400;
   font-style: normal;
   font-stretch: normal;
 }
 @font-face {
   font-family: "Guardian Egyptian Web";
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-RegularItalic.eot");
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-RegularItalic.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-RegularItalic.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-RegularItalic.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-RegularItalic.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-RegularItalic.svg#GuardianEgyptianWeb-RegularItalic") format("svg");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-RegularItalic.eot");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-RegularItalic.eot?#iefix") format("embedded-opentype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-RegularItalic.woff2") format("woff2"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-RegularItalic.woff") format("woff"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-RegularItalic.ttf") format("truetype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-RegularItalic.svg#GuardianEgyptianWeb-RegularItalic") format("svg");
   font-weight: 400;
   font-style: italic;
   font-stretch: normal;
 }
 @font-face {
   font-family: "Guardian Egyptian Web";
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Semibold.eot");
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Semibold.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Semibold.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Semibold.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Semibold.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Semibold.svg#GuardianEgyptianWeb-Semibold") format("svg");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Semibold.eot");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Semibold.eot?#iefix") format("embedded-opentype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Semibold.woff2") format("woff2"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Semibold.woff") format("woff"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Semibold.ttf") format("truetype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Semibold.svg#GuardianEgyptianWeb-Semibold") format("svg");
   font-weight: 600;
   font-style: normal;
   font-stretch: normal;
 }
 @font-face {
   font-family: "Guardian Egyptian Web";
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-SemiboldItalic.eot");
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-SemiboldItalic.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-SemiboldItalic.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-SemiboldItalic.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-SemiboldItalic.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-SemiboldItalic.svg#GuardianEgyptianWeb-SemiboldItalic") format("svg");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-SemiboldItalic.eot");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-SemiboldItalic.eot?#iefix") format("embedded-opentype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-SemiboldItalic.woff2") format("woff2"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-SemiboldItalic.woff") format("woff"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-SemiboldItalic.ttf") format("truetype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-SemiboldItalic.svg#GuardianEgyptianWeb-SemiboldItalic") format("svg");
   font-weight: 600;
   font-style: italic;
   font-stretch: normal;
 }
 @font-face {
   font-family: "Guardian Egyptian Web";
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Medium.eot");
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Medium.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Medium.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Medium.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Medium.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Medium.svg#GuardianEgyptianWeb-Medium") format("svg");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Medium.eot");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Medium.eot?#iefix") format("embedded-opentype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Medium.woff2") format("woff2"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Medium.woff") format("woff"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Medium.ttf") format("truetype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Medium.svg#GuardianEgyptianWeb-Medium") format("svg");
   font-weight: 500;
   font-style: normal;
   font-stretch: normal;
 }
 @font-face {
   font-family: "Guardian Egyptian Web";
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Bold.eot");
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Bold.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Bold.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Bold.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Bold.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Bold.svg#GuardianEgyptianWeb-Bold") format("svg");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Bold.eot");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Bold.eot?#iefix") format("embedded-opentype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Bold.woff2") format("woff2"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Bold.woff") format("woff"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Bold.ttf") format("truetype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-Bold.svg#GuardianEgyptianWeb-Bold") format("svg");
   font-weight: 700;
   font-style: normal;
   font-stretch: normal;
 }
 @font-face {
   font-family: "Guardian Egyptian Web";
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-BoldItalic.eot");
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-BoldItalic.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-BoldItalic.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-BoldItalic.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-BoldItalic.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-BoldItalic.svg#GuardianEgyptianWeb-BoldItalic") format("svg");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-BoldItalic.eot");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-BoldItalic.eot?#iefix") format("embedded-opentype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-BoldItalic.woff2") format("woff2"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-BoldItalic.woff") format("woff"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-BoldItalic.ttf") format("truetype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianEgyptianWeb/GuardianEgyptianWeb-BoldItalic.svg#GuardianEgyptianWeb-BoldItalic") format("svg");
   font-weight: 700;
   font-style: italic;
   font-stretch: normal;
 }
 @font-face {
   font-family: "Guardian Sans Web";
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Light.eot");
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Light.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Light.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Light.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Light.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Light.svg#GuardianSansWeb-Light") format("svg");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Light.eot");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Light.eot?#iefix") format("embedded-opentype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Light.woff2") format("woff2"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Light.woff") format("woff"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Light.ttf") format("truetype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Light.svg#GuardianSansWeb-Light") format("svg");
   font-weight: 200;
   font-style: normal;
   font-stretch: normal;
 }
 @font-face {
   font-family: "Guardian Sans Web";
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Regular.eot");
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Regular.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Regular.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Regular.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Regular.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Regular.svg#GuardianSansWeb-Regular") format("svg");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Regular.eot");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Regular.eot?#iefix") format("embedded-opentype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Regular.woff2") format("woff2"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Regular.woff") format("woff"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Regular.ttf") format("truetype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Regular.svg#GuardianSansWeb-Regular") format("svg");
   font-weight: 400;
   font-style: normal;
   font-stretch: normal;
 }
 @font-face {
   font-family: "Guardian Sans Web";
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Semibold.eot");
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Semibold.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Semibold.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Semibold.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Semibold.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Semibold.svg#GuardianSansWeb-Semibold") format("svg");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Semibold.eot");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Semibold.eot?#iefix") format("embedded-opentype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Semibold.woff2") format("woff2"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Semibold.woff") format("woff"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Semibold.ttf") format("truetype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianSansWeb/GuardianSansWeb-Semibold.svg#GuardianSansWeb-Semibold") format("svg");
   font-weight: 600;
   font-style: normal;
   font-stretch: normal;
 }
 @font-face {
   font-family: "Guardian Text Egyptian Web";
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Regular.eot");
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Regular.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Regular.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Regular.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Regular.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Regular.svg#GuardianTextEgyptianWeb-Regular") format("svg");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Regular.eot");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Regular.eot?#iefix") format("embedded-opentype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Regular.woff2") format("woff2"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Regular.woff") format("woff"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Regular.ttf") format("truetype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Regular.svg#GuardianTextEgyptianWeb-Regular") format("svg");
   font-weight: 400;
   font-style: normal;
   font-stretch: normal;
 }
 @font-face {
   font-family: "Guardian Text Egyptian Web";
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-RegularItalic.eot");
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-RegularItalic.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-RegularItalic.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-RegularItalic.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-RegularItalic.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-RegularItalic.svg#GuardianTextEgyptianWeb-RegularItalic") format("svg");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-RegularItalic.eot");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-RegularItalic.eot?#iefix") format("embedded-opentype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-RegularItalic.woff2") format("woff2"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-RegularItalic.woff") format("woff"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-RegularItalic.ttf") format("truetype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-RegularItalic.svg#GuardianTextEgyptianWeb-RegularItalic") format("svg");
   font-weight: 400;
   font-style: italic;
   font-stretch: normal;
 }
 @font-face {
   font-family: "Guardian Text Egyptian Web";
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Medium.eot");
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Medium.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Medium.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Medium.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Medium.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Medium.svg#GuardianTextEgyptianWeb-Medium") format("svg");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Medium.eot");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Medium.eot?#iefix") format("embedded-opentype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Medium.woff2") format("woff2"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Medium.woff") format("woff"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Medium.ttf") format("truetype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Medium.svg#GuardianTextEgyptianWeb-Medium") format("svg");
   font-weight: 500;
   font-style: normal;
   font-stretch: normal;
 }
 @font-face {
   font-family: "Guardian Text Egyptian Web";
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-MediumItalic.eot");
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-MediumItalic.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-MediumItalic.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-MediumItalic.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-MediumItalic.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-MediumItalic.svg#GuardianTextEgyptianWeb-MediumItalic") format("svg");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-MediumItalic.eot");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-MediumItalic.eot?#iefix") format("embedded-opentype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-MediumItalic.woff2") format("woff2"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-MediumItalic.woff") format("woff"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-MediumItalic.ttf") format("truetype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-MediumItalic.svg#GuardianTextEgyptianWeb-MediumItalic") format("svg");
   font-weight: 500;
   font-style: italic;
   font-stretch: normal;
 }
 @font-face {
   font-family: "Guardian Text Egyptian Web";
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Bold.eot");
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Bold.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Bold.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Bold.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Bold.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Bold.svg#GuardianTextEgyptianWeb-Bold") format("svg");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Bold.eot");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Bold.eot?#iefix") format("embedded-opentype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Bold.woff2") format("woff2"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Bold.woff") format("woff"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Bold.ttf") format("truetype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Bold.svg#GuardianTextEgyptianWeb-Bold") format("svg");
   font-weight: 700;
   font-style: normal;
   font-stretch: normal;
 }
 @font-face {
   font-family: "Guardian Text Egyptian Web";
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-BoldItalic.eot");
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-BoldItalic.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-BoldItalic.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-BoldItalic.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-BoldItalic.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-BoldItalic.svg#GuardianTextEgyptianWeb-BoldItalic") format("svg");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-BoldItalic.eot");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-BoldItalic.eot?#iefix") format("embedded-opentype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-BoldItalic.woff2") format("woff2"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-BoldItalic.woff") format("woff"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-BoldItalic.ttf") format("truetype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-BoldItalic.svg#GuardianTextEgyptianWeb-BoldItalic") format("svg");
   font-weight: 700;
   font-style: italic;
   font-stretch: normal;
 }
 @font-face {
   font-family: "Guardian Text Egyptian Web";
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Black.eot");
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Black.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Black.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Black.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Black.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Black.svg#GuardianTextEgyptianWeb-Black") format("svg");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Black.eot");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Black.eot?#iefix") format("embedded-opentype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Black.woff2") format("woff2"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Black.woff") format("woff"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Black.ttf") format("truetype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-Black.svg#GuardianTextEgyptianWeb-Black") format("svg");
   font-weight: 800;
   font-style: normal;
   font-stretch: normal;
 }
 @font-face {
   font-family: "Guardian Text Egyptian Web";
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-BlackItalic.eot");
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-BlackItalic.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-BlackItalic.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-BlackItalic.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-BlackItalic.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-BlackItalic.svg#GuardianTextEgyptianWeb-BlackItalic") format("svg");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-BlackItalic.eot");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-BlackItalic.eot?#iefix") format("embedded-opentype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-BlackItalic.woff2") format("woff2"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-BlackItalic.woff") format("woff"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-BlackItalic.ttf") format("truetype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextEgyptianWeb/GuardianTextEgyptianWeb-BlackItalic.svg#GuardianTextEgyptianWeb-BlackItalic") format("svg");
   font-weight: 800;
   font-style: italic;
   font-stretch: normal;
 }
 @font-face {
   font-family: "Guardian Text Sans Web";
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Regular.eot");
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Regular.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Regular.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Regular.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Regular.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Regular.svg#GuardianTextSansWeb-Regular") format("svg");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Regular.eot");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Regular.eot?#iefix") format("embedded-opentype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Regular.woff2") format("woff2"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Regular.woff") format("woff"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Regular.ttf") format("truetype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Regular.svg#GuardianTextSansWeb-Regular") format("svg");
   font-weight: 400;
   font-style: normal;
   font-stretch: normal;
 }
 @font-face {
   font-family: "Guardian Text Sans Web";
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-RegularItalic.eot");
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-RegularItalic.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-RegularItalic.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-RegularItalic.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-RegularItalic.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-RegularItalic.svg#GuardianTextSansWeb-RegularItalic") format("svg");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-RegularItalic.eot");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-RegularItalic.eot?#iefix") format("embedded-opentype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-RegularItalic.woff2") format("woff2"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-RegularItalic.woff") format("woff"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-RegularItalic.ttf") format("truetype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-RegularItalic.svg#GuardianTextSansWeb-RegularItalic") format("svg");
   font-weight: 400;
   font-style: italic;
   font-stretch: normal;
 }
 @font-face {
   font-family: "Guardian Text Sans Web";
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Medium.eot");
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Medium.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Medium.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Medium.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Medium.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Medium.svg#GuardianTextSansWeb-Medium") format("svg");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Medium.eot");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Medium.eot?#iefix") format("embedded-opentype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Medium.woff2") format("woff2"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Medium.woff") format("woff"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Medium.ttf") format("truetype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Medium.svg#GuardianTextSansWeb-Medium") format("svg");
   font-weight: 500;
   font-style: normal;
   font-stretch: normal;
 }
 @font-face {
   font-family: "Guardian Text Sans Web";
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-MediumItalic.eot");
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-MediumItalic.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-MediumItalic.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-MediumItalic.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-MediumItalic.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-MediumItalic.svg#GuardianTextSansWeb-MediumItalic") format("svg");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-MediumItalic.eot");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-MediumItalic.eot?#iefix") format("embedded-opentype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-MediumItalic.woff2") format("woff2"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-MediumItalic.woff") format("woff"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-MediumItalic.ttf") format("truetype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-MediumItalic.svg#GuardianTextSansWeb-MediumItalic") format("svg");
   font-weight: 500;
   font-style: italic;
   font-stretch: normal;
 }
 @font-face {
   font-family: "Guardian Text Sans Web";
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Bold.eot");
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Bold.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Bold.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Bold.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Bold.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Bold.svg#GuardianTextSansWeb-Bold") format("svg");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Bold.eot");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Bold.eot?#iefix") format("embedded-opentype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Bold.woff2") format("woff2"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Bold.woff") format("woff"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Bold.ttf") format("truetype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Bold.svg#GuardianTextSansWeb-Bold") format("svg");
   font-weight: 700;
   font-style: normal;
   font-stretch: normal;
 }
 @font-face {
   font-family: "Guardian Text Sans Web";
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-BoldItalic.eot");
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-BoldItalic.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-BoldItalic.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-BoldItalic.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-BoldItalic.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-BoldItalic.svg#GuardianTextSansWeb-BoldItalic") format("svg");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-BoldItalic.eot");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-BoldItalic.eot?#iefix") format("embedded-opentype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-BoldItalic.woff2") format("woff2"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-BoldItalic.woff") format("woff"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-BoldItalic.ttf") format("truetype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-BoldItalic.svg#GuardianTextSansWeb-BoldItalic") format("svg");
   font-weight: 700;
   font-style: italic;
   font-stretch: normal;
 }
 @font-face {
   font-family: "Guardian Text Sans Web";
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Black.eot");
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Black.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Black.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Black.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Black.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Black.svg#GuardianTextSansWeb-Black") format("svg");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Black.eot");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Black.eot?#iefix") format("embedded-opentype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Black.woff2") format("woff2"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Black.woff") format("woff"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Black.ttf") format("truetype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-Black.svg#GuardianTextSansWeb-Black") format("svg");
   font-weight: 800;
   font-style: normal;
   font-stretch: normal;
 }
 @font-face {
   font-family: "Guardian Text Sans Web";
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-BlackItalic.eot");
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-BlackItalic.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-BlackItalic.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-BlackItalic.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-BlackItalic.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-BlackItalic.svg#GuardianTextSansWeb-BlackItalic") format("svg");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-BlackItalic.eot");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-BlackItalic.eot?#iefix") format("embedded-opentype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-BlackItalic.woff2") format("woff2"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-BlackItalic.woff") format("woff"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-BlackItalic.ttf") format("truetype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianTextSansWeb/GuardianTextSansWeb-BlackItalic.svg#GuardianTextSansWeb-BlackItalic") format("svg");
   font-weight: 800;
   font-style: italic;
   font-stretch: normal;
 }
 @font-face {
   font-family: "Guardian Compact Web";
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianCompactWeb-Black.eot");
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianCompactWeb-Black.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianCompactWeb-Black.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianCompactWeb-Black.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianCompactWeb-Black.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianCompactWeb-Black.svg#GuardianCompactWeb-Black") format("svg");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianCompactWeb-Black.eot");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianCompactWeb-Black.eot?#iefix") format("embedded-opentype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianCompactWeb-Black.woff2") format("woff2"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianCompactWeb-Black.woff") format("woff"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianCompactWeb-Black.ttf") format("truetype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianCompactWeb-Black.svg#GuardianCompactWeb-Black") format("svg");
   font-weight: 800;
   font-style: normal;
   font-stretch: normal;
 }
 @font-face {
   font-family: "Guardian Titlepiece Web";
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianTitlepieceWeb-Regular.eot");
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianTitlepieceWeb-Regular.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianTitlepieceWeb-Regular.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianTitlepieceWeb-Regular.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianTitlepieceWeb-Regular.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianTitlepieceWeb-Regular.svg#GuardianTitlepieceWeb-Regular") format("svg");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianTitlepieceWeb-Regular.eot");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianTitlepieceWeb-Regular.eot?#iefix") format("embedded-opentype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianTitlepieceWeb-Regular.woff2") format("woff2"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianTitlepieceWeb-Regular.woff") format("woff"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianTitlepieceWeb-Regular.ttf") format("truetype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianTitlepieceWeb-Regular.svg#GuardianTitlepieceWeb-Regular") format("svg");
   font-weight: 400;
   font-style: normal;
   font-stretch: normal;
 }
 @font-face {
   font-family: "Guardian Weekend Cond Web";
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianWeekendCondWeb-Black.eot");
-  src: url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianWeekendCondWeb-Black.eot?#iefix") format("embedded-opentype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianWeekendCondWeb-Black.woff2") format("woff2"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianWeekendCondWeb-Black.woff") format("woff"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianWeekendCondWeb-Black.ttf") format("truetype"), url("/bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianWeekendCondWeb-Black.svg#GuardianWeekendCondWeb-Black") format("svg");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianWeekendCondWeb-Black.eot");
+  src: url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianWeekendCondWeb-Black.eot?#iefix") format("embedded-opentype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianWeekendCondWeb-Black.woff2") format("woff2"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianWeekendCondWeb-Black.woff") format("woff"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianWeekendCondWeb-Black.ttf") format("truetype"), url("../../../bower_components/guss-webfonts/webfonts/hinting-on/kerning-on/original/GuardianExtrasWeb/GuardianWeekendCondWeb-Black.svg#GuardianWeekendCondWeb-Black") format("svg");
   font-weight: 800;
   font-style: normal;
   font-stretch: normal;

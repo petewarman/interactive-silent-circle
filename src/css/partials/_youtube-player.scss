@@ -8,8 +8,23 @@ $yt-controls-height: $yt-player-controls-height;
 $buffer-color: #999;
 
 // Always keep controls visible if the mouse is over the player
-.yt-player:hover .yt-controls-wrapper {
+//.yt-player:hover .yt-controls-wrapper {
+//  opacity: 1 !important;
+//}
+.yt-controls-wrapper:hover {
   opacity: 1 !important;
+}
+
+// Do not show the custom player if we force it from JS
+.NO-custom-player .yt-skin-wrapper {
+  display: none !important;
+  z-index: -9999 !important;
+  position: absolute !important;
+  top: -10000px !important;
+  left: -10000px !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
 }
 
 .unselectable {
@@ -59,10 +74,22 @@ $buffer-color: #999;
 }
 
 .yt-ready {
-  .yt-skin-wrapper,
-  .yt-big-play-btn {
+
+  .yt-big-play-btn,
+  .yt-skin-wrapper {
     display: block;
   }
+
+//  .yt-big-play-btn {
+//    body.no-touch & {
+//      display: block;
+//    }
+//
+//    body.touch & {
+//      display: none !important;
+//    }
+//  }
+
   .yt-loading-wrapper {
     display: none;
   }
@@ -151,15 +178,43 @@ $buffer-color: #999;
   background-color: rgba(71, 71, 71, 0.95);
   @include css3-prefix(transition-duration, 0.4s);
   opacity: 1;
+  text-align: left;
   //  @include css3-prefix(transform, translateY(0));
+
+  .yt-controls-left,
+  .yt-controls-right {
+    position: absolute;
+    top: 50%;
+    @include css3-prefix(transform, translateY(-50%));
+  }
+
+  .yt-controls-left {
+    text-align: left;
+    left: 0;
+    padding-left: 10px;
+  }
+
+  .yt-controls-right {
+    text-align: right;
+    right: 0;
+    padding-right: 10px;
+  }
+
 }
 
 .yt-btn {
-  position: absolute;
-  top: 50%;
-  @include css3-prefix(transform, translateY(-50%));
+  text-align: left;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 10px;
+
+  //  position: absolute;
+  //  top: 50%;
+  //  @include css3-prefix(transform, translateY(-50%));
 }
 
+.yt-time,
 .yt-play-btn,
 .yt-languages-btn,
 .yt-cc-btn,
@@ -170,10 +225,11 @@ $buffer-color: #999;
   @extend .yt-btn;
 
   .svg {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    @include transform(translateY(-50%) translateX(-50%));
+    position: relative;
+    //    position: absolute;
+    //    top: 50%;
+    //    left: 50%;
+    //    @include transform(translateY(-50%) translateX(-50%));
 
     .shape {
       fill: #FFFFFF;
@@ -186,7 +242,7 @@ $buffer-color: #999;
 }
 
 .yt-play-btn {
-  left: 10px;
+//  left: 10px;
   width: 32px;
   height: 32px;
   border: none;
@@ -242,8 +298,8 @@ $buffer-color: #999;
 }
 
 .yt-fullscreen-btn {
-  width: 20px;
-  right: 20px;
+  //  width: 20px;
+  //  right: 20px;
   &.active .svg .shape {
     fill: $highlight-color;
   }
@@ -255,15 +311,19 @@ $buffer-color: #999;
 
 .yt-time {
   color: #fff;
-  position: absolute;
-  top: 50%;
-  left: 60px;
-  height: $yt-controls-height;
-  line-height: $yt-controls-height;
-  width: 100px;
+  //  position: absolute;
+  //  top: 50%;
+//  left: 60px;
+  //  height: $yt-controls-height;
+  //  line-height: $yt-controls-height;
+//  width: 100px;
   font-size: 12px;
-  @include css3-prefix(transform, translateY(-50%));
-  //display: none;
+  //  @include css3-prefix(transform, translateY(-50%));
+  display: none;
+
+  @media(min-width: 660px) {
+    display: inline-block;
+  }
 }
 
 .yt-embed-message {
@@ -299,15 +359,20 @@ $buffer-color: #999;
 }
 
 .yt-embed-btn {
-  right: 230px;
-  width: 80px;
-  height: 14px;
+  //  right: 230px;
+  //  width: 80px;
+  //  height: 14px;
   text-align: left;
-  padding: 4px;
+  //  padding: 4px;
+  display: none;
+
+  @media(min-width: 660px) {
+    display: inline-block;
+  }
 
   .svg {
-    left: 0;
-    @include transform(translateY(-50%));
+    //    left: 0;
+    //    @include transform(translateY(-50%));
   }
 
   &:hover,
@@ -320,33 +385,58 @@ $buffer-color: #999;
     }
   }
 
+  span,
+  .svg {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 5px;
+  }
+
   span {
-    position: absolute;
-    top: 50%;
-    @include css3-prefix(transform, translateY(-50%));
+    //    position: absolute;
+    //    top: 50%;
+    //    @include css3-prefix(transform, translateY(-50%));
   }
 
   .svg {
-    margin-right: 10px;
-    height: 14px;
+    //    margin-right: 10px;
+    //    height: 14px;
   }
 
   span {
-    left: 35px;
+    //    left: 35px;
     font-size: 12px;
-    line-height: 14px;
+    //    line-height: 14px;
+  }
+}
+
+// Hide volume settings from phones and tablets (they don't allow the volume to be controlled by the video player)
+body.touch & .yt-volume-wrapper {
+  display: none !important;
+
+  @media(min-width: 1140px) {
+    display: inline-block !important;
   }
 }
 
 .yt-volume-wrapper {
   width: 150px;
-  height: 25px;
-  right: 60px;
+  //  height: 25px;
+  //  right: 60px;
+
+  .yt-volume,
+  .yt-mute-btn {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 5px;
+  }
 
   .yt-mute-btn {
-    width: 25px;
-    height: 25px;
-    position: absolute;
+    //    width: 25px;
+    //    height: 25px;
+    //    position: absolute;
+    //    left: 0; //
 
     .svg {
       .shape {
@@ -371,13 +461,9 @@ $buffer-color: #999;
   }
 
   .yt-volume {
-    position: absolute;
-    top: 50%;
-    @include transform(translateY(-50%));
     height: 2px;
     background-color: #FFF;
     width: 100px;
-    left: 35px;
 
     .yt-volume-level {
       position: absolute;
@@ -401,18 +487,13 @@ $buffer-color: #999;
 }
 
 .yt-languages-btn {
-  right: 375px;
-  width: 24px;
-  height: 24px;
-  padding: 24px;
+  padding: 14px 10px;
 
   .svg {
     display: block;
   }
 
-  &:hover,
   &.open {
-    //    background-color: #333;
 
     .yt-languages-list {
       display: block;
@@ -432,7 +513,6 @@ $buffer-color: #999;
     li {
       cursor: pointer;
       color: #FFF;
-//      padding: 7px 14px;
       padding: 3px 6px;
       margin: 0;
       list-style: none;
@@ -452,6 +532,9 @@ $buffer-color: #999;
 
         span {
           width: 120px;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
         }
 
         i {
@@ -464,9 +547,9 @@ $buffer-color: #999;
         }
       }
 
-//      &:last-child {
-//        border-bottom: none !important;
-//      }
+      //      &:last-child {
+      //        border-bottom: none !important;
+      //      }
 
       &:hover p {
         color: $highlight-color;
@@ -481,9 +564,15 @@ $buffer-color: #999;
 }
 
 .yt-cc-btn {
-  right: 335px;
-  width: 22px;
-  height: 22px;
+  //  $right: 335px;
+  //  right: $right - 100px;
+
+  //  width: 22px;
+  //  height: 22px;
+
+  //  @media(min-width: 660px) {
+  //    right: $right;
+  //  }
 
   &:hover {
     .svg .shape {

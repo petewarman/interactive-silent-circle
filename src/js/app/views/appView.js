@@ -13,14 +13,41 @@ define( [
 
     className: 'guInteractive',
 
-//    events: {
-//      'click .episodeBlock.inactiveVideo': 'switchVideo'
+
+//    animateScroll: function ( elem, style, unit, from, to, time, prop, callback ) {
+//      if ( !elem ) return;
+//      var start = new Date().getTime();
+//      elem.style[style] = from + unit;
+//
+//      function animate() {
+//        var step = Math.min( 1, (new Date().getTime() - start) / time );
+//        if ( prop ) {
+//          elem[style] = (from + step * (to - from)) + unit;
+//        } else {
+//          elem.style[style] = (from + step * (to - from)) + unit;
+//        }
+//        if ( step != 1 ) {
+//          requestAnimationFrame( animate );
+//        } else {
+//          if ( callback )
+//            callback();
+//        }
+//      }
+//
+//      requestAnimationFrame( animate );
 //    },
 
     switchVideo: function ( e ) {
+      var self = this;
+      var videoId = _.isString( e ) ? e : $( e.currentTarget ).closest( '.inactiveVideo' ).attr( 'data-video-id' );
+      var foundValue = _.findWhere( this.allEpisodes, {
+        'id': videoId
+      } );
+      var currentScrolltop = $( 'body' ).scrollTop();
+      var videoOffset = $( '#mainEpisode' ).offset().top - 40;
+      var diff = currentScrolltop - videoOffset;
 
-      var videoId = _.isString( e ) ? e : $( e.currentTarget ).attr( 'data-video-id' );
-//      var videoId = $( e.currentTarget ).attr( 'data-video-id' );
+      this.mainEpisode = foundValue;
 
 //      window.ga( 'send', {
 //        'hitType': 'event',          // Required.
@@ -29,21 +56,41 @@ define( [
 //        'eventLabel': videoId
 //      } );
 
-      var foundValue = _.findWhere( this.allEpisodes, {
-        'id': videoId
-      } );
 
-      this.mainEpisode = foundValue;
-      this.mainVideo.render( this.mainEpisode );
-      var self = this;
 
-      var videoOffset = $( '#mainEpisode' ).offset().top - 40;
+      setTimeout( function () {
 
-      $( 'html,body' ).animate( {
-        scrollTop: videoOffset
-      }, 500, function () {
-        self.mainVideo.playVideo();
-      } );
+        $( 'html,body' ).animate( {
+          scrollTop: videoOffset
+        }, diff, function () {
+
+          // Re-render main video part
+          self.mainVideo.render( self.mainEpisode );
+
+//          if ( !self.isTouch ) {
+            // immediately render and play video
+            self.mainVideo.renderVideo();
+//          }
+
+        } );
+
+      }, 0 );
+
+
+//      setTimeout(function() {
+//        self.mainEpisode = foundValue;
+//        self.mainVideo.render( self.mainEpisode );
+//        if ( !self.isTouch ) {
+//          self.mainVideo.renderVideo();
+//        }
+//      }, diff);
+
+//      var target = document.getElementById( "mainEpisode" );
+//      this.animateScroll( document.body, "scrollTop", "", document.body.scrollTop, target.offsetTop - 40, 600, true, function () {
+//        if ( !self.isTouch ) {
+//          self.mainVideo.renderVideo();
+//        }
+//      } );
 
       this.changeQuerystring();
       this.updateActiveVideo();
@@ -58,10 +105,10 @@ define( [
 
     updateActiveVideo: function () {
       var currentVideoId = this.mainEpisode.id;
-      $( '.episodeBlock' ).removeClass( 'activeVideo' );
+      var $episodeBlock = $( '.episodeBlock' );
 
-      $( '.episodeBlock' ).removeClass( 'inactiveVideo' );
-      $( '.episodeBlock' ).addClass( 'inactiveVideo' );
+      $episodeBlock.removeClass( 'activeVideo inactiveVideo' );
+      $episodeBlock.addClass( 'inactiveVideo' );
 
       $( '.episodeBlock.' + currentVideoId ).removeClass( 'inactiveVideo' );
       $( '.episodeBlock.' + currentVideoId ).addClass( 'activeVideo' );
@@ -88,8 +135,6 @@ define( [
 
       if ( typeof this.mainEpisode === "undefined" ) {
         this.mainEpisode = this.allEpisodes[0];
-        // _.last( this.allEpisodes );
-        // this.mainEpisode = _.last( _.where( this.allEpisodes, {'published': 'yes'} ) );
       }
     },
 
@@ -100,6 +145,8 @@ define( [
       this.isTouch = (('ontouchstart' in window) || ('ontouchstart' in document.documentElement) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
       if ( this.isTouch ) {
         $( 'body' ).addClass( 'touch' );
+      } else {
+        $( 'body' ).addClass( 'no-touch' );
       }
 
       // Get custom data for videos
@@ -129,7 +176,7 @@ define( [
       var click = this.isTouch ? 'touchstart' : 'click';
 
       //'click .episodeBlock.inactiveVideo': 'switchVideo'
-      this.$el.on( click, '.episodeBlock.inactiveVideo', this.switchVideo.bind( this ) );
+      this.$el.on( click, '.episodeBlock.inactiveVideo .thumb-wrapper img', this.switchVideo.bind( this ) );
 
     },
 
@@ -150,7 +197,7 @@ define( [
 
           // Short description for end slate
           video.shortDescription = '';
-          if (video.description.length > 1) {
+          if ( video.description.length > 1 ) {
             video.shortDescription = item.description.substring( 0, maxDescriptionLength ) + '...';
             video.shortDescription = video.shortDescription.replace( /\n/g, "<br>" ).trim();
           }
@@ -191,24 +238,13 @@ define( [
       this.months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
       //Format videos
-//      var videos = this.data.videos;
       var videos = this.videos;
       this.allEpisodes = _.map( videos, function ( episode ) {
-
         if ( episode.date ) {
           episode.date = _this.formatDate( episode.date );
         }
-
-//        if ( episode.video ) {
-//          episode.video = _this.getEmbedPath( episode.video );
-//        }
-
         return episode;
       } );
-
-//      this.teaser = this.data.teaser[0];
-//      this.teaser.date = this.formatDate( this.teaser.date );
-//      this.teaser.video = this.getEmbedPath( this.teaser.video );
 
       //Decide which video to play first
       this.selectInitialVideo();
@@ -231,6 +267,11 @@ define( [
 
       // Render main video
       this.$( '#mainVideoContainer' ).html( this.mainVideo.render( this.mainEpisode ).el );
+
+      // Remove the poster and create youtube player
+      if ( this.isTouch ) {
+        this.mainVideo.renderVideo();
+      }
 
       this.updateActiveVideo();
 

@@ -57,8 +57,7 @@ define( [
 
     update: function ( currentVideoId ) {
 //      console.log(this.videos);
-
-      console.log( currentVideoId );
+//      console.log( currentVideoId );
 
       // Update the view DOM element (cause it is overwritten every time a new video is loaded)
       this.setElement( '#endslate' );
@@ -69,7 +68,7 @@ define( [
       } );//_.without( this.videos, _.findWhere( this.videos, {id: currentVideoId} ) );
       this.currentVideo = _.findWhere( this.videos, {id: currentVideoId} );
 
-      console.log( this.otherVideos );
+//      console.log( this.otherVideos );
 
       return this;
     },

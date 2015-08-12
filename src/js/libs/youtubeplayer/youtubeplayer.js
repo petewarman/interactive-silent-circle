@@ -143,6 +143,7 @@ define( [
       embedCode: null,
       videoId: this.$elem.attr( 'src' ) || null,
       wmode: 'transparent',
+      YTControls: false,
       controls: typeof this.$elem.attr( 'controls' ) != "undefined" ? 1 : 0,
       autoplay: typeof this.$elem.attr( 'autoplay' ) != "undefined" ? 1 : 0,
       showinfo: 0,
@@ -207,6 +208,10 @@ define( [
     this.onFullScrenChangeBinded = this.onFullScrenChange.bind( this );
 
     $( 'html' ).addClass( this.htmlClass );
+
+    // Customize player?
+    this.YTControls = this.options.YTControls;
+
     this.createSkin();
     this.createPlayer();
 
@@ -222,11 +227,15 @@ define( [
       this.$elem = $( '#' + this.id );
       this.$elem.addClass( 'yt-player' );
 
-      $.each( this.elemAttributes, function () {
-        if ( this.value != null && this.value != 'null' ) {
-          self.$elem.attr( this.name, this.value )
-        }
-      } );
+      if ( this.YTControls ) {
+        this.$elem.addClass( 'NO-custom-player' );
+      }
+
+//      $.each( this.elemAttributes, function () {
+//        if ( this.value != null && this.value != 'null' ) {
+//          self.$elem.attr( this.name, this.value )
+//        }
+//      } );
 
       this.$elem.append( YoutubeCustomPlayer.skins[ this.options.skin ] );
 
@@ -285,7 +294,7 @@ define( [
 //          hl: this.options.hl,
           cc_load_policy: this.options.cc_load_policy,
           wmode: this.options.wmode,
-          controls: 0,
+          controls: this.YTControls ? 1 : 0,
           showinfo: this.options.showinfo,
           autoplay: this.options.autoplay,
           rel: this.options.rel
@@ -396,9 +405,7 @@ define( [
 
       this.$embed.on( click, this.toggleEmbedMessage.bind( this ) );
 
-      this.$fullscreenBtn.on( click, function () {
-        self.toggleFullScreen();
-      } );
+      this.$fullscreenBtn.on( click, this.toggleFullScreen.bind( this ) );
 
       $( document ).on( 'keydown', function ( event ) {
         if ( event.keyCode == 27 ) {
@@ -407,6 +414,9 @@ define( [
           }
         }
       } );
+
+      // Languages list
+      this.$languages.on( click, this.toggleLanguagesList );
 
       // Show/Hide controls on mousemove
       if ( !this.options.alwaysVisible ) {
@@ -492,13 +502,13 @@ define( [
     },
 
     showControls: function () {
-      console.log( 'show controls' );
+//      console.log( 'show controls' );
       this.isControlsHidden = false;
       this.$elem.removeClass( 'yt-no-controls' );
     },
 
     hideControls: function () {
-      console.log( 'hide controls' );
+//      console.log( 'hide controls' );
       this.isControlsHidden = true;
       this.$elem.addClass( 'yt-no-controls' );
     },
@@ -776,6 +786,18 @@ define( [
 
     },
 
+    toggleLanguagesList: function ( e ) {
+//      console.log( 'toggle languages' );
+
+      var $el = $( this );
+
+      if ( $el.hasClass( 'open' ) ) {
+        $el.removeClass( 'open' );
+      } else {
+        $el.addClass( 'open' );
+      }
+    },
+
     disableLanguageSelection: function () {
       this.$languages.hide();
     },
@@ -918,7 +940,7 @@ define( [
 
   YoutubeCustomPlayer.requestFullScreen = (function () {
 
-    var vendors = ["moz", "webkit", "", "ms", "o" ],
+    var vendors = [ "moz", "webkit", "", "ms", "o" ],
       l = vendors.length,
       fs, requestFn, cancelFn, eventName, isFullScreen;
 
@@ -982,23 +1004,31 @@ define( [
       '<div class="yt-embed-message">' +
       '<div class="yt-embed-code-wrapper"><div class="yt-embed-title">Embed code</div><input type="text" class="yt-embed-code" value=""></div>' +
       '</div>' +
+      // CONTROLS
       '<div class="yt-controls-wrapper">' +
+
+      // CONTROLS - LEFT
+      '<div class="yt-controls-left">' +
       '<div class="yt-play-btn">' + playPauseSvg + '</div>' +
       '<div class="yt-time"></div>' +
-
-      '<div class="yt-languages-btn">' + languagesSvg +
-      '<ul class="yt-languages-list"></ul>' +
       '</div>' +
 
+      // CONTROLS - RIGHT
+      '<div class="yt-controls-right">' +
+      '<div class="yt-languages-btn">' + languagesSvg + '<ul class="yt-languages-list"></ul></div>' +
       '<div class="yt-cc-btn">' + ccSvg + '</div>' +
-
       '<div class="yt-embed-btn unselectable">' + embedSvg + ' <span class="unselectable">Embed</span></div>' +
       '<div class="yt-volume-wrapper unselectable">' +
       '<div class="yt-mute-btn unselectable">' + volumeSvg + '</div>' +
       '<div class="yt-volume unselectable"><div class="yt-volume-level unselectable"></div></div>' +
       '</div>' +
       '<div class="yt-fullscreen-btn">' + fullscreenSvg + '</div>' +
+      '</div>' +
+
+      // TIMELINE
       '<div class="yt-timeline unselectable"><div class="yt-seek unselectable"></div><div class="yt-buffer"></div></div>' +
+
+      // close
       '</div>' +
       '</div>',
 

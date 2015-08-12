@@ -27,6 +27,7 @@
     padding-top: 20px;
     padding-right: 20px;
     padding-left: 20px;
+    font-size: 0;
 
     h2 {
       font-size: 20px;
@@ -42,7 +43,7 @@
 
   }
 
-  @media(min-width: 660px) {
+  @media(min-width: 980px) {
     //      max-width: 620px;
     margin: 0 auto;
 
@@ -56,10 +57,6 @@
     }
   }
 
-  @media(min-width: 740px) {
-    //      max-width: 700px;
-    margin: 0 auto;
-  }
 
   @media(min-width: 980px) {
     max-width: none;
