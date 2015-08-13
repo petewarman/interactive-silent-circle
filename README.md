@@ -16,7 +16,7 @@ See ```package.json``` and ```bower.json```
 > grunt
 ```
 
-Local server should run on ```http://localhost:9000```
+Local server should run on ```http://localhost:8080```
 See ```Gruntfile.js```
 
 
