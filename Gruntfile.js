@@ -148,13 +148,13 @@ module.exports = function ( grunt ) {
           patterns: [
             {
               match: /{{assets}}/g,
-              replacement: 'assets'
-//              replacement: 'http://localhost:' + pkg.config.port + '/build/assets'
+//              replacement: 'assets'
+              replacement: 'http://localhost:' + pkg.config.port + '/build/assets'
             },
             {
               match: /\/\/pasteup\.guim\.co\.uk\/fonts\/0\.1\.0/g,
-//              replacement: '/bower_components/guss-webfonts/webfonts'
-              replacement: '../../../bower_components/guss-webfonts/webfonts'
+              replacement: '/bower_components/guss-webfonts/webfonts'
+//              replacement: '../../../bower_components/guss-webfonts/webfonts'
             }
           ]
         },
@@ -244,8 +244,8 @@ module.exports = function ( grunt ) {
     'copy'
   ] );
 
-//  grunt.registerTask( 'default', ['build', 'replace:local', 'connect', 'watch'] );
-  grunt.registerTask( 'default', ['build', 'replace:local', 'watch'] );
+  grunt.registerTask( 'default', ['build', 'replace:local', 'connect', 'watch'] );
+//  grunt.registerTask( 'default', ['build', 'replace:local', 'watch'] );
 
   grunt.registerTask( 'deploy', [
     'build',

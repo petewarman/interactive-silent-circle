@@ -15,6 +15,8 @@ See ```package.json``` and ```bower.json```
 ```bash
 > grunt
 ```
+
+Local server should run on ```http://localhost:9000```
 See ```Gruntfile.js```
 
 
