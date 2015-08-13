@@ -21,7 +21,7 @@ See ```Gruntfile.js```
 ## Check paths
 
 If necessary, open ```Gruntfile.js``` and fix the file paths in the ```replace:local``` task.
-(The ```replace``` task replaces text strings before building the final js file: it is used mostly to get builds with different paths to assets and fonts).
+(The ```replace``` task replaces text strings in files: it is used mostly to create builds with different file paths for assets and fonts).
 
 
 ## @TODO
