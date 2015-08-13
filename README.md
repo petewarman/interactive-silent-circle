@@ -14,7 +14,7 @@ See ```package.json``` and ```bower.json```
 ```
 grunt
 ```
-See Gruntfile.js
+See ```Gruntfile.js```
 
 
 ## @TODO
