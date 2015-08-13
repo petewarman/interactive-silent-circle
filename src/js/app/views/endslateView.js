@@ -88,11 +88,11 @@ define( [
     },
 
     show: function () {
-      this.$el.fadeIn();
+      this.$el.velocity('fadeIn', {duration: 400});
     },
 
     hide: function () {
-      this.$el.fadeOut( 200 );
+      this.$el.velocity('fadeOut', {duration: 200});
     }
 
   } );

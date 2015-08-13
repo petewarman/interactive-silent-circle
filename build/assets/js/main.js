@@ -14713,10 +14713,10 @@ define('text',['module'], function (module) {
 });
 
 
-define('text!templates/appTemplate.html',[],function () { return '<div class="guInteractive">\n    <div id="content">\n\n\n        <header id="headerContainer">\n            <!--<div id="headerImage">-->\n            <!--<img src="http://localhost:9000/build/assets/imgs/header.jpg"/>-->\n            <!--</div>-->\n\n            <div id="sc-logo">\n                <a href="#"><img src="http://localhost:9000/build/assets/imgs/sc-logo.png"></a>\n            </div>\n\n            <div id="headerImage">\n                <img src="http://localhost:9000/build/assets/imgs/animated-topbanner-flash.gif">\n            </div>\n\n            <!--<div class="animation-wrapper">-->\n            <!--<img src="http://localhost:9000/build/assets/imgs/video-hub-topbanner.png" class="bg">-->\n\n            <!--<div class="animated-text"></div>-->\n            <!--</div>-->\n\n        </header>\n\n\n        <div id="mainVideoContainer"></div>\n\n\n        <div class="contentBlock" id="other-videos">\n            <div class="separator"></div>\n\n            <h4 class="sectionHeading">Other videos</h4>\n\n            <div class="contentBlock-inner">\n                <!--<div id="allEpisodesContainer">-->\n                {{#videos}}\n                <div class="episodeBlock {{id}} inactiveVideo" data-video-id="{{id}}">\n\n                    <div class="thumb-wrapper">\n                        <button data-video-id="{{id}}" class="play-button">\n                            <span></span>\n                        </button>\n                        <img src="{{thumbnails.high.url}}">\n                    </div>\n\n                    <div class="episodeBlockContent">\n                        <h2>{{title}}</h2>\n\n                        <p>{{{shortDescription}}}</p>\n                        <!--<p>{{{description}}}</p>-->\n                    </div>\n                </div>\n                {{/videos}}\n\n                {{#comingSoonVideos}}\n                <div class="episodeBlock coming-soon">\n\n                    <div class="thumb-wrapper">\n                        <img src="assets/imgs/videos/{{img}}">\n                    </div>\n\n                    <div class="episodeBlockContent">\n                        <h2>{{title}} - To be decrypted on {{date}}</h2>\n\n                        <p>{{{shortDescription}}}</p>\n                    </div>\n                </div>\n                {{/comingSoonVideos}}\n                <!--</div>-->\n            </div>\n        </div>\n\n\n        <div class="contentBlock" id="signup">\n            <h4 class="sectionHeading">More content</h4>\n\n            <div id="signupBox" class="contentBlock-inner">\n\n                <div id="signupInformation">\n                    <h2>Subscribe here for the remaining videos</h2>\n\n                    <p>Enter your email address and we will send you a reminder when new episodes arrive</p>\n                </div>\n\n                <div id="signupForm">\n                    <iframe id="form" scrolling="no" frameborder="none" width="100%" height="40px"\n                            src="form.html"></iframe>\n                    <!--<iframe id="form" scrolling="no" frameborder="none" width="100%" height="40px"-->\n                            <!--src="http://interactive.guim.co.uk/visuals-blank-page/watch-me-date/form.html"></iframe>-->\n                </div>\n\n            </div>\n        </div>\n\n\n        <div class="contentBlock" id="about">\n            <!--<div class="separator"></div>-->\n\n            <h4 class="sectionHeading">About Silent Circle</h4>\n\n            <div class="contentBlock-inner">\n                <p class="half-width no-margin-top">\n                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam elementum quis justo at blandit. Nulla ante neque, scelerisque eu ante ut, aliquam egestas dolor. Proin a auctor massa. Vestibulum bibendum neque sit amet metus dignissim viverra. Quisque pellentesque velit lectus, ac vestibulum mi suscipit sit amet. Fusce nec pharetra tellus, quis egestas sem. Aliquam quis sodales enim. Phasellus a risus non libero mattis pretium. Aliquam bibendum imperdiet neque ac vulputate. Morbi ut dignissim enim, sit amet sagittis lorem. Nulla sed auctor nisi. Nunc pharetra, eros vulputate tempor interdum, quam est volutpat est, sit amet tincidunt purus mi sed enim. Maecenas nulla eros, cursus ut ipsum ac, hendrerit ultrices ipsum. Nullam porta et libero et dapibus. Maecenas pharetra sapien odio, non vulputate nunc elementum ut. Nam pulvinar sem vitae urna pulvinar, a ornare quam posuere.\n                </p>\n            </div>\n        </div>\n\n\n        <div class="contentBlock" id="how-safe">\n            <!--<div class="separator"></div>-->\n\n            <h4 class="sectionHeading">Quiz</h4>\n\n            <div class="contentBlock-inner">\n                <h2>How safe is your business?</h2>\n\n                <p class="half-width">\n                    Click here to put your company to the test. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam elementum quis justo at blandit.\n                </p>\n            </div>\n        </div>\n\n\n    </div>\n\n\n    <!--<footer>-->\n    <!--<div id="soulmatesBanner">-->\n    <!--<div class="advertContainer">-->\n    <!--<p>Sign up here for a free three-day trial of Guardian Soulmates</p>-->\n    <!--<img src="http://localhost:9000/build/assets/imgs/soulmatesIcon.svg" id="soulmatesIcon"/>-->\n    <!--<a href="https://soulmates.theguardian.com/subscribe/freefebruary">-->\n    <!--Join Now-->\n    <!--<span id=""><img src="http://localhost:9000/build/assets/imgs/soulmatesArrow.png"/></span>-->\n    <!--</a>-->\n    <!--</div>-->\n    <!--</div>-->\n    <!--{{#isWeb}}-->\n    <!--<div id="footerContent">-->\n    <!--<ul class="colophon u-cf">-->\n    <!--<li class="colophon__item"><a data-link-name="uk : footer : membership"-->\n    <!--href="https://membership.theguardian.com/?INTCMP=NGW_FOOTER_UK_GU_MEMBERSHIP">-->\n    <!--membership</a></li>-->\n    <!--<li class="colophon__item"><a data-link-name="uk : footer : jobs"-->\n    <!--href="http://jobs.theguardian.com/?INTCMP=NGW_FOOTER_UK_GU_JOBS">-->\n    <!--jobs</a></li>-->\n    <!--<li class="colophon__item"><a data-link-name="uk : footer : soulmates"-->\n    <!--href="https://soulmates.theguardian.com/?INTCMP=NGW_FOOTER_UK_GU_SOULMATES">-->\n    <!--dating</a></li>-->\n    <!--<li class="colophon__item"><a data-link-name="uk : footer : masterclasses"-->\n    <!--href="/guardian-masterclasses?INTCMP=NGW_FOOTER_UK_GU_MASTERCLASSES">-->\n    <!--masterclasses</a></li>-->\n    <!--<li class="colophon__item"><a data-link-name="uk : footer : subscribe" target="_blank"-->\n    <!--href="http://subscribe.theguardian.com/?INTCMP=NGW_FOOTER_UK_GU_SUBSCRIBE">-->\n    <!--subscribe</a></li>-->\n    <!--<li class="colophon__item"><a data-link-name="all topics" href="/index/subjects/a">all topics</a></li>-->\n    <!--<li class="colophon__item"><a data-link-name="all contributors" href="/index/contributors">all-->\n    <!--contributors</a></li>-->\n    <!--<li class="colophon__item"><a data-link-name="uk : footer : about us" target="_blank" href="/info">-->\n    <!--about us</a></li>-->\n    <!--<li class="colophon__item"><a data-link-name="uk : footer : contact us" target="_blank"-->\n    <!--href="/help/contact-us">-->\n    <!--contact us</a></li>-->\n    <!--<li class="colophon__item"><a data-link-name="complaints" href="/info/complaints-and-corrections">-->\n    <!--complaints &amp; corrections</a></li>-->\n    <!--<li class="colophon__item"><a data-link-name="terms" href="/help/terms-of-service">terms &amp;-->\n    <!--conditions</a></li>-->\n    <!--<li class="colophon__item"><a data-link-name="privacy" href="/help/privacy-policy">privacy policy</a>-->\n    <!--</li>-->\n    <!--<li class="colophon__item"><a data-link-name="cookie" href="/info/cookies">cookie policy</a></li>-->\n    <!--<li class="colophon__item"><a data-link-name="securedrop" href="https://securedrop.theguardian.com/">securedrop</a>-->\n    <!--</li>-->\n    <!--</ul>-->\n    <!--<div class="l-footer__misc">-->\n    <!--<div class="really-serious-copyright">© 2015 Guardian News and Media Limited or its affiliated-->\n    <!--companies. All&nbsp;rights&nbsp;reserved.-->\n    <!--</div>-->\n    <!--</div>-->\n    <!--</div>-->\n    <!--{{/isWeb}}-->\n    <!--</footer>-->\n\n\n</div>\n';});
+define('text!templates/appTemplate.html',[],function () { return '<div class="guInteractive">\n    <div id="content">\n\n\n        <header id="headerContainer">\n            <!--<div id="headerImage">-->\n            <!--<img src="http://localhost:9000/build/assets/imgs/header.jpg"/>-->\n            <!--</div>-->\n\n            <div id="sc-logo">\n                <a href="#"><img src="http://localhost:9000/build/assets/imgs/sc-logo.png"></a>\n            </div>\n\n            <div id="headerImage">\n                <img src="http://localhost:9000/build/assets/imgs/animated-topbanner-flash.gif">\n            </div>\n\n            <!--<div class="animation-wrapper">-->\n            <!--<img src="http://localhost:9000/build/assets/imgs/video-hub-topbanner.png" class="bg">-->\n\n            <!--<div class="animated-text"></div>-->\n            <!--</div>-->\n\n        </header>\n\n\n        <div id="mainVideoContainer"></div>\n\n\n        <div class="contentBlock" id="other-videos">\n            <div class="separator"></div>\n\n            <h4 class="sectionHeading">Other videos</h4>\n\n            <div class="contentBlock-inner">\n                <!--<div id="allEpisodesContainer">-->\n                {{#videos}}\n                <div class="episodeBlock {{id}} inactiveVideo" data-video-id="{{id}}">\n\n                    <div class="thumb-wrapper">\n                        <button data-video-id="{{id}}" class="play-button">\n                            <span></span>\n                        </button>\n                        <img src="{{thumbnails.maxres.url}}">\n                    </div>\n\n                    <div class="episodeBlockContent">\n                        <h2>{{title}}</h2>\n\n                        <p>{{{shortDescription}}}</p>\n                        <!--<p>{{{description}}}</p>-->\n                    </div>\n                </div>\n                {{/videos}}\n\n                {{#comingSoonVideos}}\n                <div class="episodeBlock coming-soon">\n\n                    <div class="thumb-wrapper">\n                        <img src="assets/imgs/videos/{{img}}">\n                    </div>\n\n                    <div class="episodeBlockContent">\n                        <h2>{{title}} - To be decrypted on {{date}}</h2>\n\n                        <p>{{{shortDescription}}}</p>\n                    </div>\n                </div>\n                {{/comingSoonVideos}}\n                <!--</div>-->\n            </div>\n        </div>\n\n\n        <div class="contentBlock" id="signup">\n            <h4 class="sectionHeading">More content</h4>\n\n            <div id="signupBox" class="contentBlock-inner">\n\n                <div id="signupInformation">\n                    <h2>Subscribe here for the remaining videos</h2>\n\n                    <p>Enter your email address and we will send you a reminder when new episodes arrive</p>\n                </div>\n\n                <div id="signupForm">\n                    <iframe id="form" scrolling="no" frameborder="none" width="100%" height="40px"\n                            src="form.html"></iframe>\n                    <!--<iframe id="form" scrolling="no" frameborder="none" width="100%" height="40px"-->\n                            <!--src="http://interactive.guim.co.uk/visuals-blank-page/watch-me-date/form.html"></iframe>-->\n                </div>\n\n            </div>\n        </div>\n\n\n        <div class="contentBlock" id="about">\n            <!--<div class="separator"></div>-->\n\n            <h4 class="sectionHeading">About Silent Circle</h4>\n\n            <div class="contentBlock-inner">\n                <p class="half-width no-margin-top">\n                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam elementum quis justo at blandit. Nulla ante neque, scelerisque eu ante ut, aliquam egestas dolor. Proin a auctor massa. Vestibulum bibendum neque sit amet metus dignissim viverra. Quisque pellentesque velit lectus, ac vestibulum mi suscipit sit amet. Fusce nec pharetra tellus, quis egestas sem. Aliquam quis sodales enim. Phasellus a risus non libero mattis pretium. Aliquam bibendum imperdiet neque ac vulputate. Morbi ut dignissim enim, sit amet sagittis lorem. Nulla sed auctor nisi. Nunc pharetra, eros vulputate tempor interdum, quam est volutpat est, sit amet tincidunt purus mi sed enim. Maecenas nulla eros, cursus ut ipsum ac, hendrerit ultrices ipsum. Nullam porta et libero et dapibus. Maecenas pharetra sapien odio, non vulputate nunc elementum ut. Nam pulvinar sem vitae urna pulvinar, a ornare quam posuere.\n                </p>\n            </div>\n        </div>\n\n\n        <div class="contentBlock" id="how-safe">\n            <!--<div class="separator"></div>-->\n\n            <h4 class="sectionHeading">Quiz</h4>\n\n            <div class="contentBlock-inner">\n                <h2>How safe is your business?</h2>\n\n                <p class="half-width">\n                    Click here to put your company to the test. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam elementum quis justo at blandit.\n                </p>\n            </div>\n        </div>\n\n\n    </div>\n\n\n</div>\n';});
 
 
-define('text!templates/mainVideo.html',[],function () { return '{{#mainEpisode}}\n<div id="mainEpisode" class="contentBlock">\n\n    <div id="mainEpisodeVideo">\n\n        <div id="big-play-btn-wrapper">\n            <button id="big-play-btn" data-video-id="{{id}}" class="startVideo play-button">\n                <span></span>\n            </button>\n        </div>\n\n        <div id="backgroundContainer">\n\n            <!--Poster image for youtube video-->\n            <img id="backgroundImage" src="{{thumbnails.maxres.url}}"/>\n\n            <!-- Custom player + YouTube iframe will be injected here -->\n            <div id="videoContainer"></div>\n\n            <!--Big play button-->\n            <button data-video-id="{{id}}" class="startVideo"><span></span></button>\n\n            <!--End slate appearing at the end of the video-->\n            <div id="endslate"></div>\n\n        </div>\n    </div>\n\n    <div class="contentBlock">\n        <h4 class="sectionHeading">&nbsp;</h4>\n\n        <div class="contentBlock-inner">\n            <div id="mainEpisodeContent">\n                <h3>{{title}}</h3>\n\n                <p id="episodeDescription">{{{description}}}</p>\n\n                <div id="shareButtons">\n                    <button data-source="twitter" id="shareTwitter" data-video-id="{{id}}"></button>\n                    <button data-source="facebook" id="shareFacebook" data-video-id="{{id}}"></button>\n                </div>\n            </div>\n        </div>\n\n    </div>\n\n</div>\n{{/mainEpisode}}\n';});
+define('text!templates/mainVideo.html',[],function () { return '{{#mainEpisode}}\n<div id="mainEpisode" class="contentBlock">\n\n    <div id="mainEpisodeVideo">\n\n        <div id="big-play-btn-wrapper">\n            <button id="big-play-btn" data-video-id="{{id}}" class="startVideo play-button">\n                <span></span>\n            </button>\n        </div>\n\n        <div id="backgroundContainer">\n\n            <!--Cover for transitions-->\n            <div class="transition-cover"></div>\n\n            <!--Poster image for youtube video-->\n            <img id="backgroundImage" src="{{thumbnails.maxres.url}}"/>\n\n            <!-- Custom player + YouTube iframe will be injected here -->\n            <div id="videoContainer"></div>\n\n            <!--Big play button-->\n            <button data-video-id="{{id}}" class="startVideo"><span></span></button>\n\n            <!--End slate appearing at the end of the video-->\n            <div id="endslate"></div>\n\n        </div>\n    </div>\n\n    <div class="contentBlock">\n        <h4 class="sectionHeading">&nbsp;</h4>\n\n        <div class="contentBlock-inner">\n            <div id="mainEpisodeContent">\n                <h3>{{title}}</h3>\n\n                <p id="episodeDescription">{{{description}}}</p>\n\n                <div id="shareButtons">\n                    <button data-source="twitter" id="shareTwitter" data-video-id="{{id}}"></button>\n                    <button data-source="facebook" id="shareFacebook" data-video-id="{{id}}"></button>\n                </div>\n            </div>\n        </div>\n\n    </div>\n\n</div>\n{{/mainEpisode}}\n';});
 
 
 define('text!yt-player-icon-play-pause',[],function () { return '<svg class="svg yt-play-pause" xmlns="http://www.w3.org/2000/svg" width="32" height="32">\n    <circle fill="#ff827f" cx="16" cy="16" r="16"/>\n    <path class="yt-play" fill="#333" d="M23 15.67L12 11l-.99.3v9.257l1 .3 11-4.67v-.5"/>\n    <path class="yt-pause" fill="#333" d="M14 22h-3V11.1l1-1.1h2v12m4-12h3v10.9L20 22h-2V10"/>\n</svg>\n\n';});
@@ -15003,7 +15003,7 @@ define( 'yt-player',[
         this.$volumeLevel = this.$elem.find( '.yt-volume-level' );
       }
 
-      if (this.isIOs) {
+      if ( this.isIOs ) {
         this.$fullscreenBtn.remove();
       }
 
@@ -15096,7 +15096,6 @@ define( 'yt-player',[
     },
 
     onYoutubePlayerBuffer: function () {
-
       this.options.onVideoBuffer.call( this );
 
       this.trigger( 'buffer' );
@@ -15888,11 +15887,11 @@ define( 'views/endslateView',[
     },
 
     show: function () {
-      this.$el.fadeIn();
+      this.$el.velocity('fadeIn', {duration: 400});
     },
 
     hide: function () {
-      this.$el.fadeOut( 200 );
+      this.$el.velocity('fadeOut', {duration: 200});
     }
 
   } );
@@ -15960,13 +15959,16 @@ define( 'views/mainVideo',[
 
     shareVideo: function ( e ) {
 
+      console.log(this.videoData.thumbnails.maxres.url)
+
       var twitterBaseUrl = "https://twitter.com/home?status=";
       var facebookBaseUrl = "https://www.facebook.com/dialog/feed?display=popup&app_id=741666719251986&link=";
       var sharemessage = " were both given Google Glass and sent on a date. What happens next? #WatchMeDate ";
       var network = $( e.currentTarget ).attr( 'data-source' ); //make sure to add the network (pinterest,twitter,etc) as a classname to the target
       var shareWindow = "";
       var queryString = "?videoId=" + this.videoData.id;
-      var coupleImage = "http://localhost:9000/build/assets/imgs/dates/" + this.videoData.id + '_1260.jpg';
+      var videoImg = this.videoData.thumbnails.maxres.url;
+//      var coupleImage = "http://localhost:9000/build/assets/imgs/dates/" + this.videoData.id + '_1260.jpg';
       var guardianUrl = "http://www.theguardian.com/lifeandstyle/ng-interactive/2015/feb/12/watch-me-date" + queryString;
 
       if ( network === "twitter" ) {
@@ -15981,7 +15983,7 @@ define( 'views/mainVideo',[
           facebookBaseUrl +
             encodeURIComponent( guardianUrl ) +
             "&picture=" +
-            encodeURIComponent( coupleImage ) +
+            encodeURIComponent( videoImg ) +
             "&redirect_uri=http://www.theguardian.com";
       }
       window.open( shareWindow, network + "share", "width=640, height=320" );
@@ -16050,16 +16052,37 @@ define( 'views/mainVideo',[
       $( '#mainEpisode' ).addClass( 'videoPlaying' );
     },
 
+
+    hideCover: function () {
+
+      var $transitionCover = $( '#backgroundContainer .transition-cover' );
+
+      $transitionCover.velocity( 'fadeOut', {
+        duration: 800,
+        complete: function () {
+          $( this ).css( 'display', 'none' );
+        }
+      } );
+
+    },
+
     onVideoReady: function ( event ) {
 //      console.log( 'player ready' );
       // 'this' represents the YoutubeCustomPlayer instance
       // 'this.ytplayer' represents the YouTube player object to access the Iframe API
 //        console.log( this.ytplayer );
 
+      this.hideCover();
+
       if ( !this.isTouch ) {
-        $( '#backgroundImage, #big-play-btn-wrapper' ).fadeOut( 500, function () {
-          $( '#mainEpisode' ).addClass( 'videoPlaying' );
+
+        $( '#backgroundImage, #big-play-btn-wrapper' ).velocity( 'fadeOut', {
+          duration: 800,
+          complete: function () {
+            $( '#mainEpisode' ).addClass( 'videoPlaying' );
+          }
         } );
+
       } else if ( this.isPhone ) {
         // phone
         $( '#backgroundImage' ).remove();
@@ -16077,12 +16100,12 @@ define( 'views/mainVideo',[
 
 
     onVideoEnd: function () {
-      console.log( 'video ENDED' );
+//      console.log( 'video ENDED' );
 //      console.log(this);
 
       // Show big play btn
       if ( !this.isPhone ) {
-        $( '#backgroundImage, #big-play-btn-wrapper' ).fadeIn();
+        $( '#backgroundImage, #big-play-btn-wrapper' ).velocity( 'fadeIn', {duration: 400} );
       }
 
       $( '#big-play-btn' ).removeClass( 'startVideo' );
@@ -16118,14 +16141,14 @@ define( 'views/mainVideo',[
 
     },
 
-    update: function(videoData) {
-      console.log(videoData);
+    update: function ( videoData ) {
+      console.log( videoData );
 
-      var $mainEpisodeContent = this.$('mainEpisodeContent');
+      var $mainEpisodeContent = this.$( 'mainEpisodeContent' );
 
-      $mainEpisodeContent.find( 'h3' ).html(videoData.title);
-      $mainEpisodeContent.find( 'p' ).html(videoData.description);
-      $mainEpisodeContent.find( "[data-video-id='" + this.lastVideoId + "']" ).html(videoData.id);
+      $mainEpisodeContent.find( 'h3' ).html( videoData.title );
+      $mainEpisodeContent.find( 'p' ).html( videoData.description );
+      $mainEpisodeContent.find( "[data-video-id='" + this.lastVideoId + "']" ).html( videoData.id );
 
       this.lastVideoId = videoData.id;
     },
@@ -16155,7 +16178,7 @@ define( 'views/mainVideo',[
 
       // Remove video poster and play btn on touch devices to avoid 2 clicks to play
 //      if ( this.isTouch ) {
-        this.renderVideo();
+      this.renderVideo();
 //      }
 
       return this;
@@ -20876,8 +20899,18 @@ define( 'views/appView',[
       var currentScrolltop = $( 'body' ).scrollTop();
       var videoOffset = $( '#mainEpisode' ).offset().top - 40;
       var diff = currentScrolltop - videoOffset;
+      var $transitionCover = $('#backgroundContainer .transition-cover');
 
       this.mainEpisode = foundValue;
+
+      // Show cover
+      $transitionCover.show().css('opacity', 1);
+
+      // Pause the player
+      if (this.mainVideo.ytplayer && this.mainVideo.ytplayer.isReady)
+        this.mainVideo.ytplayer.pause();
+
+//      console.log(this.mainVideo.ytplayer);
 
 //      window.ga( 'send', {
 //        'hitType': 'event',          // Required.
@@ -20886,6 +20919,7 @@ define( 'views/appView',[
 //        'eventLabel': videoId
 //      } );
 
+      // Scroll up to show the video area
       $( 'html,body' ).velocity( 'scroll', {
         duration: diff,
         offset: videoOffset,

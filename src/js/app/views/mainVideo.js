@@ -60,13 +60,16 @@ define( [
 
     shareVideo: function ( e ) {
 
+      console.log(this.videoData.thumbnails.maxres.url)
+
       var twitterBaseUrl = "https://twitter.com/home?status=";
       var facebookBaseUrl = "https://www.facebook.com/dialog/feed?display=popup&app_id=741666719251986&link=";
       var sharemessage = " were both given Google Glass and sent on a date. What happens next? #WatchMeDate ";
       var network = $( e.currentTarget ).attr( 'data-source' ); //make sure to add the network (pinterest,twitter,etc) as a classname to the target
       var shareWindow = "";
       var queryString = "?videoId=" + this.videoData.id;
-      var coupleImage = "{{assets}}/imgs/dates/" + this.videoData.id + '_1260.jpg';
+      var videoImg = this.videoData.thumbnails.maxres.url;
+//      var coupleImage = "{{assets}}/imgs/dates/" + this.videoData.id + '_1260.jpg';
       var guardianUrl = "http://www.theguardian.com/lifeandstyle/ng-interactive/2015/feb/12/watch-me-date" + queryString;
 
       if ( network === "twitter" ) {
@@ -81,7 +84,7 @@ define( [
           facebookBaseUrl +
             encodeURIComponent( guardianUrl ) +
             "&picture=" +
-            encodeURIComponent( coupleImage ) +
+            encodeURIComponent( videoImg ) +
             "&redirect_uri=http://www.theguardian.com";
       }
       window.open( shareWindow, network + "share", "width=640, height=320" );
@@ -150,16 +153,37 @@ define( [
       $( '#mainEpisode' ).addClass( 'videoPlaying' );
     },
 
+
+    hideCover: function () {
+
+      var $transitionCover = $( '#backgroundContainer .transition-cover' );
+
+      $transitionCover.velocity( 'fadeOut', {
+        duration: 800,
+        complete: function () {
+          $( this ).css( 'display', 'none' );
+        }
+      } );
+
+    },
+
     onVideoReady: function ( event ) {
 //      console.log( 'player ready' );
       // 'this' represents the YoutubeCustomPlayer instance
       // 'this.ytplayer' represents the YouTube player object to access the Iframe API
 //        console.log( this.ytplayer );
 
+      this.hideCover();
+
       if ( !this.isTouch ) {
-        $( '#backgroundImage, #big-play-btn-wrapper' ).fadeOut( 500, function () {
-          $( '#mainEpisode' ).addClass( 'videoPlaying' );
+
+        $( '#backgroundImage, #big-play-btn-wrapper' ).velocity( 'fadeOut', {
+          duration: 800,
+          complete: function () {
+            $( '#mainEpisode' ).addClass( 'videoPlaying' );
+          }
         } );
+
       } else if ( this.isPhone ) {
         // phone
         $( '#backgroundImage' ).remove();
@@ -177,12 +201,12 @@ define( [
 
 
     onVideoEnd: function () {
-      console.log( 'video ENDED' );
+//      console.log( 'video ENDED' );
 //      console.log(this);
 
       // Show big play btn
       if ( !this.isPhone ) {
-        $( '#backgroundImage, #big-play-btn-wrapper' ).fadeIn();
+        $( '#backgroundImage, #big-play-btn-wrapper' ).velocity( 'fadeIn', {duration: 400} );
       }
 
       $( '#big-play-btn' ).removeClass( 'startVideo' );
@@ -218,14 +242,14 @@ define( [
 
     },
 
-    update: function(videoData) {
-      console.log(videoData);
+    update: function ( videoData ) {
+      console.log( videoData );
 
-      var $mainEpisodeContent = this.$('mainEpisodeContent');
+      var $mainEpisodeContent = this.$( 'mainEpisodeContent' );
 
-      $mainEpisodeContent.find( 'h3' ).html(videoData.title);
-      $mainEpisodeContent.find( 'p' ).html(videoData.description);
-      $mainEpisodeContent.find( "[data-video-id='" + this.lastVideoId + "']" ).html(videoData.id);
+      $mainEpisodeContent.find( 'h3' ).html( videoData.title );
+      $mainEpisodeContent.find( 'p' ).html( videoData.description );
+      $mainEpisodeContent.find( "[data-video-id='" + this.lastVideoId + "']" ).html( videoData.id );
 
       this.lastVideoId = videoData.id;
     },
@@ -255,7 +279,7 @@ define( [
 
       // Remove video poster and play btn on touch devices to avoid 2 clicks to play
 //      if ( this.isTouch ) {
-        this.renderVideo();
+      this.renderVideo();
 //      }
 
       return this;

@@ -2045,6 +2045,31 @@ body.touch .guInteractive #endslate .videos-wrapper .inner-container .video img 
     display: block;
   }
 }
+.guInteractive #backgroundContainer {
+  position: relative;
+  font-size: 0;
+}
+.guInteractive #backgroundContainer img {
+  width: 100%;
+}
+.guInteractive #backgroundContainer button {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -khtml-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+.guInteractive #backgroundContainer .transition-cover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  z-index: 1000;
+  display: none;
+  opacity: 0;
+}
 .guInteractive iframe {
   border: none;
 }
@@ -2113,22 +2138,6 @@ body.touch .guInteractive #endslate .videos-wrapper .inner-container .video img 
 .guInteractive #episodeQuote {
   font-family: "Guardian Egyptian Web", "Egyptian Display", "Guardian Text Egyptian Web", "Egyptian Text", Georgia, serif;
   font-size: 20px;
-}
-.guInteractive #backgroundContainer {
-  position: relative;
-  font-size: 0;
-}
-.guInteractive #backgroundContainer img {
-  width: 100%;
-}
-.guInteractive #backgroundContainer button {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-  -khtml-transform: translateX(-50%) translateY(-50%);
-  -ms-transform: translateX(-50%) translateY(-50%);
-  transform: translateX(-50%) translateY(-50%);
 }
 .guInteractive #backgroundLayer {
   position: relative;

@@ -265,7 +265,7 @@ define( [
         this.$volumeLevel = this.$elem.find( '.yt-volume-level' );
       }
 
-      if (this.isIOs) {
+      if ( this.isIOs ) {
         this.$fullscreenBtn.remove();
       }
 
@@ -358,7 +358,6 @@ define( [
     },
 
     onYoutubePlayerBuffer: function () {
-
       this.options.onVideoBuffer.call( this );
 
       this.trigger( 'buffer' );

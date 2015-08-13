@@ -37,6 +37,7 @@ body {
   @import 'sections/how-safe';
   @import 'sections/signup';
   @import 'sections/endslate';
+  @import 'sections/background-container';
 
   iframe {
     border: none;
@@ -120,20 +121,7 @@ body {
     font-size: 20px;
   }
 
-  #backgroundContainer {
-    position: relative;
-    font-size: 0;
-//    margin: 0 -10px;
-    img {
-      width: 100%;
-    }
-    button {
-      position: absolute;
-      top: 40%;
-      left: 50%;
-      @include css3-prefix(transform, translateX(-50%) translateY(-50%));
-    }
-  }
+
 
   #backgroundLayer {
     position: relative;

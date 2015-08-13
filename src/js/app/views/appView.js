@@ -81,8 +81,18 @@ define( [
       var currentScrolltop = $( 'body' ).scrollTop();
       var videoOffset = $( '#mainEpisode' ).offset().top - 40;
       var diff = currentScrolltop - videoOffset;
+      var $transitionCover = $('#backgroundContainer .transition-cover');
 
       this.mainEpisode = foundValue;
+
+      // Show cover
+      $transitionCover.show().css('opacity', 1);
+
+      // Pause the player
+      if (this.mainVideo.ytplayer && this.mainVideo.ytplayer.isReady)
+        this.mainVideo.ytplayer.pause();
+
+//      console.log(this.mainVideo.ytplayer);
 
 //      window.ga( 'send', {
 //        'hitType': 'event',          // Required.
@@ -91,6 +101,7 @@ define( [
 //        'eventLabel': videoId
 //      } );
 
+      // Scroll up to show the video area
       $( 'html,body' ).velocity( 'scroll', {
         duration: diff,
         offset: videoOffset,
