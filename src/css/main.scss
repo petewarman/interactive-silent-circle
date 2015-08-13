@@ -3,6 +3,7 @@
  * File:    Main SCSS
  */
 
+$imgs-path: "../imgs/";
 $guss-webfonts-base-url: '//pasteup.guim.co.uk/fonts/';
 
 @import 'bower_components/pasteup-palette/src/_palette';
@@ -12,17 +13,17 @@ $guss-webfonts-base-url: '//pasteup.guim.co.uk/fonts/';
 @import 'mixins';
 @import 'partials/reset';
 @import 'partials/fonts';
-
 @import 'site';
+
 @include guss-webfonts();
 @include guss-typography-defaults;
-
 
 
 #article-body.interactivePadding{
     padding-left:0;
     padding-right:0;
 }
+
 
 #article-header.interactiveHide{
     display:none;

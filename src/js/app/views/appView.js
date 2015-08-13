@@ -80,7 +80,7 @@ define( [
       } );
       var currentScrolltop = $( 'body' ).scrollTop();
       var videoOffset = $( '#mainEpisode' ).offset().top - 40;
-      var diff = currentScrolltop - videoOffset;
+      var diff = Math.abs(currentScrolltop - videoOffset);
       var $transitionCover = $('#backgroundContainer .transition-cover');
 
       this.mainEpisode = foundValue;

@@ -16,6 +16,15 @@
     position: relative;
     font-size: 20px;
 
+    img,
+    span {
+      display: block;
+    }
+
+    img {
+      margin: 10px 0;
+    }
+
     @media(min-width: 980px) {
       .sectionHeading {
         font-size: 22px;

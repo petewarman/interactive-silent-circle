@@ -16,7 +16,7 @@
     display: block;
     width: 26px;
     height: 22px;
-    background-image: url(../imgs/playArrow.svg);
+    background-image: url('#{$imgs-path}playArrow.svg');
     top: 50%;
     left: 50%;
     margin-left: -11px;

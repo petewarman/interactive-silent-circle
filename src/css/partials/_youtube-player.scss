@@ -2,7 +2,7 @@
     $YOUTUBE CUSTOM SKIN
 \*------------------------------------*/
 
-$yt-asset-path: "../imgs/";
+$yt-asset-path: $imgs-path;
 $highlight-color: $accent-color;
 $yt-controls-height: $yt-player-controls-height;
 $buffer-color: #999;
