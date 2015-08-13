@@ -2,11 +2,19 @@
 
 ## Setup
 
+```
+npm install
+bower install
+```
+See ```package.json``` and ```bower.json```
 
 
-## How to build the application
+## Build + watch + server
 
-
+```
+grunt
+```
+See Gruntfile.js
 
 
 ## @TODO
