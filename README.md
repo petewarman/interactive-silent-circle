@@ -2,17 +2,17 @@
 
 ## Setup
 
-```
-npm install
-bower install
+```bash
+> npm install
+> bower install
 ```
 See ```package.json``` and ```bower.json```
 
 
 ## Build + watch + server
 
-```
-grunt
+```bash
+> grunt
 ```
 See ```Gruntfile.js```
 
@@ -20,10 +20,10 @@ See ```Gruntfile.js```
 ## @TODO
 
 - Update YouTube playlist ID in ```/src/js/app/main.js```
-```var playlistId = 'playlist ID here';
+```var playlistId = 'playlist ID here';```
 
 - Update Google Engine App key to get access to the YouTube Data API in ```/src/js/app/main.js``` (needed for subtitles and CC)
-```var youtubeDataApiKey = 'YouTube Data API Key here';````
+```var youtubeDataApiKey = 'YouTube Data API Key here';```
 
 
 - Add the thanks.html page url into Formstack.
