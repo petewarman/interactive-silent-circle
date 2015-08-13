@@ -26,7 +26,7 @@ If necessary, open ```Gruntfile.js``` and fix the file paths in the ```replace:l
 (The ```replace``` task replaces text strings in files: it is used mostly to create builds with different file paths for assets and fonts).
 
 ```
-replace: {
+    replace: {
       prod: {
         options: {
           patterns: [
@@ -48,13 +48,13 @@ replace: {
           patterns: [
             {
               match: /{{assets}}/g,
-              replacement: 'assets'
-              // replacement: 'http://localhost:' + pkg.config.port + '/build/assets'
+              // replacement: 'assets'
+              replacement: 'http://localhost:' + pkg.config.port + '/build/assets'
             },
             {
               match: /\/\/pasteup\.guim\.co\.uk\/fonts\/0\.1\.0/g,
-              // replacement: '/bower_components/guss-webfonts/webfonts'
-              replacement: '../../../bower_components/guss-webfonts/webfonts'
+              replacement: '/bower_components/guss-webfonts/webfonts'
+              // replacement: '../../../bower_components/guss-webfonts/webfonts'
             }
           ]
         },
