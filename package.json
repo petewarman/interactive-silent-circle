@@ -13,7 +13,7 @@
   },
   "homepage": "https://github.com/guardian/interactive-template",
   "config": {
-    "port": 9000,
+    "port": 8080,
     "s3_folder": "visuals-blank-page/watch-me-date/",
     "cdn_url": "http://interactive.guim.co.uk/visuals-blank-page/watch-me-date/",
     "data_url": "http://interactive.guim.co.uk/spreadsheetdata/1hy65wVx-pjwjSt2ZK7y4pRDlX9wMXFQbwKN0v3XgtXM.json"
