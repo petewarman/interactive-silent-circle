@@ -165,7 +165,6 @@ module.exports = function ( grunt ) {
           }
         ]
       }
-
     },
 
     s3: {
