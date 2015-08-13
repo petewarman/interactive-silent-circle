@@ -1,11 +1,19 @@
 #how-safe {
 
-  background-color: #424242;
-  padding: 20px 0;
+  background-color: $accent-color;
+//  padding: 20px 0;
 
+  .contentBlock-inner {
 
-  h4.sectionHeading {
-    display: none;
+    h2 {
+      color: #333;
+    }
+
   }
+
+
+//  h4.sectionHeading {
+//    display: none;
+//  }
 
 }

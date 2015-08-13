@@ -190,7 +190,7 @@ define( [
           video.publishedAt = comingSoon[i].publishedAt;
           video.title = comingSoon[i].title;
           video.description = comingSoon[i].description;
-          video.shortDescription = self.getShortDescription( video.description );
+          video.shortDescription = self.getShortDescription( comingSoon[i].description );
           video.img = comingSoon[i].img;
           video.date = self.formatDate( comingSoon[i].publishedAt );
           videos.push( video );
@@ -214,8 +214,8 @@ define( [
           video.id = item.resourceId.videoId;
           video.youtubeId = video.id;
           video.title = item.title;
-          video.description = item.description.replace( /\n/g, "<br>" );
-          video.shortDescription = self.getShortDescription( video.description );
+          video.description = item.description.replace( /\n/g, "<br>" ).trim();
+          video.shortDescription = self.getShortDescription( item.description );
 
           video.thumbnails = item.thumbnails;
           video.publishedAt = item.publishedAt;
@@ -231,9 +231,10 @@ define( [
     getShortDescription: function ( desc ) {
       var maxDescriptionLength = 80;
       var shortDesc = '';
-      if ( desc.length > 1 && desc.length < maxDescriptionLength ) {
-        shortDesc = desc.substring( 0, maxDescriptionLength ) + '...';
+      if ( desc.length > 1 && desc.length > maxDescriptionLength ) {
+        shortDesc = desc.substring( 0, maxDescriptionLength );
         shortDesc = shortDesc.replace( /\n/g, "<br>" ).trim();
+        shortDesc = shortDesc + '...';
       } else {
         shortDesc = desc;
       }
