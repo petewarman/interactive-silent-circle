@@ -195,7 +195,7 @@ module.exports = function ( grunt ) {
           patterns: [
             {
               match: /{{assets}}/g,
-              replacement: 'assets'
+              replacement: "http://labs.theguardian.com/2015/aug/silent-circle-video/assets"//'assets'
 //              replacement: 'http://localhost:' + pkg.config.port + '/build/assets'
             },
 //            {
