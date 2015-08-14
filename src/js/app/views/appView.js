@@ -187,6 +187,7 @@ define( [
       var videos = [];
       var items = playlistVideos;
       var playlistCount = items.length;
+
       var comingSoonCount = this.comingSoon.videos.length;
       var comingSoonToShow = comingSoonCount - playlistCount;
 

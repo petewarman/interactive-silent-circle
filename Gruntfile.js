@@ -43,7 +43,10 @@ module.exports = function ( grunt ) {
       css: { src: 'build/assets/css/*.css' }
     },
 
-    clean: ['build/'],
+    clean: {
+      local : ['build-local/'],
+      prod: ['build/']
+    },
 
     jshint: {
       options: {
@@ -108,12 +111,11 @@ module.exports = function ( grunt ) {
     },
 
     copy: {
-      build: {
+      prod: {
         files: [
           { src: 'src/index.html', dest: 'build/index.html' },
           { src: 'src/form.html', dest: 'build/form.html' },
           { src: 'src/thanks.html', dest: 'build/thanks.html' },
-          { src: 'src/ngw.html', dest: 'build/ngw.html' },
           { src: 'src/js/libs/curl.js', dest: 'build/assets/js/curl.js' },
           { src: 'src/boot.js', dest: 'build/boot.js' },
           { cwd: 'src/', src: 'imgs/**', dest: 'build/assets/', expand: true},
@@ -123,17 +125,49 @@ module.exports = function ( grunt ) {
 
           { src: 'src/js/libs/require.js', dest: 'build/assets/js/require.js' }
         ]
+      },
+      local: {
+        files: [
+          {  cwd: 'build/', src: 'assets/**', dest: 'build-local/', expand: true },
+
+          { src: 'src/index.html', dest: 'build-local/index.html' },
+          { src: 'src/form.html', dest: 'build-local/form.html' },
+          { src: 'src/thanks.html', dest: 'build-local/thanks.html' },
+          { src: 'src/boot.js', dest: 'build-local/boot.js' }
+        ]
       }
     },
 
     replace: {
+//      prod: {
+//        options: {
+//          patterns: [
+//            {
+//              match: /{{assets}}/g,
+//              replacement: pkg.config.cdn_url + 'assets-' + currentTime
+//            }
+//          ]
+//        },
+//        files: [
+//          {
+//            src: ['build/*.html', 'build/**/*.js', 'build/**/*.css'],
+//            dest: './'
+//          }
+//        ]
+//      },
       prod: {
         options: {
           patterns: [
             {
               match: /{{assets}}/g,
-              replacement: pkg.config.cdn_url + 'assets-' + currentTime
-            }
+              replacement: 'assets'
+//              replacement: 'http://localhost:' + pkg.config.port + '/build/assets'
+            },
+//            {
+//              match: /\/\/pasteup\.guim\.co\.uk\/fonts\/0\.1\.0/g,
+//              replacement: '/bower_components/guss-webfonts/webfonts'
+////              replacement: '../../../bower_components/guss-webfonts/webfonts'
+//            }
           ]
         },
         files: [
@@ -160,7 +194,7 @@ module.exports = function ( grunt ) {
         },
         files: [
           {
-            src: ['build/*.html', 'build/**/*.js', 'build/**/*.css'],
+            src: ['build-local/*.html', 'build-local/**/*.js', 'build-local/**/*.css'],
             dest: './'
           }
         ]
@@ -235,16 +269,26 @@ module.exports = function ( grunt ) {
   // Tasks
 //  grunt.registerTask('fetch', ['curl']);
 
-  grunt.registerTask( 'build', [
+  grunt.registerTask( 'build-prod', [
 //    'jshint',
-    'clean',
+    'clean:prod',
     'sass',
     'autoprefixer',
     'requirejs',
-    'copy'
+    'copy:prod',
+    'replace:prod'
   ] );
 
-  grunt.registerTask( 'default', ['build', 'replace:local', 'connect', 'watch'] );
+  grunt.registerTask( 'build-local', [
+    'clean:local', //
+    'copy:local',
+    'replace:local'
+  ] );
+
+  grunt.registerTask( 'default', ['build-prod', 'connect', 'watch'] );
+
+//  'build-local',
+
 //  grunt.registerTask( 'default', ['build', 'replace:local', 'watch'] );
 
   grunt.registerTask( 'deploy', [

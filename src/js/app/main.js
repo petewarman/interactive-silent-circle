@@ -27,6 +27,7 @@ define( [
 
   function getJsonData() {
     $.ajax( {
+      dataType: 'json',
       url: '{{assets}}/data/coming-soon.json',
       success: getPlaylistItems
     } );
@@ -39,6 +40,7 @@ define( [
     var url = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=' + playlistId + '&key=' + youtubeDataApiKey;
 
     $.ajax( {
+      dataType: 'json',
       url: url,
       success: youtubeReady
     } );
