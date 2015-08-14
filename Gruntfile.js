@@ -33,18 +33,22 @@ module.exports = function ( grunt ) {
         style: (isDev) ? 'expanded' : 'compressed',
         sourcemap: (isDev) ? 'inline' : 'none'
       },
-      build: {
+      prod: {
         files: { 'build/assets/css/main.css': 'src/css/main.scss' }
+      },
+      local: {
+        files: { 'build-local/assets/css/main.css': 'src/css/main.scss' }
       }
     },
 
     autoprefixer: {
       options: { map: true },
-      css: { src: 'build/assets/css/*.css' }
+      prod: { src: 'build/assets/css/*.css' },
+      local: { src: 'build-local/assets/css/*.css' }
     },
 
     clean: {
-      local : ['build-local/'],
+      local: ['build-local/'],
       prod: ['build/']
     },
 
@@ -57,7 +61,7 @@ module.exports = function ( grunt ) {
     },
 
     requirejs: {
-      compile: {
+      prod: {
         options: {
           baseUrl: './src/js/app/',
           mainConfigFile: './src/js/libs/configPaths.js',
@@ -65,6 +69,25 @@ module.exports = function ( grunt ) {
           inlineText: true,
           name: '../libs/almond',
           out: 'build/assets/js/main.js',
+          generateSourceMaps: true,
+          preserveLicenseComments: false,
+          include: ['main'],
+          wrap: {
+            start: 'define(["require"],function(require){var req=(function(){',
+            end: 'return require; }()); return req; });'
+          }
+
+        }
+      },
+
+      local: {
+        options: {
+          baseUrl: './src/js/app/',
+          mainConfigFile: './src/js/libs/configPaths.js',
+          optimize: (isDev) ? 'none' : 'uglify2',
+          inlineText: true,
+          name: '../libs/almond',
+          out: 'build-local/assets/js/main.js',
           generateSourceMaps: true,
           preserveLicenseComments: false,
           include: ['main'],
@@ -128,12 +151,24 @@ module.exports = function ( grunt ) {
       },
       local: {
         files: [
-          {  cwd: 'build/', src: 'assets/**', dest: 'build-local/', expand: true },
 
           { src: 'src/index.html', dest: 'build-local/index.html' },
           { src: 'src/form.html', dest: 'build-local/form.html' },
           { src: 'src/thanks.html', dest: 'build-local/thanks.html' },
-          { src: 'src/boot.js', dest: 'build-local/boot.js' }
+          { src: 'src/js/libs/curl.js', dest: 'build-local/assets/js/curl.js' },
+          { src: 'src/boot.js', dest: 'build-local/boot.js' },
+          { cwd: 'src/', src: 'imgs/**', dest: 'build-local/assets/', expand: true},
+
+          { src: 'src/data/coming-soon.json', dest: 'build-local/assets/data/coming-soon.json' },
+          { cwd: 'src/', src: 'fonts/**', dest: 'build-local/assets/', expand: true },
+
+          { src: 'src/js/libs/require.js', dest: 'build-local/assets/js/require.js' }
+
+//          {  cwd: 'build/', src: 'assets/**', dest: 'build-local/', expand: true },
+//          { src: 'src/index.html', dest: 'build-local/index.html' },
+//          { src: 'src/form.html', dest: 'build-local/form.html' },
+//          { src: 'src/thanks.html', dest: 'build-local/thanks.html' },
+//          { src: 'src/boot.js', dest: 'build-local/boot.js' }
         ]
       }
     },
@@ -269,23 +304,32 @@ module.exports = function ( grunt ) {
   // Tasks
 //  grunt.registerTask('fetch', ['curl']);
 
+  grunt.registerTask( 'build', [
+    'build-prod',
+    'build-local'
+  ]
+  );
+
   grunt.registerTask( 'build-prod', [
 //    'jshint',
     'clean:prod',
-    'sass',
-    'autoprefixer',
-    'requirejs',
+    'sass:prod',
+    'autoprefixer:prod',
+    'requirejs:prod',
     'copy:prod',
     'replace:prod'
   ] );
 
   grunt.registerTask( 'build-local', [
-    'clean:local', //
+    'clean:local',
+    'sass:local',
+    'autoprefixer:local',
+    'requirejs:local',
     'copy:local',
     'replace:local'
   ] );
 
-  grunt.registerTask( 'default', ['build-prod', 'connect', 'watch'] );
+  grunt.registerTask( 'default', ['build', 'connect', 'watch'] );
 
 //  'build-local',
 
