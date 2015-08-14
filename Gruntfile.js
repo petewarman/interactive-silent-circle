@@ -151,7 +151,6 @@ module.exports = function ( grunt ) {
       },
       local: {
         files: [
-
           { src: 'src/index.html', dest: 'build-local/index.html' },
           { src: 'src/form.html', dest: 'build-local/form.html' },
           { src: 'src/thanks.html', dest: 'build-local/thanks.html' },
@@ -163,33 +162,11 @@ module.exports = function ( grunt ) {
           { cwd: 'src/', src: 'fonts/**', dest: 'build-local/assets/', expand: true },
 
           { src: 'src/js/libs/require.js', dest: 'build-local/assets/js/require.js' }
-
-//          {  cwd: 'build/', src: 'assets/**', dest: 'build-local/', expand: true },
-//          { src: 'src/index.html', dest: 'build-local/index.html' },
-//          { src: 'src/form.html', dest: 'build-local/form.html' },
-//          { src: 'src/thanks.html', dest: 'build-local/thanks.html' },
-//          { src: 'src/boot.js', dest: 'build-local/boot.js' }
         ]
       }
     },
 
     replace: {
-//      prod: {
-//        options: {
-//          patterns: [
-//            {
-//              match: /{{assets}}/g,
-//              replacement: pkg.config.cdn_url + 'assets-' + currentTime
-//            }
-//          ]
-//        },
-//        files: [
-//          {
-//            src: ['build/*.html', 'build/**/*.js', 'build/**/*.css'],
-//            dest: './'
-//          }
-//        ]
-//      },
       prod: {
         options: {
           patterns: [
@@ -198,11 +175,11 @@ module.exports = function ( grunt ) {
               replacement: "http://labs.theguardian.com/2015/aug/silent-circle-video/assets"//'assets'
 //              replacement: 'http://localhost:' + pkg.config.port + '/build/assets'
             },
-//            {
-//              match: /\/\/pasteup\.guim\.co\.uk\/fonts\/0\.1\.0/g,
-//              replacement: '/bower_components/guss-webfonts/webfonts'
-////              replacement: '../../../bower_components/guss-webfonts/webfonts'
-//            }
+            {
+              match: /{{root}}/g,
+              replacement: "http://labs.theguardian.com/2015/aug/silent-circle-video"//'assets'
+//              replacement: 'http://localhost:' + pkg.config.port + '/build/assets'
+            }
           ]
         },
         files: [
@@ -223,7 +200,6 @@ module.exports = function ( grunt ) {
             {
               match: /\/\/pasteup\.guim\.co\.uk\/fonts\/0\.1\.0/g,
               replacement: '/bower_components/guss-webfonts/webfonts'
-//              replacement: '../../../bower_components/guss-webfonts/webfonts'
             }
           ]
         },
@@ -330,10 +306,6 @@ module.exports = function ( grunt ) {
   ] );
 
   grunt.registerTask( 'default', ['build', 'connect', 'watch'] );
-
-//  'build-local',
-
-//  grunt.registerTask( 'default', ['build', 'replace:local', 'watch'] );
 
   grunt.registerTask( 'deploy', [
     'build',
