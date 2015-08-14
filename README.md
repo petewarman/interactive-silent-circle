@@ -71,6 +71,8 @@ If necessary, open ```Gruntfile.js``` and fix the file paths in the ```replace:l
 
 ## @TODO
 
+- Update the file ```/src/data/coming-soon.json``` with "Coming soon" videos data
+
 - Update the YouTube playlist ID in ```/src/js/app/main.js```
 ```var playlistId = 'playlist ID here';```
 
