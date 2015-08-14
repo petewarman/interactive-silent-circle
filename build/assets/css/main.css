@@ -615,20 +615,6 @@ p {
   padding: 0;
 }
 
-@font-face {
-  font-family: 'de1_display_egyptian_thinRg';
-  src: url("../fonts/gdnegyde1thi-webfont.eot");
-  src: url("../fonts/gdnegyde1thi-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/gdnegyde1thi-webfont.woff2") format("woff2"), url("../fonts/gdnegyde1thi-webfont.woff") format("woff"), url("../fonts/gdnegyde1thi-webfont.ttf") format("truetype"), url("../fonts/gdnegyde1thi-webfont.svg#de1_display_egyptian_thinRg") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'de3_display_egyptianregular';
-  src: url("../fonts/gdnegyde3reg-webfont.eot");
-  src: url("../fonts/gdnegyde3reg-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/gdnegyde3reg-webfont.woff2") format("woff2"), url("../fonts/gdnegyde3reg-webfont.woff") format("woff"), url("../fonts/gdnegyde3reg-webfont.ttf") format("truetype"), url("../fonts/gdnegyde3reg-webfont.svg#de3_display_egyptianregular") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
 body {
   margin: 0;
 }
@@ -978,32 +964,59 @@ body {
   position: relative;
   display: inline-block;
   width: 50%;
-  padding: 10px 20px;
+  padding: 10px 10px;
 }
 .guInteractive #headerContainer #sc-logo a img {
   display: block;
   width: 100%;
 }
+@media (min-width: 440px) {
+  .guInteractive #headerContainer #sc-logo a {
+    width: 40%;
+  }
+}
 @media (min-width: 660px) {
   .guInteractive #headerContainer #sc-logo a {
-    padding: 15px 20px;
+    padding: 15px 10px;
   }
 }
 @media (min-width: 980px) {
   .guInteractive #headerContainer #sc-logo a {
-    width: 40%;
+    width: 30%;
     padding: 20px;
   }
 }
 @media (min-width: 1300px) {
   .guInteractive #headerContainer #sc-logo a {
-    width: 30%;
+    width: 25%;
+    padding: 20px 40px;
   }
 }
 .guInteractive #headerContainer #headerImage {
   font-size: 0;
   position: relative;
   padding: 0 10px 20px 10px;
+}
+.guInteractive #headerContainer #headerImage .animation {
+  position: relative;
+}
+.guInteractive #headerContainer #headerImage .animation img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+.guInteractive #headerContainer #headerImage .animation .animated-text {
+  position: absolute;
+  z-index: 5;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -khtml-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.guInteractive #headerContainer #headerImage .animation .bg {
+  position: relative;
+  z-index: 4;
 }
 @media (min-width: 660px) {
   .guInteractive #headerContainer #headerImage {
@@ -1020,13 +1033,6 @@ body {
     padding: 0 40px 40px 40px;
   }
 }
-.guInteractive #headerContainer #headerImage img {
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  z-index: 4;
-  position: relative;
-}
 .guInteractive .contentBlock {
   max-width: 1300px;
   position: relative;
@@ -1042,6 +1048,7 @@ body {
   padding: 20px;
   position: relative;
   font-size: 20px;
+  font-weight: 600;
 }
 .guInteractive .contentBlock h4.sectionHeading img,
 .guInteractive .contentBlock h4.sectionHeading span {
@@ -1757,7 +1764,7 @@ body.touch .guInteractive #mainEpisode #mainEpisodeVideo #backgroundImage {
   margin-bottom: 20px;
 }
 .guInteractive .episodeBlock.activeVideo img {
-  border: 4px solid #ff827f;
+  border: 2px solid #ff827f;
 }
 .guInteractive .episodeBlock .thumb-wrapper {
   position: relative;

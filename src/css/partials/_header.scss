@@ -11,27 +11,33 @@
       position: relative;
       display: inline-block;
       width: 50%;
-      padding: 10px 20px;
+      padding: 10px 10px;
 
       img {
         display: block; //
         width: 100%;
       }
 
+      @media(min-width: 440px) {
+        width: 40%;
+      }
+
+
       @media(min-width: 660px) {
         //        height: 40px;
-        padding: 15px 20px;
+        padding: 15px 10px;
       }
 
       @media(min-width: 980px) {
         //        height: 50px;
-        width: 40%;
+        width: 30%;
         padding: 20px;
       }
 
       @media(min-width: 1300px) {
         //        height: 50px;
-        width: 30%;
+        width: 25%;
+        padding: 20px 40px;
       }
 
     }
@@ -42,6 +48,28 @@
     position: relative;
 //    padding: 5px;
     padding:  0 10px 20px 10px;
+
+    .animation {
+      position: relative;
+
+      img {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .animated-text {
+        position: absolute;
+        z-index: 5;
+        top: 50%;
+        @include css3-prefix(transform, translateY(-50%));
+      }
+
+      .bg {
+        position: relative;
+        z-index: 4;
+      }
+    }
 
     @media(min-width: 660px) {
       padding:  0 10px 20px 10px;
@@ -55,13 +83,6 @@
       padding:  0 40px 40px 40px;
     }
 
-    img {
-      display: block;
-      width: 100%;
-      max-width: 100%;
-      z-index: 4;
-      position: relative;
-    }
   }
 }
 

@@ -16,7 +16,7 @@ See ```package.json``` and ```bower.json```
 > grunt
 ```
 
-Local server should run on ```http://localhost:8080```
+A local server should run on ```http://localhost:8080```
 See ```Gruntfile.js```
 
 
@@ -79,6 +79,8 @@ If necessary, open ```Gruntfile.js``` and fix the file paths in the ```replace:l
 ```var youtubeDataApiKey = 'YouTube Data API Key here';```
 See: ```https://developers.google.com/youtube/registering_an_application```
 
+
+- Update text for Twitter and Facebook share icons in ```/src/js/app/views/mainVideo.js``` (method ```shareVideo```)
 
 - Add the thanks.html page url into Formstack.
 See: ```https://support.formstack.com/customer/portal/articles/1930012-submit-actions``` (section "Redirect to an External URL")

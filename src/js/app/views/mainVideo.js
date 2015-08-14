@@ -60,7 +60,7 @@ define( [
 
     shareVideo: function ( e ) {
 
-      console.log(this.videoData.thumbnails.maxres.url)
+//      console.log(this.videoData.thumbnails.maxres.url);
 
       var twitterBaseUrl = "https://twitter.com/home?status=";
       var facebookBaseUrl = "https://www.facebook.com/dialog/feed?display=popup&app_id=741666719251986&link=";
