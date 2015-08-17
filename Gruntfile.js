@@ -177,7 +177,7 @@ module.exports = function ( grunt ) {
             },
             {
               match: /{{root}}/g,
-              replacement: "http://labs.theguardian.com/2015/aug/silent-circle-video"//'assets'
+              replacement: "http://labs.theguardian.com/2015/aug/silent-circle-video/"//'assets'
 //              replacement: 'http://localhost:' + pkg.config.port + '/build/assets'
             }
           ]
@@ -200,6 +200,11 @@ module.exports = function ( grunt ) {
             {
               match: /\/\/pasteup\.guim\.co\.uk\/fonts\/0\.1\.0/g,
               replacement: '/bower_components/guss-webfonts/webfonts'
+            },
+            {
+              match: /{{root}}/g,
+              replacement: ""//'assets'
+//              replacement: 'http://localhost:' + pkg.config.port + '/build/assets'
             }
           ]
         },
