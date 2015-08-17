@@ -24,7 +24,7 @@ define( [
         $( 'body' ).addClass( 'no-touch' );
       }
 
-      console.log( 'init app view' );
+//      console.log( 'init app view' );
 
       // Is Web
       this.isWeb = options.isWeb;

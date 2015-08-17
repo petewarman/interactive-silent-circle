@@ -16,7 +16,7 @@ define( [], function () {
       // Load CSS
       addCSS( 'assets/css/main.css' );
 
-      console.log('boot script');
+//      console.log('boot script');
 
       // Load main application
       require( ['assets/js/main.js'], function ( req ) {

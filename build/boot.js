@@ -16,7 +16,7 @@ define( [], function () {
       // Load CSS
       addCSS( 'http://labs.theguardian.com/2015/aug/silent-circle-video/assets/css/main.css' );
 
-      console.log('boot script');
+//      console.log('boot script');
 
       // Load main application
       require( ['http://labs.theguardian.com/2015/aug/silent-circle-video/assets/js/main.js'], function ( req ) {

@@ -19,7 +19,7 @@ define( [
 
   function init( el, context, config, mediator ) {
 
-    console.log( 'starting main init' );
+//    console.log( 'starting main init' );
 
     App.el = el;
     App.context = context;
@@ -55,7 +55,7 @@ define( [
 
     App.comingSoon = data;
 
-    console.log( 'get YT playlist items' );
+//    console.log( 'get YT playlist items' );
 
     var url = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=' + playlistId + '&key=' + youtubeDataApiKey;
 
@@ -75,14 +75,14 @@ define( [
 
   function youtubeReady( data ) {
 
-    console.log( 'wait for YT ready' );
+//    console.log( 'wait for YT ready' );
 
     App.playlistItemsData = data;
 
     // Wait for YouTube API to be ready
     YoutubeCustomPlayer.ready( function () {
 
-      console.log( 'YT  is ready!' );
+//      console.log( 'YT  is ready!' );
 
       var appView = new AppView( {
         el: App.el,
