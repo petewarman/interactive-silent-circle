@@ -27,7 +27,7 @@ You should have 2 build directories: ```build``` and ```build-local```.
 
 ## @TODO
 
-### - IMPORTANT: bug in IE9 when the application is deployed on S3. The json file cannot be downloaded from a different domain.
+- ### IMPORTANT: bug in IE9 when the application is deployed on S3. The json file cannot be downloaded from a different domain.
 
 - Update the file ```/src/data/coming-soon.json``` with "Coming soon" videos data
 
