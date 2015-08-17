@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -16,15 +16,20 @@
 
 <!-- Simulate boot.js -->
 <script>
+
     var el = document.querySelector( '.interactive' );
+
 //        require = curl;
 //        curl( ['boot.js'], function ( app ) {
 //            app.boot( el );
 //        } );
 
+    console.log('index script');
+
     require( ['boot.js'], function ( app ) {
         app.boot( el );
     } );
+
 </script>
 </body>
 </html>

@@ -5,6 +5,7 @@
   #sc-logo {
     position: relative;
     text-align: right;
+    border: none;
      // 20px 0 20px;
 
     a {
@@ -12,10 +13,13 @@
       display: inline-block;
       width: 50%;
       padding: 10px 10px;
+      border: none;
 
       img {
         display: block;
         width: 100%;
+        border: none;
+
       }
 
       @media(min-width: 440px) {

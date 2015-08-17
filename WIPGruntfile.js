@@ -282,7 +282,7 @@ module.exports = function ( grunt ) {
 
   grunt.registerTask( 'build', [
     'build-prod',
-    'build-local'
+//    'build-local'
   ]
   );
 
@@ -293,7 +293,7 @@ module.exports = function ( grunt ) {
     'autoprefixer:prod',
     'requirejs:prod',
     'copy:prod',
-    'replace:prod'
+//    'replace:prod'
   ] );
 
   grunt.registerTask( 'build-local', [

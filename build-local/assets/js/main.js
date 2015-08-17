@@ -14713,7 +14713,7 @@ define('text',['module'], function (module) {
 });
 
 
-define('text!templates/appTemplate.html',[],function () { return '<div class="guInteractive">\n    <div id="content">\n\n\n        <header id="headerContainer">\n\n            <div id="sc-logo">\n                <a href="#"><img src="assets/imgs/sc-logo.png"></a>\n            </div>\n\n            <div id="headerImage">\n                <div class="animation">\n                    <img class="animated-text" src="assets/imgs/animated-text.gif">\n                    <img class="bg" src="assets/imgs/header-bg.jpg">\n                </div>\n            </div>\n\n        </header>\n\n\n        <div id="mainVideoContainer"></div>\n\n\n        <div class="contentBlock" id="other-videos">\n            <div class="separator"></div>\n\n            <h4 class="sectionHeading">Other videos</h4>\n\n            <div class="contentBlock-inner">\n                <!--<div id="allEpisodesContainer">-->\n                {{#videos}}\n                <div class="episodeBlock {{id}} inactiveVideo" data-video-id="{{id}}">\n\n                    <div class="thumb-wrapper">\n                        <button data-video-id="{{id}}" class="play-button">\n                            <span></span>\n                        </button>\n                        <img src="{{thumbnails.maxres.url}}">\n                    </div>\n\n                    <div class="episodeBlockContent">\n                        <h2>{{title}}</h2>\n\n                        <p>{{{shortDescription}}}</p>\n                        <!--<p>{{{description}}}</p>-->\n                    </div>\n                </div>\n                {{/videos}}\n\n                {{#comingSoonVideos}}\n                <div class="episodeBlock coming-soon">\n\n                    <div class="thumb-wrapper">\n                        <img src="assets/imgs/videos/{{img}}">\n                    </div>\n\n                    <div class="episodeBlockContent">\n                        <h2>{{title}} - To be decrypted on {{date}}</h2>\n\n                        <p>{{{shortDescription}}}</p>\n                    </div>\n                </div>\n                {{/comingSoonVideos}}\n                <!--</div>-->\n            </div>\n        </div>\n\n\n        <div class="contentBlock" id="signup">\n            <h4 class="sectionHeading">More content</h4>\n\n            <div id="signupBox" class="contentBlock-inner">\n\n                <div id="signupInformation">\n                    <h2>Subscribe here for the remaining videos</h2>\n\n                    <p>Enter your email address and we will send you a reminder when new episodes arrive</p>\n                </div>\n\n                <div id="signupForm">\n                    <iframe id="form" scrolling="no" frameborder="none" width="100%" height="40px"\n                            src="{{root}}/form.html"></iframe>\n                    <!--<iframe id="form" scrolling="no" frameborder="none" width="100%" height="40px"-->\n                    <!--src="http://interactive.guim.co.uk/visuals-blank-page/watch-me-date/form.html"></iframe>-->\n                </div>\n\n            </div>\n        </div>\n\n\n        <div class="contentBlock" id="about">\n            <!--<div class="separator"></div>-->\n\n            <h4 class="sectionHeading">About Silent Circle</h4>\n\n            <div class="contentBlock-inner">\n                <p class="half-width no-margin-top">\n                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam elementum quis justo at blandit.\n                    Nulla ante neque, scelerisque eu ante ut, aliquam egestas dolor. Proin a auctor massa. Vestibulum\n                    bibendum neque sit amet metus dignissim viverra. Quisque pellentesque velit lectus, ac vestibulum mi\n                    suscipit sit amet. Fusce nec pharetra tellus, quis egestas sem. Aliquam quis sodales enim. Phasellus\n                    a risus non libero mattis pretium. Aliquam bibendum imperdiet neque ac vulputate. Morbi ut dignissim\n                    enim, sit amet sagittis lorem. Nulla sed auctor nisi. Nunc pharetra, eros vulputate tempor interdum,\n                    quam est volutpat est, sit amet tincidunt purus mi sed enim. Maecenas nulla eros, cursus ut ipsum\n                    ac, hendrerit ultrices ipsum. Nullam porta et libero et dapibus. Maecenas pharetra sapien odio, non\n                    vulputate nunc elementum ut. Nam pulvinar sem vitae urna pulvinar, a ornare quam posuere.\n                </p>\n            </div>\n        </div>\n\n\n        <div class="contentBlock" id="how-safe">\n            <!--<div class="separator"></div>-->\n\n            <h4 class="sectionHeading"><span>Take the test</span> <img src="assets/imgs/quiz-gif.gif"></h4>\n\n            <div class="contentBlock-inner">\n                <h2>How safe is your business?</h2>\n\n                <p class="half-width">\n                    Click here to put your company to the test. Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n                    Nullam elementum quis justo at blandit.\n                </p>\n            </div>\n        </div>\n\n    </div>\n\n</div>\n';});
+define('text!templates/appTemplate.html',[],function () { return '<div class="guInteractive">\n    <div id="content">\n\n\n        <header id="headerContainer">\n\n            <div id="sc-logo">\n                <a href="#"><img src="assets/imgs/sc-logo.png"></a>\n            </div>\n\n            <div id="headerImage">\n                <div class="animation">\n                    <img class="animated-text" src="assets/imgs/animated-text.gif">\n                    <img class="bg" src="assets/imgs/header-bg.jpg">\n                </div>\n            </div>\n\n        </header>\n\n\n        <div id="mainVideoContainer"></div>\n\n\n        <div class="contentBlock" id="other-videos">\n            <div class="separator"></div>\n\n            <h4 class="sectionHeading">Other videos</h4>\n\n            <div class="contentBlock-inner">\n                <!--<div id="allEpisodesContainer">-->\n                {{#videos}}\n                <div class="episodeBlock {{id}} inactiveVideo" data-video-id="{{id}}">\n\n                    <div class="thumb-wrapper">\n                        <button data-video-id="{{id}}" class="play-button">\n                            <span></span>\n                        </button>\n                        <img src="{{thumbnails.maxres.url}}">\n                    </div>\n\n                    <div class="episodeBlockContent">\n                        <h2>{{title}}</h2>\n\n                        <p>{{{shortDescription}}}</p>\n                        <!--<p>{{{description}}}</p>-->\n                    </div>\n                </div>\n                {{/videos}}\n\n                {{#comingSoonVideos}}\n                <div class="episodeBlock coming-soon">\n\n                    <div class="thumb-wrapper">\n                        <img src="assets/imgs/videos/{{img}}">\n                    </div>\n\n                    <div class="episodeBlockContent">\n                        <h2>{{title}} - To be decrypted on {{date}}</h2>\n\n                        <p>{{{shortDescription}}}</p>\n                    </div>\n                </div>\n                {{/comingSoonVideos}}\n                <!--</div>-->\n            </div>\n        </div>\n\n\n        <div class="contentBlock" id="signup">\n            <h4 class="sectionHeading">More content</h4>\n\n            <div id="signupBox" class="contentBlock-inner">\n\n                <div id="signupInformation">\n                    <h2>Subscribe here for the remaining videos</h2>\n\n                    <p>Enter your email address and we will send you a reminder when new episodes arrive</p>\n                </div>\n\n                <div id="signupForm">\n                    <iframe id="form" scrolling="no" frameborder="none" width="100%" height="40px" src="{{root}}form.html"></iframe>\n                    <!--<iframe id="form" scrolling="no" frameborder="none" width="100%" height="40px"-->\n                    <!--src="http://interactive.guim.co.uk/visuals-blank-page/watch-me-date/form.html"></iframe>-->\n                </div>\n\n            </div>\n        </div>\n\n\n        <div class="contentBlock" id="about">\n            <!--<div class="separator"></div>-->\n\n            <h4 class="sectionHeading">About Silent Circle</h4>\n\n            <div class="contentBlock-inner">\n                <p class="half-width no-margin-top">\n                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam elementum quis justo at blandit.\n                    Nulla ante neque, scelerisque eu ante ut, aliquam egestas dolor. Proin a auctor massa. Vestibulum\n                    bibendum neque sit amet metus dignissim viverra. Quisque pellentesque velit lectus, ac vestibulum mi\n                    suscipit sit amet. Fusce nec pharetra tellus, quis egestas sem. Aliquam quis sodales enim. Phasellus\n                    a risus non libero mattis pretium. Aliquam bibendum imperdiet neque ac vulputate. Morbi ut dignissim\n                    enim, sit amet sagittis lorem. Nulla sed auctor nisi. Nunc pharetra, eros vulputate tempor interdum,\n                    quam est volutpat est, sit amet tincidunt purus mi sed enim. Maecenas nulla eros, cursus ut ipsum\n                    ac, hendrerit ultrices ipsum. Nullam porta et libero et dapibus. Maecenas pharetra sapien odio, non\n                    vulputate nunc elementum ut. Nam pulvinar sem vitae urna pulvinar, a ornare quam posuere.\n                </p>\n            </div>\n        </div>\n\n\n        <div class="contentBlock" id="how-safe">\n            <!--<div class="separator"></div>-->\n\n            <h4 class="sectionHeading"><span>Take the test</span> <img src="assets/imgs/quiz-gif.gif"></h4>\n\n            <div class="contentBlock-inner">\n                <h2>How safe is your business?</h2>\n\n                <p class="half-width">\n                    Click here to put your company to the test. Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n                    Nullam elementum quis justo at blandit.\n                </p>\n            </div>\n        </div>\n\n    </div>\n\n</div>\n';});
 
 
 define('text!templates/mainVideo.html',[],function () { return '{{#mainEpisode}}\n<div id="mainEpisode" class="contentBlock">\n\n    <div id="mainEpisodeVideo">\n\n        <div id="big-play-btn-wrapper">\n            <button id="big-play-btn" data-video-id="{{id}}" class="startVideo play-button">\n                <span></span>\n            </button>\n        </div>\n\n        <div id="backgroundContainer">\n\n            <!--Cover for transitions-->\n            <div class="transition-cover"></div>\n\n            <!--Poster image for youtube video-->\n            <img id="backgroundImage" src="{{thumbnails.maxres.url}}"/>\n\n            <!-- Custom player + YouTube iframe will be injected here -->\n            <div id="videoContainer"></div>\n\n            <!--Big play button-->\n            <button data-video-id="{{id}}" class="startVideo"><span></span></button>\n\n            <!--End slate appearing at the end of the video-->\n            <div id="endslate"></div>\n\n        </div>\n    </div>\n\n    <div class="contentBlock">\n        <h4 class="sectionHeading">&nbsp;</h4>\n\n        <div class="contentBlock-inner">\n            <div id="mainEpisodeContent">\n                <h3>{{title}}</h3>\n\n                <p id="episodeDescription">{{{description}}}</p>\n\n                <div id="shareButtons">\n                    <button data-source="twitter" id="shareTwitter" data-video-id="{{id}}"></button>\n                    <button data-source="facebook" id="shareFacebook" data-video-id="{{id}}"></button>\n                </div>\n            </div>\n        </div>\n\n    </div>\n\n</div>\n{{/mainEpisode}}\n';});
@@ -15462,6 +15462,7 @@ define( 'yt-player',[
       var videoId = this.options.videoId;
       var url = 'https://www.googleapis.com/youtube/v3/captions?videoId=' + videoId + '&part=snippet&key=' + APIkey;
       $.ajax( {
+        dataType: 'jsonp',
         url: url,
         success: this.createLanguagesMenu.bind( this )
       } );
@@ -15528,7 +15529,7 @@ define( 'yt-player',[
     },
 
     toggleLanguagesList: function ( e ) {
-//      console.log( 'toggle languages' );
+      console.log( 'toggle languages' );
 
       var $el = $( this );
 
@@ -20842,6 +20843,11 @@ define( 'views/appView',[
         $( 'body' ).addClass( 'no-touch' );
       }
 
+      console.log( 'init app view' );
+
+      // Is Web
+      this.isWeb = options.isWeb;
+
       // Get Coming soon data for videos (videos not yet on youtube)
       this.comingSoon = options.comingSoon;
 
@@ -20856,7 +20862,8 @@ define( 'views/appView',[
         youtubeDataApiKey: options.youtubeDataApiKey,
         videos: this.videos,
         isTouch: this.isTouch,
-        mainApp: this
+        mainApp: this,
+//        rootPath: this.rootPath
       } );
 
       this.setupEvents();
@@ -20867,29 +20874,6 @@ define( 'views/appView',[
     },
 
 
-//    animateScroll: function ( elem, style, unit, from, to, time, prop, callback ) {
-//      if ( !elem ) return;
-//      var start = new Date().getTime();
-//      elem.style[style] = from + unit;
-//
-//      function animate() {
-//        var step = Math.min( 1, (new Date().getTime() - start) / time );
-//        if ( prop ) {
-//          elem[style] = (from + step * (to - from)) + unit;
-//        } else {
-//          elem.style[style] = (from + step * (to - from)) + unit;
-//        }
-//        if ( step != 1 ) {
-//          requestAnimationFrame( animate );
-//        } else {
-//          if ( callback )
-//            callback();
-//        }
-//      }
-//
-//      requestAnimationFrame( animate );
-//    },
-
     switchVideo: function ( e ) {
       var self = this;
       var videoId = _.isString( e ) ? e : $( e.currentTarget ).closest( '.inactiveVideo' ).attr( 'data-video-id' );
@@ -20898,16 +20882,16 @@ define( 'views/appView',[
       } );
       var currentScrolltop = $( 'body' ).scrollTop();
       var videoOffset = $( '#mainEpisode' ).offset().top - 40;
-      var diff = Math.abs(currentScrolltop - videoOffset);
-      var $transitionCover = $('#backgroundContainer .transition-cover');
+      var diff = Math.abs( currentScrolltop - videoOffset );
+      var $transitionCover = $( '#backgroundContainer .transition-cover' );
 
       this.mainEpisode = foundValue;
 
       // Show cover
-      $transitionCover.show().css('opacity', 1);
+      $transitionCover.show().css( 'opacity', 1 );
 
       // Pause the player
-      if (this.mainVideo.ytplayer && this.mainVideo.ytplayer.isReady)
+      if ( this.mainVideo.ytplayer && this.mainVideo.ytplayer.isReady )
         this.mainVideo.ytplayer.pause();
 
 //      console.log(this.mainVideo.ytplayer);
@@ -21103,12 +21087,6 @@ define( 'views/appView',[
       //Decide which video to play first
       this.selectInitialVideo();
 
-      // Check if in app or on website
-      var isWeb = true;
-      if ( typeof window.guardian === "undefined" ) {
-        isWeb = false;
-      }
-
       $( '#article-body' ).addClass( 'interactivePadding' );
       $( '#article-header' ).addClass( 'interactiveHide' );
 
@@ -21117,7 +21095,7 @@ define( 'views/appView',[
         videos: this.allEpisodes,
         comingSoonVideos: this.comingSoonVideos,
         teaser: this.teaser,
-        isWeb: isWeb
+//        rootPath: this.rootPath //
       } ) );
 
       // Render main video
@@ -21150,53 +21128,84 @@ define( 'main',[
   var playlistId = 'PL6fsSwuQS6yprx0KUHXCP3DttOHFiEJ4N';
   var youtubeDataApiKey = 'AIzaSyDiTrZ80LUooXW0H_E2NoWKFUqNTB8sqLY'; // Esteban Almiron google account
 
+  // Root
+//  var root = "http://labs.theguardian.com/2015/aug/silent-circle-video/";
+
   var App = {};
 
   function init( el, context, config, mediator ) {
+
+    console.log( 'starting main init' );
 
     App.el = el;
     App.context = context;
     App.config = config;
     App.mediator = mediator;
+//    App.rootPath = isWeb() ? root : "";
+    App.isWeb = isWeb();
 
     getJsonData();
 
   }
 
+
+  // Check if in app or on website
+  function isWeb() {
+    return typeof window.guardian !== "undefined";
+  }
+
   function getJsonData() {
+
     $.ajax( {
       dataType: 'json',
       url: 'assets/data/coming-soon.json',
-      success: getPlaylistItems
+      success: getPlaylistItems,
+      error: function () {
+        console.log( 'getJsonData() error' );
+      }
     } );
+
   }
 
   function getPlaylistItems( data ) {
 
     App.comingSoon = data;
 
+    console.log( 'get YT playlist items' );
+
     var url = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=' + playlistId + '&key=' + youtubeDataApiKey;
 
+    // https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PL6fsSwuQS6yprx0KUHXCP3DttOHFiEJ4N&key=AIzaSyDiTrZ80LUooXW0H_E2NoWKFUqNTB8sqLY
+
+
     $.ajax( {
-      dataType: 'json',
+      dataType: 'jsonp',
       url: url,
-      success: youtubeReady
+      success: youtubeReady,
+      error: function () {
+        console.log( 'getPlaylistItems() error' );
+      }
     } );
   }
 
 
   function youtubeReady( data ) {
 
+    console.log( 'wait for YT ready' );
+
     App.playlistItemsData = data;
 
     // Wait for YouTube API to be ready
     YoutubeCustomPlayer.ready( function () {
 
+      console.log( 'YT  is ready!' );
+
       var appView = new AppView( {
         el: App.el,
         playlistItemsData: App.playlistItemsData,
         comingSoon: App.comingSoon,
-        youtubeDataApiKey: youtubeDataApiKey
+        youtubeDataApiKey: youtubeDataApiKey,
+//        rootPath: App.rootPath
       } );
       appView.render();
 

@@ -724,6 +724,7 @@ define( [
       var videoId = this.options.videoId;
       var url = 'https://www.googleapis.com/youtube/v3/captions?videoId=' + videoId + '&part=snippet&key=' + APIkey;
       $.ajax( {
+        dataType: 'jsonp',
         url: url,
         success: this.createLanguagesMenu.bind( this )
       } );
@@ -790,7 +791,7 @@ define( [
     },
 
     toggleLanguagesList: function ( e ) {
-//      console.log( 'toggle languages' );
+      console.log( 'toggle languages' );
 
       var $el = $( this );
 

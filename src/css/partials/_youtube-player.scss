@@ -488,12 +488,18 @@ body.touch & .yt-volume-wrapper {
 
 .yt-languages-btn {
   padding: 14px 10px;
+  position:relative;
+//  background-color: red;
 
   .svg {
     display: block;
   }
 
   &.open {
+
+    .svg .shape {
+      fill: $highlight-color;
+    }
 
     .yt-languages-list {
       display: block;

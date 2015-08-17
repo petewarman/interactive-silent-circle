@@ -24,6 +24,11 @@ define( [
         $( 'body' ).addClass( 'no-touch' );
       }
 
+      console.log( 'init app view' );
+
+      // Is Web
+      this.isWeb = options.isWeb;
+
       // Get Coming soon data for videos (videos not yet on youtube)
       this.comingSoon = options.comingSoon;
 
@@ -38,7 +43,8 @@ define( [
         youtubeDataApiKey: options.youtubeDataApiKey,
         videos: this.videos,
         isTouch: this.isTouch,
-        mainApp: this
+        mainApp: this,
+//        rootPath: this.rootPath
       } );
 
       this.setupEvents();
@@ -49,29 +55,6 @@ define( [
     },
 
 
-//    animateScroll: function ( elem, style, unit, from, to, time, prop, callback ) {
-//      if ( !elem ) return;
-//      var start = new Date().getTime();
-//      elem.style[style] = from + unit;
-//
-//      function animate() {
-//        var step = Math.min( 1, (new Date().getTime() - start) / time );
-//        if ( prop ) {
-//          elem[style] = (from + step * (to - from)) + unit;
-//        } else {
-//          elem.style[style] = (from + step * (to - from)) + unit;
-//        }
-//        if ( step != 1 ) {
-//          requestAnimationFrame( animate );
-//        } else {
-//          if ( callback )
-//            callback();
-//        }
-//      }
-//
-//      requestAnimationFrame( animate );
-//    },
-
     switchVideo: function ( e ) {
       var self = this;
       var videoId = _.isString( e ) ? e : $( e.currentTarget ).closest( '.inactiveVideo' ).attr( 'data-video-id' );
@@ -80,16 +63,16 @@ define( [
       } );
       var currentScrolltop = $( 'body' ).scrollTop();
       var videoOffset = $( '#mainEpisode' ).offset().top - 40;
-      var diff = Math.abs(currentScrolltop - videoOffset);
-      var $transitionCover = $('#backgroundContainer .transition-cover');
+      var diff = Math.abs( currentScrolltop - videoOffset );
+      var $transitionCover = $( '#backgroundContainer .transition-cover' );
 
       this.mainEpisode = foundValue;
 
       // Show cover
-      $transitionCover.show().css('opacity', 1);
+      $transitionCover.show().css( 'opacity', 1 );
 
       // Pause the player
-      if (this.mainVideo.ytplayer && this.mainVideo.ytplayer.isReady)
+      if ( this.mainVideo.ytplayer && this.mainVideo.ytplayer.isReady )
         this.mainVideo.ytplayer.pause();
 
 //      console.log(this.mainVideo.ytplayer);
@@ -285,12 +268,6 @@ define( [
       //Decide which video to play first
       this.selectInitialVideo();
 
-      // Check if in app or on website
-      var isWeb = true;
-      if ( typeof window.guardian === "undefined" ) {
-        isWeb = false;
-      }
-
       $( '#article-body' ).addClass( 'interactivePadding' );
       $( '#article-header' ).addClass( 'interactiveHide' );
 
@@ -299,7 +276,7 @@ define( [
         videos: this.allEpisodes,
         comingSoonVideos: this.comingSoonVideos,
         teaser: this.teaser,
-        isWeb: isWeb
+//        rootPath: this.rootPath //
       } ) );
 
       // Render main video

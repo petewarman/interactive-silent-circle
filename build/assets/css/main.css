@@ -959,16 +959,19 @@ body {
 .guInteractive #headerContainer #sc-logo {
   position: relative;
   text-align: right;
+  border: none;
 }
 .guInteractive #headerContainer #sc-logo a {
   position: relative;
   display: inline-block;
   width: 50%;
   padding: 10px 10px;
+  border: none;
 }
 .guInteractive #headerContainer #sc-logo a img {
   display: block;
   width: 100%;
+  border: none;
 }
 @media (min-width: 440px) {
   .guInteractive #headerContainer #sc-logo a {
@@ -1497,9 +1500,13 @@ body.touch .guInteractive .yt-volume-wrapper {
 }
 .guInteractive .yt-languages-btn {
   padding: 14px 10px;
+  position: relative;
 }
 .guInteractive .yt-languages-btn .svg {
   display: block;
+}
+.guInteractive .yt-languages-btn.open .svg .shape {
+  fill: #ff827f;
 }
 .guInteractive .yt-languages-btn.open .yt-languages-list {
   display: block;
