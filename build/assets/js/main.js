@@ -21156,12 +21156,14 @@ define( 'main',[
 
   function getJsonData() {
 
+//    $.getJSON( 'http://labs.theguardian.com/2015/aug/silent-circle-video/assets/data/coming-soon.json' + '&callback=?', getPlaylistItems );
+
     $.ajax( {
       dataType: 'json',
-      url: 'http://labs.theguardian.com/2015/aug/silent-circle-video/assets/data/coming-soon.json',
+      url: 'http://labs.theguardian.com/2015/aug/silent-circle-video/assets/data/coming-soon.json', // + '&callback=?',
       success: getPlaylistItems,
       error: function () {
-        console.log( 'getJsonData() error' );
+        console.log( 'NEW getJsonData() error' );
       }
     } );
 

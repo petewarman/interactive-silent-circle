@@ -40,12 +40,14 @@ define( [
 
   function getJsonData() {
 
+//    $.getJSON( '{{assets}}/data/coming-soon.json' + '&callback=?', getPlaylistItems );
+
     $.ajax( {
       dataType: 'json',
-      url: '{{assets}}/data/coming-soon.json',
+      url: '{{assets}}/data/coming-soon.json', // + '&callback=?',
       success: getPlaylistItems,
       error: function () {
-        console.log( 'getJsonData() error' );
+        console.log( 'NEW getJsonData() error' );
       }
     } );
 
