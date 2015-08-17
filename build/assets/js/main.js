@@ -15065,7 +15065,7 @@ define( 'yt-player',[
       this.$elem.addClass( 'yt-ready' );
       this.currentVolume = this.ytplayer.getVolume();
       this.duration = this.ytplayer.getDuration();
-      this.addListenners();
+      this.addListeners();
       this.options.onVideoReady.call( this );
 
       this.trigger( 'ready' );
@@ -15101,7 +15101,7 @@ define( 'yt-player',[
       this.trigger( 'buffer' );
     },
 
-    addListenners: function () {
+    addListeners: function () {
 
       var self = this;
       var click = this.isTouch ? 'touchstart' : 'click';
@@ -15117,7 +15117,7 @@ define( 'yt-player',[
       // Change captions / subtitles language
       this.$skinWrapper.on( click, 'li.lang', function ( e ) {
         if ( self.ytplayer ) {
-          //console.log( $( this ).data( 'lang' ) );
+          console.log( $( this ).data( 'lang' ) );
           self.ytplayer.setOption( "captions", "track", {"languageCode": $( this ).data( 'lang' )} );
         }
       } );
@@ -15529,7 +15529,7 @@ define( 'yt-player',[
     },
 
     toggleLanguagesList: function ( e ) {
-      console.log( 'toggle languages' );
+//      console.log( 'toggle languages' );
 
       var $el = $( this );
 
