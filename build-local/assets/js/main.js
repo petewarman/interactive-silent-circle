@@ -15117,7 +15117,7 @@ define( 'yt-player',[
       // Change captions / subtitles language
       this.$skinWrapper.on( click, 'li.lang', function ( e ) {
         if ( self.ytplayer ) {
-          console.log( $( this ).data( 'lang' ) );
+//          console.log( $( this ).data( 'lang' ) );
           self.ytplayer.setOption( "captions", "track", {"languageCode": $( this ).data( 'lang' )} );
         }
       } );
