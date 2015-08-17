@@ -22,8 +22,8 @@ See ```Gruntfile.js```
 
 ## Check paths
 
-If necessary, open ```Gruntfile.js``` and fix the file paths in all the tasks ().
-You should have 2 buil directories: ```build``` and ```build-local```. The only difference is the Guardian fonts paths.
+If necessary, open ```Gruntfile.js``` and fix the file paths in all the tasks.
+You should have 2 build directories: ```build``` and ```build-local```. The only difference is the Guardian fonts paths (I know, it's horribly redundant: I'll fix that if we have the time).
 (The ```replace``` task replaces text strings in files: it is used mostly to create builds with different file paths for assets and fonts).
 
 

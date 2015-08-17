@@ -109,7 +109,7 @@ module.exports = function ( grunt ) {
           'src/js/app/templates/*.html'
         ],
 //        tasks: ['jshint', 'requirejs','replace:local'],
-        tasks: ['requirejs', 'replace:local'],
+        tasks: ['requirejs', 'replace'],
         options: {
           spawn: false,
           livereload: true
