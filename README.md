@@ -27,7 +27,7 @@ You should have 2 build directories: ```build``` and ```build-local```.
 
 ## @TODO
 
-- ### IMPORTANT: bug in IE9 when the application is deployed on S3. The json file cannot be downloaded from a different domain. SUGGESTED FIX: correct path or directly import JSON in the build with require JSON plugin.
+- ### IMPORTANT: bug in IE9 when the application is deployed on S3 and seen in the *preview* page. The json file cannot be downloaded from a different domain on IE9. SUGGESTED FIX: correct path or directly import JSON in the build with require JSON plugin. It works on: http://labs.theguardian.com/2015/aug/silent-circle-video/
 
 - Update the file ```/src/data/coming-soon.json``` with "Coming soon" videos data
 
