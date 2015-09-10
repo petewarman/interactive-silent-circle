@@ -1,4 +1,4 @@
-# interactive-silent-circle
+# Silent Circle - The Power of Privacy
 
 
 ## Setup
