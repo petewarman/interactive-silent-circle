@@ -22,8 +22,19 @@ See ```Gruntfile.js```
 
 ## Check paths
 
-If necessary, open ```Gruntfile.js``` and fix the file paths in the ```replace``` task.
-You should have 2 build directories: ```build``` and ```build-local```.
+If necessary, fix the root and assets paths in ```index.html``` and ```app/main.js``` files.
+At the moment the paths for local and remote versions are:
+
+```
+  // ROOT
+  remote = "//labs.theguardian.com/2015/aug/silent-circle-video/";
+  local = "";
+  isWeb = typeof window.guardian !== "undefined";
+  root = isWeb ? remote : local;
+  
+  // ASSETS
+  assets = root + 'assets/';
+```
 
 ## @TODO
 
