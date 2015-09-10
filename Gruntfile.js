@@ -76,6 +76,29 @@ module.exports = function ( grunt ) {
       }
     },
 
+    replace: {
+      build: {
+        options: {
+          patterns: [
+            {
+              match: /{{local-root}}/g,
+              replacement: ''
+            },
+            {
+              match: /{{remote-root}}/g,
+              replacement: '//labs.theguardian.com/2015/aug/silent-circle-video/'
+            }
+          ]
+        },
+        files: [
+          {
+            src: ['build/*.html', 'build/**/*.js', 'build/**/*.css'],
+            dest: './'
+          }
+        ]
+      }
+    },
+
     watch: {
       scripts: {
         files: [
@@ -182,7 +205,7 @@ module.exports = function ( grunt ) {
   grunt.loadNpmTasks( 'grunt-contrib-copy' );
   grunt.loadNpmTasks( 'grunt-aws' );
   grunt.loadNpmTasks( 'grunt-autoprefixer' );
-//  grunt.loadNpmTasks( 'grunt-replace' );
+  grunt.loadNpmTasks( 'grunt-replace' );
   grunt.loadNpmTasks( 'grunt-contrib-rename' );
 
   // Tasks
@@ -191,7 +214,8 @@ module.exports = function ( grunt ) {
     'sass',
     'autoprefixer',
     'requirejs',
-    'copy'
+    'copy',
+    'replace'
   ] );
 
   grunt.registerTask( 'default', ['build', 'connect', 'watch'] );

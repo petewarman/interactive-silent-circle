@@ -24,7 +24,7 @@ define( [
     App.isWeb = isWeb();
 
     // Paths
-    App.root = App.isWeb ? "http://labs.theguardian.com/2015/aug/silent-circle-video/" : "";
+    App.root = App.isWeb ? "{{remote-root}}" : "{{local-root}}";
     App.assets = App.root + 'assets/';
 
     // Get Json

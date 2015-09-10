@@ -21146,7 +21146,7 @@ define( 'main',[
     App.isWeb = isWeb();
 
     // Paths
-    App.root = App.isWeb ? "http://labs.theguardian.com/2015/aug/silent-circle-video/" : "";
+    App.root = App.isWeb ? "//labs.theguardian.com/2015/aug/silent-circle-video/" : "";
     App.assets = App.root + 'assets/';
 
     // Get Json

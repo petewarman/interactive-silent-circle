@@ -1748,7 +1748,7 @@ body.touch .guInteractive #mainEpisode #mainEpisodeVideo #backgroundImage {
 @media (min-width: 980px) {
   .guInteractive #mainEpisode #mainEpisodeContent {
     width: 47%;
-    margin-bottom: 80px;
+    margin-bottom: 60px;
   }
 }
 .guInteractive #mainEpisode.videoPlaying .startVideo {

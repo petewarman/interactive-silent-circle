@@ -10,24 +10,22 @@
 <!-- Use the same figure elm as NGW -->
 <figure class="element-interactive interactive"></figure>
 
-
 <!-- Get require.js -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.20/require.min.js"></script>
-
-<script>
-    var guardianRoot = "//labs.theguardian.com/2015/aug/silent-circle-video/";
-    var localRoot = "";
-</script>
-<script>window.require || document.write( '<script src="' + guardianRoot + 'assets/js/require.js"><\/script>' );</script>
-<script>window.require || document.write( '<script src="' + localRoot + 'js/require.js"><\/script>' );</script>
-
+<script>window.require || document.write( '<script src="assets/js/require.js"><\/script>' );</script>
 <!--<script src="{{assets}}/js/require.js"></script>-->
 
 <!-- Simulate boot.js -->
 <script>
 
+    // Paths
+    var guardianRoot = window.guardianRoot || "//labs.theguardian.com/2015/aug/silent-circle-video/";
+    var localRoot = window.localRoot || "";
+
+    // DOM element
     var el = document.querySelector( '.interactive' );
 
+    // Boot
     require( ['boot.js'], function ( app ) {
         app.boot( el );
     } );
