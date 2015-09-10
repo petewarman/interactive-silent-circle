@@ -14927,8 +14927,10 @@ define( 'yt-player',[
     if ( this.isTouch )
       this.htmlClass += ' yt-touch';
 
-    if ( YoutubeCustomPlayer.requestFullScreen )
+    if ( YoutubeCustomPlayer.requestFullScreen ) {
       this.htmlClass += ' yt-support-fullscreen';
+      this.supportFullscreen = true;
+    }
 
     this.ytplayer = null;
     this.paused = true;
@@ -14977,6 +14979,7 @@ define( 'yt-player',[
 
       this.$elem.append( YoutubeCustomPlayer.skins[ this.options.skin ] );
 
+
       this.$videoWrapper = this.$elem.find( '.yt-video-wrapper' ).attr( 'id', this.videoWrapperId );
       this.$loadingWrapper = this.$elem.find( '.yt-loading-wrapper' );
       this.$loading = this.$elem.find( '.yt-loading' );
@@ -15003,7 +15006,8 @@ define( 'yt-player',[
         this.$volumeLevel = this.$elem.find( '.yt-volume-level' );
       }
 
-      if ( this.isIOs ) {
+      // Remove fullscreen button if iOS or not supported
+      if ( this.isIOs || !this.supportFullscreen ) {
         this.$fullscreenBtn.remove();
       }
 
