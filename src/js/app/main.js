@@ -12,22 +12,22 @@ define( [
   var playlistId = 'PL6fsSwuQS6yprx0KUHXCP3DttOHFiEJ4N';
   var youtubeDataApiKey = 'AIzaSyDiTrZ80LUooXW0H_E2NoWKFUqNTB8sqLY'; // Esteban Almiron google account
 
-  // Root
-//  var root = "http://labs.theguardian.com/2015/aug/silent-circle-video/";
-
+  // App
   var App = {};
 
   function init( el, context, config, mediator ) {
-
-//    console.log( 'starting main init' );
 
     App.el = el;
     App.context = context;
     App.config = config;
     App.mediator = mediator;
-//    App.rootPath = isWeb() ? root : "";
     App.isWeb = isWeb();
 
+    // Paths
+    App.root = App.isWeb ? "http://labs.theguardian.com/2015/aug/silent-circle-video/" : "";
+    App.assets = App.root + 'assets/';
+
+    // Get Json
     getJsonData();
 
   }
@@ -40,14 +40,17 @@ define( [
 
   function getJsonData() {
 
-//    $.getJSON( '{{assets}}/data/coming-soon.json' + '&callback=?', getPlaylistItems );
-
     $.ajax( {
       dataType: 'json',
-      url: '{{assets}}/data/coming-soon.json', // + '&callback=?',
+      //url: '{{assets}}/data/coming-soon.json', // + '&callback=?',
+      url: App.assets + '/data/coming-soon.json',
       success: getPlaylistItems,
-      error: function () {
-        console.log( 'NEW getJsonData() error' );
+      error: function ( a, b, c ) {
+        console.log( 'JSON data error' );
+
+//        console.log( a );
+//        console.log( b );
+//        console.log( c );
       }
     } );
 
@@ -60,9 +63,6 @@ define( [
 //    console.log( 'get YT playlist items' );
 
     var url = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=' + playlistId + '&key=' + youtubeDataApiKey;
-
-    // https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PL6fsSwuQS6yprx0KUHXCP3DttOHFiEJ4N&key=AIzaSyDiTrZ80LUooXW0H_E2NoWKFUqNTB8sqLY
-
 
     $.ajax( {
       dataType: 'jsonp',
@@ -91,6 +91,10 @@ define( [
         playlistItemsData: App.playlistItemsData,
         comingSoon: App.comingSoon,
         youtubeDataApiKey: youtubeDataApiKey,
+        path: {
+          root: App.root,
+          assets: App.assets
+        }
 //        rootPath: App.rootPath
       } );
       appView.render();

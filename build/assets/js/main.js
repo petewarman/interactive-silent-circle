@@ -14713,7 +14713,7 @@ define('text',['module'], function (module) {
 });
 
 
-define('text!templates/appTemplate.html',[],function () { return '<div class="guInteractive">\n    <div id="content">\n\n\n        <header id="headerContainer">\n\n            <div id="sc-logo">\n                <a href="#"><img src="http://labs.theguardian.com/2015/aug/silent-circle-video/assets/imgs/sc-logo.png"></a>\n            </div>\n\n            <div id="headerImage">\n                <div class="animation">\n                    <img class="animated-text" src="http://labs.theguardian.com/2015/aug/silent-circle-video/assets/imgs/animated-text.gif">\n                    <img class="bg" src="http://labs.theguardian.com/2015/aug/silent-circle-video/assets/imgs/header-bg.jpg">\n                </div>\n            </div>\n\n        </header>\n\n\n        <div id="mainVideoContainer"></div>\n\n\n        <div class="contentBlock" id="other-videos">\n            <div class="separator"></div>\n\n            <h4 class="sectionHeading">Other videos</h4>\n\n            <div class="contentBlock-inner">\n                <!--<div id="allEpisodesContainer">-->\n                {{#videos}}\n                <div class="episodeBlock {{id}} inactiveVideo" data-video-id="{{id}}">\n\n                    <div class="thumb-wrapper">\n                        <button data-video-id="{{id}}" class="play-button">\n                            <span></span>\n                        </button>\n                        <img src="{{thumbnails.maxres.url}}">\n                    </div>\n\n                    <div class="episodeBlockContent">\n                        <h2>{{title}}</h2>\n\n                        <p>{{{shortDescription}}}</p>\n                        <!--<p>{{{description}}}</p>-->\n                    </div>\n                </div>\n                {{/videos}}\n\n                {{#comingSoonVideos}}\n                <div class="episodeBlock coming-soon">\n\n                    <div class="thumb-wrapper">\n                        <img src="http://labs.theguardian.com/2015/aug/silent-circle-video/assets/imgs/videos/{{img}}">\n                    </div>\n\n                    <div class="episodeBlockContent">\n                        <h2>{{title}} - To be decrypted on {{date}}</h2>\n\n                        <p>{{{shortDescription}}}</p>\n                    </div>\n                </div>\n                {{/comingSoonVideos}}\n                <!--</div>-->\n            </div>\n        </div>\n\n\n        <div class="contentBlock" id="signup">\n            <h4 class="sectionHeading">More content</h4>\n\n            <div id="signupBox" class="contentBlock-inner">\n\n                <div id="signupInformation">\n                    <h2>Subscribe here for the remaining videos</h2>\n\n                    <p>Enter your email address and we will send you a reminder when new episodes arrive</p>\n                </div>\n\n                <div id="signupForm">\n                    <iframe id="form" scrolling="no" frameborder="none" width="100%" height="40px" src="http://labs.theguardian.com/2015/aug/silent-circle-video/form.html"></iframe>\n                    <!--<iframe id="form" scrolling="no" frameborder="none" width="100%" height="40px"-->\n                    <!--src="http://interactive.guim.co.uk/visuals-blank-page/watch-me-date/form.html"></iframe>-->\n                </div>\n\n            </div>\n        </div>\n\n\n        <div class="contentBlock" id="about">\n            <!--<div class="separator"></div>-->\n\n            <h4 class="sectionHeading">About Silent Circle</h4>\n\n            <div class="contentBlock-inner">\n                <p class="half-width no-margin-top">\n                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam elementum quis justo at blandit.\n                    Nulla ante neque, scelerisque eu ante ut, aliquam egestas dolor. Proin a auctor massa. Vestibulum\n                    bibendum neque sit amet metus dignissim viverra. Quisque pellentesque velit lectus, ac vestibulum mi\n                    suscipit sit amet. Fusce nec pharetra tellus, quis egestas sem. Aliquam quis sodales enim. Phasellus\n                    a risus non libero mattis pretium. Aliquam bibendum imperdiet neque ac vulputate. Morbi ut dignissim\n                    enim, sit amet sagittis lorem. Nulla sed auctor nisi. Nunc pharetra, eros vulputate tempor interdum,\n                    quam est volutpat est, sit amet tincidunt purus mi sed enim. Maecenas nulla eros, cursus ut ipsum\n                    ac, hendrerit ultrices ipsum. Nullam porta et libero et dapibus. Maecenas pharetra sapien odio, non\n                    vulputate nunc elementum ut. Nam pulvinar sem vitae urna pulvinar, a ornare quam posuere.\n                </p>\n            </div>\n        </div>\n\n\n        <div class="contentBlock" id="how-safe">\n            <!--<div class="separator"></div>-->\n\n            <h4 class="sectionHeading"><span>Take the test</span> <img src="http://labs.theguardian.com/2015/aug/silent-circle-video/assets/imgs/quiz-gif.gif"></h4>\n\n            <div class="contentBlock-inner">\n                <h2>How safe is your business?</h2>\n\n                <p class="half-width">\n                    Click here to put your company to the test. Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n                    Nullam elementum quis justo at blandit.\n                </p>\n            </div>\n        </div>\n\n    </div>\n\n</div>\n';});
+define('text!templates/appTemplate.html',[],function () { return '<div class="guInteractive">\n    <div id="content">\n\n\n        <header id="headerContainer">\n\n            <div id="sc-logo">\n                <a href="#"><img src="{{path.assets}}/imgs/sc-logo.png"></a>\n            </div>\n\n            <div id="headerImage">\n                <div class="animation">\n                    <img class="animated-text" src="{{path.assets}}/imgs/animated-text.gif">\n                    <img class="bg" src="{{path.assets}}/imgs/header-bg.jpg">\n                </div>\n            </div>\n\n        </header>\n\n\n        <div id="mainVideoContainer"></div>\n\n\n        <div class="contentBlock" id="other-videos">\n            <div class="separator"></div>\n\n            <h4 class="sectionHeading">Other videos</h4>\n\n            <div class="contentBlock-inner">\n                <!--<div id="allEpisodesContainer">-->\n                {{#videos}}\n                <div class="episodeBlock {{id}} inactiveVideo" data-video-id="{{id}}">\n\n                    <div class="thumb-wrapper">\n                        <button data-video-id="{{id}}" class="play-button">\n                            <span></span>\n                        </button>\n                        <img src="{{thumbnails.maxres.url}}">\n                    </div>\n\n                    <div class="episodeBlockContent">\n                        <h2>{{title}}</h2>\n\n                        <p>{{{shortDescription}}}</p>\n                        <!--<p>{{{description}}}</p>-->\n                    </div>\n                </div>\n                {{/videos}}\n\n                {{#comingSoonVideos}}\n                <div class="episodeBlock coming-soon">\n\n                    <div class="thumb-wrapper">\n                        <img src="{{path.assets}}/imgs/videos/{{img}}">\n                    </div>\n\n                    <div class="episodeBlockContent">\n                        <h2>{{title}} - To be decrypted on {{date}}</h2>\n\n                        <p>{{{shortDescription}}}</p>\n                    </div>\n                </div>\n                {{/comingSoonVideos}}\n                <!--</div>-->\n            </div>\n        </div>\n\n\n        <div class="contentBlock" id="signup">\n            <h4 class="sectionHeading">More content</h4>\n\n            <div id="signupBox" class="contentBlock-inner">\n\n                <div id="signupInformation">\n                    <h2>Subscribe here for the remaining videos</h2>\n\n                    <p>Enter your email address and we will send you a reminder when new episodes arrive</p>\n                </div>\n\n                <div id="signupForm">\n                    <iframe id="form" scrolling="no" frameborder="none" width="100%" height="40px" src="{{root}}form.html"></iframe>\n                    <!--<iframe id="form" scrolling="no" frameborder="none" width="100%" height="40px"-->\n                    <!--src="http://interactive.guim.co.uk/visuals-blank-page/watch-me-date/form.html"></iframe>-->\n                </div>\n\n            </div>\n        </div>\n\n\n        <div class="contentBlock" id="about">\n            <!--<div class="separator"></div>-->\n\n            <h4 class="sectionHeading">About Silent Circle</h4>\n\n            <div class="contentBlock-inner">\n                <p class="half-width no-margin-top">\n                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam elementum quis justo at blandit.\n                    Nulla ante neque, scelerisque eu ante ut, aliquam egestas dolor. Proin a auctor massa. Vestibulum\n                    bibendum neque sit amet metus dignissim viverra. Quisque pellentesque velit lectus, ac vestibulum mi\n                    suscipit sit amet. Fusce nec pharetra tellus, quis egestas sem. Aliquam quis sodales enim. Phasellus\n                    a risus non libero mattis pretium. Aliquam bibendum imperdiet neque ac vulputate. Morbi ut dignissim\n                    enim, sit amet sagittis lorem. Nulla sed auctor nisi. Nunc pharetra, eros vulputate tempor interdum,\n                    quam est volutpat est, sit amet tincidunt purus mi sed enim. Maecenas nulla eros, cursus ut ipsum\n                    ac, hendrerit ultrices ipsum. Nullam porta et libero et dapibus. Maecenas pharetra sapien odio, non\n                    vulputate nunc elementum ut. Nam pulvinar sem vitae urna pulvinar, a ornare quam posuere.\n                </p>\n            </div>\n        </div>\n\n\n        <div class="contentBlock" id="how-safe">\n            <!--<div class="separator"></div>-->\n\n            <h4 class="sectionHeading"><span>Take the test</span> <img src="{{path.assets}}/imgs/quiz-gif.gif"></h4>\n\n            <div class="contentBlock-inner">\n                <h2>How safe is your business?</h2>\n\n                <p class="half-width">\n                    Click here to put your company to the test. Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n                    Nullam elementum quis justo at blandit.\n                </p>\n            </div>\n        </div>\n\n    </div>\n\n</div>\n';});
 
 
 define('text!templates/mainVideo.html',[],function () { return '{{#mainEpisode}}\n<div id="mainEpisode" class="contentBlock">\n\n    <div id="mainEpisodeVideo">\n\n        <div id="big-play-btn-wrapper">\n            <button id="big-play-btn" data-video-id="{{id}}" class="startVideo play-button">\n                <span></span>\n            </button>\n        </div>\n\n        <div id="backgroundContainer">\n\n            <!--Cover for transitions-->\n            <div class="transition-cover"></div>\n\n            <!--Poster image for youtube video-->\n            <img id="backgroundImage" src="{{thumbnails.maxres.url}}"/>\n\n            <!-- Custom player + YouTube iframe will be injected here -->\n            <div id="videoContainer"></div>\n\n            <!--Big play button-->\n            <button data-video-id="{{id}}" class="startVideo"><span></span></button>\n\n            <!--End slate appearing at the end of the video-->\n            <div id="endslate"></div>\n\n        </div>\n    </div>\n\n    <div class="contentBlock">\n        <h4 class="sectionHeading">&nbsp;</h4>\n\n        <div class="contentBlock-inner">\n            <div id="mainEpisodeContent">\n                <h3>{{title}}</h3>\n\n                <p id="episodeDescription">{{{description}}}</p>\n\n                <div id="shareButtons">\n                    <button data-source="twitter" id="shareTwitter" data-video-id="{{id}}"></button>\n                    <button data-source="facebook" id="shareFacebook" data-video-id="{{id}}"></button>\n                </div>\n            </div>\n        </div>\n\n    </div>\n\n</div>\n{{/mainEpisode}}\n';});
@@ -15969,7 +15969,6 @@ define( 'views/mainVideo',[
       var shareWindow = "";
       var queryString = "?videoId=" + this.videoData.id;
       var videoImg = this.videoData.thumbnails.maxres.url;
-//      var coupleImage = "http://labs.theguardian.com/2015/aug/silent-circle-video/assets/imgs/dates/" + this.videoData.id + '_1260.jpg';
       var guardianUrl = "http://www.theguardian.com/lifeandstyle/ng-interactive/2015/feb/12/watch-me-date" + queryString;
 
       if ( network === "twitter" ) {
@@ -20845,6 +20844,9 @@ define( 'views/appView',[
 
 //      console.log( 'init app view' );
 
+      // Paths
+      this.path = options.path;
+
       // Is Web
       this.isWeb = options.isWeb;
 
@@ -21095,6 +21097,7 @@ define( 'views/appView',[
         videos: this.allEpisodes,
         comingSoonVideos: this.comingSoonVideos,
         teaser: this.teaser,
+        path: this.path
 //        rootPath: this.rootPath //
       } ) );
 
@@ -21128,22 +21131,22 @@ define( 'main',[
   var playlistId = 'PL6fsSwuQS6yprx0KUHXCP3DttOHFiEJ4N';
   var youtubeDataApiKey = 'AIzaSyDiTrZ80LUooXW0H_E2NoWKFUqNTB8sqLY'; // Esteban Almiron google account
 
-  // Root
-//  var root = "http://labs.theguardian.com/2015/aug/silent-circle-video/";
-
+  // App
   var App = {};
 
   function init( el, context, config, mediator ) {
-
-//    console.log( 'starting main init' );
 
     App.el = el;
     App.context = context;
     App.config = config;
     App.mediator = mediator;
-//    App.rootPath = isWeb() ? root : "";
     App.isWeb = isWeb();
 
+    // Paths
+    App.root = App.isWeb ? "http://labs.theguardian.com/2015/aug/silent-circle-video/" : "";
+    App.assets = App.root + 'assets/';
+
+    // Get Json
     getJsonData();
 
   }
@@ -21156,14 +21159,17 @@ define( 'main',[
 
   function getJsonData() {
 
-//    $.getJSON( 'http://labs.theguardian.com/2015/aug/silent-circle-video/assets/data/coming-soon.json' + '&callback=?', getPlaylistItems );
-
     $.ajax( {
       dataType: 'json',
-      url: 'http://labs.theguardian.com/2015/aug/silent-circle-video/assets/data/coming-soon.json', // + '&callback=?',
+      //url: '{{assets}}/data/coming-soon.json', // + '&callback=?',
+      url: App.assets + '/data/coming-soon.json',
       success: getPlaylistItems,
-      error: function () {
-        console.log( 'NEW getJsonData() error' );
+      error: function ( a, b, c ) {
+        console.log( 'JSON data error' );
+
+//        console.log( a );
+//        console.log( b );
+//        console.log( c );
       }
     } );
 
@@ -21176,9 +21182,6 @@ define( 'main',[
 //    console.log( 'get YT playlist items' );
 
     var url = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=' + playlistId + '&key=' + youtubeDataApiKey;
-
-    // https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PL6fsSwuQS6yprx0KUHXCP3DttOHFiEJ4N&key=AIzaSyDiTrZ80LUooXW0H_E2NoWKFUqNTB8sqLY
-
 
     $.ajax( {
       dataType: 'jsonp',
@@ -21207,6 +21210,10 @@ define( 'main',[
         playlistItemsData: App.playlistItemsData,
         comingSoon: App.comingSoon,
         youtubeDataApiKey: youtubeDataApiKey,
+        path: {
+          root: App.root,
+          assets: App.assets
+        }
 //        rootPath: App.rootPath
       } );
       appView.render();

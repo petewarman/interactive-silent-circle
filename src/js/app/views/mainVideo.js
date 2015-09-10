@@ -69,7 +69,6 @@ define( [
       var shareWindow = "";
       var queryString = "?videoId=" + this.videoData.id;
       var videoImg = this.videoData.thumbnails.maxres.url;
-//      var coupleImage = "{{assets}}/imgs/dates/" + this.videoData.id + '_1260.jpg';
       var guardianUrl = "http://www.theguardian.com/lifeandstyle/ng-interactive/2015/feb/12/watch-me-date" + queryString;
 
       if ( network === "twitter" ) {

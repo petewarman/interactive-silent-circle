@@ -4,7 +4,15 @@
  */
 
 $imgs-path: "../imgs/";
+
+// FONTS
 $guss-webfonts-base-url: '//pasteup.guim.co.uk/fonts/';
+
+/**
+  * Use pasteup for deployed app. Use local folder, for local: '/bower_components/guss-webfonts/webfonts'
+  */
+//match: /\/\/pasteup\.guim\.co\.uk\/fonts\/0\.1\.0/g,
+//replacement: '/bower_components/guss-webfonts/webfonts'
 
 @import 'bower_components/pasteup-palette/src/_palette';
 @import 'bower_components/guss-webfonts/src/_webfonts.scss';

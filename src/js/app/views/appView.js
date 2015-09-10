@@ -26,6 +26,9 @@ define( [
 
 //      console.log( 'init app view' );
 
+      // Paths
+      this.path = options.path;
+
       // Is Web
       this.isWeb = options.isWeb;
 
@@ -276,6 +279,7 @@ define( [
         videos: this.allEpisodes,
         comingSoonVideos: this.comingSoonVideos,
         teaser: this.teaser,
+        path: this.path
 //        rootPath: this.rootPath //
       } ) );
 

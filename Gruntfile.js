@@ -33,23 +33,18 @@ module.exports = function ( grunt ) {
         style: (isDev) ? 'expanded' : 'compressed',
         sourcemap: (isDev) ? 'inline' : 'none'
       },
-      prod: {
+      build: {
         files: { 'build/assets/css/main.css': 'src/css/main.scss' }
-      },
-      local: {
-        files: { 'build-local/assets/css/main.css': 'src/css/main.scss' }
       }
     },
 
     autoprefixer: {
       options: { map: true },
-      prod: { src: 'build/assets/css/*.css' },
-      local: { src: 'build-local/assets/css/*.css' }
+      prefix: { src: 'build/assets/css/*.css' }
     },
 
     clean: {
-      local: ['build-local/'],
-      prod: ['build/']
+      clean: ['build/']
     },
 
     jshint: {
@@ -78,25 +73,6 @@ module.exports = function ( grunt ) {
           }
 
         }
-      },
-
-      local: {
-        options: {
-          baseUrl: './src/js/app/',
-          mainConfigFile: './src/js/libs/configPaths.js',
-          optimize: (isDev) ? 'none' : 'uglify2',
-          inlineText: true,
-          name: '../libs/almond',
-          out: 'build-local/assets/js/main.js',
-          generateSourceMaps: true,
-          preserveLicenseComments: false,
-          include: ['main'],
-          wrap: {
-            start: 'define(["require"],function(require){var req=(function(){',
-            end: 'return require; }()); return req; });'
-          }
-
-        }
       }
     },
 
@@ -108,8 +84,7 @@ module.exports = function ( grunt ) {
           'src/**/*.json',
           'src/js/app/templates/*.html'
         ],
-//        tasks: ['jshint', 'requirejs','replace:local'],
-        tasks: ['requirejs', 'replace'],
+        tasks: ['requirejs'],
         options: {
           spawn: false,
 //          livereload: true
@@ -117,7 +92,7 @@ module.exports = function ( grunt ) {
       },
       html: {
         files: ['src/*.html', 'src/**/*.html'],
-        tasks: ['copy', 'replace:local'],
+        tasks: ['copy'],
         options: {
           spawn: false,
 //          livereload: true
@@ -125,7 +100,7 @@ module.exports = function ( grunt ) {
       },
       css: {
         files: ['src/css/**/*.*'],
-        tasks: ['sass', 'autoprefixer', 'replace:local'],
+        tasks: ['sass', 'autoprefixer'],
         options: {
           spawn: false,
 //          livereload: true
@@ -134,12 +109,11 @@ module.exports = function ( grunt ) {
     },
 
     copy: {
-      prod: {
+      build: {
         files: [
           { src: 'src/index.html', dest: 'build/index.html' },
           { src: 'src/form.html', dest: 'build/form.html' },
           { src: 'src/thanks.html', dest: 'build/thanks.html' },
-          { src: 'src/js/libs/curl.js', dest: 'build/assets/js/curl.js' },
           { src: 'src/boot.js', dest: 'build/boot.js' },
           { cwd: 'src/', src: 'imgs/**', dest: 'build/assets/', expand: true},
 
@@ -147,72 +121,6 @@ module.exports = function ( grunt ) {
           { cwd: 'src/', src: 'fonts/**', dest: 'build/assets/', expand: true },
 
           { src: 'src/js/libs/require.js', dest: 'build/assets/js/require.js' }
-        ]
-      },
-      local: {
-        files: [
-          { src: 'src/index.html', dest: 'build-local/index.html' },
-          { src: 'src/form.html', dest: 'build-local/form.html' },
-          { src: 'src/thanks.html', dest: 'build-local/thanks.html' },
-          { src: 'src/js/libs/curl.js', dest: 'build-local/assets/js/curl.js' },
-          { src: 'src/boot.js', dest: 'build-local/boot.js' },
-          { cwd: 'src/', src: 'imgs/**', dest: 'build-local/assets/', expand: true},
-
-          { src: 'src/data/coming-soon.json', dest: 'build-local/assets/data/coming-soon.json' },
-          { cwd: 'src/', src: 'fonts/**', dest: 'build-local/assets/', expand: true },
-
-          { src: 'src/js/libs/require.js', dest: 'build-local/assets/js/require.js' }
-        ]
-      }
-    },
-
-    replace: {
-      prod: {
-        options: {
-          patterns: [
-            {
-              match: /{{assets}}/g,
-              replacement: "http://labs.theguardian.com/2015/aug/silent-circle-video/assets"//'assets'
-//              replacement: 'http://localhost:' + pkg.config.port + '/build/assets'
-            },
-            {
-              match: /{{root}}/g,
-              replacement: "http://labs.theguardian.com/2015/aug/silent-circle-video/"//'assets'
-//              replacement: 'http://localhost:' + pkg.config.port + '/build/assets'
-            }
-          ]
-        },
-        files: [
-          {
-            src: ['build/*.html', 'build/**/*.js', 'build/**/*.css'],
-            dest: './'
-          }
-        ]
-      },
-      local: {
-        options: {
-          patterns: [
-            {
-              match: /{{assets}}/g,
-              replacement: 'assets'
-//              replacement: 'http://localhost:' + pkg.config.port + '/build/assets'
-            },
-            {
-              match: /\/\/pasteup\.guim\.co\.uk\/fonts\/0\.1\.0/g,
-              replacement: '/bower_components/guss-webfonts/webfonts'
-            },
-            {
-              match: /{{root}}/g,
-              replacement: ""//'assets'
-//              replacement: 'http://localhost:' + pkg.config.port + '/build/assets'
-            }
-          ]
-        },
-        files: [
-          {
-            src: ['build-local/*.html', 'build-local/**/*.js', 'build-local/**/*.css'],
-            dest: './'
-          }
         ]
       }
     },
@@ -260,12 +168,8 @@ module.exports = function ( grunt ) {
           { src: 'build/assets', dest: assetPath }
         ]
       }
-    },
+    }
 
-    // Download files locally 
-//    curl: {
-//      'src/js/app/data/sampleData.json': pkg.config.data_url
-//    }
   } );
 
   // Task pluginsk
@@ -278,36 +182,16 @@ module.exports = function ( grunt ) {
   grunt.loadNpmTasks( 'grunt-contrib-copy' );
   grunt.loadNpmTasks( 'grunt-aws' );
   grunt.loadNpmTasks( 'grunt-autoprefixer' );
-  grunt.loadNpmTasks( 'grunt-replace' );
+//  grunt.loadNpmTasks( 'grunt-replace' );
   grunt.loadNpmTasks( 'grunt-contrib-rename' );
-  grunt.loadNpmTasks( 'grunt-curl' );
 
   // Tasks
-//  grunt.registerTask('fetch', ['curl']);
-
   grunt.registerTask( 'build', [
-    'build-prod',
-    'build-local'
-  ]
-  );
-
-  grunt.registerTask( 'build-prod', [
-//    'jshint',
-    'clean:prod',
-    'sass:prod',
-    'autoprefixer:prod',
-    'requirejs:prod',
-    'copy:prod',
-    'replace:prod'
-  ] );
-
-  grunt.registerTask( 'build-local', [
-    'clean:local',
-    'sass:local',
-    'autoprefixer:local',
-    'requirejs:local',
-    'copy:local',
-    'replace:local'
+    'clean',
+    'sass',
+    'autoprefixer',
+    'requirejs',
+    'copy'
   ] );
 
   grunt.registerTask( 'default', ['build', 'connect', 'watch'] );

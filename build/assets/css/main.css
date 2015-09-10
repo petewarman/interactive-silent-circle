@@ -3,6 +3,9 @@
  * File:    Main SCSS
  */
 /**
+  * Use pasteup for deployed app. Use local folder, for local: '/bower_components/guss-webfonts/webfonts'
+  */
+/**
  * Default colour palette
  *
  * @type Map
@@ -774,9 +777,6 @@ body {
     font-weight: 100;
     margin: 40px 0 0;
   }
-  .guInteractive #mainEpisode {
-    margin-bottom: 60px;
-  }
   .guInteractive #footerContent .colophon {
     -webkit-column-count: 3;
     -moz-column-count: 3;
@@ -935,9 +935,6 @@ body {
   .guInteractive #footerContent {
     margin: 0 auto;
     max-width: 1300px;
-  }
-  .guInteractive #mainEpisode {
-    margin-bottom: 80px;
   }
   .guInteractive .startVideo {
     width: 96px;

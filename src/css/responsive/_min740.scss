@@ -1,18 +1,12 @@
 @media(min-width: 740px) {
-//  .sectionHeading {
-//    max-width: 700px;
-//    margin-right: auto;
-//    margin-left: auto;
-//  }
-//  .sectionHeading {
-//    font-size: 22px;
-//  }
+
   #content,
   #navContainer,
   #footerContent {
     max-width: 740px;
     margin: 0 auto;
   }
+
   #episodeTeaser {
     max-width: 700px;
   }
@@ -24,6 +18,7 @@
       }
     }
   }
+
   #mainEpisodeVideo {
     &:hover {
       #backgroundLayer {
@@ -83,10 +78,6 @@
     margin: 40px 0 0;
   }
 
-  #mainEpisode {
-    margin-bottom: 60px;
-  }
-
   #footerContent {
     .colophon {
       column-count: 3;
@@ -118,8 +109,8 @@
         right: auto;
         margin-top: 20px;
       }
-
     }
+
     #soulmatesIcon {
       position: relative;
       width: 240px;
@@ -129,5 +120,6 @@
       transform: none;
       margin-top: 20px;
     }
+
   }
 }

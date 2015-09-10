@@ -2,6 +2,15 @@ define( [], function () {
 
   'use strict';
 
+  // Get paths for assets (css + js)
+  var rootPath = isWeb() ? window.guardianRoot : window.localRoot;
+  var assetsPath = rootPath + 'assets/';
+
+  // Check if in app or on website
+  function isWeb() {
+    return typeof window.guardian !== "undefined";
+  }
+
   function addCSS( url ) {
     var head = document.querySelector( 'head' );
     var link = document.createElement( 'link' );
@@ -14,12 +23,10 @@ define( [], function () {
   return {
     boot: function ( el, context, config, mediator ) {
       // Load CSS
-      addCSS( '{{assets}}/css/main.css' );
-
-//      console.log('boot script');
+      addCSS( assetsPath + '/css/main.css' );
 
       // Load main application
-      require( ['{{assets}}/js/main.js'], function ( req ) {
+      require( [ assetsPath + '/js/main.js'], function ( req ) {
         // Main app returns a almond instance of require to avoid
         // R2 / NGW inconsistencies.
         req( ['main'], function ( main ) {
