@@ -280,7 +280,6 @@ define( [
         comingSoonVideos: this.comingSoonVideos,
         teaser: this.teaser,
         path: this.path
-//        rootPath: this.rootPath //
       } ) );
 
       // Render main video
