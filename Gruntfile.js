@@ -107,7 +107,7 @@ module.exports = function ( grunt ) {
           'src/**/*.json',
           'src/js/app/templates/*.html'
         ],
-        tasks: ['requirejs'],
+        tasks: ['requirejs', 'replace'],
         options: {
           spawn: false,
 //          livereload: true
@@ -115,7 +115,7 @@ module.exports = function ( grunt ) {
       },
       html: {
         files: ['src/*.html', 'src/**/*.html'],
-        tasks: ['copy'],
+        tasks: ['copy', 'replace'],
         options: {
           spawn: false,
 //          livereload: true
@@ -123,7 +123,7 @@ module.exports = function ( grunt ) {
       },
       css: {
         files: ['src/css/**/*.*'],
-        tasks: ['sass', 'autoprefixer'],
+        tasks: ['sass', 'autoprefixer', 'replace'],
         options: {
           spawn: false,
 //          livereload: true
