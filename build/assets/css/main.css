@@ -1630,6 +1630,10 @@ body.touch .guInteractive .yt-volume-wrapper {
   margin-left: -11px;
   margin-top: -11px;
 }
+.guInteractive #about h4.sectionHeading,
+.guInteractive #about .contentBlock-inner {
+  color: #666;
+}
 .guInteractive #mainEpisode {
   position: relative;
 }
