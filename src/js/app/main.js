@@ -43,7 +43,7 @@ define( [
     $.ajax( {
       dataType: 'json',
       //url: '{{assets}}/data/coming-soon.json', // + '&callback=?',
-      url: App.assets + '/data/coming-soon.json',
+      url: App.assets + 'data/coming-soon.json',
       success: getPlaylistItems,
       error: function ( a, b, c ) {
         console.log( 'JSON data error' );
