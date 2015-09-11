@@ -23,10 +23,10 @@ define( [], function () {
   return {
     boot: function ( el, context, config, mediator ) {
       // Load CSS
-      addCSS( assetsPath + '/css/main.css' );
+      addCSS( assetsPath + 'css/main.css' );
 
       // Load main application
-      require( [ assetsPath + '/js/main.js'], function ( req ) {
+      require( [ assetsPath + 'js/main.js'], function ( req ) {
         // Main app returns a almond instance of require to avoid
         // R2 / NGW inconsistencies.
         req( ['main'], function ( main ) {
