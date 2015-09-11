@@ -3,7 +3,7 @@ define( [], function () {
   'use strict';
 
   // Get paths for assets (css + js)
-  var rootPath = isWeb() ? window.guardianRoot : window.localRoot;
+  var rootPath = isWeb() ? "//labs.theguardian.com/2015/aug/silent-circle-video/" : "";
   var assetsPath = rootPath + 'assets/';
 
   // Check if in app or on website
