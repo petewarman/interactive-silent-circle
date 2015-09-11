@@ -51,7 +51,7 @@
     font-size: 0;
     position: relative;
 //    padding: 5px;
-    padding:  0 10px 20px 10px;
+    padding:  0 20px 20px 20px;
 
     .animation {
       position: relative;
@@ -75,13 +75,13 @@
       }
     }
 
-    @media(min-width: 660px) {
-      padding:  0 10px 20px 10px;
-    }
+//    @media(min-width: 660px) {
+//      padding:  0 20px 20px 20px;
+//    }
 
-    @media(min-width: 980px) {
-      padding:  0 20px 20px 20px;
-    }
+//    @media(min-width: 980px) {
+//      padding:  0 20px 20px 20px;
+//    }
 
     @media(min-width: 1300px) {
       padding:  0 40px 40px 40px;

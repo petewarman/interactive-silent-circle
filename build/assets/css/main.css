@@ -995,7 +995,7 @@ body {
 .guInteractive #headerContainer #headerImage {
   font-size: 0;
   position: relative;
-  padding: 0 10px 20px 10px;
+  padding: 0 20px 20px 20px;
 }
 .guInteractive #headerContainer #headerImage .animation {
   position: relative;
@@ -1017,16 +1017,6 @@ body {
 .guInteractive #headerContainer #headerImage .animation .bg {
   position: relative;
   z-index: 4;
-}
-@media (min-width: 660px) {
-  .guInteractive #headerContainer #headerImage {
-    padding: 0 10px 20px 10px;
-  }
-}
-@media (min-width: 980px) {
-  .guInteractive #headerContainer #headerImage {
-    padding: 0 20px 20px 20px;
-  }
 }
 @media (min-width: 1300px) {
   .guInteractive #headerContainer #headerImage {
