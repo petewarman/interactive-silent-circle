@@ -1589,25 +1589,25 @@ body.touch .guInteractive .yt-volume-wrapper {
   outline: none;
 }
 .guInteractive #shareButtons button#shareTwitter {
-  background: #03b3ee url(../imgs/twitterIcon.svg) no-repeat center center;
+  background: #03b3ee url("../imgs/twitterIcon.svg") no-repeat center center;
 }
 .guInteractive #shareButtons button#shareTwitter:hover {
   background-color: #028dbc;
 }
 .guInteractive #shareButtons button#shareFacebook {
-  background: #3067a3 url(../imgs/facebookIcon.svg) no-repeat center center;
+  background: #3067a3 url("../imgs/facebookIcon.svg") no-repeat center center;
 }
 .guInteractive #shareButtons button#shareFacebook:hover {
   background-color: #244e7c;
 }
 .guInteractive #shareButtons button#sharePinterest {
-  background: #b9252c url(../imgs/pinterestIcon.svg) no-repeat center center;
+  background: #b9252c url("../imgs/pinterestIcon.svg") no-repeat center center;
 }
 .guInteractive #shareButtons button#sharePinterest:hover {
   background-color: #8f1d22;
 }
 .guInteractive #shareButtons button#shareTumblr {
-  background: #36465d url(../imgs/tumblrIcon2.svg) no-repeat center center;
+  background: #36465d url("../imgs/tumblrIcon2.svg") no-repeat center center;
   background-size: 11px;
 }
 .guInteractive #shareButtons button#shareTumblr:hover {

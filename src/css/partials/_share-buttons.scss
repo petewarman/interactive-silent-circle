@@ -21,25 +21,25 @@
     cursor: pointer;
     outline: none;
     &#shareTwitter {
-      background: #03b3ee url(../imgs/twitterIcon.svg) no-repeat center center;
+      background: #03b3ee url('#{$imgs-path}twitterIcon.svg') no-repeat center center;
       &:hover {
         background-color: darken(#03b3ee, 10%);
       }
     }
     &#shareFacebook {
-      background: #3067a3 url(../imgs/facebookIcon.svg) no-repeat center center;
+      background: #3067a3 url('#{$imgs-path}facebookIcon.svg') no-repeat center center;
       &:hover {
         background-color: darken(#3067a3, 10%);
       }
     }
     &#sharePinterest {
-      background: #b9252c url(../imgs/pinterestIcon.svg) no-repeat center center;
+      background: #b9252c url('#{$imgs-path}pinterestIcon.svg') no-repeat center center;
       &:hover {
         background-color: darken(#b9252c, 10%);
       }
     }
     &#shareTumblr {
-      background: #36465d url(../imgs/tumblrIcon2.svg) no-repeat center center;
+      background: #36465d url('#{$imgs-path}tumblrIcon2.svg') no-repeat center center;
       background-size: 11px;
       &:hover {
         background-color: darken(#36465d, 10%);
