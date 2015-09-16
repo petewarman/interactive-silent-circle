@@ -25,7 +25,7 @@ define( [
       this.isTouch = options.isTouch;
       this.isPhone = this.isIphone || (this.isTouch && !this.isIpad && $( window ).width() < 480);
 
-      console.log( 'AM I A PHONE? ', this.isPhone );
+//      console.log( 'AM I A PHONE? ', this.isPhone );
 
       // Get mainApp view reference
       this.mainApp = options.mainApp;
