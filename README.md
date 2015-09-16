@@ -46,9 +46,5 @@ See: ```https://developers.google.com/youtube/registering_an_application```
 - Update text for Twitter and Facebook share icons in ```/src/js/app/views/mainVideo.js``` (method ```shareVideo```)
 
 
-- Add the thanks.html page url in Formstack.
-See: ```https://support.formstack.com/customer/portal/articles/1930012-submit-actions``` (section "Redirect to an External URL")
-
-
 - Google Analytics (???)
 
