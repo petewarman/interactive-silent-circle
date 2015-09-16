@@ -11,7 +11,7 @@ See ```package.json``` and ```bower.json```
 
 
 ## Update JSON content
-Text content can be found in ```/src/data/coming-soon.json```
+Content can be found in ```/src/data/coming-soon.json```
 
 
 ## Build + watch + local server
