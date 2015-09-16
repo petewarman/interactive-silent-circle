@@ -47,7 +47,7 @@ define( [
         videos: this.videos,
         isTouch: this.isTouch,
         mainApp: this,
-//        rootPath: this.rootPath
+//        rootPath: this.rootPath //
       } );
 
       this.setupEvents();

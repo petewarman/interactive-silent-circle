@@ -41,13 +41,12 @@ define( [
   function getJsonData() {
 
     $.ajax( {
-      dataType: 'json',
-      //url: '{{assets}}/data/coming-soon.json', // + '&callback=?',
+      dataType: 'jsonp',
+      jsonpCallback: 'callback',
       url: App.assets + 'data/coming-soon.json',
       success: getPlaylistItems,
       error: function ( a, b, c ) {
         console.log( 'JSON data error' );
-
 //        console.log( a );
 //        console.log( b );
 //        console.log( c );

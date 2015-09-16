@@ -1,4 +1,4 @@
-{
+callback({
   "videos": [
     {
       "episode": 1,
@@ -38,4 +38,4 @@
   ],
   "updated": "",
   "name": "Silent Circle - Coming Soon videos"
-}
+});
