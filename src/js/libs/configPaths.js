@@ -7,7 +7,7 @@ require.config( {
     'backbone': '../libs/backbone',
     'crossdomain': '../libs/Backbone.CrossDomain',
     'velocity': '../libs/velocity',
-    'velocity-ui': '../libs/velocity.ui',
+//    'velocity-ui': '../libs/velocity.ui',
 //    'nestedmodel': '../libs/backbone-nested',
     'text': '../libs/text',
 //    'json': '../libs/json',

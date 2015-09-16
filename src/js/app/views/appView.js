@@ -5,8 +5,9 @@ define( [
   'text!templates/appTemplate.html',
   'views/mainVideo',
   'underscore',
-  'velocity',
-  'velocity-ui'
+  'velocity'
+//  ,
+//  'velocity-ui'
 //  'views/analytics'
 ], function ( Backbone, Mustache, routes, template, mainVideo, _, ga, velocity ) {
   'use strict';

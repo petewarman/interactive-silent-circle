@@ -40,6 +40,8 @@ define( [
 
   function getJsonData() {
 
+//    console.log( App.assets );
+
     $.ajax( {
       dataType: 'jsonp',
       jsonpCallback: 'callback',
@@ -47,15 +49,17 @@ define( [
       success: getPlaylistItems,
       error: function ( a, b, c ) {
         console.log( 'JSON data error' );
-//        console.log( a );
-//        console.log( b );
-//        console.log( c );
+        console.log( a );
+        console.log( b );
+        console.log( c );
       }
     } );
 
   }
 
   function getPlaylistItems( data ) {
+
+//    console.log( data );
 
     App.comingSoon = data;
 
