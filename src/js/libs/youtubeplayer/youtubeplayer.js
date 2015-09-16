@@ -1023,8 +1023,10 @@ define( [
 
       // CONTROLS - RIGHT
       '<div class="yt-controls-right">' +
-      '<div class="yt-languages-btn">' + languagesSvg + '<ul class="yt-languages-list"></ul></div>' +
-      '<div class="yt-cc-btn">' + ccSvg + '</div>' +
+      '<div class="yt-languages-btn unselectable">' + languagesSvg + ' <span class="label unselectable">Subtitles</span> <ul class="yt-languages-list"></ul></div>' +
+      '<div class="yt-cc-btn unselectable">' + ccSvg +
+      //'<span class="label unselectable off">Off</span><span class="label unselectable on">On</span>'+
+      '</div>' +
       '<div class="yt-embed-btn unselectable">' + embedSvg + ' <span class="unselectable">Embed</span></div>' +
       '<div class="yt-volume-wrapper unselectable">' +
       '<div class="yt-mute-btn unselectable">' + volumeSvg + '</div>' +

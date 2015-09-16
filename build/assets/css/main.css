@@ -1490,7 +1490,27 @@ body.touch .guInteractive .yt-volume-wrapper {
   position: relative;
 }
 .guInteractive .yt-languages-btn .svg {
-  display: block;
+  margin: 0 5px;
+  display: inline-block;
+}
+.guInteractive .yt-languages-btn .label,
+.guInteractive .yt-languages-btn .svg {
+  vertical-align: middle;
+}
+.guInteractive .yt-languages-btn .label {
+  font-size: 12px;
+  display: none;
+}
+@media (min-width: 740px) {
+  .guInteractive .yt-languages-btn .label {
+    display: inline-block;
+  }
+}
+.guInteractive .yt-languages-btn:hover .label {
+  color: #ff827f;
+}
+.guInteractive .yt-languages-btn.open .label {
+  color: #ff827f;
 }
 .guInteractive .yt-languages-btn.open .svg .shape {
   fill: #ff827f;
@@ -1550,8 +1570,40 @@ body.touch .guInteractive .yt-volume-wrapper {
 .guInteractive .yt-languages-btn .yt-languages-list li:hover p i {
   background-color: #ff827f;
 }
+.guInteractive .yt-cc-btn .svg {
+  margin: 0 5px;
+  display: inline-block;
+}
+.guInteractive .yt-cc-btn .label,
+.guInteractive .yt-cc-btn .svg {
+  vertical-align: middle;
+}
+.guInteractive .yt-cc-btn .label {
+  display: none;
+  font-size: 12px;
+  min-width: 24px;
+}
+@media (min-width: 740px) {
+  .guInteractive .yt-cc-btn .label.on {
+    display: inline-block;
+  }
+}
+.guInteractive .yt-cc-btn.active .label {
+  display: none;
+}
+@media (min-width: 740px) {
+  .guInteractive .yt-cc-btn.active .label.off {
+    display: inline-block;
+  }
+}
+.guInteractive .yt-cc-btn:hover .label {
+  color: #FFF;
+}
 .guInteractive .yt-cc-btn:hover .svg .shape {
   fill: #FFF;
+}
+.guInteractive .yt-cc-btn.active .label {
+  color: #ff827f;
 }
 .guInteractive .yt-cc-btn.active .svg .shape {
   fill: #ff827f;

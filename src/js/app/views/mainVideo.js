@@ -107,7 +107,7 @@ define( [
 //        embedCode: embedCode, // custom embed code
         alwaysVisible: false, // if the controls should be always visible or hide after a few seconds
         //hl: 'en', // force the language for subtitles and CC
-        hideControlsDelay: 2500, // time in ms before hiding the controls, after mouse exits the video
+        hideControlsDelay: 2500000,//2500, // time in ms before hiding the controls, after mouse exits the video
         videoId: youtubeId, //id of the yt video
         wmode: 'transparent', //opaque/transparent/direct
         YTControls: this.YTControls,

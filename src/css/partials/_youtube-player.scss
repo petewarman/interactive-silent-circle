@@ -80,15 +80,15 @@ $buffer-color: #999;
     display: block;
   }
 
-//  .yt-big-play-btn {
-//    body.no-touch & {
-//      display: block;
-//    }
-//
-//    body.touch & {
-//      display: none !important;
-//    }
-//  }
+  //  .yt-big-play-btn {
+  //    body.no-touch & {
+  //      display: block;
+  //    }
+  //
+  //    body.touch & {
+  //      display: none !important;
+  //    }
+  //  }
 
   .yt-loading-wrapper {
     display: none;
@@ -242,7 +242,7 @@ $buffer-color: #999;
 }
 
 .yt-play-btn {
-//  left: 10px;
+  //  left: 10px;
   width: 32px;
   height: 32px;
   border: none;
@@ -311,14 +311,7 @@ $buffer-color: #999;
 
 .yt-time {
   color: #fff;
-  //  position: absolute;
-  //  top: 50%;
-//  left: 60px;
-  //  height: $yt-controls-height;
-  //  line-height: $yt-controls-height;
-//  width: 100px;
   font-size: 12px;
-  //  @include css3-prefix(transform, translateY(-50%));
   display: none;
 
   @media(min-width: 660px) {
@@ -359,20 +352,11 @@ $buffer-color: #999;
 }
 
 .yt-embed-btn {
-  //  right: 230px;
-  //  width: 80px;
-  //  height: 14px;
   text-align: left;
-  //  padding: 4px;
   display: none;
 
   @media(min-width: 660px) {
     display: inline-block;
-  }
-
-  .svg {
-    //    left: 0;
-    //    @include transform(translateY(-50%));
   }
 
   &:hover,
@@ -488,14 +472,38 @@ body.touch & .yt-volume-wrapper {
 
 .yt-languages-btn {
   padding: 14px 10px;
-  position:relative;
-//  background-color: red;
+  position: relative;
+  //  background-color: red;
 
   .svg {
-    display: block;
+    margin: 0 5px;
+    display: inline-block;
+  }
+
+  .label,
+  .svg {
+    vertical-align: middle;
+  }
+
+  .label {
+    font-size: 12px;
+    display: none;
+
+    @media(min-width: 740px) {
+      display: inline-block;
+    }
+  }
+
+  &:hover {
+    .label {
+      color: $highlight-color;
+    }
   }
 
   &.open {
+    .label {
+      color: $highlight-color;
+    }
 
     .svg .shape {
       fill: $highlight-color;
@@ -567,6 +575,7 @@ body.touch & .yt-volume-wrapper {
       }
     }
   }
+
 }
 
 .yt-cc-btn {
@@ -579,14 +588,56 @@ body.touch & .yt-volume-wrapper {
   //  @media(min-width: 660px) {
   //    right: $right;
   //  }
+  .svg {
+    margin: 0 5px;
+    display: inline-block;
+  }
+
+  .label,
+  .svg {
+    vertical-align: middle;
+  }
+
+  .label {
+    display: none;
+    font-size: 12px;
+    min-width: 24px;
+
+    &.on {
+      @media(min-width: 740px) {
+        display: inline-block;
+      }
+    }
+
+  }
+
+  &.active {
+
+    .label {
+      display: none;
+      &.off {
+        @media(min-width: 740px) {
+          display: inline-block;
+        }
+      }
+    }
+
+  }
 
   &:hover {
+    .label {
+      color: #FFF;
+    }
+
     .svg .shape {
       fill: #FFF;
     }
   }
 
   &.active {
+    .label {
+      color: $highlight-color;
+    }
     .svg .shape {
       fill: $highlight-color;
     }
