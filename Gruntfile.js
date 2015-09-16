@@ -148,43 +148,6 @@ module.exports = function ( grunt ) {
       }
     },
 
-    s3: {
-      options: {
-        access: 'public-read',
-        bucket: 'gdn-cdn',
-        maxOperations: 20,
-        dryRun: (grunt.option( 'test' )) ? true : false,
-        headers: {
-          CacheControl: 180,
-        },
-        gzip: true,
-        gzipExclude: ['.jpg', '.gif', '.jpeg', '.png']
-      },
-      base: {
-        files: [
-          {
-            cwd: 'build',
-            src: '*.*',
-            dest: pkg.config.s3_folder
-          }
-        ]
-      },
-      assets: {
-        options: {
-          headers: {
-            CacheControl: 3600,
-          }
-        },
-        files: [
-          {
-            cwd: 'build',
-            src: 'assets-' + currentTime + '/**/*.*',
-            dest: pkg.config.s3_folder
-          }
-        ]
-      }
-    },
-
     rename: {
       main: {
         files: [
@@ -203,7 +166,7 @@ module.exports = function ( grunt ) {
   grunt.loadNpmTasks( 'grunt-contrib-watch' );
   grunt.loadNpmTasks( 'grunt-contrib-clean' );
   grunt.loadNpmTasks( 'grunt-contrib-copy' );
-  grunt.loadNpmTasks( 'grunt-aws' );
+//  grunt.loadNpmTasks( 'grunt-aws' );
   grunt.loadNpmTasks( 'grunt-autoprefixer' );
   grunt.loadNpmTasks( 'grunt-replace' );
   grunt.loadNpmTasks( 'grunt-contrib-rename' );
@@ -220,12 +183,6 @@ module.exports = function ( grunt ) {
 
   grunt.registerTask( 'default', ['build', 'connect', 'watch'] );
 
-  grunt.registerTask( 'deploy', [
-    'build',
-    'rename',
-    'replace:prod',
-    's3'
-  ] );
 };
 
 
