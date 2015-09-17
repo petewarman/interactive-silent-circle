@@ -9,8 +9,14 @@ define( [
 
 
   // YouTube Playlist ID
-  var playlistId = 'PL6fsSwuQS6yprx0KUHXCP3DttOHFiEJ4N';
-  var youtubeDataApiKey = 'AIzaSyDiTrZ80LUooXW0H_E2NoWKFUqNTB8sqLY'; // Esteban Almiron google account
+  var playlistId = "PLa_1MA_DEorH3aUMfgDKAJ6vuaDaRsijD"; // Guardian YouTube account
+
+  // Browser API key generated with The Guardian Google account
+  // https://console.developers.google.com/
+  var youtubeDataApiKey = 'AIzaSyDy9OXbA7spc4hGNOyevkkc5Na0G11DXAI';
+
+//  console.log(youtubeDataApiKey);
+
 
   // App
   var App = {};

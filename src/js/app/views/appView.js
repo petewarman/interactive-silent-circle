@@ -1,15 +1,22 @@
 define( [
+  'underscore',
   'backbone',
   'mustache',
-  'routes',
+//  'routes',
+
+  // Tpl
   'text!templates/appTemplate.html',
+
+  // Views
   'views/mainVideo',
-  'underscore',
-  'velocity'
-//  ,
-//  'velocity-ui'
-//  'views/analytics'
-], function ( Backbone, Mustache, routes, template, mainVideo, _, ga, velocity ) {
+
+  // Velocity
+  'velocity',
+
+  // Google Analytics
+  'analytics'
+
+], function ( _, Backbone, Mustache, template, mainVideo, velocity, ga  ) {
   'use strict';
 
   return Backbone.View.extend( {
@@ -81,12 +88,13 @@ define( [
 
 //      console.log(this.mainVideo.ytplayer);
 
-//      window.ga( 'send', {
-//        'hitType': 'event',          // Required.
-//        'eventCategory': 'switch video',   // Required.
-//        'eventAction': 'click',      // Required.
-//        'eventLabel': videoId
-//      } );
+      // Google Analytics
+      window.ga( 'send', {
+        'hitType': 'event',          // Required.
+        'eventCategory': 'switch video',   // Required.
+        'eventAction': 'click',      // Required.
+        'eventLabel': videoId
+      } );
 
       // Scroll up to show the video area
       $( 'html,body' ).velocity( 'scroll', {

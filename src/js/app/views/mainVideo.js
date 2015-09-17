@@ -107,7 +107,7 @@ define( [
 //        embedCode: embedCode, // custom embed code
         alwaysVisible: false, // if the controls should be always visible or hide after a few seconds
         //hl: 'en', // force the language for subtitles and CC
-        hideControlsDelay: 2500000,//2500, // time in ms before hiding the controls, after mouse exits the video
+        hideControlsDelay: 2500, // time in ms before hiding the controls, after mouse exits the video
         videoId: youtubeId, //id of the yt video
         wmode: 'transparent', //opaque/transparent/direct
         YTControls: this.YTControls,
@@ -144,12 +144,22 @@ define( [
     },
 
     onVideoPlay: function () {
-//      console.log( 'video PLAY' );
+      console.log( 'video PLAY' );
       if ( this.isTouch && !this.isPhone ) {
         $( '#backgroundImage, #big-play-btn-wrapper' ).hide();
       }
 
       $( '#mainEpisode' ).addClass( 'videoPlaying' );
+
+      console.log(this.videoData.title);
+
+      // Update Google Analytics (send)
+      window.ga( 'send', {
+        'hitType': 'event',          // Required.
+        'eventCategory': 'play video',   // Required.
+        'eventAction': 'play',      // Required.
+        'eventLabel': this.videoData.title
+      } );
     },
 
 
@@ -187,14 +197,6 @@ define( [
         // phone
         $( '#backgroundImage' ).remove();
       }
-
-      // Update Google Analytics (send)
-//      window.ga( 'send', {
-//        'hitType': 'event',          // Required.
-//        'eventCategory': 'play video',   // Required.
-//        'eventAction': 'play',      // Required.
-//        'eventLabel': this.ytplayer.id
-//      } );
 
     },
 
