@@ -67,12 +67,11 @@ define( [
 
       var twitterBaseUrl = this.copy.twitterBaseUrl;
       var facebookBaseUrl = this.copy.facebookBaseUrl;
-      var sharemessage = this.copy.shareMessage + " ";
+      var sharemessage = this.copy.shareVideoMessage + " ";
       var network = $( e.currentTarget ).attr( 'data-source' );
       var shareWindow = "";
-//      var queryString = "?videoId=" + this.videoData.id;
       var videoImg = this.videoData.thumbnails.maxres.url;
-      var guardianUrl = this.copy.guardianUrl + "?video=" + this.videoData.id;
+      var guardianUrl = this.copy.pageUrl + "?video=" + this.videoData.id;
 
       if ( network === "twitter" ) {
         shareWindow =
@@ -147,14 +146,15 @@ define( [
     },
 
     onVideoPlay: function () {
-      console.log( 'video PLAY' );
+//      console.log( 'video PLAY' );
+
       if ( this.isTouch && !this.isPhone ) {
         $( '#backgroundImage, #big-play-btn-wrapper' ).hide();
       }
 
       $( '#mainEpisode' ).addClass( 'videoPlaying' );
 
-      console.log(this.videoData.title);
+//      console.log(this.videoData.title);
 
       // Update Google Analytics (send)
       window.ga( 'send', {

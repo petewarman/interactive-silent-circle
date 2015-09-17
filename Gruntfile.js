@@ -100,11 +100,20 @@ module.exports = function ( grunt ) {
     },
 
     watch: {
+      data: {
+        files: [
+          'src/**/*.json'
+        ],
+        tasks: ['copy', 'replace'],
+        options: {
+          spawn: false,
+//          livereload: true
+        }
+      },
       scripts: {
         files: [
           'src/**/*.js',
           'src/boot.js',
-          'src/**/*.json',
           'src/js/app/templates/*.html'
         ],
         tasks: ['requirejs', 'replace'],

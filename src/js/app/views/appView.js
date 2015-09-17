@@ -59,10 +59,6 @@ define( [
       } );
 
       this.setupEvents();
-
-//      console.log( this.comingSoon );
-//      console.log( options.playlistItemsData );
-//      console.log( this.videos );
     },
 
 
@@ -106,22 +102,6 @@ define( [
           self.mainVideo.renderVideo();
         }
       } );
-
-
-//      setTimeout(function() {
-//        self.mainEpisode = foundValue;
-//        self.mainVideo.render( self.mainEpisode );
-//        if ( !self.isTouch ) {
-//          self.mainVideo.renderVideo();
-//        }
-//      }, diff);
-
-//      var target = document.getElementById( "mainEpisode" );
-//      this.animateScroll( document.body, "scrollTop", "", document.body.scrollTop, target.offsetTop - 40, 600, true, function () {
-//        if ( !self.isTouch ) {
-//          self.mainVideo.renderVideo();
-//        }
-//      } );
 
       this.changeQuerystring();
       this.updateActiveVideo();
@@ -175,14 +155,43 @@ define( [
 
       //'click .episodeBlock.inactiveVideo': 'switchVideo'
       this.$el.on( 'click', '.episodeBlock.inactiveVideo .thumb-wrapper img', this.switchVideo.bind( this ) );
+
+      this.$el.on( 'click', '#shareTwitter, #shareFacebook', this.sharePage.bind( this ) );
+    },
+
+    sharePage: function ( e ) {
+      var twitterBaseUrl = this.copy.twitterBaseUrl;
+      var facebookBaseUrl = this.copy.facebookBaseUrl;
+      var sharemessage = this.copy.sharePageMessage + " ";
+      var network = $( e.currentTarget ).attr( 'data-source' );
+      var shareWindow = "";
+      var img = this.copy.pageUrl + 'assets/imgs/' + this.copy.sharePageImg;
+      var guardianUrl = this.copy.pageUrl;
+
+//      console.log(img,this.path,  this.copy.sharePageImg);
+
+      if ( network === "twitter" ) {
+        shareWindow =
+          twitterBaseUrl +
+            encodeURIComponent( sharemessage ) +
+            "%20" +
+            encodeURIComponent( guardianUrl )
+
+      } else if ( network === "facebook" ) {
+        shareWindow =
+          facebookBaseUrl +
+            encodeURIComponent( guardianUrl ) +
+            "&picture=" +
+            encodeURIComponent( img ) +
+            "&redirect_uri=http://www.theguardian.com";
+      }
+      window.open( shareWindow, network + "share", "width=640, height=320" );
     },
 
     getComingSoonVideos: function ( playlistVideos ) {
       var self = this;
       var videos = [];
-//      var items = playlistVideos;
       var playlistCount = playlistVideos.length;
-
       var comingSoonCount = this.videosExtraData.length;
       var comingSoonToShow = comingSoonCount - playlistCount;
 

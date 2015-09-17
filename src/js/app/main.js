@@ -8,14 +8,24 @@ define( [
   'use strict';
 
 
+  // #########################################################
+  // #########################################################
+  //
+  //
   // YouTube Playlist ID
-  var playlistId = "PLa_1MA_DEorH3aUMfgDKAJ6vuaDaRsijD"; // Guardian YouTube account
-
-  // Browser API key generated with The Guardian Google account
+  // The Guardian YouTube page
+  // https://www.youtube.com/playlist?list=PLa_1MA_DEorH3aUMfgDKAJ6vuaDaRsijD
+  var playlistId = "PLa_1MA_DEorH3aUMfgDKAJ6vuaDaRsijD";
+  //
+  //
+  // Browser API key generated with
+  // The Guardian Google account
   // https://console.developers.google.com/
   var youtubeDataApiKey = 'AIzaSyDy9OXbA7spc4hGNOyevkkc5Na0G11DXAI';
-
-//  console.log(youtubeDataApiKey);
+  //
+  //
+  // #########################################################
+  // #########################################################
 
 
   // App

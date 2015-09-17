@@ -393,10 +393,6 @@ define( [
         e.preventDefault();
         self.togglePlay();
       } );
-      this.$playBtn.on( 'click', function ( e ) {
-        e.preventDefault();
-        self.togglePlay();
-      } );
 
       // Toggle captions on/off
       this.$cc.on( click, this.toggleCaptions.bind( this ) );
@@ -656,12 +652,12 @@ define( [
 
     play: function () {
       this.ytplayer.playVideo();
-      this.trigger( 'play' );
+//      this.trigger( 'play' );
     },
 
     pause: function () {
       this.ytplayer.pauseVideo();
-      this.trigger( 'pause' );
+//      this.trigger( 'pause' );
     },
 
     unmute: function () {

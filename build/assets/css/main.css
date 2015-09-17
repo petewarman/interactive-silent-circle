@@ -952,44 +952,81 @@ body {
 }
 .guInteractive #headerContainer {
   position: relative;
+  margin: 0;
+}
+@media (min-width: 660px) {
+  .guInteractive #headerContainer {
+    margin: 0 20px;
+  }
+}
+@media (min-width: 980px) {
+  .guInteractive #headerContainer {
+    margin: 0 20px;
+  }
+}
+@media (min-width: 1300px) {
+  .guInteractive #headerContainer {
+    margin: 0 40px;
+  }
 }
 .guInteractive #headerContainer #sc-logo {
   position: relative;
   text-align: right;
   border: none;
+  font-size: 0;
 }
-.guInteractive #headerContainer #sc-logo a {
+.guInteractive #headerContainer #sc-logo #sharePage {
+  text-align: left;
+  width: 40%;
+}
+.guInteractive #headerContainer #sc-logo #sharePage .inner {
+  padding: 20px;
+}
+@media (min-width: 660px) {
+  .guInteractive #headerContainer #sc-logo #sharePage .inner {
+    padding: 20px 0;
+  }
+}
+.guInteractive #headerContainer #sc-logo a,
+.guInteractive #headerContainer #sc-logo #sharePage {
   position: relative;
   display: inline-block;
-  width: 50%;
-  padding: 10px 10px;
+  vertical-align: middle;
+}
+.guInteractive #headerContainer #sc-logo a {
+  width: 60%;
   border: none;
+  text-align: right;
 }
 .guInteractive #headerContainer #sc-logo a img {
-  display: block;
+  display: inline-block;
   width: 100%;
   border: none;
+  padding: 20px;
+  position: relative;
 }
 @media (min-width: 440px) {
-  .guInteractive #headerContainer #sc-logo a {
-    width: 40%;
+  .guInteractive #headerContainer #sc-logo a img {
+    width: 80%;
+    padding: 15px 20px;
   }
 }
 @media (min-width: 660px) {
-  .guInteractive #headerContainer #sc-logo a {
-    padding: 15px 10px;
+  .guInteractive #headerContainer #sc-logo a img {
+    width: 70%;
+    padding: 15px 0;
   }
 }
 @media (min-width: 980px) {
-  .guInteractive #headerContainer #sc-logo a {
-    width: 30%;
-    padding: 20px;
+  .guInteractive #headerContainer #sc-logo a img {
+    width: 60%;
+    padding: 20px 0;
   }
 }
 @media (min-width: 1300px) {
-  .guInteractive #headerContainer #sc-logo a {
-    width: 25%;
-    padding: 20px 40px;
+  .guInteractive #headerContainer #sc-logo a img {
+    width: 50%;
+    padding: 20px 0;
   }
 }
 .guInteractive #headerContainer #headerImage {
@@ -1018,9 +1055,14 @@ body {
   position: relative;
   z-index: 4;
 }
+@media (min-width: 660px) {
+  .guInteractive #headerContainer #headerImage {
+    padding: 0 0 20px 0;
+  }
+}
 @media (min-width: 1300px) {
   .guInteractive #headerContainer #headerImage {
-    padding: 0 40px 40px 40px;
+    padding: 0 0 40px 0;
   }
 }
 .guInteractive .contentBlock {
@@ -1609,15 +1651,18 @@ body.touch .guInteractive .yt-volume-wrapper {
 .guInteractive .yt-cc-btn.active .svg .shape {
   fill: #ff827f;
 }
+.guInteractive #sharePage,
 .guInteractive #shareButtons {
   font-family: 'Guardian Text Sans Web', 'Agate Sans', sans-serif;
   font-size: 14px;
   color: #767676;
   margin-top: 0;
 }
+.guInteractive #sharePage p,
 .guInteractive #shareButtons p {
   margin: 0 0 5px;
 }
+.guInteractive #sharePage button,
 .guInteractive #shareButtons button {
   background: #333;
   width: 32px;
@@ -1631,28 +1676,36 @@ body.touch .guInteractive .yt-volume-wrapper {
   cursor: pointer;
   outline: none;
 }
+.guInteractive #sharePage button#shareTwitter,
 .guInteractive #shareButtons button#shareTwitter {
   background: #03b3ee url("../imgs/twitterIcon.svg") no-repeat center center;
 }
+.guInteractive #sharePage button#shareTwitter:hover,
 .guInteractive #shareButtons button#shareTwitter:hover {
   background-color: #028dbc;
 }
+.guInteractive #sharePage button#shareFacebook,
 .guInteractive #shareButtons button#shareFacebook {
   background: #3067a3 url("../imgs/facebookIcon.svg") no-repeat center center;
 }
+.guInteractive #sharePage button#shareFacebook:hover,
 .guInteractive #shareButtons button#shareFacebook:hover {
   background-color: #244e7c;
 }
+.guInteractive #sharePage button#sharePinterest,
 .guInteractive #shareButtons button#sharePinterest {
   background: #b9252c url("../imgs/pinterestIcon.svg") no-repeat center center;
 }
+.guInteractive #sharePage button#sharePinterest:hover,
 .guInteractive #shareButtons button#sharePinterest:hover {
   background-color: #8f1d22;
 }
+.guInteractive #sharePage button#shareTumblr,
 .guInteractive #shareButtons button#shareTumblr {
   background: #36465d url("../imgs/tumblrIcon2.svg") no-repeat center center;
   background-size: 11px;
 }
+.guInteractive #sharePage button#shareTumblr:hover,
 .guInteractive #shareButtons button#shareTumblr:hover {
   background-color: #232e3d;
 }

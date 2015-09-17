@@ -1,47 +1,77 @@
 #headerContainer {
   position: relative;
-//  margin-bottom: 20px;
+  margin: 0;
+
+  @media(min-width: 660px) {
+    margin: 0 20px;
+  }
+
+  @media(min-width: 980px) {
+    margin: 0 20px;
+  }
+
+  @media(min-width: 1300px) {
+    margin: 0 40px;
+  }
 
   #sc-logo {
     position: relative;
     text-align: right;
     border: none;
-     // 20px 0 20px;
+    font-size: 0;
 
-    a {
+    #sharePage {
+      text-align: left;
+      width: 40%;
+
+      .inner {
+        padding: 20px;
+        @media(min-width: 660px) {
+          padding: 20px 0;
+        }
+      }
+
+    }
+
+    a,
+    #sharePage {
       position: relative;
       display: inline-block;
-      width: 50%;
-      padding: 10px 10px;
+      vertical-align: middle;
+
+    }
+
+    a {
+      width: 60%;
       border: none;
+      text-align: right;
 
       img {
-        display: block;
+        display: inline-block;
         width: 100%;
         border: none;
-
-      }
-
-      @media(min-width: 440px) {
-        width: 40%;
-      }
-
-
-      @media(min-width: 660px) {
-        //        height: 40px;
-        padding: 15px 10px;
-      }
-
-      @media(min-width: 980px) {
-        //        height: 50px;
-        width: 30%;
         padding: 20px;
-      }
+        position: relative;
 
-      @media(min-width: 1300px) {
-        //        height: 50px;
-        width: 25%;
-        padding: 20px 40px;
+        @media(min-width: 440px) {
+          width: 80%;
+          padding: 15px 20px;
+        }
+
+        @media(min-width: 660px) {
+          width: 70%;
+          padding: 15px 0;
+        }
+
+        @media(min-width: 980px) {
+          width: 60%;
+          padding: 20px 0;
+        }
+
+        @media(min-width: 1300px) {
+          width: 50%;
+          padding: 20px 0;
+        }
       }
 
     }
@@ -50,8 +80,9 @@
   #headerImage {
     font-size: 0;
     position: relative;
-//    padding: 5px;
-    padding:  0 20px 20px 20px;
+    //    padding: 5px;
+    padding: 0 20px 20px 20px;
+//    padding: 0 0 20px 0;
 
     .animation {
       position: relative;
@@ -75,16 +106,17 @@
       }
     }
 
-//    @media(min-width: 660px) {
-//      padding:  0 20px 20px 20px;
-//    }
+        @media(min-width: 660px) {
+          padding:  0 0 20px 0;
+        }
 
-//    @media(min-width: 980px) {
-//      padding:  0 20px 20px 20px;
-//    }
+        @media(min-width: 980px) {
+//          padding:  0 20px 20px 20px;
+        }
 
     @media(min-width: 1300px) {
-      padding:  0 40px 40px 40px;
+//      padding: 0 40px 40px 40px;
+      padding: 0 0 40px 0;
     }
 
   }
