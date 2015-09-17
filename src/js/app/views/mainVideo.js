@@ -30,6 +30,9 @@ define( [
       // Get mainApp view reference
       this.mainApp = options.mainApp;
 
+      // Get copy
+      this.copy = options.copy;
+
       // Google YouTube Data API key (necessary for captions or playlist requests)
       this.youtubeDataApiKey = options.youtubeDataApiKey;
 
@@ -62,14 +65,14 @@ define( [
 
 //      console.log(this.videoData.thumbnails.maxres.url);
 
-      var twitterBaseUrl = "https://twitter.com/home?status=";
-      var facebookBaseUrl = "https://www.facebook.com/dialog/feed?display=popup&app_id=741666719251986&link=";
-      var sharemessage = " were both given Google Glass and sent on a date. What happens next? #WatchMeDate ";
-      var network = $( e.currentTarget ).attr( 'data-source' ); //make sure to add the network (pinterest,twitter,etc) as a classname to the target
+      var twitterBaseUrl = this.copy.twitterBaseUrl;
+      var facebookBaseUrl = this.copy.facebookBaseUrl;
+      var sharemessage = this.copy.shareMessage + " ";
+      var network = $( e.currentTarget ).attr( 'data-source' );
       var shareWindow = "";
-      var queryString = "?videoId=" + this.videoData.id;
+//      var queryString = "?videoId=" + this.videoData.id;
       var videoImg = this.videoData.thumbnails.maxres.url;
-      var guardianUrl = "http://www.theguardian.com/lifeandstyle/ng-interactive/2015/feb/12/watch-me-date" + queryString;
+      var guardianUrl = this.copy.guardianUrl + "?video=" + this.videoData.id;
 
       if ( network === "twitter" ) {
         shareWindow =

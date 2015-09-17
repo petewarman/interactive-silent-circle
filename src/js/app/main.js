@@ -51,7 +51,7 @@ define( [
     $.ajax( {
       dataType: 'jsonp',
       jsonpCallback: 'callback',
-      url: App.assets + 'data/coming-soon.json',
+      url: App.assets + 'data/data.json',
       success: getPlaylistItems,
       error: function ( a, b, c ) {
         console.log( 'JSON data error' );
@@ -67,7 +67,8 @@ define( [
 
 //    console.log( data );
 
-    App.comingSoon = data;
+    App.videosExtraData = data.videosExtraData;
+    App.copy = data.copy;
 
 //    console.log( 'get YT playlist items' );
 
@@ -98,7 +99,8 @@ define( [
       var appView = new AppView( {
         el: App.el,
         playlistItemsData: App.playlistItemsData,
-        comingSoon: App.comingSoon,
+        videosExtraData: App.videosExtraData,
+        copy: App.copy,
         youtubeDataApiKey: youtubeDataApiKey,
         path: {
           root: App.root,

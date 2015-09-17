@@ -16,7 +16,7 @@ define( [
   // Google Analytics
   'analytics'
 
-], function ( _, Backbone, Mustache, template, mainVideo, velocity, ga  ) {
+], function ( _, Backbone, Mustache, template, mainVideo, velocity, ga ) {
   'use strict';
 
   return Backbone.View.extend( {
@@ -32,8 +32,6 @@ define( [
         $( 'body' ).addClass( 'no-touch' );
       }
 
-//      console.log( 'init app view' );
-
       // Paths
       this.path = options.path;
 
@@ -41,7 +39,8 @@ define( [
       this.isWeb = options.isWeb;
 
       // Get Coming soon data for videos (videos not yet on youtube)
-      this.comingSoon = options.comingSoon;
+      this.videosExtraData = options.videosExtraData;
+      this.copy = options.copy;
 
       // Get videos data from YouTube playlist
       this.videos = this.getVideos( options.playlistItemsData );
@@ -53,6 +52,7 @@ define( [
       this.mainVideo = new mainVideo( {
         youtubeDataApiKey: options.youtubeDataApiKey,
         videos: this.videos,
+        copy: this.copy,
         isTouch: this.isTouch,
         mainApp: this,
 //        rootPath: this.rootPath //
@@ -180,26 +180,27 @@ define( [
     getComingSoonVideos: function ( playlistVideos ) {
       var self = this;
       var videos = [];
-      var items = playlistVideos;
-      var playlistCount = items.length;
+//      var items = playlistVideos;
+      var playlistCount = playlistVideos.length;
 
-      var comingSoonCount = this.comingSoon.videos.length;
+      var comingSoonCount = this.videosExtraData.length;
       var comingSoonToShow = comingSoonCount - playlistCount;
 
       // Add "coming soon" videos (videos not yet on the YouTube playlist)
       if ( comingSoonToShow > 0 ) {
-        var comingSoon = this.comingSoon.videos;
+        var extraData = this.videosExtraData;
         var startAt = comingSoonCount - comingSoonToShow;
         for ( var i = startAt; i < comingSoonCount; i++ ) {
           var video = {};
           video.comingSoon = true;
-          video.episode = comingSoon[i].episode;
-          video.publishedAt = comingSoon[i].publishedAt;
-          video.title = comingSoon[i].title;
-          video.description = comingSoon[i].description;
-          video.shortDescription = self.getShortDescription( comingSoon[i].description );
-          video.img = comingSoon[i].img;
-          video.date = self.formatDate( comingSoon[i].publishedAt );
+          video.episode = extraData[i].episode;
+          video.publishedAt = extraData[i].publishedAt;
+          video.title = extraData[i].comingSoonTitle;
+          video.shortDescription = extraData[i].comingSoonDescription;
+//          video.shortDescription = self.getShortDescription( extraData[i].description );
+          video.img = extraData[i].img;
+          video.date = self.formatDate( extraData[i].publishedAt );
+          video.dateTitle = this.copy.publishedAtTitle + video.date;
           videos.push( video );
         }
       }
@@ -211,6 +212,7 @@ define( [
       var self = this;
       var videos = [];
       var items = playlistItemsData.items;
+      var videosExtraData = this.videosExtraData;
 
       items.forEach( function ( item, i ) {
         var item = item.snippet;
@@ -222,7 +224,7 @@ define( [
           video.youtubeId = video.id;
           video.title = item.title;
           video.description = item.description.replace( /\n/g, "<br>" ).trim();
-          video.shortDescription = self.getShortDescription( item.description );
+          video.shortDescription = videosExtraData[i].shortDescription; //self.getShortDescription( item.description );
 
           video.thumbnails = item.thumbnails;
           video.publishedAt = item.publishedAt;

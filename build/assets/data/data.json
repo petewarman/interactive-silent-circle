@@ -1,0 +1,52 @@
+callback({
+    "copy": {
+      "shareMessage": "I liked The Power of Privacy videos. Watch this one!",
+      "guardianUrl": "http://labs.theguardian.com/2015/aug/silent-circle-video/",
+      "twitterBaseUrl": "https://twitter.com/home?status=",
+      "facebookBaseUrl": "https://www.facebook.com/dialog/feed?display=popup&app_id=741666719251986&link=",
+
+      "publishedAtTitle": "<br>Coming on "
+    },
+  "videosExtraData": [
+    {
+      "episode": 1,
+      "publishedAt": "26/08/15",
+      "comingSoonTitle": "Crypto 1",
+      "comingSoonDescription": "Coming soon",
+      "shortDescription": "Short description here",
+      "img": "coming-soon-1.jpg"
+    },
+    {
+      "episode": 2,
+      "publishedAt": "10/09/15",
+      "comingSoonTitle": "Crypto 2",
+      "comingSoonDescription": "Coming soon",
+      "shortDescription": "Short description here",
+      "img": "coming-soon-2.jpg"
+    },
+    {
+      "episode": 3,
+      "publishedAt": "27/09/15",
+      "comingSoonTitle": "Crypto 3",
+      "comingSoonDescription": "Coming soon",
+      "shortDescription": "Short description here",
+      "img": "coming-soon-3.jpg"
+    },
+    {
+      "episode": 4,
+      "publishedAt": "14/10/15",
+      "comingSoonTitle": "Crypto 4",
+      "comingSoonDescription": "Coming soon",
+      "shortDescription": "Short description here",
+      "img": "coming-soon-4.jpg"
+    },
+    {
+      "episode": 5,
+      "publishedAt": "29/10/15",
+      "comingSoonTitle": "Crypto 5",
+      "comingSoonDescription": "Coming soon",
+      "shortDescription": "Short description here",
+      "img": "coming-soon-5.jpg"
+    }
+  ]
+});
