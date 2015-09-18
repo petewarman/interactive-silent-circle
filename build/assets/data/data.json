@@ -1,6 +1,5 @@
 callback({
 "copy": {
-"sharePageMessage": "Oooh! I liked The Power of Privacy page!",
 "sharePageImg": "gu-logo-fallback.png",
 "shareVideoMessage": "I liked The Power of Privacy videos. Watch this one!",
 "pageUrl": "http://labs.theguardian.com/2015/aug/silent-circle-video/",
