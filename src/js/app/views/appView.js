@@ -82,16 +82,6 @@ define( [
       if ( this.mainVideo.ytplayer && this.mainVideo.ytplayer.isReady )
         this.mainVideo.ytplayer.pause();
 
-//      console.log(this.mainVideo.ytplayer);
-
-      // Google Analytics
-      window.ga( 'send', {
-        'hitType': 'event',          // Required.
-        'eventCategory': 'switch video',   // Required.
-        'eventAction': 'click',      // Required.
-        'eventLabel': videoId
-      } );
-
       // Scroll up to show the video area
       $( 'html,body' ).velocity( 'scroll', {
         duration: diff,
@@ -99,7 +89,18 @@ define( [
         mobileHA: false,
         complete: function () {
           self.mainVideo.render( self.mainEpisode );
-          self.mainVideo.renderVideo();
+//          self.mainVideo.renderVideo();
+
+//          console.log('SWITCH', self.mainVideo.videoData.title);
+
+          // Google Analytics
+          window.ga( 'send', {
+            'hitType': 'event',          // Required.
+            'eventCategory': 'switch video',   // Required.
+            'eventAction': 'click',      // Required.
+            'eventLabel': self.mainVideo.videoData.title
+          } );
+
         }
       } );
 

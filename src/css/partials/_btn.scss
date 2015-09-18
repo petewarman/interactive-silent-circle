@@ -1,0 +1,63 @@
+a.btn {
+  //  cursor: default;
+  display: inline-block;
+//  padding: 5px 18px;
+  padding: 8px 21px;
+  @include border-radius(3px);
+  background-color: #424242;
+  color: #FFF;
+  text-decoration: none;
+  font-size: 13px;
+  @include css3-prefix(transition-duration, 0.8s);
+
+  span,
+  img,
+  .svg {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  span {
+    margin-top: 2px;
+    padding-right: 3px;
+    @include css3-prefix(transition-duration, 0.8s);
+  }
+
+  .svg,
+  img {
+    width: 22px;
+    height: 22px;
+    margin-right: 10px;
+  }
+
+  .svg {
+    .path {
+      @include css3-prefix(transition-duration, 0.8s);
+      fill: #FFF;
+    }
+  }
+
+  &:hover {
+    background-color: #333;
+    span {
+      color: $accent-color;
+    }
+    .svg .path {
+      fill: $accent-color;
+    }
+  }
+
+  @media(min-width: 660px) {
+    font-size: 14px;
+//    padding: 7px 20px;
+  }
+
+  @media(min-width: 980px) {
+    font-size: 15px;
+//    padding: 8px 21px;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+}

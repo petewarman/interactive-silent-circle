@@ -154,7 +154,7 @@ define( [
 
       $( '#mainEpisode' ).addClass( 'videoPlaying' );
 
-//      console.log(this.videoData.title);
+//      console.log('PLAY', this.videoData.title);
 
       // Update Google Analytics (send)
       window.ga( 'send', {

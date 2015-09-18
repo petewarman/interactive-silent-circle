@@ -394,6 +394,11 @@ define( [
         self.togglePlay();
       } );
 
+      this.$playBtn.on( 'click', function ( e ) {
+        e.preventDefault();
+        self.togglePlay();
+      } );
+
       // Toggle captions on/off
       this.$cc.on( click, this.toggleCaptions.bind( this ) );
 
@@ -477,6 +482,7 @@ define( [
 
     toggleEmbedMessage: function () {
       this.$embedCode.val( this.ytplayer.getVideoEmbedCode() );
+
       this.$embedCode.on( 'mouseup touchend', function () {
         $( this ).select();
       } );
