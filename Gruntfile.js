@@ -30,8 +30,8 @@ module.exports = function ( grunt ) {
     sass: {
       options: {
         //includePaths: ['bower_components/'],
-        style: (isDev) ? 'expanded' : 'compressed',
-        sourcemap: (isDev) ? 'inline' : 'none'
+        style: 'compressed', //(isDev) ? 'expanded' : 'compressed',
+        sourcemap: 'inline' // (isDev) ? 'inline' : 'none'
       },
       build: {
         files: { 'build/assets/css/main.css': 'src/css/main.scss' }

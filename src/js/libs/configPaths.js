@@ -5,7 +5,7 @@ require.config( {
     'underscore': '../libs/underscore',
     'jquery': '../libs/jquery',
     'backbone': '../libs/backbone',
-    'crossdomain': '../libs/Backbone.CrossDomain',
+//    'crossdomain': '../libs/Backbone.CrossDomain',
     'velocity': '../libs/velocity',
 //    'velocity-ui': '../libs/velocity.ui',
 //    'nestedmodel': '../libs/backbone-nested',
