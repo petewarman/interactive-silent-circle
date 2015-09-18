@@ -12,9 +12,9 @@
   h4.sectionHeading {
     color: white;
     width: auto;
-    padding: 20px;
+    padding: 20px 20px 0 20px;
     position: relative;
-    font-size: 20px;
+    font-size: 16px;
 
     font-weight: 600;
 
@@ -28,9 +28,7 @@
     }
 
     @media(min-width: 980px) {
-      .sectionHeading {
-        font-size: 22px;
-      }
+        font-size: 18px;
     }
   }
 
@@ -42,11 +40,15 @@
     font-size: 0;
 
     h2 {
-      font-size: 20px;
+      font-size: 16px;
       line-height: 1.2em;
       font-weight: 500;
       margin-top: 4px;
       color: $accent-color;
+
+      @media(min-width: 980px) {
+        font-size: 18px;
+      }
     }
 
     p {

@@ -1077,9 +1077,9 @@ body {
 .guInteractive .contentBlock h4.sectionHeading {
   color: white;
   width: auto;
-  padding: 20px;
+  padding: 20px 20px 0 20px;
   position: relative;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
 }
 .guInteractive .contentBlock h4.sectionHeading img,
@@ -1090,8 +1090,8 @@ body {
   margin: 10px 0;
 }
 @media (min-width: 980px) {
-  .guInteractive .contentBlock h4.sectionHeading .sectionHeading {
-    font-size: 22px;
+  .guInteractive .contentBlock h4.sectionHeading {
+    font-size: 18px;
   }
 }
 .guInteractive .contentBlock .contentBlock-inner {
@@ -1099,11 +1099,16 @@ body {
   font-size: 0;
 }
 .guInteractive .contentBlock .contentBlock-inner h2 {
-  font-size: 20px;
+  font-size: 16px;
   line-height: 1.2em;
   font-weight: 500;
   margin-top: 4px;
   color: #ff827f;
+}
+@media (min-width: 980px) {
+  .guInteractive .contentBlock .contentBlock-inner h2 {
+    font-size: 18px;
+  }
 }
 .guInteractive .contentBlock .contentBlock-inner p {
   font-size: 14px;
