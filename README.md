@@ -10,6 +10,21 @@
 See ```package.json``` and ```bower.json```
 
 
+## Build + watch + local server
+
+```bash
+> grunt
+```
+
+A local server should run on ```http://localhost:8080```
+See ```Gruntfile.js```
+
+
+## Check paths
+
+If necessary, open ```Gruntfile.js``` and fix the file paths in the ```replace``` task.
+
+
 ## Update JSON content
 The JSON data file contains:
 - "copy":
@@ -27,26 +42,14 @@ The JSON data file contains:
 The section linking to the "Take the test" page must be updated with the right link: you will find them in the template file at ```/src/js/app/templates/appTemplate.html```
 
 
-## Build + watch + local server
-
-```bash
-> grunt
-```
-
-A local server should run on ```http://localhost:8080```
-See ```Gruntfile.js```
-
-
-## Check paths
-
-If necessary, open ```Gruntfile.js``` and fix the file paths in the ```replace``` task.
-
-
 ## @TODO
 
 - Update the file ```/src/data/data.json``` with "Coming soon" videos data
 
 
 - Update text for Twitter and Facebook share icons in ```/src/data/data.json```
+
+
+- Update the links to the "Take the test" page in ```/src/js/app/templates/appTemplate.html```
 
 
