@@ -14,9 +14,9 @@ $guss-webfonts-base-url: '//pasteup.guim.co.uk/fonts/';
 //match: /\/\/pasteup\.guim\.co\.uk\/fonts\/0\.1\.0/g,
 //replacement: '/bower_components/guss-webfonts/webfonts'
 
-@import 'bower_components/pasteup-palette/src/_palette';
-@import 'bower_components/guss-webfonts/src/_webfonts.scss';
-@import 'bower_components/guss-typography/_typography.scss';
+@import '../../bower_components/pasteup-palette/src/_palette.scss';
+@import '../../bower_components/guss-webfonts/src/_webfonts.scss';
+@import '../../bower_components/guss-typography/_typography.scss';
 
 @import 'mixins';
 @import 'partials/reset';
