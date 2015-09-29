@@ -2,6 +2,10 @@
   vertical-align: top;
   margin-bottom: 20px;
 
+  img {
+    border: 2px solid $content-bg-color;
+  }
+
   &.activeVideo {
     img {
       border: 2px solid $accent-color;
