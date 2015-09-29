@@ -1,8 +1,8 @@
 callback({
 "copy": {
-"sharePageImg": "gu-logo-fallback.png",
-"shareVideoMessage": "I liked The Power of Privacy videos. Watch this one!",
-"pageUrl": "http://labs.theguardian.com/2015/aug/silent-circle-video/",
+"sharePageImg": "share.jpg",
+"shareVideoMessage": "The power of privacy – video series",
+"pageUrl": "http://www.theguardian.com/media-network/ng-interactive/2015/sep/29/the-power-of-privacy-video-series",
 "twitterBaseUrl": "https://twitter.com/home?status=",
 "facebookBaseUrl": "https://www.facebook.com/dialog/feed?display=popup&app_id=741666719251986&link=",
 
