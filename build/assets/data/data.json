@@ -6,7 +6,7 @@ callback({
 "twitterBaseUrl": "https://twitter.com/home?status=",
 "facebookBaseUrl": "https://www.facebook.com/dialog/feed?display=popup&app_id=741666719251986&link=",
 
-"publishedAtTitle": "<br>Coming on "
+"publishedAtTitle": "<br>Live "
 },
 "videosExtraData": [
 {
@@ -14,38 +14,38 @@ callback({
 "publishedAt": "26/08/15",
 "comingSoonTitle": "Crypto 1",
 "comingSoonDescription": "Coming soon",
-"shortDescription": "Aleks meets professional digital detective, Max. He’s challenged to gather as much information on her as possible. What he finds is staggering.",
+"shortDescription": "Aleks meets professional digital detective, Max. He’s challenged to gather as much information on her as possible. What he finds is staggering",
 "img": "coming-soon-1.jpg"
 },
 {
 "episode": 2,
 "publishedAt": "6/10/15",
-"comingSoonTitle": "The power of privacy - episode 2",
-"comingSoonDescription": "Aleks travels to Las Vegas to meet hackers at the Def Con conference. There she learns first hand how easy it is to be tricked into dropping your guard.",
+"comingSoonTitle": "Episode 2/5",
+"comingSoonDescription": "Aleks travels to Las Vegas to meet hackers at the Def Con conference. There she learns first hand how easy it is to be tricked into dropping your guard",
 "shortDescription": "",
 "img": "ep-2_hacking.jpg"
 },
 {
 "episode": 3,
 "publishedAt": "20/10/15",
-"comingSoonTitle": "The power of privacy - episode 3",
-"comingSoonDescription": "Aleks meets three security experts in a bid to take back control of her privacy.",
+"comingSoonTitle": "Episode 3/5",
+"comingSoonDescription": "Aleks meets three security experts in a bid to take back control of her privacy",
 "shortDescription": "",
 "img": "ep-3_taking_control.jpg"
 },
 {
 "episode": 4,
 "publishedAt": "30/11/15",
-"comingSoonTitle": "The power of privacy - episode 4",
-"comingSoonDescription": "Aleks heads to Japan to delve into the potential and pitfalls of open data.",
+"comingSoonTitle": "Episode 4/5",
+"comingSoonDescription": "Aleks heads to Japan to delve into the potential and pitfalls of open data",
 "shortDescription": "",
 "img": "ep-4_empowerment.jpg"
 },
 {
 "episode": 5,
 "publishedAt": "17/11/15",
-"comingSoonTitle": "The power of privacy - episode 5",
-"comingSoonDescription": "Aleks explores how the internet of things will continue to reshape privacy in the future.",
+"comingSoonTitle": "Episode 5/5",
+"comingSoonDescription": "Aleks explores how the internet of things will continue to reshape privacy in the future",
 "shortDescription": "",
 "img": "ep-5_future.jpg"
 }
