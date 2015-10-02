@@ -86,7 +86,7 @@ module.exports = function ( grunt ) {
             },
             {
               match: /{{remote-root}}/g,
-              replacement: '//labs.theguardian.com/2015/aug/silent-circle-video/'
+              replacement: 'http://labs.theguardian.com/2015/aug/silent-circle-video/'
             }
           ]
         },

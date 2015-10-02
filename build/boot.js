@@ -3,7 +3,7 @@ define( [], function () {
   'use strict';
 
   // Get paths for assets (css + js)
-  var rootPath = isLocal() ? "" : "//labs.theguardian.com/2015/aug/silent-circle-video/";
+  var rootPath = isLocal() ? "" : "http://labs.theguardian.com/2015/aug/silent-circle-video/";
   var assetsPath = rootPath + 'assets/';
 
   function isLocal() {
