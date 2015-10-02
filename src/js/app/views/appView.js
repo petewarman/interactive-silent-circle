@@ -35,9 +35,6 @@ define( [
       // Paths
       this.path = options.path;
 
-      // Is Web
-      this.isWeb = options.isWeb;
-
       // Get Coming soon data for videos (videos not yet on youtube)
       this.videosExtraData = options.videosExtraData;
       this.copy = options.copy;

@@ -37,10 +37,10 @@ define( [
     App.context = context;
     App.config = config;
     App.mediator = mediator;
-    App.isWeb = isWeb();
+    App.isLocal = isLocal();
 
     // Paths
-    App.root = App.isWeb ? "{{remote-root}}" : "{{local-root}}";
+    App.root = App.isLocal ? "{{local-root}}" : "{{remote-root}}";
     App.assets = App.root + 'assets/';
 
     // Get Json
@@ -48,10 +48,8 @@ define( [
 
   }
 
-
-  // Check if in app or on website
-  function isWeb() {
-    return typeof window.guardian !== "undefined";
+  function isLocal() {
+    return window.location.hostname === 'localhost'; 
   }
 
   function getJsonData() {
