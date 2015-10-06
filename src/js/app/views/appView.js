@@ -221,25 +221,27 @@ define( [
       var items = playlistItemsData.items;
       var videosExtraData = this.videosExtraData;
 
-      items.forEach( function ( item, i ) {
-        var item = item.snippet;
+      if(items) {
+        items.forEach( function ( item, i ) {
+          var item = item.snippet;
 
-        if ( item.title != 'Private video' && item.resourceId && item.resourceId.kind == "youtube#video" ) {
-          var video = {};
-          video.comingSoon = false;
-          video.id = item.resourceId.videoId;
-          video.youtubeId = video.id;
-          video.title = item.title;
-          video.description = item.description.replace( /\n/g, "<br>" ).trim();
-          video.shortDescription = videosExtraData[i].shortDescription; //self.getShortDescription( item.description );
+          if ( item.title != 'Private video' && item.resourceId && item.resourceId.kind == "youtube#video" ) {
+            var video = {};
+            video.comingSoon = false;
+            video.id = item.resourceId.videoId;
+            video.youtubeId = video.id;
+            video.title = item.title;
+            video.description = item.description.replace( /\n/g, "<br>" ).trim();
+            video.shortDescription = videosExtraData[i].shortDescription; //self.getShortDescription( item.description );
 
-          video.thumbnails = item.thumbnails;
-          video.publishedAt = item.publishedAt;
-//          video.date = self.formatDate( item.publishedAt );
-          videos.push( video );
-        }
+            video.thumbnails = item.thumbnails;
+            video.publishedAt = item.publishedAt;
+  //          video.date = self.formatDate( item.publishedAt );
+            videos.push( video );
+          }
 
-      } );
+        } );
+      }
 
       return videos;
     },
