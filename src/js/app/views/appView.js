@@ -143,7 +143,7 @@ define( [
       }
 
       if ( typeof this.mainEpisode === "undefined" ) {
-        this.mainEpisode = this.allEpisodes[0];
+        this.mainEpisode = this.allEpisodes[this.allEpisodes.length - 1];
       }
     },
 
