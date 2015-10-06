@@ -22,7 +22,7 @@ callback({
 "publishedAt": "6/10/15",
 "comingSoonTitle": "Episode 2/5",
 "comingSoonDescription": "Aleks travels to Las Vegas to meet hackers at the Def Con conference. There she learns first hand how easy it is to be tricked into dropping your guard",
-"shortDescription": "",
+"shortDescription": "Aleks travels to Las Vegas to meet hackers at the Def Con conference. There she learns first hand how easy it is to be tricked into dropping your guard",
 "img": "ep-2_hacking.jpg"
 },
 {
@@ -30,7 +30,7 @@ callback({
 "publishedAt": "20/10/15",
 "comingSoonTitle": "Episode 3/5",
 "comingSoonDescription": "Aleks meets three security experts in a bid to take back control of her privacy",
-"shortDescription": "",
+"shortDescription": "Aleks meets three security experts in a bid to take back control of her privacy",
 "img": "ep-3_taking_control.jpg"
 },
 {
@@ -38,7 +38,7 @@ callback({
 "publishedAt": "3/11/15",
 "comingSoonTitle": "Episode 4/5",
 "comingSoonDescription": "Aleks heads to Japan to delve into the potential and pitfalls of open data",
-"shortDescription": "",
+"shortDescription": "Aleks heads to Japan to delve into the potential and pitfalls of open data",
 "img": "ep-4_empowerment.jpg"
 },
 {
@@ -46,7 +46,7 @@ callback({
 "publishedAt": "17/11/15",
 "comingSoonTitle": "Episode 5/5",
 "comingSoonDescription": "Aleks explores how the internet of things will continue to reshape privacy in the future",
-"shortDescription": "",
+"shortDescription": "Aleks explores how the internet of things will continue to reshape privacy in the future",
 "img": "ep-5_future.jpg"
 }
 ]
