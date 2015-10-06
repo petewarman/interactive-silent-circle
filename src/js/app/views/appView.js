@@ -44,7 +44,7 @@ define( [
       this.comingSoonVideos = this.getComingSoonVideos( this.videos );
 
       // Reverse the order of videos to get the last first
-      this.videos.reverse();
+      //this.videos.reverse();
 
       this.mainVideo = new mainVideo( {
         youtubeDataApiKey: options.youtubeDataApiKey,
