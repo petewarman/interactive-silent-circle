@@ -28,7 +28,8 @@ require.config( {
     'yt-player-icon-fullscreen': '../libs/youtubeplayer/svg/fullscreen.svg',
     'yt-player-icon-play-pause': '../libs/youtubeplayer/svg/play-pause.svg',
     'yt-player-icon-cc': '../libs/youtubeplayer/svg/cc.svg',
-    'yt-player-icon-languages': '../libs/youtubeplayer/svg/languages.svg'
+    'yt-player-icon-languages': '../libs/youtubeplayer/svg/languages.svg',
+    'yt-player-icon-hd': '../libs/youtubeplayer/svg/hd.svg'
 
   },
   shims: {

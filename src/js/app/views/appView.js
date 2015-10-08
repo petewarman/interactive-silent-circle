@@ -86,9 +86,9 @@ define( [
         mobileHA: false,
         complete: function () {
           self.mainVideo.render( self.mainEpisode );
-//          self.mainVideo.renderVideo();
 
-//          console.log('SWITCH', self.mainVideo.videoData.title);
+          // self.mainVideo.renderVideo();
+          // console.log('SWITCH', self.mainVideo.videoData.title);
 
           // Google Analytics
           window.ga( 'send', {
@@ -208,7 +208,10 @@ define( [
           video.img = extraData[i].img;
           video.date = self.formatDate( extraData[i].publishedAt );
           video.dateTitle = this.copy.publishedAtTitle + video.date;
-          videos.push( video );
+
+          video.twitterMessage = extraData[i].twitterMessage;
+
+          videos.push( video ); //
         }
       }
 
@@ -233,6 +236,8 @@ define( [
             video.title = item.title;
             video.description = item.description.replace( /\n/g, "<br>" ).trim();
             video.shortDescription = videosExtraData[i].shortDescription; //self.getShortDescription( item.description );
+
+            video.twitterMessage = videosExtraData[i].twitterMessage;
 
             video.thumbnails = item.thumbnails;
             video.publishedAt = item.publishedAt;

@@ -15,7 +15,8 @@ callback({
 "comingSoonTitle": "Crypto 1",
 "comingSoonDescription": "Coming soon",
 "shortDescription": "Aleks meets professional digital detective, Max. He’s challenged to gather as much information on her as possible. What he finds is staggering",
-"img": "coming-soon-1.jpg"
+"img": "coming-soon-1.jpg",
+"twitterMessage": "1The power of privacy – video series"
 },
 {
 "episode": 2,
@@ -23,7 +24,8 @@ callback({
 "comingSoonTitle": "Episode 2/5",
 "comingSoonDescription": "Aleks travels to Las Vegas to meet hackers at the Def Con conference. There she learns first hand how easy it is to be tricked into dropping your guard",
 "shortDescription": "Aleks travels to Las Vegas to meet hackers at the Def Con conference. There she learns first hand how easy it is to be tricked into dropping your guard",
-"img": "ep-2_hacking.jpg"
+"img": "ep-2_hacking.jpg",
+"twitterMessage": "2The power of privacy – video series"
 },
 {
 "episode": 3,
@@ -31,7 +33,8 @@ callback({
 "comingSoonTitle": "Episode 3/5",
 "comingSoonDescription": "Aleks meets three security experts in a bid to take back control of her privacy",
 "shortDescription": "Aleks meets three security experts in a bid to take back control of her privacy",
-"img": "ep-3_taking_control.jpg"
+"img": "ep-3_taking_control.jpg",
+"twitterMessage": "3The power of privacy – video series"
 },
 {
 "episode": 4,
@@ -39,7 +42,8 @@ callback({
 "comingSoonTitle": "Episode 4/5",
 "comingSoonDescription": "Aleks heads to Japan to delve into the potential and pitfalls of open data",
 "shortDescription": "Aleks heads to Japan to delve into the potential and pitfalls of open data",
-"img": "ep-4_empowerment.jpg"
+"img": "ep-4_empowerment.jpg",
+"twitterMessage": "4The power of privacy – video series"
 },
 {
 "episode": 5,
@@ -47,7 +51,8 @@ callback({
 "comingSoonTitle": "Episode 5/5",
 "comingSoonDescription": "Aleks explores how the internet of things will continue to reshape privacy in the future",
 "shortDescription": "Aleks explores how the internet of things will continue to reshape privacy in the future",
-"img": "ep-5_future.jpg"
+"img": "ep-5_future.jpg",
+"twitterMessage": "5The power of privacy – video series"
 }
 ]
 });

@@ -221,15 +221,12 @@ $buffer-color: #999;
 .yt-mute-btn,
 .yt-embed-btn,
 .yt-volume-wrapper,
-.yt-fullscreen-btn {
+.yt-fullscreen-btn,
+.yt-hd-btn {
   @extend .yt-btn;
 
   .svg {
     position: relative;
-    //    position: absolute;
-    //    top: 50%;
-    //    left: 50%;
-    //    @include transform(translateY(-50%) translateX(-50%));
 
     .shape {
       fill: #FFFFFF;
@@ -242,7 +239,6 @@ $buffer-color: #999;
 }
 
 .yt-play-btn {
-  //  left: 10px;
   width: 32px;
   height: 32px;
   border: none;
@@ -271,6 +267,29 @@ $buffer-color: #999;
       display: block;
     }
   }
+}
+
+.yt-hd-btn {
+
+  outline: none;
+
+  .svg {
+    outline: none;
+  }
+
+  &:hover .svg .shape {
+    fill: #FFF;
+  }
+
+  &.active {
+    &:hover .svg .shape {
+      fill: $highlight-color;
+    }
+    .svg .shape {
+      fill: $highlight-color;
+    }
+  }
+
 }
 
 .yt-timeline {

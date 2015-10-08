@@ -15,7 +15,8 @@ define( [
   return Backbone.View.extend( {
 
     initialize: function ( options ) {
-//      console.log(YoutubeCustomPlayer);
+
+      //console.log(YoutubeCustomPlayer);
 
       //Support
       this.isIpad = ( navigator.userAgent.match( /.*(iPad).*/ ) ) ? true : false;
@@ -64,10 +65,12 @@ define( [
     shareVideo: function ( e ) {
 
 //      console.log(this.videoData.thumbnails.maxres.url);
+      console.log( this.videoData );
 
+      var twitterMessage = this.videoData.twitterMessage;
       var twitterBaseUrl = this.copy.twitterBaseUrl;
       var facebookBaseUrl = this.copy.facebookBaseUrl;
-      var sharemessage = this.copy.shareVideoMessage + " ";
+      //var sharemessage = this.copy.shareVideoMessage + " ";
       var network = $( e.currentTarget ).attr( 'data-source' );
       var shareWindow = "";
       var videoImg = this.videoData.thumbnails.maxres.url;
@@ -76,17 +79,17 @@ define( [
       if ( network === "twitter" ) {
         shareWindow =
           twitterBaseUrl +
-            encodeURIComponent( sharemessage ) +
-            "%20" +
-            encodeURIComponent( guardianUrl )
+          encodeURIComponent( twitterMessage + " " ) +
+          "%20" +
+          encodeURIComponent( guardianUrl )
 
       } else if ( network === "facebook" ) {
         shareWindow =
           facebookBaseUrl +
-            encodeURIComponent( guardianUrl ) +
-            "&picture=" +
-            encodeURIComponent( videoImg ) +
-            "&redirect_uri=http://www.theguardian.com";
+          encodeURIComponent( guardianUrl ) +
+          "&picture=" +
+          encodeURIComponent( videoImg ) +
+          "&redirect_uri=http://www.theguardian.com";
       }
       window.open( shareWindow, network + "share", "width=640, height=320" );
     },
@@ -247,7 +250,7 @@ define( [
     },
 
     update: function ( videoData ) {
-      console.log( videoData );
+      //console.log( videoData );
 
       var $mainEpisodeContent = this.$( 'mainEpisodeContent' );
 

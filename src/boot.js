@@ -7,7 +7,7 @@ define( [], function () {
   var assetsPath = rootPath + 'assets/';
 
   function isLocal() {
-    return window.location.hostname === 'localhost'; 
+    return window.location.hostname === 'localhost' || window.location.hostname === '0.0.0.0';
   }
 
   function addCSS( url ) {

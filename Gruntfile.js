@@ -60,11 +60,11 @@ module.exports = function ( grunt ) {
         options: {
           baseUrl: './src/js/app/',
           mainConfigFile: './src/js/libs/configPaths.js',
-          optimize: 'uglify2', // (isDev) ? 'none' : 'uglify2',
+          optimize:'none', // 'uglify2', // (isDev) ? 'none' : 'uglify2',
           inlineText: true,
           name: '../libs/almond',
           out: 'build/assets/js/main.js',
-          generateSourceMaps: true,
+          //generateSourceMaps: true,
           preserveLicenseComments: false,
           include: ['main'],
           wrap: {
