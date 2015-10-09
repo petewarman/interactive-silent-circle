@@ -1,48 +1,79 @@
 #headerContainer {
   position: relative;
   margin: 0;
+  font-size: 0;
 
-  @media(min-width: 660px) {
-    margin: 0 20px;
-  }
+  //@media(min-width: 660px) {
+  //  margin: 0 20px;
+  //}
+  //
+  //@media(min-width: 980px) {
+  //  white-space: nowrap;
+  //  margin: 0 20px;
+  //}
+  //
+  //@media(min-width: 1300px) {
+  //  margin: 0 40px;
+  //}
 
-  @media(min-width: 980px) {
-    margin: 0 20px;
-  }
+  #sc-logo,
+  #headerImage {
+    display: block;
+    box-sizing: border-box;
+    padding: 20px;
 
-  @media(min-width: 1300px) {
-    margin: 0 40px;
+    @media(min-width: 660px) {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
   }
 
   #sc-logo {
     position: relative;
     text-align: right;
     border: none;
-    font-size: 0;
+    width: 40%;
+    margin: 0 auto;
+    padding: 0 10px 10px 10px;
 
-    #sharePage {
-      text-align: left;
-      width: 40%;
-
-      .inner {
-        padding: 20px;
-        @media(min-width: 660px) {
-          padding: 20px 0;
-        }
-      }
-
+    @media(min-width: 660px) {
+      width: 30%;
+      padding: 20px;
+      margin-left: 10%;
     }
+
+    //@media(min-width: 980px) {
+    //  padding: 30px;
+    //}
+    //
+    @media(min-width: 1300px) {
+      padding: 30px;
+    }
+
+    //#sharePage {
+    //  text-align: left;
+    //  width: 40%;
+    //
+    //  .inner {
+    //    padding: 20px;
+    //    @media(min-width: 660px) {
+    //      padding: 20px 0;
+    //    }
+    //  }
+    //
+    //}
 
     a,
     #sharePage {
       position: relative;
       display: inline-block;
       vertical-align: middle;
-
     }
 
     a {
-      width: 60%;
+      position: relative;
+      width: 100%;
       border: none;
       text-align: right;
 
@@ -50,44 +81,70 @@
         display: inline-block;
         width: 100%;
         border: none;
-        padding: 20px;
+        //padding: 20px;
         position: relative;
 
-        @media(min-width: 440px) {
-          width: 80%;
-          padding: 15px 20px;
-        }
-
-        @media(min-width: 660px) {
-          width: 70%;
-          padding: 15px 0;
-        }
-
-        @media(min-width: 980px) {
-          width: 60%;
-          padding: 20px 0;
-        }
-
-        @media(min-width: 1300px) {
-          width: 50%;
-          padding: 20px 0;
-        }
+        //@media(min-width: 440px) {
+        //  width: 80%;
+        //  padding: 15px 20px;
+        //}
+        //
+        //@media(min-width: 660px) {
+        //  width: 70%;
+        //  padding: 15px 0;
+        //}
+        //
+        //@media(min-width: 980px) {
+        //  width: 60%;
+        //  padding: 20px 0;
+        //}
+        //
+        //@media(min-width: 1300px) {
+        //  width: 50%;
+        //  padding: 20px 0;
+        //}
       }
 
     }
   }
 
   #headerImage {
-    font-size: 0;
+    // font-size: 0;
     position: relative;
-    //    padding: 5px;
-    padding: 0 20px 20px 20px;
-//    padding: 0 0 20px 0;
+    // padding: 5px;
+    // 0 20px 20px 20px;
+    // padding: 0 0 20px 0;
+
+    padding: 20px 20px 10px 20px;
+
+    @media(min-width: 480px) {
+      width: 70%;
+      margin: 0 auto;
+    }
+
+    @media(min-width: 660px) {
+      width: 60%;
+      padding-bottom: 20px;
+    }
+
+    //@media(min-width: 980px) {
+    //  padding: 30px;
+    //}
+    //
+    @media(min-width: 1300px) {
+      padding: 30px;
+    }
 
     .animation {
       position: relative;
+      width: 100%;
+
+      //@media(min-width: 660px) {
+      //  padding: 20px;
+      //}
 
       img {
+        position: relative;
         display: block;
         width: 100%;
         max-width: 100%;
@@ -106,18 +163,18 @@
       }
     }
 
-        @media(min-width: 660px) {
-          padding:  0 0 20px 0;
-        }
-
-        @media(min-width: 980px) {
-//          padding:  0 20px 20px 20px;
-        }
-
-    @media(min-width: 1300px) {
-//      padding: 0 40px 40px 40px;
-      padding: 0 0 40px 0;
-    }
+    //@media(min-width: 660px) {
+    //  padding: 0 0 20px 0;
+    //}
+    //
+    //@media(min-width: 980px) {
+    //  //          padding:  0 20px 20px 20px;
+    //}
+    //
+    //@media(min-width: 1300px) {
+    //  //      padding: 0 40px 40px 40px;
+    //  padding: 0 0 40px 0;
+    //}
 
   }
 }

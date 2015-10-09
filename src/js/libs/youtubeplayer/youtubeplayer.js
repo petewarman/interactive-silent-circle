@@ -149,7 +149,7 @@ define( [
       autoplay: typeof this.$elem.attr( 'autoplay' ) != "undefined" ? 1 : 0,
       showinfo: 0,
       rel: 0,
-      hl: 'en',
+      //hl: 'en',
       cc_load_policy: 1,
       alwaysVisible: false,
       APIkey: null,
@@ -1799,7 +1799,7 @@ define( [
       }.bind( this ) );
       this.$languagesList.html( html );
 
-//      console.log( this.languages );
+      // console.log( this.languages );
 
     },
 
@@ -1821,8 +1821,7 @@ define( [
     },
 
     toggleLanguagesList: function ( e ) {
-//      console.log( 'toggle languages' );
-
+      // console.log( 'toggle languages' );
       var $el = $( this );
 
       if ( $el.hasClass( 'open' ) ) {
@@ -2049,7 +2048,7 @@ define( [
 
       // CONTROLS - RIGHT
     '<div class="yt-controls-right">' +
-    '<div class="yt-hd-btn unselectable">' + hdSvg + '</div>' +
+    //'<div class="yt-hd-btn unselectable">' + hdSvg + '</div>' +
     '<div class="yt-languages-btn unselectable">' + languagesSvg + ' <span class="label unselectable">Subtitles</span> <ul class="yt-languages-list"></ul></div>' +
     '<div class="yt-cc-btn unselectable">' + ccSvg +
       //'<span class="label unselectable off">Off</span><span class="label unselectable on">On</span>'+

@@ -65,7 +65,7 @@ define( [
     shareVideo: function ( e ) {
 
 //      console.log(this.videoData.thumbnails.maxres.url);
-      console.log( this.videoData );
+//      console.log( this.videoData ); //
 
       var twitterMessage = this.videoData.twitterMessage;
       var twitterBaseUrl = this.copy.twitterBaseUrl;
@@ -190,7 +190,12 @@ define( [
 
       this.hideCover();
 
+      //console.log(this.ytplayer.options);
+      //console.log(this.ytplayer);
+
       if ( !this.isTouch ) {
+
+        //this.ytplayer.play();
 
         $( '#backgroundImage, #big-play-btn-wrapper' ).velocity( 'fadeOut', {
           duration: 800,

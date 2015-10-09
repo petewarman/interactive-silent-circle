@@ -16,7 +16,7 @@ callback({
 "comingSoonDescription": "Coming soon",
 "shortDescription": "Aleks meets professional digital detective, Max. He’s challenged to gather as much information on her as possible. What he finds is staggering",
 "img": "coming-soon-1.jpg",
-"twitterMessage": "1The power of privacy – video series"
+"twitterMessage": "The power of privacy – video series"
 },
 {
 "episode": 2,
@@ -25,7 +25,7 @@ callback({
 "comingSoonDescription": "Aleks travels to Las Vegas to meet hackers at the Def Con conference. There she learns first hand how easy it is to be tricked into dropping your guard",
 "shortDescription": "Aleks travels to Las Vegas to meet hackers at the Def Con conference. There she learns first hand how easy it is to be tricked into dropping your guard",
 "img": "ep-2_hacking.jpg",
-"twitterMessage": "2The power of privacy – video series"
+"twitterMessage": "The power of privacy – video series"
 },
 {
 "episode": 3,
@@ -34,7 +34,7 @@ callback({
 "comingSoonDescription": "Aleks meets three security experts in a bid to take back control of her privacy",
 "shortDescription": "Aleks meets three security experts in a bid to take back control of her privacy",
 "img": "ep-3_taking_control.jpg",
-"twitterMessage": "3The power of privacy – video series"
+"twitterMessage": "The power of privacy – video series"
 },
 {
 "episode": 4,
@@ -43,7 +43,7 @@ callback({
 "comingSoonDescription": "Aleks heads to Japan to delve into the potential and pitfalls of open data",
 "shortDescription": "Aleks heads to Japan to delve into the potential and pitfalls of open data",
 "img": "ep-4_empowerment.jpg",
-"twitterMessage": "4The power of privacy – video series"
+"twitterMessage": "The power of privacy – video series"
 },
 {
 "episode": 5,
@@ -52,7 +52,7 @@ callback({
 "comingSoonDescription": "Aleks explores how the internet of things will continue to reshape privacy in the future",
 "shortDescription": "Aleks explores how the internet of things will continue to reshape privacy in the future",
 "img": "ep-5_future.jpg",
-"twitterMessage": "5The power of privacy – video series"
+"twitterMessage": "The power of privacy – video series"
 }
 ]
 });

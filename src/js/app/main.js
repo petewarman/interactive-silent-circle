@@ -49,7 +49,7 @@ define( [
   }
 
   function isLocal() {
-    return window.location.hostname === 'localhost' || window.location.hostname === '0.0.0.0';
+    return window.location.hostname === 'localhost' || window.location.hostname === '0.0.0.0' || window.location.port === '8080' || window.location.port === '8089' || window.location.port === '8888';
   }
 
   function getJsonData() {
