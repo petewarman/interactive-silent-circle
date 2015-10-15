@@ -46,6 +46,12 @@ define( [
 
     setupElements: function () {
 
+      this.$win = $( window );
+
+      this.$content = $( '#content' ); //
+
+      //this.$contentWrapper = $( '#mainEpisodeContent-container' );
+
       this.$videoContainer = $( '#videoContainer' );
       this.$backgroundImage = $( '#backgroundImage' );
       this.$mainEpisode = $( '#mainEpisode' );
@@ -60,6 +66,12 @@ define( [
       }
 
       $( document ).on( click, '#shareButtons button', this.shareVideo.bind( this ) );
+
+
+      // Resize event
+      var resizeCallback = _.debounce( this.onResize, 100 ).bind( this );
+      window.addEventListener( 'resize', resizeCallback );
+
     },
 
     shareVideo: function ( e ) {
@@ -129,6 +141,8 @@ define( [
       this.ytplayer.on( 'ended', this.onVideoEnd.bind( this ) );
       this.ytplayer.on( 'play', this.onVideoPlay.bind( this ) );
       this.ytplayer.on( 'ready', this.onVideoReady.bind( this ) );
+
+      this.onResize();
 
     },
 
@@ -208,6 +222,8 @@ define( [
         // phone
         $( '#backgroundImage' ).remove();
       }
+
+      this.onResize();
 
     },
 
@@ -295,6 +311,75 @@ define( [
 //      }
 
       return this;
+    },
+
+
+    onResize: function () {
+
+      var containerWidth = $( '#content' ).width() + 15;
+
+      var $bigBtnContainer = $( '#big-play-btn-wrapper' );
+      var $videoContainer = $( '#backgroundContainer' );
+      var $contentContainer = $( '#mainEpisodeContent-container' );
+      var $episodeContent = $( '#mainEpisodeContent' );
+      var $headerImage = $( '#headerImage' );
+      var $scLogo = $('#sc-logo');
+      //var height = this.$win.height();
+
+      //console.log( containerWidth );
+
+      // Calculate the size of the main video and copy containers
+      if ( containerWidth >= 980 ) {
+
+        var headingWidth = 220 - 20; // left margin on the other sections, including padding
+        var paddings = 40;
+
+        containerWidth -= (paddings + 15);
+
+        var $otherVideo = $( '#other-videos' ).find( '.episodeBlock' ).first();
+        var $otherVideoContainer = $otherVideo.parent();
+
+        var otherVideoContainerWidth = $otherVideoContainer.width();
+        var otherVideoWidth = $otherVideo.outerWidth();
+        var spaceBetweenVideos = otherVideoContainerWidth - (otherVideoWidth * 2);
+        var mainVideoMargin = Math.floor( spaceBetweenVideos );
+        var mainVideoWidth = (otherVideoWidth + headingWidth);
+        var halfMargin = Math.floor( mainVideoMargin / 2 );
+
+        $videoContainer.width( mainVideoWidth );
+
+        $headerImage.width( mainVideoWidth );
+
+        $contentContainer.css( 'padding-left', (mainVideoMargin) + 'px' );
+        $episodeContent.css( 'padding-left', 0 );
+
+        //$scLogo.css( 'margin-left', (mainVideoMargin-20) + 'px' );
+
+        $bigBtnContainer.width( mainVideoWidth );
+        $bigBtnContainer.height( $videoContainer.height() );
+
+        $contentContainer.width( containerWidth - (mainVideoWidth + mainVideoMargin) );
+
+        $scLogo.width(containerWidth - (mainVideoWidth + 1));
+
+      } else {
+
+        if ( $videoContainer.length ) {
+
+          $videoContainer[0].style.width = '';
+          $contentContainer[0].style.width = '';
+          $bigBtnContainer.width( $videoContainer.width() );
+          $bigBtnContainer.height( $videoContainer.height() );
+
+          $contentContainer[0].style.marginLeft = '';
+          $contentContainer[0].style.paddingLeft = '';
+          $episodeContent[0].style.paddingLeft = '';
+          $headerImage[0].style.width = '';
+          $scLogo[0].style.width = '';
+        }
+
+      }
+
     }
 
   } );

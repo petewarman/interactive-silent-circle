@@ -27,25 +27,28 @@
             <div id="endslate"></div>
 
         </div>
-    </div>
 
-    <div class="contentBlock">
-        <h4 class="sectionHeading">&nbsp;</h4>
+        <div id="mainEpisodeContent-container" class="contentBlock">
+            <!--<h4 class="sectionHeading">&nbsp;</h4>-->
 
-        <div class="contentBlock-inner">
-            <div id="mainEpisodeContent">
-                <h3>{{title}}</h3>
+            <div class="contentBlock-inner">
+                <div id="mainEpisodeContent">
+                    <h3>{{title}}</h3>
 
-                <p id="episodeDescription">{{{description}}}</p>
+                    <p id="episodeDescription">{{{description}}}</p>
 
-                <div id="shareButtons">
-                    <button data-source="twitter" id="shareTwitter" data-video-id="{{id}}"></button>
-                    <button data-source="facebook" id="shareFacebook" data-video-id="{{id}}"></button>
+                    <div id="shareButtons">
+                        <button data-source="twitter" id="shareTwitter" data-video-id="{{id}}"></button>
+                        <button data-source="facebook" id="shareFacebook" data-video-id="{{id}}"></button>
+                    </div>
                 </div>
             </div>
+
         </div>
 
     </div>
+
+
 
 </div>
 {{/mainEpisode}}

@@ -1,5 +1,7 @@
 #mainEpisode {
 
+  font-size: 0;
+
   @import 'main-episode-video';
   @import 'main-episode-content';
 
@@ -13,6 +15,41 @@
       display: block;
     }
   }
+
+  @media(min-width: 980px) {
+    padding: 0 20px;
+  }
+
+
+  #mainEpisodeVideo #backgroundContainer,
+  #mainEpisodeContent-container {
+
+    @media(min-width: 980px) {
+      display: inline-block !important;
+      vertical-align: top;
+    }
+
+  }
+
+  #mainEpisodeVideo #backgroundContainer {
+
+  }
+
+  #mainEpisodeContent-container {
+
+    @media(min-width: 980px) {
+      box-sizing: border-box;
+      background-color: #424242;
+    }
+
+    .contentBlock-inner {
+      @media(min-width: 980px) {
+        padding: 0;
+      }
+    }
+
+  }
+
 
   .contentBlock-inner {
     padding-top: 0;

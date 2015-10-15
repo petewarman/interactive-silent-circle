@@ -171,17 +171,17 @@ define( [
       if ( network === "twitter" ) {
         shareWindow =
           twitterBaseUrl +
-            encodeURIComponent( sharemessage ) +
-            "%20" +
-            encodeURIComponent( guardianUrl )
+          encodeURIComponent( sharemessage ) +
+          "%20" +
+          encodeURIComponent( guardianUrl )
 
       } else if ( network === "facebook" ) {
         shareWindow =
           facebookBaseUrl +
-            encodeURIComponent( guardianUrl ) +
-            "&picture=" +
-            encodeURIComponent( img ) +
-            "&redirect_uri=http://www.theguardian.com";
+          encodeURIComponent( guardianUrl ) +
+          "&picture=" +
+          encodeURIComponent( img ) +
+          "&redirect_uri=http://www.theguardian.com";
       }
       window.open( shareWindow, network + "share", "width=640, height=320" );
     },
@@ -224,7 +224,7 @@ define( [
       var items = playlistItemsData.items;
       var videosExtraData = this.videosExtraData;
 
-      if(items) {
+      if ( items ) {
         items.forEach( function ( item, i ) {
           var item = item.snippet;
 
@@ -241,7 +241,7 @@ define( [
 
             video.thumbnails = item.thumbnails;
             video.publishedAt = item.publishedAt;
-  //          video.date = self.formatDate( item.publishedAt );
+            //          video.date = self.formatDate( item.publishedAt );
             videos.push( video );
           }
 
@@ -312,10 +312,17 @@ define( [
 
       // Remove the poster and create youtube player
       if ( this.isTouch ) {
-        this.mainVideo.renderVideo();
+        this.mainVideo.renderVideo(); //
       }
 
       this.updateActiveVideo();
+
+
+      // Update main video box sizes
+      setTimeout( function () {
+        this.mainVideo.onResize();
+      }.bind( this ), 0 );
+
 
       return this;
     }
