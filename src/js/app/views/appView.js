@@ -311,9 +311,13 @@ define( [
       this.$( '#mainVideoContainer' ).html( this.mainVideo.render( this.mainEpisode ).el );
 
       // Remove the poster and create youtube player
-      if ( this.isTouch ) {
-        this.mainVideo.renderVideo(); //
-      }
+      //if ( this.isTouch ) {
+      //  this.mainVideo.renderVideo();
+      //}
+
+      // Always autoplay the video (render it and play)
+      this.mainVideo.renderVideo();
+
 
       this.updateActiveVideo();
 

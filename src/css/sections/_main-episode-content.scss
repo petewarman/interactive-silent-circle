@@ -2,14 +2,7 @@
   padding: 15px 10px 15px;
   background: #424242;
   position: relative;
-//  z-index: 5;
   margin-bottom: 40px;
-
-  //@media(min-width: 980px) {
-  //  background: none;
-  //}
-
-  //box-sizing: content-box;
 
   h3, h4 {
     margin: 0;
@@ -30,6 +23,7 @@
 
 
   @media(min-width: 480px) {
+
     h3 {
       font-size: 38px;
     }
@@ -37,18 +31,23 @@
     p {
       font-size: 16px;
     }
+
   }
 
   @media(min-width: 660px) {
+
     p {
       font-size: 14px;
     }
+
   }
 
   @media(min-width: 740px) {
+
     h3 {
       font-size: 32px;
     }
+
   }
 
   @media(min-width: 980px) {
