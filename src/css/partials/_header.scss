@@ -54,7 +54,8 @@
       text-align: right;
 
       @media(min-width: 980px) {
-        text-align: center;
+        text-align: right;
+        padding-right: 18px;
       }
 
       img {

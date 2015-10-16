@@ -65,7 +65,7 @@ define( [
         $( document ).on( 'click', '#big-play-btn-wrapper', this.renderVideo.bind( this ) );
       }
 
-      $( document ).on( click, '#shareButtons button', this.shareVideo.bind( this ) );
+      $( document ).on( click, '.shareButtons button', this.shareVideo.bind( this ) );
 
 
       // Resize event
@@ -324,6 +324,7 @@ define( [
       var $episodeContent = $( '#mainEpisodeContent' );
       var $headerImage = $( '#headerImage' );
       var $scLogo = $('#sc-logo');
+      var $shareButtons = $('#mainEpisodeVideo' ).find('.shareButtons' ).filter('.only-above-980'); //
       //var height = this.$win.height();
 
       //console.log( containerWidth );
@@ -346,6 +347,8 @@ define( [
         var mainVideoWidth = (otherVideoWidth + headingWidth);
         var halfMargin = Math.floor( mainVideoMargin / 2 );
 
+        var contentWidth = containerWidth - (mainVideoWidth + mainVideoMargin);
+
         $videoContainer.width( mainVideoWidth );
 
         $headerImage.width( mainVideoWidth );
@@ -353,14 +356,14 @@ define( [
         $contentContainer.css( 'padding-left', (mainVideoMargin) + 'px' );
         $episodeContent.css( 'padding-left', 0 );
 
-        //$scLogo.css( 'margin-left', (mainVideoMargin-20) + 'px' );
-
         $bigBtnContainer.width( mainVideoWidth );
         $bigBtnContainer.height( $videoContainer.height() );
 
-        $contentContainer.width( containerWidth - (mainVideoWidth + mainVideoMargin) );
+        $contentContainer.width( contentWidth );
 
         $scLogo.width(containerWidth - (mainVideoWidth + 1));
+
+        $shareButtons.css('right', contentWidth + 'px');
 
       } else {
 

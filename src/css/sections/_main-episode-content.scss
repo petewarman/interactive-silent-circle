@@ -40,24 +40,16 @@
   }
 
   @media(min-width: 660px) {
-    //max-width: 620px;
-
     p {
       font-size: 14px;
     }
   }
 
   @media(min-width: 740px) {
-    //max-width: 700px;
     h3 {
       font-size: 32px;
     }
   }
-
-  //@media(min-width: 980px) {
-  //  width: 47%;
-  //  margin-bottom: 60px;
-  //}
 
   @media(min-width: 980px) {
     width: auto;
@@ -65,6 +57,33 @@
     margin-bottom: auto;
     box-sizing: border-box;
     padding: 20px;
+
+    h3 {
+      font-size: 26px;
+    }
+
+    p {
+      padding-top: 10px;
+      font-size: 13px;
+    }
+
+    .shareButtons {
+      visibility: hidden;
+    }
+
+  }
+
+
+  @media(min-width: 1300px) {
+
+    h3 {
+      font-size: 30px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+
   }
 
 

@@ -396,20 +396,15 @@ $buffer-color: #999;
   }
 
   span {
-    //    position: absolute;
-    //    top: 50%;
-    //    @include css3-prefix(transform, translateY(-50%));
-  }
-
-  .svg {
-    //    margin-right: 10px;
-    //    height: 14px;
-  }
-
-  span {
-    //    left: 35px;
     font-size: 12px;
-    //    line-height: 14px;
+
+    @media(min-width: 980px) {
+      display: none;
+    }
+
+    @media(min-width: 1140px) {
+      display: inline-block;
+    }
   }
 }
 
@@ -426,6 +421,14 @@ body.touch & .yt-volume-wrapper {
   width: 150px;
   //  height: 25px;
   //  right: 60px;
+
+  @media(min-width: 980px) {
+    width: 110px;
+  }
+
+  @media(min-width: 1140px) {
+    width: 150px;
+  }
 
   .yt-volume,
   .yt-mute-btn {
@@ -467,6 +470,14 @@ body.touch & .yt-volume-wrapper {
     height: 2px;
     background-color: #FFF;
     width: 100px;
+
+    @media(min-width: 980px) {
+      width: 60px;
+    }
+
+    @media(min-width: 1140px) {
+      width: 100px;
+    }
 
     .yt-volume-level {
       position: absolute;

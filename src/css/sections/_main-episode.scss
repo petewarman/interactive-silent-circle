@@ -20,7 +20,6 @@
     padding: 0 20px;
   }
 
-
   #mainEpisodeVideo #backgroundContainer,
   #mainEpisodeContent-container {
 
@@ -31,7 +30,11 @@
 
   }
 
-  #mainEpisodeVideo #backgroundContainer {
+  #mainEpisodeVideo {
+
+    @media(min-width: 980px) {
+      background-color: #424242;
+    }
 
   }
 
@@ -39,7 +42,7 @@
 
     @media(min-width: 980px) {
       box-sizing: border-box;
-      background-color: #424242;
+      //background-color: #424242;
     }
 
     .contentBlock-inner {
@@ -49,7 +52,6 @@
     }
 
   }
-
 
   .contentBlock-inner {
     padding-top: 0;

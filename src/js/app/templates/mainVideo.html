@@ -9,6 +9,11 @@
             </button>
         </div>
 
+        <div class="shareButtons only-above-980">
+            <button data-source="twitter" id="shareTwitter" data-video-id="{{id}}"></button>
+            <button data-source="facebook" id="shareFacebook" data-video-id="{{id}}"></button>
+        </div>
+
         <div id="backgroundContainer">
 
             <!--Cover for transitions-->
@@ -37,7 +42,7 @@
 
                     <p id="episodeDescription">{{{description}}}</p>
 
-                    <div id="shareButtons">
+                    <div class="shareButtons">
                         <button data-source="twitter" id="shareTwitter" data-video-id="{{id}}"></button>
                         <button data-source="facebook" id="shareFacebook" data-video-id="{{id}}"></button>
                     </div>
