@@ -519,6 +519,8 @@ body.touch & .yt-volume-wrapper {
     font-size: 12px;
     display: none;
     margin-top: 2px;
+    margin-left: 5px;
+    margin-bottom: 0 !important;
 
     @media(min-width: 740px) {
       display: inline-block;

@@ -1,6 +1,7 @@
 #mainEpisodeVideo {
   position: relative;
   cursor: pointer;
+  //overflow: hidden;
 
   .shareButtons.only-above-980 {
     display: none;
@@ -12,7 +13,7 @@
       display: block;
       z-index: 10;
 
-      @include transform(translateX(100%)); //
+      @include transform(translateX(100%));
 
       button {
         margin-bottom: 0;

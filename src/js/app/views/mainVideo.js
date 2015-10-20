@@ -323,8 +323,8 @@ define( [
       var $contentContainer = $( '#mainEpisodeContent-container' );
       var $episodeContent = $( '#mainEpisodeContent' );
       var $headerImage = $( '#headerImage' );
-      var $scLogo = $('#sc-logo');
-      var $shareButtons = $('#mainEpisodeVideo' ).find('.shareButtons' ).filter('.only-above-980'); //
+      var $scLogo = $( '#sc-logo' );
+      var $shareButtons = $( '#mainEpisodeVideo' ).find( '.shareButtons' ).filter( '.only-above-980' ); //
       //var height = this.$win.height();
 
       //console.log( containerWidth );
@@ -347,9 +347,9 @@ define( [
         var mainVideoWidth = (otherVideoWidth + headingWidth);
         var halfMargin = Math.floor( mainVideoMargin / 2 );
 
-        var contentWidth = containerWidth - (mainVideoWidth + mainVideoMargin);
+        var contentWidth = containerWidth - (mainVideoWidth + mainVideoMargin );
 
-        $videoContainer.width( mainVideoWidth );
+        $videoContainer.width( mainVideoWidth + 20 );
 
         $headerImage.width( mainVideoWidth );
 
@@ -361,9 +361,9 @@ define( [
 
         $contentContainer.width( contentWidth );
 
-        $scLogo.width(containerWidth - (mainVideoWidth + 1));
+        $scLogo.width( containerWidth - (mainVideoWidth + 1) );
 
-        $shareButtons.css('right', contentWidth + 'px');
+        $shareButtons.css( 'right', (contentWidth + 20) + 'px' );
 
       } else {
 
